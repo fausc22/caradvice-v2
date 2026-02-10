@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Car Advice — Frontend
 
-## Getting Started
+Frontend del sitio de la concesionaria **Car Advice**: catálogo de vehículos, conversión a consultas (no venta online). Enfoque **mobile-first**.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router)
+- **Tailwind CSS v4** + **shadcn/ui** (componentes)
+- **clsx** + **tailwind-merge** (clases, utilidad `cn` en `@/lib/utils`)
+- **Framer Motion** (animaciones, listo para usar)
+- **React Hook Form** + **Zod** (formularios y validación; esquemas en `@/lib/schemas`)
+- **TanStack React Query** (datos del catálogo; provider en `app/providers.tsx`, cliente en `@/lib/query-client`)
+- **next/image** y **next/font** (optimización de imágenes y fuentes)
+
+## Cómo correr
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estructura relevante
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `app/` — Rutas y layouts (home en `/`, metadata y viewport en `layout.tsx`)
+- `app/providers.tsx` — React Query y otros providers de cliente
+- `components/layout/` — Header y pie (según wireframe)
+- `components/ui/` — Componentes shadcn (Button, Input, Sheet, etc.)
+- `lib/utils.ts` — `cn()` para clases
+- `lib/query-client.ts` — Cliente de React Query
+- `lib/schemas.ts` — Esquemas Zod para formularios
+- `hooks/` — Hooks personalizados (vacío por ahora)
 
-## Learn More
+## Build
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+```

@@ -1,65 +1,147 @@
+/**
+ * Home — Página principal.
+ * Secciones: hero (filtros + CTAs WhatsApp), ofertas, banners, contacto, footer.
+ * Los datos de ofertas/destacados vendrán del backend (ej. React Query en /catalogo y aquí).
+ */
 import Image from "next/image";
+import Link from "next/link";
+import { Search, DollarSign, Wallet, Car } from "lucide-react";
+import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
+import { WhatsAppButton } from "@/components/layout/whatsapp-button";
+import { HeroFilters } from "@/components/home/hero-filters";
+import { FeaturedCarsCarousel } from "@/components/home/featured-cars-carousel";
+import { Button } from "@/components/ui/button";
+import {
+  WHATSAPP_LINK_COMPRAR,
+  WHATSAPP_LINK_VENDER,
+  WHATSAPP_LINK_CONSIGNAR,
+} from "@/lib/constants";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div className="flex min-h-screen flex-col">
+      <Navbar />
+
+      <main className="flex-1">
+        {/* Hero: imagen, eslogan, filtros (→ /catalogo?tipo=...&marca=...&q=...) y CTAs WhatsApp */}
+        <section className="relative min-h-[50vh] w-full overflow-hidden sm:min-h-[60vh] md:min-h-[70vh]">
+          <div className="absolute inset-0">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/hero-image.jpg"
+              alt="Car Advice - Tu próximo destino comienza acá"
+              fill
+              className="object-cover object-center"
+              priority
+              sizes="100vw"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <div
+              className="absolute inset-0 bg-[var(--brand-black)]/50"
+              aria-hidden
+            />
+          </div>
+          <div className="relative flex min-h-[50vh] flex-col items-center justify-center px-4 py-12 text-center sm:min-h-[60vh] sm:py-16 md:min-h-[70vh]">
+            <p className="mb-10 max-w-2xl text-xl font-semibold leading-snug text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] sm:mb-12 sm:text-2xl md:mb-14 md:text-3xl md:leading-snug">
+              Tu próximo destino comienza acá...
+            </p>
+            <HeroFilters />
+
+            {/* CTAs: abren WhatsApp (links en lib/constants) */}
+            <div className="mt-8 flex w-full max-w-2xl flex-row flex-wrap justify-center gap-3 sm:mt-10 sm:gap-5">
+              <p className="w-full text-center text-sm font-medium text-white/80 sm:mb-1">
+                ¿Qué querés hacer?
+              </p>
+              <a
+                href={WHATSAPP_LINK_COMPRAR}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex min-h-[40px] items-center justify-center gap-2 rounded-xl border-2 border-[var(--brand-orange)] bg-transparent px-3 py-2 text-sm font-semibold text-[var(--brand-orange)] transition-all hover:bg-[var(--brand-orange)] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 active:bg-[var(--brand-orange)] active:text-white sm:min-h-[48px] sm:px-5 sm:py-3 sm:text-base"
+              >
+                <span className="flex h-4 w-0 shrink-0 items-center justify-center gap-0.5 overflow-hidden opacity-0 transition-[width,opacity] duration-200 group-hover:w-9 group-hover:opacity-100 group-focus-visible:w-9 group-focus-visible:opacity-100 group-active:w-9 group-active:opacity-100 sm:h-5 sm:group-hover:w-11 sm:group-focus-visible:w-11 sm:group-active:w-11">
+                  <Search className="size-4 shrink-0 sm:size-5" aria-hidden />
+                  <DollarSign className="size-4 shrink-0 sm:size-5" aria-hidden />
+                </span>
+                Comprar
+              </a>
+              <a
+                href={WHATSAPP_LINK_VENDER}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex min-h-[40px] items-center justify-center gap-2 rounded-xl border-2 border-[var(--brand-orange)] bg-transparent px-3 py-2 text-sm font-semibold text-[var(--brand-orange)] transition-all hover:bg-[var(--brand-orange)] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 active:bg-[var(--brand-orange)] active:text-white sm:min-h-[48px] sm:px-5 sm:py-3 sm:text-base"
+              >
+                <span className="flex h-4 w-0 shrink-0 items-center overflow-hidden opacity-0 transition-[width,opacity] duration-200 group-hover:w-4 group-hover:opacity-100 group-focus-visible:w-4 group-focus-visible:opacity-100 group-active:w-4 group-active:opacity-100 sm:h-5 sm:group-hover:w-5 sm:group-focus-visible:w-5 sm:group-active:w-5">
+                  <Wallet className="size-4 sm:size-5" aria-hidden />
+                </span>
+                Vender
+              </a>
+              <a
+                href={WHATSAPP_LINK_CONSIGNAR}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex min-h-[40px] items-center justify-center gap-2 rounded-xl border-2 border-[var(--brand-orange)] bg-transparent px-3 py-2 text-sm font-semibold text-[var(--brand-orange)] transition-all hover:bg-[var(--brand-orange)] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 active:bg-[var(--brand-orange)] active:text-white sm:min-h-[48px] sm:px-5 sm:py-3 sm:text-base"
+              >
+                <span className="flex h-4 w-0 shrink-0 items-center overflow-hidden opacity-0 transition-[width,opacity] duration-200 group-hover:w-4 group-hover:opacity-100 group-focus-visible:w-4 group-focus-visible:opacity-100 group-active:w-4 group-active:opacity-100 sm:h-5 sm:group-hover:w-5 sm:group-focus-visible:w-5 sm:group-active:w-5">
+                  <Car className="size-4 sm:size-5" aria-hidden />
+                </span>
+                Consignar
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Ofertas / Destacados: listado desde API (React Query) — placeholder por ahora */}
+        <section
+          id="ofertas"
+          className="border-t border-border bg-muted/20 px-4 py-8 sm:px-6 sm:py-12"
+        >
+          <div className="container mx-auto max-w-screen-xl">
+            <h2 className="mb-6 text-center text-2xl font-black uppercase tracking-tight text-foreground sm:text-3xl md:text-4xl">
+              Vehículos destacados
+            </h2>
+            <FeaturedCarsCarousel />
+            <div className="mt-8 flex justify-center">
+              <Button
+                asChild
+                className="h-12 rounded-xl border border-black/10 bg-[var(--brand-orange)] px-7 text-base font-semibold text-white shadow-sm transition-colors hover:bg-[var(--brand-orange-light)] sm:h-14 sm:px-8 sm:text-lg"
+              >
+                <Link href="/catalogo">Ver catálogo completo</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Banners: contenido dinámico desde CMS/backend — placeholder */}
+        <section className="px-4 py-6 sm:px-6 sm:py-8">
+          <div className="container mx-auto max-w-screen-xl space-y-4">
+            <div className="flex min-h-[80px] items-center justify-between rounded-lg border border-border bg-muted/30 px-4">
+              <span className="font-medium">FINANCIA CON BANCOR</span>
+              <Button size="sm">Más info</Button>
+            </div>
+            <div className="flex min-h-[80px] items-center justify-between rounded-lg border border-border bg-muted/30 px-4">
+              <span className="font-medium">CONSIGNA FÍSICA O VIRTUAL</span>
+              <Button size="sm">Más info</Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Contacto: formulario → enviar a backend o email/WhatsApp — placeholder */}
+        <section className="border-t border-border bg-muted/20 px-4 py-8 sm:px-6 sm:py-12">
+          <div className="container mx-auto max-w-screen-xl">
+            <h2 className="mb-4 text-xl font-semibold">
+              Te ayudamos a encontrar tu vehículo
+            </h2>
+            <div className="flex min-h-[180px] items-center justify-center rounded-lg border border-dashed border-border">
+              <p className="text-sm text-muted-foreground">
+                Formulario de contacto — próximamente
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
       </main>
+
+      <WhatsAppButton />
     </div>
   );
 }
