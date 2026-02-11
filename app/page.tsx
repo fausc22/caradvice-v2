@@ -11,6 +11,9 @@ import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { HeroFilters } from "@/components/home/hero-filters";
 import { FeaturedCarsCarousel } from "@/components/home/featured-cars-carousel";
+import { FinancingBanner } from "@/components/home/financing-banner";
+import { ContactLeadForm } from "@/components/home/contact-lead-form";
+import { ClientReviewsSection } from "@/components/home/client-reviews-section";
 import { Button } from "@/components/ui/button";
 import {
   WHATSAPP_LINK_COMPRAR,
@@ -107,36 +110,21 @@ export default function Home() {
                 <Link href="/catalogo">Ver catálogo completo</Link>
               </Button>
             </div>
+            <FinancingBanner />
           </div>
         </section>
 
-        {/* Banners: contenido dinámico desde CMS/backend — placeholder */}
-        <section className="px-4 py-6 sm:px-6 sm:py-8">
-          <div className="container mx-auto max-w-screen-xl space-y-4">
-            <div className="flex min-h-[80px] items-center justify-between rounded-lg border border-border bg-muted/30 px-4">
-              <span className="font-medium">FINANCIA CON BANCOR</span>
-              <Button size="sm">Más info</Button>
-            </div>
-            <div className="flex min-h-[80px] items-center justify-between rounded-lg border border-border bg-muted/30 px-4">
-              <span className="font-medium">CONSIGNA FÍSICA O VIRTUAL</span>
-              <Button size="sm">Más info</Button>
-            </div>
-          </div>
-        </section>
-
-        {/* Contacto: formulario → enviar a backend o email/WhatsApp — placeholder */}
+        {/* Contacto: formulario visual (sin envío real por ahora) */}
         <section className="border-t border-border bg-muted/20 px-4 py-8 sm:px-6 sm:py-12">
-          <div className="container mx-auto max-w-screen-xl">
-            <h2 className="mb-4 text-xl font-semibold">
+          <div className="container mx-auto max-w-3xl">
+            <h2 className="mb-4 text-center text-2xl font-black tracking-tight sm:text-3xl">
               Te ayudamos a encontrar tu vehículo
             </h2>
-            <div className="flex min-h-[180px] items-center justify-center rounded-lg border border-dashed border-border">
-              <p className="text-sm text-muted-foreground">
-                Formulario de contacto — próximamente
-              </p>
-            </div>
+            <ContactLeadForm />
           </div>
         </section>
+
+        <ClientReviewsSection />
 
         <Footer />
       </main>
