@@ -4,6 +4,9 @@
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono } from "next/font/google";
 import { Providers } from "./providers";
+import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
+import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import "./globals.css";
 
 const geistMono = Geist_Mono({
@@ -37,7 +40,14 @@ export default function RootLayout({
       <body
         className={`${geistMono.variable} font-sans antialiased`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
+            <div className="flex-1">{children}</div>
+            <Footer />
+            <WhatsAppButton />
+          </div>
+        </Providers>
       </body>
     </html>
   );

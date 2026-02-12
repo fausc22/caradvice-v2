@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroSelect } from "@/components/home/hero-select";
+import { buildCatalogUrl, type CatalogTipo } from "@/lib/catalog";
 import { cn } from "@/lib/utils";
 
 const TIPO_OPTIONS = [
@@ -23,32 +24,27 @@ const MARCAS = ["Elegí la marca", "Toyota", "Ford", "Volkswagen", "Fiat", "Chev
 const MODELOS = ["Elegí el modelo", "Modelo A", "Modelo B", "Otro"];
 const ANOS = ["Elegí el año", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018 o anterior"];
 
-/** Construye /catalogo?tipo=...&marca=...&modelo=...&anio=...&q=... (solo params con valor) */
-function buildCatalogUrl(
-  tipo: string,
-  marca: string,
-  modelo: string,
-  anio: string,
-  keyword: string
-): string {
-  const params = new URLSearchParams();
-  params.set("tipo", tipo);
-  if (marca && marca !== MARCAS[0]) params.set("marca", marca);
-  if (modelo && modelo !== MODELOS[0]) params.set("modelo", modelo);
-  if (anio && anio !== ANOS[0]) params.set("anio", anio);
-  const q = keyword.trim();
-  if (q) params.set("q", q);
-  return `/catalogo?${params.toString()}`;
-}
-
 export function HeroFilters() {
-  const [selectedTipo, setSelectedTipo] = useState<"usados" | "nuevos" | "motos">("usados");
+  const [selectedTipo, setSelectedTipo] = useState<CatalogTipo>("usados");
   const [marca, setMarca] = useState(MARCAS[0]);
   const [modelo, setModelo] = useState(MODELOS[0]);
   const [anio, setAnio] = useState(ANOS[0]);
   const [keyword, setKeyword] = useState("");
 
-  const searchHref = buildCatalogUrl(selectedTipo, marca, modelo, anio, keyword);
+  const parsedYear = Number.parseInt(anio, 10);
+  const hasYear = Number.isFinite(parsedYear);
+
+  const searchHref = buildCatalogUrl({
+    q: keyword.trim() || undefined,
+    tipo: selectedTipo,
+    marca: marca !== MARCAS[0] ? marca : undefined,
+    modelo: modelo !== MODELOS[0] ? modelo : undefined,
+    anioMin: hasYear ? parsedYear : undefined,
+    anioMax: hasYear ? parsedYear : undefined,
+    sort: "recomendados",
+    page: 1,
+    perPage: 12,
+  });
 
   return (
     <motion.div

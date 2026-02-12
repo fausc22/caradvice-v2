@@ -12,6 +12,7 @@ type CarCardProps = {
   car: FeaturedCar;
   className?: string;
   imageSizes?: string;
+  detailHref?: string;
 };
 
 const formatCurrency = new Intl.NumberFormat("es-AR", {
@@ -26,6 +27,7 @@ export function CarCard({
   car,
   className,
   imageSizes = "(max-width: 640px) 90vw, (max-width: 1024px) 360px, 390px",
+  detailHref,
 }: CarCardProps) {
   const { isFavorite, toggleFavorite } = useFavorites();
   const favorite = isFavorite(car.slug);
@@ -104,7 +106,7 @@ export function CarCard({
 
         <div className="flex items-center gap-2">
           <Link
-            href={`/autos/${car.slug}`}
+            href={detailHref ?? `/autos/${car.slug}`}
             className="inline-flex h-10 flex-1 items-center justify-center rounded-xl bg-[var(--brand-orange)] px-4 text-sm font-semibold text-white transition-colors hover:bg-[var(--brand-orange-light)]"
           >
             Ver detalles
