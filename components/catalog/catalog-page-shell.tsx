@@ -1,22 +1,40 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
-import { ChevronLeft, ChevronRight, Filter, Search, SlidersHorizontal } from "lucide-react";
+import { useRouter } from "next/navigation";
+import {
+  ArrowUpDown,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  ListFilter,
+  Search,
+  SlidersHorizontal,
+} from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   buildCatalogUrl,
   CATALOG_SORT_VALUES,
-  CATALOG_TIPO_VALUES,
+  CATALOG_TIPOLOGIA_LABELS,
   type CatalogFilterMetadata,
   type CatalogListResponse,
   type CatalogQueryParams,
 } from "@/lib/catalog";
 import { toFeaturedCar } from "@/lib/mock-featured-cars";
 import { CarCard } from "@/components/cars/car-card";
+import { CatalogFilters } from "@/components/catalog/catalog-filters";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 
 type CatalogPageShellProps = {
@@ -32,21 +50,32 @@ const SORT_LABELS: Record<(typeof CATALOG_SORT_VALUES)[number], string> = {
   "precio-asc": "Precio: menor a mayor",
   "precio-desc": "Precio: mayor a menor",
   "anio-desc": "Año: más nuevos",
+  "anio-asc": "Año: más antiguos",
   "km-asc": "Kilometraje: menor a mayor",
+  "km-desc": "Kilometraje: mayor a menor",
 };
 
 function toQueryEntries(params: CatalogQueryParams): Array<[string, string]> {
   const entries: Array<[string, string]> = [];
   if (params.q) entries.push(["q", params.q]);
   if (params.tipo) entries.push(["tipo", params.tipo]);
+  if (params.tipologia) entries.push(["tipologia", params.tipologia]);
+  if (params.condicion) entries.push(["condicion", params.condicion]);
   if (params.marca) entries.push(["marca", params.marca]);
   if (params.modelo) entries.push(["modelo", params.modelo]);
+  if (params.version) entries.push(["version", params.version]);
+  if (params.moneda) entries.push(["moneda", params.moneda]);
   if (params.anioMin !== undefined) entries.push(["anioMin", String(params.anioMin)]);
   if (params.anioMax !== undefined) entries.push(["anioMax", String(params.anioMax)]);
   if (params.precioMin !== undefined) entries.push(["precioMin", String(params.precioMin)]);
   if (params.precioMax !== undefined) entries.push(["precioMax", String(params.precioMax)]);
+  if (params.kmMin !== undefined) entries.push(["kmMin", String(params.kmMin)]);
   if (params.kmMax !== undefined) entries.push(["kmMax", String(params.kmMax)]);
   if (params.transmision) entries.push(["transmision", params.transmision]);
+  if (params.combustible) entries.push(["combustible", params.combustible]);
+  if (params.color) entries.push(["color", params.color]);
+  if (params.puertas !== undefined) entries.push(["puertas", String(params.puertas)]);
+  if (params.extras) entries.push(["extras", params.extras]);
   if (params.sort) entries.push(["sort", params.sort]);
   if (params.page) entries.push(["page", String(params.page)]);
   if (params.perPage) entries.push(["perPage", String(params.perPage)]);
@@ -85,11 +114,23 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
         case "tipo":
           next.tipo = undefined;
           break;
+        case "tipologia":
+          next.tipologia = undefined;
+          break;
+        case "condicion":
+          next.condicion = undefined;
+          break;
         case "marca":
           next.marca = undefined;
           break;
         case "modelo":
           next.modelo = undefined;
+          break;
+        case "version":
+          next.version = undefined;
+          break;
+        case "moneda":
+          next.moneda = undefined;
           break;
         case "anioMin":
           next.anioMin = undefined;
@@ -103,11 +144,26 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
         case "precioMax":
           next.precioMax = undefined;
           break;
+        case "kmMin":
+          next.kmMin = undefined;
+          break;
         case "kmMax":
           next.kmMax = undefined;
           break;
         case "transmision":
           next.transmision = undefined;
+          break;
+        case "combustible":
+          next.combustible = undefined;
+          break;
+        case "color":
+          next.color = undefined;
+          break;
+        case "puertas":
+          next.puertas = undefined;
+          break;
+        case "extras":
+          next.extras = undefined;
           break;
         case "sort":
           next.sort = "recomendados";
@@ -123,19 +179,33 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
     return next;
   };
 
+  const formatPrecio = (min?: number, max?: number) => {
+    if (params.moneda === "dolares") {
+      return `${(min ?? 0).toLocaleString("es-AR")} - ${(max ?? 0).toLocaleString("es-AR")} USD`;
+    }
+    const m = (n: number) => (n / 1_000_000).toFixed(0) + "M";
+    return `${min != null ? m(min) : "min"} - ${max != null ? m(max) : "max"} $`;
+  };
+
   const chips: Array<{ key: string; label: string; href: string }> = [
     params.q
-      ? {
-          key: "q",
-          label: `Búsqueda: ${params.q}`,
-          href: buildCatalogUrl(removeKeys(["q"])),
-        }
+      ? { key: "q", label: `Búsqueda: ${params.q}`, href: buildCatalogUrl(removeKeys(["q"])) }
       : null,
     params.tipo
+      ? { key: "tipo", label: `Tipo: ${params.tipo}`, href: buildCatalogUrl(removeKeys(["tipo"])) }
+      : null,
+    params.tipologia
       ? {
-          key: "tipo",
-          label: `Tipo: ${params.tipo}`,
-          href: buildCatalogUrl(removeKeys(["tipo"])),
+          key: "tipologia",
+          label: `Tipología: ${CATALOG_TIPOLOGIA_LABELS[params.tipologia] ?? params.tipologia}`,
+          href: buildCatalogUrl(removeKeys(["tipologia"])),
+        }
+      : null,
+    params.condicion
+      ? {
+          key: "condicion",
+          label: `Condición: ${params.condicion}`,
+          href: buildCatalogUrl(removeKeys(["condicion"])),
         }
       : null,
     params.marca
@@ -152,11 +222,25 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
           href: buildCatalogUrl(removeKeys(["modelo"])),
         }
       : null,
+    params.version
+      ? {
+          key: "version",
+          label: `Versión: ${params.version}`,
+          href: buildCatalogUrl(removeKeys(["version"])),
+        }
+      : null,
     params.transmision
       ? {
           key: "transmision",
           label: `Transmisión: ${params.transmision}`,
           href: buildCatalogUrl(removeKeys(["transmision"])),
+        }
+      : null,
+    params.combustible
+      ? {
+          key: "combustible",
+          label: `Combustible: ${params.combustible}`,
+          href: buildCatalogUrl(removeKeys(["combustible"])),
         }
       : null,
     params.anioMin !== undefined || params.anioMax !== undefined
@@ -169,15 +253,36 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
     params.precioMin !== undefined || params.precioMax !== undefined
       ? {
           key: "precio",
-          label: `Precio: ${params.precioMin ?? "min"} - ${params.precioMax ?? "max"}`,
-          href: buildCatalogUrl(removeKeys(["precioMin", "precioMax"])),
+          label: formatPrecio(params.precioMin, params.precioMax),
+          href: buildCatalogUrl(removeKeys(["precioMin", "precioMax", "moneda"])),
         }
       : null,
-    params.kmMax !== undefined
+    params.kmMin !== undefined || params.kmMax !== undefined
       ? {
-          key: "kmMax",
-          label: `Km max: ${params.kmMax}`,
-          href: buildCatalogUrl(removeKeys(["kmMax"])),
+          key: "km",
+          label: `Km: ${params.kmMin ?? 0} - ${params.kmMax ?? "300.000"}`,
+          href: buildCatalogUrl(removeKeys(["kmMin", "kmMax"])),
+        }
+      : null,
+    params.color
+      ? {
+          key: "color",
+          label: `Color: ${params.color}`,
+          href: buildCatalogUrl(removeKeys(["color"])),
+        }
+      : null,
+    params.puertas !== undefined
+      ? {
+          key: "puertas",
+          label: `${params.puertas} puertas`,
+          href: buildCatalogUrl(removeKeys(["puertas"])),
+        }
+      : null,
+    params.extras
+      ? {
+          key: "extras",
+          label: `Extras: ${params.extras}`,
+          href: buildCatalogUrl(removeKeys(["extras"])),
         }
       : null,
   ].filter(Boolean) as Array<{ key: string; label: string; href: string }>;
@@ -212,189 +317,11 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
   );
 }
 
-function FiltersFormFields({
-  params,
-  filtersMeta,
-}: {
-  params: CatalogQueryParams;
-  filtersMeta: CatalogFilterMetadata;
-}) {
-  return (
-    <div className="space-y-4">
-      <div className="space-y-1.5">
-        <label htmlFor="tipo" className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-          Tipo
-        </label>
-        <select
-          id="tipo"
-          name="tipo"
-          defaultValue={params.tipo ?? ""}
-          className="h-10 w-full rounded-lg border border-border bg-white px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
-        >
-          <option value="">Todos</option>
-          {CATALOG_TIPO_VALUES.map((tipo) => (
-            <option key={tipo} value={tipo}>
-              {tipo}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="space-y-1.5">
-        <label htmlFor="marca" className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-          Marca
-        </label>
-        <select
-          id="marca"
-          name="marca"
-          defaultValue={params.marca ?? ""}
-          className="h-10 w-full rounded-lg border border-border bg-white px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
-        >
-          <option value="">Todas</option>
-          {filtersMeta.brands.map((brand) => (
-            <option key={brand} value={brand}>
-              {brand}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="space-y-1.5">
-        <label htmlFor="modelo" className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-          Modelo
-        </label>
-        <input
-          id="modelo"
-          name="modelo"
-          defaultValue={params.modelo ?? ""}
-          placeholder="Ej: Corolla"
-          className="h-10 w-full rounded-lg border border-border bg-white px-3 text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
-        />
-      </div>
-
-      <div className="grid grid-cols-2 gap-3">
-        <div className="space-y-1.5">
-          <label
-            htmlFor="anioMin"
-            className="text-xs font-semibold uppercase tracking-wide text-muted-foreground"
-          >
-            Año min
-          </label>
-          <input
-            id="anioMin"
-            name="anioMin"
-            type="number"
-            inputMode="numeric"
-            min={filtersMeta.yearRange.min}
-            max={filtersMeta.yearRange.max}
-            defaultValue={params.anioMin ?? ""}
-            placeholder={String(filtersMeta.yearRange.min)}
-            className="h-10 w-full rounded-lg border border-border bg-white px-3 text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
-          />
-        </div>
-        <div className="space-y-1.5">
-          <label
-            htmlFor="anioMax"
-            className="text-xs font-semibold uppercase tracking-wide text-muted-foreground"
-          >
-            Año max
-          </label>
-          <input
-            id="anioMax"
-            name="anioMax"
-            type="number"
-            inputMode="numeric"
-            min={filtersMeta.yearRange.min}
-            max={filtersMeta.yearRange.max}
-            defaultValue={params.anioMax ?? ""}
-            placeholder={String(filtersMeta.yearRange.max)}
-            className="h-10 w-full rounded-lg border border-border bg-white px-3 text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
-          />
-        </div>
-      </div>
-
-      <div className="grid grid-cols-2 gap-3">
-        <div className="space-y-1.5">
-          <label
-            htmlFor="precioMin"
-            className="text-xs font-semibold uppercase tracking-wide text-muted-foreground"
-          >
-            Precio min
-          </label>
-          <input
-            id="precioMin"
-            name="precioMin"
-            type="number"
-            inputMode="numeric"
-            min={filtersMeta.priceRange.min}
-            max={filtersMeta.priceRange.max}
-            defaultValue={params.precioMin ?? ""}
-            placeholder={String(filtersMeta.priceRange.min)}
-            className="h-10 w-full rounded-lg border border-border bg-white px-3 text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
-          />
-        </div>
-        <div className="space-y-1.5">
-          <label
-            htmlFor="precioMax"
-            className="text-xs font-semibold uppercase tracking-wide text-muted-foreground"
-          >
-            Precio max
-          </label>
-          <input
-            id="precioMax"
-            name="precioMax"
-            type="number"
-            inputMode="numeric"
-            min={filtersMeta.priceRange.min}
-            max={filtersMeta.priceRange.max}
-            defaultValue={params.precioMax ?? ""}
-            placeholder={String(filtersMeta.priceRange.max)}
-            className="h-10 w-full rounded-lg border border-border bg-white px-3 text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
-          />
-        </div>
-      </div>
-
-      <div className="space-y-1.5">
-        <label htmlFor="kmMax" className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-          Km max
-        </label>
-        <input
-          id="kmMax"
-          name="kmMax"
-          type="number"
-          inputMode="numeric"
-          min={filtersMeta.kmRange.min}
-          max={filtersMeta.kmRange.max}
-          defaultValue={params.kmMax ?? ""}
-          placeholder={String(filtersMeta.kmRange.max)}
-          className="h-10 w-full rounded-lg border border-border bg-white px-3 text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
-        />
-      </div>
-
-      <div className="space-y-1.5">
-        <label
-          htmlFor="transmision"
-          className="text-xs font-semibold uppercase tracking-wide text-muted-foreground"
-        >
-          Transmisión
-        </label>
-        <select
-          id="transmision"
-          name="transmision"
-          defaultValue={params.transmision ?? ""}
-          className="h-10 w-full rounded-lg border border-border bg-white px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
-        >
-          <option value="">Todas</option>
-          {filtersMeta.transmissions.map((transmission) => (
-            <option key={transmission} value={transmission}>
-              {transmission}
-            </option>
-          ))}
-        </select>
-      </div>
-    </div>
-  );
-}
+const FILTER_OMIT_KEYS: ParamKey[] = [
+  "tipologia", "condicion", "marca", "modelo", "version", "moneda",
+  "anioMin", "anioMax", "precioMin", "precioMax", "kmMin", "kmMax",
+  "transmision", "combustible", "color", "puertas", "extras", "page",
+];
 
 function buildPageHref(params: CatalogQueryParams, page: number): string {
   return buildCatalogUrl({
@@ -549,76 +476,93 @@ function PaginationControls({ params, totalPages }: { params: CatalogQueryParams
   );
 }
 
+function SortDropdown({
+  params,
+  className,
+}: {
+  params: CatalogQueryParams;
+  className?: string;
+}) {
+  const router = useRouter();
+  const [open, setOpen] = useState(false);
+
+  return (
+    <DropdownMenu open={open} onOpenChange={setOpen}>
+      <DropdownMenuTrigger asChild>
+        <button
+          type="button"
+          aria-label="Ordenar resultados"
+          className={cn(
+            "inline-flex h-10 min-w-[170px] items-center justify-between rounded-xl border border-border bg-white px-3 text-sm font-medium text-[var(--brand-black)] outline-none transition-colors hover:bg-muted/30 focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] sm:min-w-[230px]",
+            className,
+          )}
+        >
+          <span className="truncate">{SORT_LABELS[params.sort]}</span>
+          <ChevronDown
+            className={cn(
+              "ml-2 size-4 shrink-0 text-muted-foreground transition-transform duration-200",
+              open && "rotate-180",
+            )}
+            aria-hidden
+          />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-[240px] rounded-xl p-1.5">
+        <DropdownMenuRadioGroup
+          value={params.sort}
+          onValueChange={(value) => {
+            const nextSort = value as CatalogQueryParams["sort"];
+            if (nextSort === params.sort) return;
+            router.push(
+              buildCatalogUrl({
+                ...params,
+                sort: nextSort,
+                page: 1,
+              }),
+            );
+          }}
+        >
+          {CATALOG_SORT_VALUES.map((sortValue) => (
+            <DropdownMenuRadioItem
+              key={sortValue}
+              value={sortValue}
+              className="cursor-pointer rounded-lg py-2 text-sm font-medium"
+            >
+              {SORT_LABELS[sortValue]}
+            </DropdownMenuRadioItem>
+          ))}
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
+
 export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShellProps) {
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  const [showFloatingFilters, setShowFloatingFilters] = useState(false);
   const visibleFrom = result.total === 0 ? 0 : (result.appliedParams.page - 1) * result.perPage + 1;
   const visibleTo = result.total === 0 ? 0 : visibleFrom + result.items.length - 1;
   const returnTo = buildCatalogUrl(result.appliedParams, { includeDefaults: true });
 
+  useEffect(() => {
+    const onScroll = () => {
+      setShowFloatingFilters(window.scrollY > 220);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <main className="mx-auto min-h-screen w-full max-w-screen-xl px-4 py-6 sm:px-6 sm:py-8">
-      <header className="mb-6 space-y-2 sm:mb-8">
-        <h1 className="text-3xl font-black uppercase tracking-tight text-[var(--brand-black)] sm:text-4xl">
-          Catálogo
-        </h1>
-        <p className="text-sm text-muted-foreground sm:text-base">
-          Encontrá el vehículo ideal. {result.total} resultados disponibles.
-        </p>
-      </header>
-
-      <section className="mb-5 rounded-2xl border border-black/10 bg-white p-3 shadow-[0_8px_24px_rgba(0,0,0,0.05)] sm:mb-6 sm:p-4">
-        <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center">
-          <form action="/catalogo" className="flex flex-1 items-center gap-2">
-            <HiddenFields params={params} omit={["q", "page"]} />
-            <Input
-              type="search"
-              name="q"
-              defaultValue={params.q ?? ""}
-              placeholder="Buscá por marca, modelo o versión"
-              className="h-11 rounded-xl"
-              aria-label="Buscar por marca, modelo o versión"
-            />
-            <Button type="submit" className="h-11 rounded-xl px-4">
-              <Search className="size-4" />
-              <span className="hidden sm:inline">Buscar</span>
-            </Button>
-          </form>
-
-          <div className="flex items-center gap-2">
-            <form action="/catalogo" className="block">
-              <HiddenFields params={params} omit={["sort", "page"]} />
-              <select
-                name="sort"
-                defaultValue={params.sort}
-                onChange={(event) => event.currentTarget.form?.requestSubmit()}
-                className="h-11 min-w-[160px] rounded-xl border border-border bg-white px-3 text-sm font-medium text-[var(--brand-black)] outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] sm:min-w-[210px]"
-                aria-label="Ordenar resultados"
-              >
-                {CATALOG_SORT_VALUES.map((sortValue) => (
-                  <option key={sortValue} value={sortValue}>
-                    {SORT_LABELS[sortValue]}
-                  </option>
-                ))}
-              </select>
-            </form>
-
-            <Button
-              type="button"
-              variant="outline"
-                className="h-11 rounded-xl px-4 lg:hidden"
-              onClick={() => setIsFiltersOpen(true)}
-            >
-              <Filter className="size-4" />
-              Filtros
-            </Button>
-          </div>
-        </div>
-      </section>
+    <main className="min-h-screen w-full px-4 py-4 sm:px-6 sm:py-6 lg:pl-0 lg:pr-4">
+      <h1 className="mb-3 text-center text-xl font-black uppercase tracking-tight text-[var(--brand-black)] sm:mb-4 sm:text-2xl lg:mb-5">
+        CÁTALOGO DE VEHICULOS
+      </h1>
 
       <Dialog open={isFiltersOpen} onOpenChange={setIsFiltersOpen}>
         <DialogContent
           showCloseButton={false}
-          className="fixed inset-0 h-screen max-h-screen w-screen max-w-none translate-x-0 translate-y-0 rounded-none border-0 p-0 lg:hidden"
+          className="fixed inset-0 h-screen max-h-screen w-screen max-w-none translate-x-0 translate-y-0 rounded-none border-0 p-0 duration-300 data-[state=open]:slide-in-from-bottom-2 data-[state=closed]:slide-out-to-bottom-2 lg:hidden"
         >
           <DialogTitle className="sr-only">Filtros de catálogo</DialogTitle>
 
@@ -641,15 +585,20 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
                 <p className="mb-3 text-xs font-medium text-muted-foreground">
                   {result.total} resultados disponibles
                 </p>
-                <HiddenFields params={params} omit={["tipo", "marca", "modelo", "anioMin", "anioMax", "precioMin", "precioMax", "kmMax", "transmision", "page"]} />
-                <FiltersFormFields params={params} filtersMeta={filtersMeta} />
+                <HiddenFields params={params} omit={FILTER_OMIT_KEYS} />
+                <CatalogFilters
+                  params={params}
+                  filtersMeta={filtersMeta}
+                  applyOnChange={false}
+                  idPrefix="mobile"
+                />
               </div>
               <div className="grid grid-cols-2 gap-2 border-t border-border bg-background px-4 py-3">
                 <Button asChild type="button" variant="outline" className="h-11 rounded-xl">
                   <Link href="/catalogo">Limpiar</Link>
                 </Button>
                 <Button type="submit" className="h-11 rounded-xl">
-                  Ver resultados
+                  Aplicar
                 </Button>
               </div>
             </form>
@@ -657,42 +606,88 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
         </DialogContent>
       </Dialog>
 
-      <div className="grid gap-6 lg:grid-cols-[300px_minmax(0,1fr)] xl:grid-cols-[320px_minmax(0,1fr)]">
-        <aside className="hidden lg:block">
-          <div className="sticky top-24 rounded-2xl border border-black/10 bg-white p-4 shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
-            <div className="mb-4 flex items-center gap-2">
+      <AnimatePresence>
+        {showFloatingFilters && !isFiltersOpen && (
+          <motion.button
+            type="button"
+            initial={{ opacity: 0, x: -16, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: -16, scale: 0.95 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            onClick={() => setIsFiltersOpen(true)}
+            className="fixed bottom-4 left-3 z-40 inline-flex items-center gap-1.5 rounded-full border border-black/15 bg-white px-3 py-2 text-xs font-semibold text-[var(--brand-black)] shadow-[0_10px_24px_rgba(0,0,0,0.18)] lg:hidden"
+            aria-label="Abrir filtros"
+          >
+            <ListFilter className="size-3.5" />
+            Filtros
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      <div className="grid min-h-[calc(100vh-8rem)] gap-4 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-0">
+        <aside className="hidden lg:block lg:shrink-0">
+          <div className="sticky top-24 flex max-h-[calc(100vh-7rem)] flex-col overflow-hidden rounded-r-2xl border-y border-r border-black/10 bg-white py-4 pl-4 pr-3 shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
+            <div className="flex shrink-0 items-center gap-2 border-b border-border px-2 pb-3">
               <SlidersHorizontal className="size-4 text-[var(--brand-orange)]" />
               <h2 className="text-base font-black uppercase tracking-tight text-[var(--brand-black)]">
                 Filtros
               </h2>
             </div>
-
-            <form action="/catalogo" className="space-y-4">
-              <HiddenFields params={params} omit={["tipo", "marca", "modelo", "anioMin", "anioMax", "precioMin", "precioMax", "kmMax", "transmision", "page"]} />
-              <FiltersFormFields params={params} filtersMeta={filtersMeta} />
-
-              <div className="grid grid-cols-2 gap-2 pt-2">
-                <Button asChild type="button" variant="outline" className="rounded-xl">
-                  <Link href="/catalogo">Limpiar</Link>
-                </Button>
-                <Button type="submit" className="rounded-xl">
-                  Aplicar
-                </Button>
-              </div>
-            </form>
+            <div className="min-h-0 flex-1 overflow-y-auto px-2 pt-3">
+              <CatalogFilters
+                params={params}
+                filtersMeta={filtersMeta}
+                applyOnChange={true}
+              />
+            </div>
           </div>
         </aside>
 
-        <section>
-          <div className="mb-4 flex items-center justify-between rounded-xl border border-black/10 bg-white px-4 py-3">
-            <p className="text-sm text-muted-foreground sm:text-base">
-              Mostrando <span className="font-semibold text-[var(--brand-black)]">{visibleFrom}</span> -{" "}
-              <span className="font-semibold text-[var(--brand-black)]">{visibleTo}</span> de{" "}
-              <span className="font-semibold text-[var(--brand-black)]">{result.total}</span> vehículos
+        <section className="flex min-h-0 flex-col lg:pl-8">
+          <div className="mb-3 flex items-center justify-between gap-2 lg:hidden">
+            <Button
+              type="button"
+              variant="outline"
+              className="h-10 rounded-xl px-3"
+              onClick={() => setIsFiltersOpen(true)}
+            >
+              <ListFilter className="size-4" />
+              Filtros
+            </Button>
+
+            <div className="flex items-center gap-2">
+              <ArrowUpDown className="size-4 text-muted-foreground" aria-hidden />
+              <SortDropdown params={params} className="min-w-[150px] max-w-[58vw]" />
+            </div>
+          </div>
+
+          <div className="mb-3 rounded-2xl border border-black/10 bg-white p-3 shadow-[0_8px_24px_rgba(0,0,0,0.05)] sm:mb-4 sm:p-4">
+            <form action="/catalogo" className="flex min-w-0 items-center gap-2">
+              <HiddenFields params={params} omit={["q", "page"]} />
+              <Input
+                type="search"
+                name="q"
+                defaultValue={params.q ?? ""}
+                placeholder="Buscar por palabra clave"
+                className="h-10 rounded-xl text-sm transition-colors placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] sm:h-11"
+                aria-label="Buscar por palabra clave"
+              />
+              <Button type="submit" className="h-10 rounded-xl px-3 sm:h-11 sm:px-4">
+                <Search className="size-4" />
+                <span className="hidden sm:inline">Buscar</span>
+              </Button>
+            </form>
+          </div>
+
+          <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm text-muted-foreground sm:text-sm">
+              Mostrando {visibleFrom}-{visibleTo} de {result.total} vehículos
             </p>
-            <p className="hidden text-sm text-muted-foreground md:block">
-              Orden: {SORT_LABELS[result.appliedParams.sort]}
-            </p>
+
+            <div className="hidden items-center gap-2 lg:flex">
+              <span className="text-xs font-medium text-muted-foreground sm:text-sm">Ordenar por</span>
+              <SortDropdown params={params} className="min-w-[210px]" />
+            </div>
           </div>
 
           <ActiveFiltersChips params={params} />
