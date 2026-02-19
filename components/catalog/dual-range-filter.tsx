@@ -5,7 +5,7 @@ import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 
 const FIELD_STYLE =
-  "h-10 w-full rounded-xl border border-border bg-white px-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]";
+  "h-10 w-full rounded-xl border border-border bg-white px-3 text-sm outline-none transition-all duration-300 ease-out placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]";
 
 type DualRangeFilterProps = {
   label: string;
@@ -123,8 +123,10 @@ export function DualRangeFilter({
     : max;
   const sliderValue: [number, number] = [Math.min(low, high), Math.max(low, high)];
 
-  const inputMinVal = localMin;
-  const inputMaxVal = localMax;
+  const inputMinVal =
+    localMin === "" ? "" : formatDisplay(Number(localMin));
+  const inputMaxVal =
+    localMax === "" ? "" : formatDisplay(Number(localMax));
 
   const placeholderMin = formatDisplay(min);
   const placeholderMax = formatDisplay(max);
@@ -146,28 +148,24 @@ export function DualRangeFilter({
         className="w-full px-0"
       />
       <div className="grid grid-cols-2 gap-2">
+        <input type="hidden" name={nameMin} value={localMin} />
         <Input
           id={id("min")}
-          name={nameMin}
-          type="number"
+          type="text"
           inputMode="numeric"
-          min={min}
-          max={max}
           value={inputMinVal}
-          onChange={(e) => setLocalMin(e.target.value)}
+          onChange={(e) => setLocalMin(e.target.value.replace(/\D/g, ""))}
           onBlur={handleInputBlurMin}
           placeholder={placeholderMin}
           className={FIELD_STYLE}
         />
+        <input type="hidden" name={nameMax} value={localMax} />
         <Input
           id={id("max")}
-          name={nameMax}
-          type="number"
+          type="text"
           inputMode="numeric"
-          min={min}
-          max={max}
           value={inputMaxVal}
-          onChange={(e) => setLocalMax(e.target.value)}
+          onChange={(e) => setLocalMax(e.target.value.replace(/\D/g, ""))}
           onBlur={handleInputBlurMax}
           placeholder={placeholderMax}
           className={FIELD_STYLE}

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import {
   Car,
   ChevronDown,
+  LayoutGrid,
   Truck,
   CarFront,
   Sun,
@@ -46,7 +47,7 @@ const CONDICION_LABELS: Record<(typeof CATALOG_CONDICION_VALUES)[number], string
 };
 
 const FIELD_STYLE =
-  "h-10 w-full rounded-xl border border-border bg-white px-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]";
+  "h-10 w-full rounded-xl border border-border bg-white px-3 text-sm outline-none transition-all duration-300 ease-out placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]";
 
 const LABEL_STYLE =
   "text-xs font-semibold uppercase tracking-wide text-[var(--brand-black)]/70";
@@ -106,13 +107,15 @@ export function CatalogFilters({
     router.push(buildCatalogUrl({ ...params, ...next, page: 1 }));
   };
 
-  const formatPrice = (n: number) =>
-    params.moneda === "dolares" ? n.toLocaleString("es-AR") : (n / 1_000_000).toFixed(0) + "M";
+  const formatPrice = (n: number) => n.toLocaleString("es-AR");
 
-  const modelos = params.marca ? filtersMeta.modelsByBrand[params.marca] ?? [] : [];
-  const versiones = params.marca && params.modelo
-    ? filtersMeta.versionesByModelo[`${params.marca}|${params.modelo}`] ?? []
-    : [];
+  const currentMarca = applyOnChange ? params.marca : formValues.marca;
+  const currentModelo = applyOnChange ? params.modelo : formValues.modelo;
+  const modelos = currentMarca ? filtersMeta.modelsByBrand[currentMarca] ?? [] : [];
+  const versiones =
+    currentMarca && currentModelo
+      ? filtersMeta.versionesByModelo[`${currentMarca}|${currentModelo}`] ?? []
+      : [];
 
   return (
     <div className="space-y-5">
@@ -127,13 +130,22 @@ export function CatalogFilters({
                 type="button"
                 onClick={() => nav({ tipologia: params.tipologia === t ? undefined : t })}
                 className={cn(
-                  "flex flex-col items-center justify-center gap-1 rounded-xl border px-2 py-2.5 text-[11px] font-medium transition-colors sm:text-xs",
+                  "flex flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-2.5 text-[11px] font-medium transition-all duration-300 ease-out sm:text-xs",
                   params.tipologia === t
                     ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/10 text-[var(--brand-orange)]"
-                    : "border-border bg-white text-muted-foreground hover:border-black/20 hover:bg-muted/30",
+                    : "border-border bg-white text-muted-foreground hover:border-[var(--brand-orange)]/40 hover:bg-muted/30",
                 )}
               >
-                {TIPOLOGIA_ICONS[t]}
+                <span
+                  className={cn(
+                    "flex size-8 shrink-0 items-center justify-center rounded-full border-2 transition-all duration-300 ease-out sm:size-9",
+                    params.tipologia === t
+                      ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/5 text-[var(--brand-orange)]"
+                      : "border-[var(--brand-orange)]/30 text-muted-foreground",
+                  )}
+                >
+                  {TIPOLOGIA_ICONS[t]}
+                </span>
                 <span className="w-full truncate text-center">{CATALOG_TIPOLOGIA_LABELS[t]}</span>
               </button>
             ))
@@ -141,10 +153,10 @@ export function CatalogFilters({
             <>
               <label
                 className={cn(
-                  "col-span-3 flex cursor-pointer flex-col items-center justify-center gap-1 rounded-xl border px-2 py-2.5 text-[11px] font-medium transition-colors sm:col-span-1 sm:col-start-1 sm:text-xs",
+                  "col-span-3 flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-2.5 text-[11px] font-medium transition-all duration-300 ease-out sm:col-span-1 sm:col-start-1 sm:text-xs",
                   !params.tipologia
                     ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/10 text-[var(--brand-orange)]"
-                    : "border-border bg-white text-muted-foreground hover:border-black/20 hover:bg-muted/30",
+                    : "border-border bg-white text-muted-foreground hover:border-[var(--brand-orange)]/40 hover:bg-muted/30",
                 )}
               >
                 <input
@@ -154,16 +166,26 @@ export function CatalogFilters({
                   defaultChecked={!params.tipologia}
                   className="sr-only"
                 />
+                <span
+                  className={cn(
+                    "flex size-8 shrink-0 items-center justify-center rounded-full border-2 transition-all duration-300 ease-out sm:size-9",
+                    !params.tipologia
+                      ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/5 text-[var(--brand-orange)]"
+                      : "border-[var(--brand-orange)]/30 text-muted-foreground",
+                  )}
+                >
+                  <LayoutGrid className="size-4" />
+                </span>
                 <span className="w-full truncate text-center">Todos</span>
               </label>
               {CATALOG_TIPOLOGIA_VALUES.map((t) => (
                 <label
                   key={t}
                   className={cn(
-                    "flex cursor-pointer flex-col items-center justify-center gap-1 rounded-xl border px-2 py-2.5 text-[11px] font-medium transition-colors sm:text-xs",
+                    "flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-2.5 text-[11px] font-medium transition-all duration-300 ease-out sm:text-xs",
                     params.tipologia === t
                       ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/10 text-[var(--brand-orange)]"
-                      : "border-border bg-white text-muted-foreground hover:border-black/20 hover:bg-muted/30",
+                      : "border-border bg-white text-muted-foreground hover:border-[var(--brand-orange)]/40 hover:bg-muted/30",
                   )}
                 >
                   <input
@@ -173,7 +195,16 @@ export function CatalogFilters({
                     defaultChecked={params.tipologia === t}
                     className="sr-only"
                   />
-                  {TIPOLOGIA_ICONS[t]}
+                  <span
+                    className={cn(
+                      "flex size-8 shrink-0 items-center justify-center rounded-full border-2 transition-all duration-300 ease-out sm:size-9",
+                      params.tipologia === t
+                        ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/5 text-[var(--brand-orange)]"
+                        : "border-[var(--brand-orange)]/30 text-muted-foreground",
+                    )}
+                  >
+                    {TIPOLOGIA_ICONS[t]}
+                  </span>
                   <span className="w-full truncate text-center">{CATALOG_TIPOLOGIA_LABELS[t]}</span>
                 </label>
               ))}
@@ -194,6 +225,7 @@ export function CatalogFilters({
           onValueChange={(val) => setV("condicion", val)}
           options={CATALOG_CONDICION_VALUES.map((c) => ({ value: c, label: CONDICION_LABELS[c] }))}
           placeholder="Todas"
+          inModal={!!idPrefix}
         />
       </div>
 
@@ -213,6 +245,7 @@ export function CatalogFilters({
           }}
           options={filtersMeta.brands.map((b) => ({ value: b, label: b }))}
           placeholder="Todas"
+          inModal={!!idPrefix}
         />
       </div>
 
@@ -230,11 +263,12 @@ export function CatalogFilters({
           }}
           options={modelos.map((m) => ({ value: m, label: m }))}
           placeholder="Todos"
-          disabled={!params.marca}
+          disabled={!currentMarca}
+          inModal={!!idPrefix}
         />
       </div>
 
-      {params.marca && params.modelo && (
+      {currentMarca && currentModelo && (
         <div className="space-y-2">
           <label htmlFor={id("version")} className={LABEL_STYLE}>
             Versión
@@ -246,6 +280,7 @@ export function CatalogFilters({
             onValueChange={(val) => setV("version", val)}
             options={versiones.map((ver) => ({ value: ver, label: ver }))}
             placeholder="Todas"
+            inModal={!!idPrefix}
           />
         </div>
       )}
@@ -395,6 +430,7 @@ export function CatalogFilters({
             onValueChange={(val) => setV("transmision", val)}
             options={filtersMeta.transmissions.map((t) => ({ value: t, label: t }))}
             placeholder="Todas"
+            inModal={!!idPrefix}
           />
         </div>
         <div className="space-y-2">
@@ -408,18 +444,19 @@ export function CatalogFilters({
             onValueChange={(val) => setV("combustible", val)}
             options={filtersMeta.combustibles.map((c) => ({ value: c, label: c }))}
             placeholder="Todos"
+            inModal={!!idPrefix}
           />
         </div>
       </div>
 
       {/* 8. Otros (expandible) */}
-      <details className="group rounded-xl border border-border bg-white transition-colors hover:border-[var(--brand-orange)]/30">
-        <summary className="flex cursor-pointer list-none items-center justify-between gap-2 rounded-xl px-3 py-2.5 text-sm font-medium text-[var(--brand-black)] transition-colors hover:bg-[var(--brand-orange)]/5 [&::-webkit-details-marker]:hidden">
+      <details className="group rounded-xl border border-border bg-white transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/40">
+        <summary className="flex cursor-pointer list-none items-center justify-between gap-2 rounded-xl px-3 py-2.5 text-sm font-medium text-[var(--brand-black)] transition-colors duration-300 hover:bg-[var(--brand-orange)]/5 [&::-webkit-details-marker]:hidden">
           <span className="flex items-center gap-2">
             <MoreHorizontal className="size-4 text-[var(--brand-orange)]" />
             Otros
           </span>
-          <ChevronDown className="size-4 shrink-0 text-muted-foreground transition-transform group-open:rotate-180" />
+          <ChevronDown className="size-4 shrink-0 text-muted-foreground transition-transform duration-300 ease-out group-open:rotate-180" />
         </summary>
         <div className="space-y-4 border-t border-border px-3 py-3">
           {/* Color: paleta */}
@@ -478,6 +515,7 @@ export function CatalogFilters({
               onValueChange={(val) => setV("puertas", val)}
               options={[...PUERTAS_OPTIONS]}
               placeholder="Cualquiera"
+              inModal={!!idPrefix}
             />
           </div>
 

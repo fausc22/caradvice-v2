@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import { useRouter } from "next/navigation";
@@ -180,11 +181,11 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
   };
 
   const formatPrecio = (min?: number, max?: number) => {
+    const fmt = (n: number) => n.toLocaleString("es-AR");
     if (params.moneda === "dolares") {
-      return `${(min ?? 0).toLocaleString("es-AR")} - ${(max ?? 0).toLocaleString("es-AR")} USD`;
+      return `${fmt(min ?? 0)} - ${fmt(max ?? 0)} USD`;
     }
-    const m = (n: number) => (n / 1_000_000).toFixed(0) + "M";
-    return `${min != null ? m(min) : "min"} - ${max != null ? m(max) : "max"} $`;
+    return `${min != null ? fmt(min) : "min"} - ${max != null ? fmt(max) : "max"} $`;
   };
 
   const chips: Array<{ key: string; label: string; href: string }> = [
@@ -260,7 +261,7 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
     params.kmMin !== undefined || params.kmMax !== undefined
       ? {
           key: "km",
-          label: `Km: ${params.kmMin ?? 0} - ${params.kmMax ?? "300.000"}`,
+          label: `Km: ${(params.kmMin ?? 0).toLocaleString("es-AR")} - ${(params.kmMax ?? 300_000).toLocaleString("es-AR")}`,
           href: buildCatalogUrl(removeKeys(["kmMin", "kmMax"])),
         }
       : null,
@@ -296,11 +297,11 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
           key={chip.key}
           href={chip.href}
           aria-label={`Quitar filtro ${chip.label}`}
-          className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/40 px-3 py-1 text-xs font-medium text-[var(--brand-black)] transition-colors hover:bg-muted sm:text-sm"
+          className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-orange)]/30 bg-muted/40 px-3 py-1 text-xs font-medium text-[var(--brand-black)] transition-all duration-300 ease-out hover:border-[var(--brand-orange)] hover:bg-[var(--brand-orange)]/5 sm:text-sm"
         >
           {chip.label}
           <span
-            className="inline-flex size-4 items-center justify-center rounded-full border border-black/15 text-[10px]"
+            className="inline-flex size-4 items-center justify-center rounded-full border border-[var(--brand-orange)]/40 text-[10px] text-[var(--brand-orange)] transition-colors duration-200 hover:border-[var(--brand-orange)] hover:bg-[var(--brand-orange)]/10"
             aria-hidden
           >
             ×
@@ -309,7 +310,7 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
       ))}
       <Link
         href="/catalogo"
-        className="inline-flex items-center rounded-full border border-black/15 px-3 py-1 text-xs font-semibold text-muted-foreground transition-colors hover:bg-muted/50 sm:text-sm"
+        className="inline-flex items-center rounded-full border border-black/15 px-3 py-1 text-xs font-semibold text-muted-foreground transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/40 hover:bg-muted/50 hover:text-[var(--brand-orange)] sm:text-sm"
       >
         Limpiar
       </Link>
@@ -382,8 +383,8 @@ function PaginationControls({ params, totalPages }: { params: CatalogQueryParams
           href={prevHref}
           disabled={prevDisabled}
           className={cn(
-            "inline-flex h-10 items-center gap-1 rounded-lg border px-3 text-sm font-semibold transition-colors",
-            prevDisabled ? "" : "border-border text-[var(--brand-black)] hover:bg-muted/40",
+            "inline-flex h-10 items-center gap-1 rounded-lg border px-3 text-sm font-semibold transition-all duration-300 ease-out",
+            prevDisabled ? "" : "border-border text-[var(--brand-black)] hover:border-[var(--brand-orange)]/40 hover:bg-muted/40",
           )}
         >
           <ChevronLeft className="size-4" aria-hidden />
@@ -396,8 +397,8 @@ function PaginationControls({ params, totalPages }: { params: CatalogQueryParams
           href={nextHref}
           disabled={nextDisabled}
           className={cn(
-            "inline-flex h-10 items-center gap-1 rounded-lg border px-3 text-sm font-semibold transition-colors",
-            nextDisabled ? "" : "border-border text-[var(--brand-black)] hover:bg-muted/40",
+            "inline-flex h-10 items-center gap-1 rounded-lg border px-3 text-sm font-semibold transition-all duration-300 ease-out",
+            nextDisabled ? "" : "border-border text-[var(--brand-black)] hover:border-[var(--brand-orange)]/40 hover:bg-muted/40",
           )}
         >
           Siguiente
@@ -410,8 +411,8 @@ function PaginationControls({ params, totalPages }: { params: CatalogQueryParams
           href={prevHref}
           disabled={prevDisabled}
           className={cn(
-            "inline-flex h-10 items-center justify-center rounded-lg border px-4 text-sm font-semibold transition-colors",
-            prevDisabled ? "" : "border-border text-[var(--brand-black)] hover:bg-muted/40",
+            "inline-flex h-10 items-center justify-center rounded-lg border px-4 text-sm font-semibold transition-all duration-300 ease-out",
+            prevDisabled ? "" : "border-border text-[var(--brand-black)] hover:border-[var(--brand-orange)]/40 hover:bg-muted/40",
           )}
         >
           Anterior
@@ -421,7 +422,7 @@ function PaginationControls({ params, totalPages }: { params: CatalogQueryParams
             <>
               <Link
                 href={buildPageHref(params, 1)}
-                className="inline-flex size-9 items-center justify-center rounded-lg border border-border text-sm font-semibold text-[var(--brand-black)] transition-colors hover:bg-muted/40"
+                className="inline-flex size-9 items-center justify-center rounded-lg border border-border text-sm font-semibold text-[var(--brand-black)] transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/40 hover:bg-muted/40"
               >
                 1
               </Link>
@@ -434,10 +435,10 @@ function PaginationControls({ params, totalPages }: { params: CatalogQueryParams
               href={buildPageHref(params, pageNumber)}
               aria-current={pageNumber === currentPage ? "page" : undefined}
               className={cn(
-                "inline-flex size-9 items-center justify-center rounded-lg border text-sm font-semibold transition-colors",
+                "inline-flex size-9 items-center justify-center rounded-lg border text-sm font-semibold transition-all duration-300 ease-out",
                 pageNumber === currentPage
                   ? "border-[var(--brand-orange)] bg-[var(--brand-orange)] text-white"
-                  : "border-border text-[var(--brand-black)] hover:bg-muted/40",
+                  : "border-border text-[var(--brand-black)] hover:border-[var(--brand-orange)]/40 hover:bg-muted/40",
               )}
             >
               {pageNumber}
@@ -450,7 +451,7 @@ function PaginationControls({ params, totalPages }: { params: CatalogQueryParams
               )}
               <Link
                 href={buildPageHref(params, totalPages)}
-                className="inline-flex size-9 items-center justify-center rounded-lg border border-border text-sm font-semibold text-[var(--brand-black)] transition-colors hover:bg-muted/40"
+                className="inline-flex size-9 items-center justify-center rounded-lg border border-border text-sm font-semibold text-[var(--brand-black)] transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/40 hover:bg-muted/40"
               >
                 {totalPages}
               </Link>
@@ -461,8 +462,8 @@ function PaginationControls({ params, totalPages }: { params: CatalogQueryParams
           href={nextHref}
           disabled={nextDisabled}
           className={cn(
-            "inline-flex h-10 items-center justify-center rounded-lg border px-4 text-sm font-semibold transition-colors",
-            nextDisabled ? "" : "border-border text-[var(--brand-black)] hover:bg-muted/40",
+            "inline-flex h-10 items-center justify-center rounded-lg border px-4 text-sm font-semibold transition-all duration-300 ease-out",
+            nextDisabled ? "" : "border-border text-[var(--brand-black)] hover:border-[var(--brand-orange)]/40 hover:bg-muted/40",
           )}
         >
           Siguiente
@@ -493,21 +494,24 @@ function SortDropdown({
           type="button"
           aria-label="Ordenar resultados"
           className={cn(
-            "inline-flex h-10 min-w-[170px] items-center justify-between rounded-xl border border-border bg-white px-3 text-sm font-medium text-[var(--brand-black)] outline-none transition-colors hover:bg-muted/30 focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] sm:min-w-[230px]",
+            "inline-flex h-10 min-w-[170px] items-center justify-between rounded-xl border border-border bg-white px-3 text-sm font-medium text-[var(--brand-black)] outline-none transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/40 hover:bg-muted/30 focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] sm:min-w-[230px]",
             className,
           )}
         >
           <span className="truncate">{SORT_LABELS[params.sort]}</span>
           <ChevronDown
             className={cn(
-              "ml-2 size-4 shrink-0 text-muted-foreground transition-transform duration-200",
+              "ml-2 size-4 shrink-0 text-muted-foreground transition-transform duration-300 ease-out",
               open && "rotate-180",
             )}
             aria-hidden
           />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-[240px] rounded-xl p-1.5">
+      <DropdownMenuContent
+        align="end"
+        className="w-[240px] rounded-xl border-[var(--brand-orange)]/15 p-1.5 transition-[transform,opacity] duration-300 ease-out"
+      >
         <DropdownMenuRadioGroup
           value={params.sort}
           onValueChange={(value) => {
@@ -526,7 +530,7 @@ function SortDropdown({
             <DropdownMenuRadioItem
               key={sortValue}
               value={sortValue}
-              className="cursor-pointer rounded-lg py-2 text-sm font-medium"
+              className="cursor-pointer rounded-lg py-2 text-sm font-medium transition-colors duration-200 focus:bg-[var(--brand-orange)]/10 focus:text-[var(--brand-orange)] data-[state=checked]:text-[var(--brand-orange)]"
             >
               {SORT_LABELS[sortValue]}
             </DropdownMenuRadioItem>
@@ -554,34 +558,57 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
   }, []);
 
   return (
-    <main className="min-h-screen w-full px-4 py-4 sm:px-6 sm:py-6 lg:pl-0 lg:pr-4">
-      <h1 className="mb-3 text-center text-xl font-black uppercase tracking-tight text-[var(--brand-black)] sm:mb-4 sm:text-2xl lg:mb-5">
-        CÁTALOGO DE VEHICULOS
-      </h1>
+    <main className="min-h-screen w-full lg:pl-0 lg:pr-4">
+      <section
+        className="flex w-full flex-col items-center justify-center gap-4 bg-gradient-to-b from-[#c2410c] to-[#7c2d12] py-12 sm:gap-5 sm:py-16 md:flex-row md:gap-6"
+        aria-label="Título del catálogo"
+      >
+        <div className="relative h-14 w-14 shrink-0 sm:h-16 sm:w-16 md:h-[4.5rem] md:w-[4.5rem]">
+          <Image
+            src="/04 Iso Negro.png"
+            alt=""
+            fill
+            className="object-contain object-center"
+            sizes="(max-width: 768px) 4rem, 4.5rem"
+            priority
+          />
+        </div>
+        <h1 className="text-center text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+          Catálogo de Vehículos
+        </h1>
+      </section>
 
+      <div className="px-4 py-4 sm:px-6 sm:py-6">
       <Dialog open={isFiltersOpen} onOpenChange={setIsFiltersOpen}>
         <DialogContent
           showCloseButton={false}
-          className="fixed inset-0 h-screen max-h-screen w-screen max-w-none translate-x-0 translate-y-0 rounded-none border-0 p-0 duration-300 data-[state=open]:slide-in-from-bottom-2 data-[state=closed]:slide-out-to-bottom-2 lg:hidden"
+          className="fixed inset-0 h-screen max-h-screen w-screen max-w-none translate-x-0 translate-y-0 rounded-none border-0 p-0 duration-500 ease-out data-[state=open]:slide-in-from-bottom-2 data-[state=closed]:slide-out-to-bottom-2 lg:hidden"
         >
           <DialogTitle className="sr-only">Filtros de catálogo</DialogTitle>
 
-          <div className="flex h-full flex-col bg-background">
-            <div className="flex items-center justify-between border-b border-border px-4 py-4">
+          <div className="flex h-full max-h-[100dvh] flex-col bg-background">
+            <header className="flex shrink-0 items-center justify-between border-b border-border px-4 py-3">
               <p className="text-lg font-black uppercase tracking-tight text-[var(--brand-black)]">
                 Filtros
               </p>
               <button
                 type="button"
                 onClick={() => setIsFiltersOpen(false)}
-                className="inline-flex h-10 items-center rounded-lg border border-border px-3 text-sm font-semibold"
+                className="inline-flex h-10 items-center rounded-xl border border-border px-3 text-sm font-semibold transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/40"
+                aria-label="Cerrar filtros"
               >
                 Cerrar
               </button>
-            </div>
+            </header>
 
-            <form action="/catalogo" className="flex min-h-0 flex-1 flex-col">
-              <div className="min-h-0 flex-1 overflow-y-auto px-4 py-4">
+            <form
+              action="/catalogo"
+              method="get"
+              className="flex min-h-0 flex-1 flex-col overflow-hidden"
+              onSubmit={() => setIsFiltersOpen(false)}
+            >
+              <input type="hidden" name="page" value="1" />
+              <div className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-4 py-4 [overflow-scrolling:touch]">
                 <p className="mb-3 text-xs font-medium text-muted-foreground">
                   {result.total} resultados disponibles
                 </p>
@@ -592,12 +619,13 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
                   applyOnChange={false}
                   idPrefix="mobile"
                 />
+                <div className="h-6 shrink-0" aria-hidden />
               </div>
-              <div className="grid grid-cols-2 gap-2 border-t border-border bg-background px-4 py-3">
-                <Button asChild type="button" variant="outline" className="h-11 rounded-xl">
+              <div className="grid shrink-0 grid-cols-2 gap-3 border-t border-border bg-background px-4 py-3 pb-[env(safe-area-inset-bottom)]">
+                <Button asChild type="button" variant="outline" className="h-12 rounded-xl">
                   <Link href="/catalogo">Limpiar</Link>
                 </Button>
-                <Button type="submit" className="h-11 rounded-xl">
+                <Button type="submit" className="h-12 rounded-xl">
                   Aplicar
                 </Button>
               </div>
@@ -613,7 +641,7 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
             initial={{ opacity: 0, x: -16, scale: 0.95 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: -16, scale: 0.95 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
             onClick={() => setIsFiltersOpen(true)}
             className="fixed bottom-4 left-3 z-40 inline-flex items-center gap-1.5 rounded-full border border-black/15 bg-white px-3 py-2 text-xs font-semibold text-[var(--brand-black)] shadow-[0_10px_24px_rgba(0,0,0,0.18)] lg:hidden"
             aria-label="Abrir filtros"
@@ -626,7 +654,7 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
 
       <div className="grid min-h-[calc(100vh-8rem)] gap-4 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-0">
         <aside className="hidden lg:block lg:shrink-0">
-          <div className="sticky top-24 flex max-h-[calc(100vh-7rem)] flex-col overflow-hidden rounded-r-2xl border-y border-r border-black/10 bg-white py-4 pl-4 pr-3 shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
+          <div className="sticky top-24 flex max-h-[calc(100vh-7rem)] flex-col overflow-hidden rounded-r-2xl border-y border-r border-l-2 border-l-[var(--brand-orange)]/30 border-black/10 bg-white py-4 pl-4 pr-3 shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
             <div className="flex shrink-0 items-center gap-2 border-b border-border px-2 pb-3">
               <SlidersHorizontal className="size-4 text-[var(--brand-orange)]" />
               <h2 className="text-base font-black uppercase tracking-tight text-[var(--brand-black)]">
@@ -721,6 +749,7 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
             </>
           )}
         </section>
+      </div>
       </div>
     </main>
   );

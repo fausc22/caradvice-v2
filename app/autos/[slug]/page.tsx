@@ -1,9 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, CalendarDays, Fuel, Gauge, MessageCircle } from "lucide-react";
+import { ArrowLeft, CalendarDays, Gauge } from "lucide-react";
 import { catalogCars, getCatalogCarBySlug } from "@/lib/catalog";
+import { AutoDetailActions } from "@/components/cars/auto-detail-actions";
+import { AutoDetailCalculators } from "@/components/cars/auto-detail-calculators";
+import { AutoDetailSpecs } from "@/components/cars/auto-detail-specs";
 import { GearboxIcon } from "@/components/icons/gearbox-icon";
+import { AutoImageGallery } from "@/components/cars/auto-image-gallery";
 import { CarCard } from "@/components/cars/car-card";
 import { ContactLeadForm } from "@/components/home/contact-lead-form";
 import { Button } from "@/components/ui/button";
@@ -31,6 +34,16 @@ function getSafeReturnTo(value?: string): string {
   return value;
 }
 
+function formatLabel(value: string): string {
+  if (value === "0km") return "0 km";
+  return value.replaceAll("_", " ");
+}
+
+function getViewingNowCount(slug: string): number {
+  const hash = slug.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return (hash % 14) + 3;
+}
+
 export default async function AutoDetailPage({ params, searchParams }: AutoDetailPageProps) {
   const { slug } = await params;
   const search = await searchParams;
@@ -46,13 +59,18 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
     `Hola Car Advice, me interesa el ${car.brand} ${car.model} ${car.version} (${car.year}) que vi en el catálogo.`,
   );
   const whatsappHref = `${WHATSAPP_DIRECT_LINK}?text=${whatsappMessage}`;
+  const reserveMessage = encodeURIComponent(
+    `Hola Car Advice, quiero reservar el ${car.brand} ${car.model} ${car.version} (${car.year}). ¿Me comparten los próximos pasos?`,
+  );
+  const reserveHref = `${WHATSAPP_DIRECT_LINK}?text=${reserveMessage}`;
+  const viewingNow = getViewingNowCount(car.slug);
 
   const similarCars = catalogCars
     .filter((item) => item.slug !== car.slug && (item.brand === car.brand || item.type === car.type))
     .slice(0, 3);
 
   return (
-    <main className="mx-auto w-full max-w-screen-xl px-4 py-6 sm:px-6 sm:py-8">
+    <main className="mx-auto w-full max-w-screen-xl px-4 pb-28 pt-6 sm:px-6 sm:pt-8 lg:pb-10">
       <div className="mb-5 flex flex-wrap items-center gap-2 text-xs text-muted-foreground sm:text-sm">
         <Link href="/" className="transition-colors hover:text-foreground">
           Inicio
@@ -73,21 +91,13 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
       </Link>
 
       <section className="grid gap-5 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
-        <article className="overflow-hidden rounded-3xl border border-black/10 bg-white shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
-          <div className="relative aspect-[16/10] w-full">
-            <Image
-              src={car.coverImage}
-              alt={`${car.brand} ${car.model} ${car.version}`}
-              fill
-              className="object-cover object-center"
-              priority
-              sizes="(max-width: 1024px) 100vw, 64vw"
-            />
-            <span className="absolute left-4 top-4 inline-flex rounded-full border border-white/35 bg-black/35 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur">
-              {car.type}
-            </span>
-          </div>
-        </article>
+        <AutoImageGallery
+          images={car.images}
+          fallbackImage={car.coverImage}
+          alt={`${car.brand} ${car.model} ${car.version}`}
+          typeLabel={car.type}
+          conditionLabel={formatLabel(car.condicion)}
+        />
 
         <article className="rounded-3xl border border-black/10 bg-white p-5 shadow-[0_12px_40px_rgba(0,0,0,0.08)] sm:p-6">
           <div className="space-y-1">
@@ -125,71 +135,50 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
             </p>
           </div>
 
-          <div className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-            <Button asChild className="h-11 rounded-xl text-sm">
-              <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="size-4" aria-hidden />
-                Consultar por WhatsApp
-              </a>
-            </Button>
-            <Button asChild variant="outline" className="h-11 rounded-xl text-sm">
-              <Link href={returnTo}>Volver al catálogo</Link>
-            </Button>
+          <div className="mt-5 rounded-2xl border border-border bg-muted/20 p-4">
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              Información destacada
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {car.color && (
+                <span className="inline-flex items-center rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-[var(--brand-black)]">
+                  Color: {car.color}
+                </span>
+              )}
+              <span className="inline-flex items-center rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-[var(--brand-black)]">
+                Condición: {formatLabel(car.condicion)}
+              </span>
+              {car.extras?.slice(0, 4).map((extra) => (
+                <span
+                  key={extra}
+                  className="inline-flex items-center rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-[var(--brand-black)]"
+                >
+                  {extra}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <AutoDetailActions
+            slug={car.slug}
+            priceArs={car.priceArs}
+            whatsappHref={whatsappHref}
+            reserveHref={reserveHref}
+            viewingNow={viewingNow}
+          />
+          <div className="mt-3">
+            <Link
+              href={returnTo}
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Volver al catálogo
+            </Link>
           </div>
         </article>
       </section>
 
       <section className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
-        <article className="rounded-3xl border border-black/10 bg-white p-5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] sm:p-6">
-          <h2 className="text-xl font-black uppercase tracking-tight text-[var(--brand-black)] sm:text-2xl">
-            Especificaciones principales
-          </h2>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Información relevante para comparar este vehículo.
-          </p>
-
-          <div className="mt-5 grid gap-3 sm:grid-cols-2">
-            <div className="rounded-xl border border-border bg-muted/20 p-3">
-              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Marca / Modelo
-              </p>
-              <p className="mt-1 text-sm font-semibold text-[var(--brand-black)]">
-                {car.brand} {car.model}
-              </p>
-            </div>
-            <div className="rounded-xl border border-border bg-muted/20 p-3">
-              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Versión</p>
-              <p className="mt-1 text-sm font-semibold text-[var(--brand-black)]">{car.version}</p>
-            </div>
-            <div className="rounded-xl border border-border bg-muted/20 p-3">
-              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Año</p>
-              <p className="mt-1 text-sm font-semibold text-[var(--brand-black)]">{car.year}</p>
-            </div>
-            <div className="rounded-xl border border-border bg-muted/20 p-3">
-              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Kilometraje
-              </p>
-              <p className="mt-1 text-sm font-semibold text-[var(--brand-black)]">
-                {formatNumber.format(car.km)} km
-              </p>
-            </div>
-            <div className="rounded-xl border border-border bg-muted/20 p-3">
-              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Transmisión
-              </p>
-              <p className="mt-1 text-sm font-semibold text-[var(--brand-black)]">{car.transmission}</p>
-            </div>
-            <div className="rounded-xl border border-border bg-muted/20 p-3">
-              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Combustible
-              </p>
-              <p className="mt-1 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--brand-black)]">
-                <Fuel className="size-4 text-[var(--brand-orange)]" aria-hidden />
-                {car.fuel}
-              </p>
-            </div>
-          </div>
-        </article>
+        <AutoDetailSpecs car={car} />
 
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <h2 className="mb-3 text-xl font-black uppercase tracking-tight text-[var(--brand-black)]">
@@ -198,6 +187,11 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
           <ContactLeadForm />
         </aside>
       </section>
+
+      <AutoDetailCalculators
+        vehicleLabel={`${car.brand} ${car.model} ${car.version} (${car.year})`}
+        priceArs={car.priceArs}
+      />
 
       <section className="mt-8 rounded-3xl border border-border bg-muted/20 p-4 sm:p-6">
         <div>

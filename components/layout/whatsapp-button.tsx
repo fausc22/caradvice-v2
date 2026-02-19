@@ -1,10 +1,15 @@
 "use client";
 
-/** Botón flotante WhatsApp (esquina inferior derecha). Link en lib/constants. */
+/** Botón flotante WhatsApp (esquina inferior derecha). Link en lib/constants. Oculto en detalle de auto para no chocar con la barra sticky. */
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { WHATSAPP_LINK } from "@/lib/constants";
 
 export function WhatsAppButton() {
+  const pathname = usePathname();
+  const isAutoDetail = pathname.startsWith("/autos/") && pathname.split("/").filter(Boolean).length === 2;
+  if (isAutoDetail) return null;
+
   return (
     <motion.a
       href={WHATSAPP_LINK}

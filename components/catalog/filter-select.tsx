@@ -10,7 +10,7 @@ import {
 import { cn } from "@/lib/utils";
 
 const TRIGGER_STYLE =
-  "h-10 w-full rounded-xl border border-border bg-white px-3 text-sm font-medium text-[var(--brand-black)] shadow-xs transition-colors hover:border-[var(--brand-orange)]/40 focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-0 data-[placeholder]:text-muted-foreground";
+  "h-10 w-full rounded-xl border border-border bg-white px-3 text-sm font-medium text-[var(--brand-black)] shadow-xs transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/50 focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-0 data-[placeholder]:text-muted-foreground";
 
 type FilterSelectProps = {
   value: string;
@@ -20,6 +20,8 @@ type FilterSelectProps = {
   name?: string;
   id?: string;
   disabled?: boolean;
+  /** Cuando true, el dropdown se muestra por encima de modales (z-index alto). */
+  inModal?: boolean;
 };
 
 export function FilterSelect({
@@ -30,6 +32,7 @@ export function FilterSelect({
   name,
   id,
   disabled,
+  inModal = false,
 }: FilterSelectProps) {
   return (
     <div className="relative">
@@ -41,17 +44,27 @@ export function FilterSelect({
         onValueChange={(v) => onValueChange(v === "__empty__" ? "" : v)}
         disabled={disabled}
       >
-        <SelectTrigger id={id} className={cn(TRIGGER_STYLE, "w-full")}>
+        <SelectTrigger
+          id={id}
+          className={cn(
+            TRIGGER_STYLE,
+            "w-full",
+            value && "border-[var(--brand-orange)]/40 text-[var(--brand-orange)]",
+          )}
+        >
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
         <SelectContent
-          className="rounded-xl border-border"
+          className={cn(
+            "rounded-xl border border-[var(--brand-orange)]/20 shadow-lg transition-[transform,opacity] duration-300 ease-out",
+            inModal && "z-[100]",
+          )}
           position="popper"
           sideOffset={4}
         >
           <SelectItem
             value="__empty__"
-            className="cursor-pointer rounded-lg focus:bg-[var(--brand-orange)]/10 focus:text-[var(--brand-orange)]"
+            className="cursor-pointer rounded-lg transition-colors duration-200 focus:bg-[var(--brand-orange)]/10 focus:text-[var(--brand-orange)]"
           >
             {placeholder}
           </SelectItem>
@@ -59,7 +72,7 @@ export function FilterSelect({
             <SelectItem
               key={opt.value}
               value={opt.value}
-              className="cursor-pointer rounded-lg focus:bg-[var(--brand-orange)]/10 focus:text-[var(--brand-orange)] data-[state=checked]:bg-[var(--brand-orange)]/10 data-[state=checked]:text-[var(--brand-orange)]"
+              className="cursor-pointer rounded-lg transition-colors duration-200 focus:bg-[var(--brand-orange)]/10 focus:text-[var(--brand-orange)] data-[state=checked]:bg-[var(--brand-orange)]/10 data-[state=checked]:font-medium data-[state=checked]:text-[var(--brand-orange)]"
             >
               {opt.label}
             </SelectItem>
