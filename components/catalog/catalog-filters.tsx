@@ -19,6 +19,7 @@ import {
   CATALOG_CONDICION_VALUES,
   CATALOG_TIPOLOGIA_LABELS,
   CATALOG_TIPOLOGIA_VALUES,
+  normalizeCatalogString,
   type CatalogFilterMetadata,
   type CatalogQueryParams,
 } from "@/lib/catalog";
@@ -47,7 +48,7 @@ const CONDICION_LABELS: Record<(typeof CATALOG_CONDICION_VALUES)[number], string
 };
 
 const FIELD_STYLE =
-  "h-10 w-full rounded-xl border border-border bg-white px-3 text-sm outline-none transition-all duration-300 ease-out placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]";
+  "h-10 w-full rounded-xl border border-border bg-card px-3 text-sm outline-none transition-all duration-300 ease-out placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]";
 
 const LABEL_STYLE =
   "text-xs font-semibold uppercase tracking-wide text-[var(--brand-black)]/70";
@@ -104,17 +105,23 @@ export function CatalogFilters({
 
   const nav = (next: Partial<CatalogQueryParams>) => {
     if (!applyOnChange) return;
-    router.push(buildCatalogUrl({ ...params, ...next, page: 1 }));
+    const url = buildCatalogUrl({ ...params, ...next, page: 1 });
+    // Diferir navegación para que el dropdown de Radix cierre sin provocar recarga en desktop
+    queueMicrotask(() => {
+      router.push(url, { scroll: false });
+    });
   };
 
   const formatPrice = (n: number) => n.toLocaleString("es-AR");
 
   const currentMarca = applyOnChange ? params.marca : formValues.marca;
   const currentModelo = applyOnChange ? params.modelo : formValues.modelo;
-  const modelos = currentMarca ? filtersMeta.modelsByBrand[currentMarca] ?? [] : [];
+  const keyMarca = normalizeCatalogString(currentMarca);
+  const keyModelo = normalizeCatalogString(currentModelo);
+  const modelos = currentMarca ? filtersMeta.modelsByBrand[keyMarca] ?? [] : [];
   const versiones =
     currentMarca && currentModelo
-      ? filtersMeta.versionesByModelo[`${currentMarca}|${currentModelo}`] ?? []
+      ? filtersMeta.versionesByModelo[`${keyMarca}|${keyModelo}`] ?? []
       : [];
 
   return (
@@ -133,7 +140,7 @@ export function CatalogFilters({
                   "flex flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-2.5 text-[11px] font-medium transition-all duration-300 ease-out sm:text-xs",
                   params.tipologia === t
                     ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/10 text-[var(--brand-orange)]"
-                    : "border-border bg-white text-muted-foreground hover:border-[var(--brand-orange)]/40 hover:bg-muted/30",
+                    : "border-border bg-card text-muted-foreground hover:border-[var(--brand-orange)]/40 hover:bg-muted/30",
                 )}
               >
                 <span
@@ -156,7 +163,7 @@ export function CatalogFilters({
                   "col-span-3 flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-2.5 text-[11px] font-medium transition-all duration-300 ease-out sm:col-span-1 sm:col-start-1 sm:text-xs",
                   !params.tipologia
                     ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/10 text-[var(--brand-orange)]"
-                    : "border-border bg-white text-muted-foreground hover:border-[var(--brand-orange)]/40 hover:bg-muted/30",
+                    : "border-border bg-card text-muted-foreground hover:border-[var(--brand-orange)]/40 hover:bg-muted/30",
                 )}
               >
                 <input
@@ -185,7 +192,7 @@ export function CatalogFilters({
                     "flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-2.5 text-[11px] font-medium transition-all duration-300 ease-out sm:text-xs",
                     params.tipologia === t
                       ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/10 text-[var(--brand-orange)]"
-                      : "border-border bg-white text-muted-foreground hover:border-[var(--brand-orange)]/40 hover:bg-muted/30",
+                      : "border-border bg-card text-muted-foreground hover:border-[var(--brand-orange)]/40 hover:bg-muted/30",
                   )}
                 >
                   <input
@@ -239,6 +246,14 @@ export function CatalogFilters({
           name="marca"
           value={v("marca")}
           onValueChange={(val) => {
+            if (applyOnChange) {
+              nav({
+                marca: val || undefined,
+                modelo: undefined,
+                version: undefined,
+              });
+              return;
+            }
             setV("marca", val);
             setV("modelo", "");
             setV("version", "");
@@ -258,6 +273,13 @@ export function CatalogFilters({
           name="modelo"
           value={v("modelo")}
           onValueChange={(val) => {
+            if (applyOnChange) {
+              nav({
+                modelo: val || undefined,
+                version: undefined,
+              });
+              return;
+            }
             setV("modelo", val);
             setV("version", "");
           }}
@@ -304,7 +326,7 @@ export function CatalogFilters({
                   className={cn(
                     "rounded-md px-2 py-1 text-[11px] font-semibold transition-colors sm:text-xs",
                     params.moneda !== "dolares"
-                      ? "bg-white text-[var(--brand-orange)] shadow-sm font-semibold"
+                      ? "bg-card text-[var(--brand-orange)] shadow-sm font-semibold"
                       : "text-muted-foreground hover:text-[var(--brand-orange)]/80",
                   )}
                 >
@@ -322,7 +344,7 @@ export function CatalogFilters({
                   className={cn(
                     "rounded-md px-2 py-1 text-[11px] font-semibold transition-colors sm:text-xs",
                     params.moneda === "dolares"
-                      ? "bg-white text-[var(--brand-orange)] shadow-sm font-semibold"
+                      ? "bg-card text-[var(--brand-orange)] shadow-sm font-semibold"
                       : "text-muted-foreground hover:text-[var(--brand-orange)]/80",
                   )}
                 >
@@ -335,7 +357,7 @@ export function CatalogFilters({
                   className={cn(
                     "cursor-pointer rounded-md px-2 py-1 text-[11px] font-semibold transition-colors sm:text-xs",
                     params.moneda !== "dolares"
-                      ? "bg-white text-[var(--brand-orange)] shadow-sm font-semibold"
+                      ? "bg-card text-[var(--brand-orange)] shadow-sm font-semibold"
                       : "text-muted-foreground",
                   )}
                 >
@@ -352,7 +374,7 @@ export function CatalogFilters({
                   className={cn(
                     "cursor-pointer rounded-md px-2 py-1 text-[11px] font-semibold transition-colors sm:text-xs",
                     params.moneda === "dolares"
-                      ? "bg-white text-[var(--brand-orange)] shadow-sm font-semibold"
+                      ? "bg-card text-[var(--brand-orange)] shadow-sm font-semibold"
                       : "text-muted-foreground",
                   )}
                 >
@@ -371,8 +393,12 @@ export function CatalogFilters({
         </div>
         <DualRangeFilter
           label=""
-          min={0}
-          max={params.moneda === "dolares" ? 200_000 : 100_000_000}
+          min={params.moneda === "dolares" ? filtersMeta.priceRangeUsd.min : filtersMeta.priceRange.min}
+          max={
+            params.moneda === "dolares"
+              ? (filtersMeta.priceRangeUsd.max > 0 ? filtersMeta.priceRangeUsd.max : 200_000)
+              : (filtersMeta.priceRange.max > 0 ? filtersMeta.priceRange.max : 100_000_000)
+          }
           valueMin={params.precioMin}
           valueMax={params.precioMax}
           step={params.moneda === "dolares" ? 100 : 100_000}
@@ -450,7 +476,7 @@ export function CatalogFilters({
       </div>
 
       {/* 8. Otros (expandible) */}
-      <details className="group rounded-xl border border-border bg-white transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/40">
+      <details className="group rounded-xl border border-border bg-card transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/40">
         <summary className="flex cursor-pointer list-none items-center justify-between gap-2 rounded-xl px-3 py-2.5 text-sm font-medium text-[var(--brand-black)] transition-colors duration-300 hover:bg-[var(--brand-orange)]/5 [&::-webkit-details-marker]:hidden">
           <span className="flex items-center gap-2">
             <MoreHorizontal className="size-4 text-[var(--brand-orange)]" />

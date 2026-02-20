@@ -35,7 +35,7 @@ function PromoBanner({
   return (
     <div className="space-y-3 sm:space-y-4">
       <article
-        className={`relative mx-auto max-w-5xl overflow-hidden rounded-3xl border border-black/10 px-4 py-5 shadow-[0_10px_30px_rgba(0,0,0,0.08)] sm:px-6 sm:py-6 lg:px-7 lg:py-8 ${bannerBgClass}`}
+        className={`relative mx-auto max-w-5xl overflow-hidden rounded-3xl border border-[var(--brand-gray)]/40 px-4 py-5 shadow-[0_10px_30px_rgba(0,0,0,0.08)] sm:px-6 sm:py-6 lg:px-7 lg:py-8 ${bannerBgClass}`}
       >
         <div
           className={`pointer-events-none absolute -left-16 -top-16 h-48 w-48 rounded-full blur-2xl ${leftEffectClass}`}

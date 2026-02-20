@@ -12,6 +12,7 @@ import { ContactLeadForm } from "@/components/home/contact-lead-form";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_DIRECT_LINK } from "@/lib/constants";
 import { toFeaturedCar } from "@/lib/mock-featured-cars";
+import { formatVehiclePrice } from "@/lib/utils";
 
 type AutoDetailPageProps = {
   params: Promise<{
@@ -19,12 +20,6 @@ type AutoDetailPageProps = {
   }>;
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
-
-const formatCurrency = new Intl.NumberFormat("es-AR", {
-  style: "currency",
-  currency: "ARS",
-  maximumFractionDigits: 0,
-});
 
 const formatNumber = new Intl.NumberFormat("es-AR");
 
@@ -99,7 +94,7 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
           conditionLabel={formatLabel(car.condicion)}
         />
 
-        <article className="rounded-3xl border border-black/10 bg-white p-5 shadow-[0_12px_40px_rgba(0,0,0,0.08)] sm:p-6">
+        <article className="rounded-3xl border border-[var(--brand-gray)]/40 bg-card p-5 shadow-[0_12px_40px_rgba(0,0,0,0.08)] sm:p-6">
           <div className="space-y-1">
             <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--brand-orange)]">
               Vehículo disponible
@@ -125,33 +120,33 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
             </span>
           </div>
 
-          <div className="mt-6 space-y-3 rounded-2xl border border-black/10 bg-muted/20 p-4">
+          <div className="mt-6 space-y-3 rounded-2xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-4">
             <p className="text-sm font-medium text-muted-foreground">Precio final</p>
             <p className="text-4xl font-black tracking-tight text-[var(--brand-black)] sm:text-5xl">
-              {formatCurrency.format(car.priceArs)}
+              {formatVehiclePrice(car.priceArs, car.priceUsd)}
             </p>
             <p className="text-sm text-muted-foreground">
               Consultá financiación, permutas y disponibilidad inmediata.
             </p>
           </div>
 
-          <div className="mt-5 rounded-2xl border border-border bg-muted/20 p-4">
+          <div className="mt-5 rounded-2xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-4">
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Información destacada
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
               {car.color && (
-                <span className="inline-flex items-center rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-[var(--brand-black)]">
+                <span className="inline-flex items-center rounded-full border border-[var(--brand-gray)]/50 bg-card px-3 py-1 text-xs font-medium text-[var(--brand-black)]">
                   Color: {car.color}
                 </span>
               )}
-              <span className="inline-flex items-center rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-[var(--brand-black)]">
+              <span className="inline-flex items-center rounded-full border border-[var(--brand-gray)]/50 bg-card px-3 py-1 text-xs font-medium text-[var(--brand-black)]">
                 Condición: {formatLabel(car.condicion)}
               </span>
               {car.extras?.slice(0, 4).map((extra) => (
                 <span
                   key={extra}
-                  className="inline-flex items-center rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-[var(--brand-black)]"
+                  className="inline-flex items-center rounded-full border border-[var(--brand-gray)]/50 bg-card px-3 py-1 text-xs font-medium text-[var(--brand-black)]"
                 >
                   {extra}
                 </span>
@@ -162,6 +157,7 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
           <AutoDetailActions
             slug={car.slug}
             priceArs={car.priceArs}
+            priceUsd={car.priceUsd}
             whatsappHref={whatsappHref}
             reserveHref={reserveHref}
             viewingNow={viewingNow}
@@ -191,6 +187,7 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
       <AutoDetailCalculators
         vehicleLabel={`${car.brand} ${car.model} ${car.version} (${car.year})`}
         priceArs={car.priceArs}
+        priceUsd={car.priceUsd}
       />
 
       <section className="mt-8 rounded-3xl border border-border bg-muted/20 p-4 sm:p-6">

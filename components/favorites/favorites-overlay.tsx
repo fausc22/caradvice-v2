@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, Trash2 } from "lucide-react";
+import { Heart, Scale, Trash2 } from "lucide-react";
 import { featuredCars } from "@/lib/mock-featured-cars";
 import { useFavorites } from "@/hooks";
 import {
@@ -21,17 +21,14 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { formatVehiclePrice } from "@/lib/utils";
+
+const MAX_COMPARE_VEHICLES = 5;
 
 type FavoritesOverlayProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
 };
-
-const formatCurrency = new Intl.NumberFormat("es-AR", {
-  style: "currency",
-  currency: "ARS",
-  maximumFractionDigits: 0,
-});
 
 function useIsMobile(maxWidth = 767) {
   const [isMobile, setIsMobile] = useState<boolean>(() => {
@@ -67,6 +64,10 @@ function FavoritesOverlayContent({
         .filter((item): item is (typeof featuredCars)[number] => Boolean(item)),
     [favoriteSlugs],
   );
+  const compareSlugs = useMemo(
+    () => favoriteSlugs.slice(0, MAX_COMPARE_VEHICLES),
+    [favoriteSlugs],
+  );
 
   return (
     <div className="flex h-full flex-col">
@@ -86,7 +87,7 @@ function FavoritesOverlayContent({
       </div>
 
       {favoriteCars.length === 0 ? (
-        <div className="flex h-full flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-muted/20 p-6 text-center">
+        <div className="flex h-full flex-col items-center justify-center rounded-2xl border border-dashed border-[var(--brand-gray)] bg-[var(--brand-cream)]/25 p-6 text-center">
           <Heart className="mb-3 size-8 text-muted-foreground" />
           <p className="text-sm font-medium text-foreground">
             Todavía no guardaste favoritos
@@ -103,52 +104,93 @@ function FavoritesOverlayContent({
           </Button>
         </div>
       ) : (
-        <div className="flex-1 space-y-3 overflow-y-auto pr-1">
-          {favoriteCars.map((car) => (
-            <article
-              key={car.slug}
-              className="flex items-center gap-3 rounded-2xl border border-border bg-white p-3 shadow-[0_4px_12px_rgba(0,0,0,0.05)]"
-            >
-              <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-xl bg-muted">
-                <Image
-                  src={car.imageSrc}
-                  alt={`${car.title} ${car.version}`}
-                  fill
-                  sizes="112px"
-                  quality={90}
-                  className="object-cover object-center"
-                />
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-black uppercase text-[var(--brand-black)]">
-                  {car.title}
-                </p>
-                <p className="truncate text-xs text-muted-foreground">{car.version}</p>
-                <p className="mt-2 truncate text-lg font-black text-[var(--brand-black)]">
-                  {formatCurrency.format(car.priceArs)}
-                </p>
-              </div>
-              <div className="flex flex-col gap-2">
+        <>
+          <div className="flex-1 space-y-3 overflow-y-auto pr-1">
+            {favoriteCars.map((car) => (
+              <article
+                key={car.slug}
+                className="flex items-center gap-3 rounded-2xl border border-[var(--brand-gray)]/40 bg-card p-3 shadow-[0_4px_12px_rgba(0,0,0,0.05)]"
+              >
+                <div className="relative h-20 w-28 shrink-0 overflow-hidden rounded-xl bg-muted">
+                  <Image
+                    src={car.imageSrc}
+                    alt={`${car.title} ${car.version}`}
+                    fill
+                    sizes="112px"
+                    quality={90}
+                    className="object-cover object-center"
+                  />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-black uppercase text-[var(--brand-black)]">
+                    {car.title}
+                  </p>
+                  <p className="truncate text-xs text-muted-foreground">{car.version}</p>
+                  <p className="mt-2 truncate text-lg font-black text-[var(--brand-black)]">
+                    {formatVehiclePrice(car.priceArs, car.priceUsd)}
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <Button
+                    asChild
+                    size="sm"
+                    className="h-8 rounded-lg bg-[var(--brand-orange)] px-3 text-xs text-white hover:bg-[var(--brand-orange-light)]"
+                    onClick={() => onOpenChange(false)}
+                  >
+                    <Link href={`/autos/${car.slug}`}>Ver</Link>
+                  </Button>
+                  <button
+                    type="button"
+                    onClick={() => removeFavorite(car.slug)}
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:bg-muted/40 hover:text-foreground"
+                    aria-label={`Quitar ${car.title} de favoritos`}
+                  >
+                    <Trash2 className="size-4" aria-hidden />
+                  </button>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* CTA Comparar: solo con 2+ favoritos; con 1 se muestra mensaje y botón deshabilitado */}
+          <div className="mt-4 border-t border-border pt-4">
+            {favoriteCount >= 2 ? (
+              <div className="space-y-2">
                 <Button
                   asChild
-                  size="sm"
-                  className="h-8 rounded-lg bg-[var(--brand-orange)] px-3 text-xs text-white hover:bg-[var(--brand-orange-light)]"
+                  className="h-10 w-full rounded-xl bg-[var(--brand-orange)] px-4 text-sm font-semibold text-white hover:bg-[var(--brand-orange-light)]"
                   onClick={() => onOpenChange(false)}
                 >
-                  <Link href={`/autos/${car.slug}`}>Ver</Link>
+                  <Link
+                    href={`/comparar?vehiculos=${encodeURIComponent(compareSlugs.join(","))}`}
+                    aria-label="Ir a comparar vehículos seleccionados"
+                  >
+                    <Scale className="size-4 shrink-0" aria-hidden />
+                    Comparar vehículos
+                  </Link>
                 </Button>
-                <button
-                  type="button"
-                  onClick={() => removeFavorite(car.slug)}
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:bg-muted/40 hover:text-foreground"
-                  aria-label={`Quitar ${car.title} de favoritos`}
-                >
-                  <Trash2 className="size-4" aria-hidden />
-                </button>
+                <p className="text-center text-xs text-muted-foreground">
+                  Compará hasta {MAX_COMPARE_VEHICLES} vehículos.
+                  {favoriteCount > MAX_COMPARE_VEHICLES ? " Se usarán los primeros 5." : ""}
+                </p>
               </div>
-            </article>
-          ))}
-        </div>
+            ) : (
+              <div className="space-y-2">
+                <p className="text-center text-xs text-muted-foreground">
+                  Agregá otro vehículo a favoritos para poder comparar.
+                </p>
+                <Button
+                  disabled
+                  className="h-10 w-full rounded-xl text-sm font-semibold"
+                  aria-disabled="true"
+                >
+                  <Scale className="size-4 shrink-0" aria-hidden />
+                  Comparar vehículos
+                </Button>
+              </div>
+            )}
+          </div>
+        </>
       )}
     </div>
   );

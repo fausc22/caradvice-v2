@@ -5,7 +5,7 @@ import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
 
 const FIELD_STYLE =
-  "h-10 w-full rounded-xl border border-border bg-white px-3 text-sm outline-none transition-all duration-300 ease-out placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]";
+  "h-10 w-full rounded-xl border border-border bg-card px-3 text-sm outline-none transition-all duration-300 ease-out placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]";
 
 type DualRangeFilterProps = {
   label: string;

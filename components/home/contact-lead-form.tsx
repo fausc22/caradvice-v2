@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 export function ContactLeadForm() {
   return (
     <form
-      className="rounded-2xl border border-black/10 bg-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.06)] sm:p-6"
+      className="rounded-2xl border border-[var(--brand-gray)]/40 bg-card p-4 shadow-[0_10px_30px_rgba(0,0,0,0.06)] sm:p-6"
       onSubmit={(event) => event.preventDefault()}
       noValidate
     >
@@ -23,7 +23,7 @@ export function ContactLeadForm() {
             name="name"
             type="text"
             placeholder="Tu nombre"
-            className="h-11 w-full rounded-lg border border-black/15 bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
+            className="h-11 w-full rounded-lg border border-[var(--brand-gray)]/50 bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
           />
         </div>
 
@@ -39,7 +39,7 @@ export function ContactLeadForm() {
             name="email"
             type="email"
             placeholder="tu@email.com"
-            className="h-11 w-full rounded-lg border border-black/15 bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
+            className="h-11 w-full rounded-lg border border-[var(--brand-gray)]/50 bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
           />
         </div>
 
@@ -55,7 +55,7 @@ export function ContactLeadForm() {
             name="phone"
             type="tel"
             placeholder="351 515 8848"
-            className="h-11 w-full rounded-lg border border-black/15 bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
+            className="h-11 w-full rounded-lg border border-[var(--brand-gray)]/50 bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
           />
         </div>
 
@@ -71,7 +71,7 @@ export function ContactLeadForm() {
             name="message"
             placeholder="Contanos en qué podemos ayudarte..."
             rows={5}
-            className="w-full resize-none rounded-lg border border-black/15 bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
+            className="w-full resize-none rounded-lg border border-[var(--brand-gray)]/50 bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
           />
         </div>
 

@@ -1,4 +1,4 @@
-import { catalogCars } from "@/lib/catalog/mock-cars";
+import { catalogCars } from "@/lib/catalog/static-data";
 import type { CatalogCar } from "@/lib/catalog/types";
 
 export type FeaturedCar = {
@@ -8,6 +8,7 @@ export type FeaturedCar = {
   year: number;
   km: number;
   priceArs: number;
+  priceUsd: number;
   transmission: string;
   imageSrc: string;
 };
@@ -20,6 +21,7 @@ export function toFeaturedCar(car: CatalogCar): FeaturedCar {
     year: car.year,
     km: car.km,
     priceArs: car.priceArs,
+    priceUsd: car.priceUsd,
     transmission: car.transmission,
     imageSrc: car.coverImage,
   };

@@ -10,7 +10,7 @@ import {
 import { cn } from "@/lib/utils";
 
 const TRIGGER_STYLE =
-  "h-10 w-full rounded-xl border border-border bg-white px-3 text-sm font-medium text-[var(--brand-black)] shadow-xs transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/50 focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-0 data-[placeholder]:text-muted-foreground";
+  "h-10 w-full rounded-xl border border-border bg-card px-3 text-sm font-medium text-[var(--brand-black)] shadow-xs transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/50 focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-0 data-[placeholder]:text-muted-foreground";
 
 type FilterSelectProps = {
   value: string;
@@ -45,6 +45,7 @@ export function FilterSelect({
         disabled={disabled}
       >
         <SelectTrigger
+          type="button"
           id={id}
           className={cn(
             TRIGGER_STYLE,

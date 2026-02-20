@@ -19,6 +19,11 @@ export const CATALOG_DEFAULT_PER_PAGE = 12;
 const CATALOG_ALLOWED_PER_PAGE = new Set([12, 18, 24]);
 const MAX_QUERY_LENGTH = 80;
 
+/** Normaliza un string para comparación y uso como clave (trim + lowercase). Fuente de verdad: datos estáticos. */
+export function normalizeCatalogString(s: string | undefined): string {
+  return String(s ?? "").trim().toLowerCase();
+}
+
 function getFirstValue(
   input: URLSearchParams | CatalogSearchParamsInput,
   key: string,

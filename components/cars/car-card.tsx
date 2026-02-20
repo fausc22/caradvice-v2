@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Heart } from "lucide-react";
 import type { FeaturedCar } from "@/lib/mock-featured-cars";
 import { useFavorites } from "@/hooks";
-import { cn } from "@/lib/utils";
+import { cn, formatVehiclePrice } from "@/lib/utils";
 
 type CarCardProps = {
   car: FeaturedCar;
@@ -13,10 +13,6 @@ type CarCardProps = {
   imageSizes?: string;
   detailHref?: string;
 };
-
-function formatPrice(value: number): string {
-  return value.toLocaleString("es-AR");
-}
 
 export function CarCard({
   car,
@@ -42,7 +38,7 @@ export function CarCard({
   return (
     <article
       className={cn(
-        "group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_2px_12px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:shadow-[0_8px_28px_rgba(0,0,0,0.1)]",
+        "group flex h-full flex-col overflow-hidden rounded-2xl bg-card border border-[var(--brand-gray)]/30 shadow-[0_2px_12px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out hover:shadow-[0_8px_28px_rgba(0,0,0,0.1)]",
         className,
       )}
     >
@@ -70,7 +66,7 @@ export function CarCard({
             }
             aria-pressed={favorite}
             className={cn(
-              "absolute right-3 top-3 inline-flex size-9 items-center justify-center rounded-full bg-white/95 text-[var(--brand-black)] shadow-sm backdrop-blur-sm transition-all duration-200 hover:bg-white hover:scale-105",
+              "absolute right-3 top-3 inline-flex size-9 items-center justify-center rounded-full bg-[var(--brand-offwhite)]/95 text-[var(--brand-black)] shadow-sm backdrop-blur-sm transition-all duration-200 hover:bg-card hover:scale-105",
               favorite && "bg-[var(--brand-orange)]/10 text-[var(--brand-orange)]",
             )}
           >
@@ -94,7 +90,7 @@ export function CarCard({
           </p>
 
           <p className="mt-4 text-xl font-bold tracking-tight text-[var(--brand-black)] sm:text-2xl">
-            ${formatPrice(car.priceArs)}
+            {formatVehiclePrice(car.priceArs, car.priceUsd)}
           </p>
 
           <span className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-xl bg-[var(--brand-orange)] text-sm font-semibold text-white transition-colors duration-200 group-hover:bg-[var(--brand-orange-light)]">

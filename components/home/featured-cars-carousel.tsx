@@ -22,7 +22,7 @@ function CarouselSkeleton() {
       {Array.from({ length: 4 }).map((_, index) => (
         <article
           key={index}
-          className="h-full overflow-hidden rounded-3xl border border-black/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
+          className="h-full overflow-hidden rounded-3xl border border-[var(--brand-gray)]/40 bg-card shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
         >
           <div className="aspect-[16/10] w-full animate-pulse bg-muted/50" />
           <div className="space-y-4 p-4 sm:p-5">
@@ -186,7 +186,7 @@ export function FeaturedCarsCarousel() {
         <div
           role="tablist"
           aria-label="Categorías destacadas"
-          className="inline-flex items-center gap-1 rounded-full border border-black/10 bg-white p-1 shadow-[0_4px_14px_rgba(0,0,0,0.06)]"
+          className="inline-flex items-center gap-1 rounded-full border border-[var(--brand-gray)]/40 bg-card p-1 shadow-[0_4px_14px_rgba(0,0,0,0.06)]"
         >
           {HOME_CATEGORIES.map((category) => {
             const isActive = activeCategory === category.id;
@@ -219,7 +219,7 @@ export function FeaturedCarsCarousel() {
           aria-label="Ver autos anteriores"
           onClick={goToPrev}
           disabled={!canScrollLeft}
-          className="inline-flex size-9 items-center justify-center rounded-full border border-black/10 bg-white/90 text-[var(--brand-black)] backdrop-blur transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-40"
+          className="inline-flex size-9 items-center justify-center rounded-full border border-[var(--brand-gray)]/40 bg-card/90 text-[var(--brand-black)] backdrop-blur transition-colors hover:bg-card disabled:cursor-not-allowed disabled:opacity-40"
         >
           <ChevronLeft className="size-5" aria-hidden />
         </button>
@@ -228,7 +228,7 @@ export function FeaturedCarsCarousel() {
           aria-label="Ver autos siguientes"
           onClick={goToNext}
           disabled={!canScrollRight}
-          className="inline-flex size-9 items-center justify-center rounded-full border border-black/10 bg-white/90 text-[var(--brand-black)] backdrop-blur transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-40"
+          className="inline-flex size-9 items-center justify-center rounded-full border border-[var(--brand-gray)]/40 bg-card/90 text-[var(--brand-black)] backdrop-blur transition-colors hover:bg-card disabled:cursor-not-allowed disabled:opacity-40"
         >
           <ChevronRight className="size-5" aria-hidden />
         </button>

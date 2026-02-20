@@ -377,7 +377,7 @@ function PaginationControls({ params, totalPages }: { params: CatalogQueryParams
   const pages = Array.from({ length: end - start + 1 }, (_, idx) => start + idx);
 
   return (
-    <div className="mt-8 rounded-2xl border border-black/10 bg-white p-3 sm:p-4">
+    <div className="mt-8 rounded-2xl border border-[var(--brand-gray)]/40 bg-card p-3 sm:p-4">
       <div className="flex items-center justify-between sm:hidden">
         <PaginationNavLink
           href={prevHref}
@@ -494,7 +494,7 @@ function SortDropdown({
           type="button"
           aria-label="Ordenar resultados"
           className={cn(
-            "inline-flex h-10 min-w-[170px] items-center justify-between rounded-xl border border-border bg-white px-3 text-sm font-medium text-[var(--brand-black)] outline-none transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/40 hover:bg-muted/30 focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] sm:min-w-[230px]",
+            "inline-flex h-10 min-w-[170px] items-center justify-between rounded-xl border border-border bg-card px-3 text-sm font-medium text-[var(--brand-black)] outline-none transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/40 hover:bg-muted/30 focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] sm:min-w-[230px]",
             className,
           )}
         >
@@ -643,7 +643,7 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
             exit={{ opacity: 0, x: -16, scale: 0.95 }}
             transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
             onClick={() => setIsFiltersOpen(true)}
-            className="fixed bottom-4 left-3 z-40 inline-flex items-center gap-1.5 rounded-full border border-black/15 bg-white px-3 py-2 text-xs font-semibold text-[var(--brand-black)] shadow-[0_10px_24px_rgba(0,0,0,0.18)] lg:hidden"
+            className="fixed bottom-4 left-3 z-40 inline-flex items-center gap-1.5 rounded-full border border-[var(--brand-gray)]/50 bg-card px-3 py-2 text-xs font-semibold text-[var(--brand-black)] shadow-[0_10px_24px_rgba(0,0,0,0.18)] lg:hidden"
             aria-label="Abrir filtros"
           >
             <ListFilter className="size-3.5" />
@@ -654,7 +654,7 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
 
       <div className="grid min-h-[calc(100vh-8rem)] gap-4 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-0">
         <aside className="hidden lg:block lg:shrink-0">
-          <div className="sticky top-24 flex max-h-[calc(100vh-7rem)] flex-col overflow-hidden rounded-r-2xl border-y border-r border-l-2 border-l-[var(--brand-orange)]/30 border-black/10 bg-white py-4 pl-4 pr-3 shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
+          <div className="sticky top-24 flex max-h-[calc(100vh-7rem)] flex-col overflow-hidden rounded-r-2xl border-y border-r border-l-2 border-l-[var(--brand-orange)]/30 border-[var(--brand-gray)]/40 bg-card py-4 pl-4 pr-3 shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
             <div className="flex shrink-0 items-center gap-2 border-b border-border px-2 pb-3">
               <SlidersHorizontal className="size-4 text-[var(--brand-orange)]" />
               <h2 className="text-base font-black uppercase tracking-tight text-[var(--brand-black)]">
@@ -689,7 +689,7 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
             </div>
           </div>
 
-          <div className="mb-3 rounded-2xl border border-black/10 bg-white p-3 shadow-[0_8px_24px_rgba(0,0,0,0.05)] sm:mb-4 sm:p-4">
+          <div className="mb-3 rounded-2xl border border-[var(--brand-gray)]/40 bg-card p-3 shadow-[0_8px_24px_rgba(0,0,0,0.05)] sm:mb-4 sm:p-4">
             <form action="/catalogo" className="flex min-w-0 items-center gap-2">
               <HiddenFields params={params} omit={["q", "page"]} />
               <Input
@@ -721,7 +721,7 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
           <ActiveFiltersChips params={params} />
 
           {result.items.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-black/20 bg-white p-8 text-center">
+            <div className="rounded-2xl border border-dashed border-[var(--brand-gray)] bg-[var(--brand-cream)]/25 p-8 text-center">
               <p className="text-lg font-semibold text-[var(--brand-black)]">
                 No encontramos resultados con estos filtros.
               </p>

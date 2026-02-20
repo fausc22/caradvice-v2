@@ -25,7 +25,7 @@ export function AutoDetailSpecs({ car }: AutoDetailSpecsProps) {
   }, []);
 
   return (
-    <article className="rounded-3xl border border-black/10 bg-white p-5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] sm:p-6">
+    <article className="rounded-3xl border border-[var(--brand-gray)]/40 bg-card p-5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] sm:p-6">
       <div className="flex items-start justify-between gap-3">
         <div>
           <h2 className="text-xl font-black uppercase tracking-tight text-[var(--brand-black)] sm:text-2xl">
@@ -60,7 +60,7 @@ export function AutoDetailSpecs({ car }: AutoDetailSpecsProps) {
           isMobile && !isOpen && "hidden",
         )}
       >
-        <div className="rounded-xl border border-border bg-muted/20 p-3">
+        <div className="rounded-xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-3">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Marca / Modelo
           </p>
@@ -68,19 +68,19 @@ export function AutoDetailSpecs({ car }: AutoDetailSpecsProps) {
             {car.brand} {car.model}
           </p>
         </div>
-        <div className="rounded-xl border border-border bg-muted/20 p-3">
+        <div className="rounded-xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-3">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Versión
           </p>
           <p className="mt-1 text-sm font-semibold text-[var(--brand-black)]">{car.version}</p>
         </div>
-        <div className="rounded-xl border border-border bg-muted/20 p-3">
+        <div className="rounded-xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-3">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Año
           </p>
           <p className="mt-1 text-sm font-semibold text-[var(--brand-black)]">{car.year}</p>
         </div>
-        <div className="rounded-xl border border-border bg-muted/20 p-3">
+        <div className="rounded-xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-3">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Kilometraje
           </p>
@@ -88,7 +88,7 @@ export function AutoDetailSpecs({ car }: AutoDetailSpecsProps) {
             {formatNumber.format(car.km)} km
           </p>
         </div>
-        <div className="rounded-xl border border-border bg-muted/20 p-3">
+        <div className="rounded-xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-3">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Transmisión
           </p>
@@ -96,7 +96,7 @@ export function AutoDetailSpecs({ car }: AutoDetailSpecsProps) {
             {car.transmission}
           </p>
         </div>
-        <div className="rounded-xl border border-border bg-muted/20 p-3">
+        <div className="rounded-xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-3">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Combustible
           </p>
@@ -106,7 +106,7 @@ export function AutoDetailSpecs({ car }: AutoDetailSpecsProps) {
           </p>
         </div>
         {car.color && (
-          <div className="rounded-xl border border-border bg-muted/20 p-3">
+          <div className="rounded-xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-3">
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Color
             </p>
@@ -114,7 +114,7 @@ export function AutoDetailSpecs({ car }: AutoDetailSpecsProps) {
           </div>
         )}
         {car.puertas !== undefined && (
-          <div className="rounded-xl border border-border bg-muted/20 p-3">
+          <div className="rounded-xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-3">
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Puertas
             </p>
@@ -122,7 +122,7 @@ export function AutoDetailSpecs({ car }: AutoDetailSpecsProps) {
           </div>
         )}
         {car.extras && car.extras.length > 0 && (
-          <div className="rounded-xl border border-border bg-muted/20 p-3 sm:col-span-2">
+          <div className="rounded-xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-3 sm:col-span-2">
             <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Equipamiento destacado
             </p>

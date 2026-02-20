@@ -133,7 +133,7 @@ export function Navbar() {
               ))}
             </div>
             <span
-              className="ml-6 mr-1 h-5 w-px shrink-0 bg-white/25"
+              className="ml-6 mr-1 h-5 w-px shrink-0 bg-[var(--brand-gray)]"
               aria-hidden
             />
             <motion.button
@@ -215,7 +215,7 @@ export function Navbar() {
               transition={{ duration: 0.18, ease: [0.25, 0.1, 0.25, 1] }}
               className="overflow-hidden lg:hidden"
             >
-              <div className="border-t border-white/20 py-2">
+              <div className="border-t border-[var(--brand-gray)]/50 py-2">
                 {menuItems.map((item, index) => (
                   <motion.div
                     key={item.href}

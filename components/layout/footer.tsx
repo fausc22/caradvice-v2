@@ -182,7 +182,7 @@ export function Footer() {
                       className={`text-xs transition-colors sm:text-sm ${
                         hoveredLocation === index
                           ? "text-[var(--brand-orange-light)]"
-                          : "text-gray-300"
+                          : "text-[var(--brand-gray)]"
                       }`}
                     >
                       {location.address}
@@ -194,7 +194,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="my-6 border-t border-gray-700 lg:my-8" />
+        <div className="my-6 border-t border-[var(--brand-gray)]/60 lg:my-8" />
 
         <div className="flex flex-col items-center justify-between gap-3 pb-6 sm:flex-row lg:pb-8">
           <div className="text-sm text-white">

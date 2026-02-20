@@ -4,29 +4,26 @@ import { useEffect, useMemo, useState } from "react";
 import { Eye, Heart, MessageCircle } from "lucide-react";
 import { useFavorites } from "@/hooks";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn, formatVehiclePrice } from "@/lib/utils";
 
 type AutoDetailActionsProps = {
   slug: string;
   priceArs: number;
+  priceUsd: number;
   whatsappHref: string;
   reserveHref: string;
   viewingNow: number;
 };
 
-const formatCurrency = new Intl.NumberFormat("es-AR", {
-  style: "currency",
-  currency: "ARS",
-  maximumFractionDigits: 0,
-});
-
 export function AutoDetailActions({
   slug,
   priceArs,
+  priceUsd,
   whatsappHref,
   reserveHref,
   viewingNow,
 }: AutoDetailActionsProps) {
+  const priceLabel = formatVehiclePrice(priceArs, priceUsd);
   const { isFavorite, toggleFavorite, isHydrated } = useFavorites();
   const [showStickyBar, setShowStickyBar] = useState(false);
   const favorite = isFavorite(slug);
@@ -62,7 +59,7 @@ export function AutoDetailActions({
             "inline-flex h-10 items-center gap-2 rounded-full border px-3 text-xs font-semibold uppercase tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2",
             favorite
               ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/10 text-[var(--brand-orange)]"
-              : "border-border bg-white text-[var(--brand-black)] hover:border-[var(--brand-orange)]/50",
+              : "border-border bg-card text-[var(--brand-black)] hover:border-[var(--brand-orange)]/50",
           )}
         >
           <Heart className={cn("size-4", favorite && "fill-current")} aria-hidden />
@@ -86,7 +83,7 @@ export function AutoDetailActions({
 
       <div
         className={cn(
-          "fixed inset-x-0 bottom-0 z-40 border-t border-black/10 bg-white/95 px-3 pb-[max(env(safe-area-inset-bottom),0.75rem)] pt-3 shadow-[0_-8px_24px_rgba(0,0,0,0.08)] backdrop-blur transition-transform duration-300 sm:hidden",
+          "fixed inset-x-0 bottom-0 z-40 border-t border-[var(--brand-gray)]/40 bg-card/95 px-3 pb-[max(env(safe-area-inset-bottom),0.75rem)] pt-3 shadow-[0_-8px_24px_rgba(0,0,0,0.08)] backdrop-blur transition-transform duration-300 sm:hidden",
           showStickyBar ? "translate-y-0" : "translate-y-full",
         )}
       >
@@ -94,7 +91,7 @@ export function AutoDetailActions({
           <div className="min-w-0 flex-1">
             <p className="text-[11px] uppercase tracking-wide text-muted-foreground">Precio final</p>
             <p className="truncate text-sm font-black text-[var(--brand-black)]">
-              {formatCurrency.format(priceArs)}
+              {priceLabel}
             </p>
           </div>
           <a

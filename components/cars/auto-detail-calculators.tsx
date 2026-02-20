@@ -15,6 +15,7 @@ import {
 type AutoDetailCalculatorsProps = {
   vehicleLabel: string;
   priceArs: number;
+  priceUsd?: number;
 };
 
 const formatCurrency = new Intl.NumberFormat("es-AR", {
@@ -46,7 +47,12 @@ function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value));
 }
 
-export function AutoDetailCalculators({ vehicleLabel, priceArs }: AutoDetailCalculatorsProps) {
+export function AutoDetailCalculators({
+  vehicleLabel,
+  priceArs,
+  priceUsd = 0,
+}: AutoDetailCalculatorsProps) {
+  const isUsd = priceUsd > 0;
   const [downPayment, setDownPayment] = useState(Math.round(priceArs * 0.2));
   const [months, setMonths] = useState(48);
   const [annualRate, setAnnualRate] = useState(42);
@@ -130,9 +136,29 @@ export function AutoDetailCalculators({ vehicleLabel, priceArs }: AutoDetailCalc
   const fieldClassName =
     "mt-1 h-11 w-full rounded-lg border border-black/15 bg-background px-3 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]";
 
+  if (isUsd) {
+    return (
+      <section className="mt-6 rounded-3xl border border-black/10 bg-muted/20 p-5 sm:p-6">
+        <p className="text-sm text-muted-foreground">
+          Este vehículo está publicado en USD. Consultá financiación y cuotas en pesos por WhatsApp.
+        </p>
+        <Button asChild className="mt-4 h-11 rounded-xl bg-emerald-600 text-sm text-white hover:bg-emerald-500">
+          <a
+            href={`${WHATSAPP_DIRECT_LINK}?text=${encodeURIComponent(`Hola Car Advice, quiero consultar financiación en pesos para ${vehicleLabel}.`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MessageCircle className="size-4" aria-hidden />
+            Consultar por WhatsApp
+          </a>
+        </Button>
+      </section>
+    );
+  }
+
   return (
     <section className="mt-6 grid gap-6 lg:grid-cols-2">
-      <article className="rounded-3xl border border-black/10 bg-white p-5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] sm:p-6">
+      <article className="rounded-3xl border border-[var(--brand-gray)]/40 bg-card p-5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] sm:p-6">
         <div className="flex items-center gap-2">
           <Calculator className="size-5 text-[var(--brand-orange)]" aria-hidden />
           <h2 className="text-xl font-black uppercase tracking-tight text-[var(--brand-black)]">
@@ -195,7 +221,7 @@ export function AutoDetailCalculators({ vehicleLabel, priceArs }: AutoDetailCalc
           </label>
         </div>
 
-        <div className="mt-4 rounded-2xl border border-black/10 bg-muted/20 p-4" aria-live="polite">
+        <div className="mt-4 rounded-2xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-4" aria-live="polite">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Resultado estimado</p>
           <p className="mt-1 text-2xl font-black tracking-tight text-[var(--brand-black)]">
             {formatCurrency.format(financing.installment)} / mes
@@ -220,7 +246,7 @@ export function AutoDetailCalculators({ vehicleLabel, priceArs }: AutoDetailCalc
         </Button>
       </article>
 
-      <article className="rounded-3xl border border-black/10 bg-white p-5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] sm:p-6">
+      <article className="rounded-3xl border border-[var(--brand-gray)]/40 bg-card p-5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] sm:p-6">
         <div className="flex items-center gap-2">
           <CarFront className="size-5 text-[var(--brand-orange)]" aria-hidden />
           <h2 className="text-xl font-black uppercase tracking-tight text-[var(--brand-black)]">
@@ -306,7 +332,7 @@ export function AutoDetailCalculators({ vehicleLabel, priceArs }: AutoDetailCalc
           </div>
         </div>
 
-        <div className="mt-4 rounded-2xl border border-black/10 bg-muted/20 p-4" aria-live="polite">
+        <div className="mt-4 rounded-2xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-4" aria-live="polite">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Valor estimado de tasación
           </p>
