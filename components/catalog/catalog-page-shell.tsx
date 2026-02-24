@@ -378,26 +378,26 @@ function PaginationControls({ params, totalPages }: { params: CatalogQueryParams
 
   return (
     <div className="mt-8 rounded-2xl border border-[var(--brand-gray)]/40 bg-card p-3 sm:p-4">
-      <div className="flex items-center justify-between sm:hidden">
+      <div className="flex items-center justify-between gap-2 sm:hidden">
         <PaginationNavLink
           href={prevHref}
           disabled={prevDisabled}
           className={cn(
-            "inline-flex h-10 items-center gap-1 rounded-lg border px-3 text-sm font-semibold transition-all duration-300 ease-out",
+            "inline-flex h-10 min-h-[44px] touch-manipulation items-center gap-1 rounded-lg border px-3 text-sm font-semibold transition-all duration-300 ease-out",
             prevDisabled ? "" : "border-border text-[var(--brand-black)] hover:border-[var(--brand-orange)]/40 hover:bg-muted/40",
           )}
         >
           <ChevronLeft className="size-4" aria-hidden />
           Anterior
         </PaginationNavLink>
-        <p className="text-xs font-medium text-muted-foreground">
+        <p className="min-w-0 shrink-0 text-center text-xs font-medium text-muted-foreground">
           {currentPage} / {totalPages}
         </p>
         <PaginationNavLink
           href={nextHref}
           disabled={nextDisabled}
           className={cn(
-            "inline-flex h-10 items-center gap-1 rounded-lg border px-3 text-sm font-semibold transition-all duration-300 ease-out",
+            "inline-flex h-10 min-h-[44px] touch-manipulation items-center gap-1 rounded-lg border px-3 text-sm font-semibold transition-all duration-300 ease-out",
             nextDisabled ? "" : "border-border text-[var(--brand-black)] hover:border-[var(--brand-orange)]/40 hover:bg-muted/40",
           )}
         >
@@ -494,7 +494,7 @@ function SortDropdown({
           type="button"
           aria-label="Ordenar resultados"
           className={cn(
-            "inline-flex h-10 min-w-[170px] items-center justify-between rounded-xl border border-border bg-card px-3 text-sm font-medium text-[var(--brand-black)] outline-none transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/40 hover:bg-muted/30 focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] sm:min-w-[230px]",
+            "inline-flex h-10 min-h-[44px] min-w-[170px] touch-manipulation items-center justify-between rounded-xl border border-border bg-card px-3 text-sm font-medium text-[var(--brand-black)] outline-none transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/40 hover:bg-muted/30 focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] sm:min-w-[230px]",
             className,
           )}
         >
@@ -558,9 +558,9 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
   }, []);
 
   return (
-    <main className="min-h-screen w-full lg:pl-0 lg:pr-4">
+    <main className="min-h-screen w-full overflow-x-hidden lg:pl-0 lg:pr-4">
       <section
-        className="flex w-full flex-col items-center justify-center gap-4 bg-gradient-to-b from-[#c2410c] to-[#7c2d12] py-12 sm:gap-5 sm:py-16 md:flex-row md:gap-6"
+        className="flex w-full flex-col items-center justify-center gap-4 bg-gradient-to-b from-[#c2410c] to-[#7c2d12] py-10 sm:gap-5 sm:py-16 md:flex-row md:gap-6"
         aria-label="Título del catálogo"
       >
         <div className="relative h-14 w-14 shrink-0 sm:h-16 sm:w-16 md:h-[4.5rem] md:w-[4.5rem]">
@@ -578,7 +578,7 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
         </h1>
       </section>
 
-      <div className="px-4 py-4 sm:px-6 sm:py-6">
+      <div className="px-4 py-4 sm:px-6 sm:py-6 pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))]">
       <Dialog open={isFiltersOpen} onOpenChange={setIsFiltersOpen}>
         <DialogContent
           showCloseButton={false}
@@ -643,7 +643,7 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
             exit={{ opacity: 0, x: -16, scale: 0.95 }}
             transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
             onClick={() => setIsFiltersOpen(true)}
-            className="fixed bottom-4 left-3 z-40 inline-flex items-center gap-1.5 rounded-full border border-[var(--brand-gray)]/50 bg-card px-3 py-2 text-xs font-semibold text-[var(--brand-black)] shadow-[0_10px_24px_rgba(0,0,0,0.18)] lg:hidden"
+            className="fixed z-40 inline-flex min-h-[44px] items-center gap-1.5 rounded-full border border-[var(--brand-gray)]/50 bg-card px-3 py-2 text-xs font-semibold text-[var(--brand-black)] shadow-[0_10px_24px_rgba(0,0,0,0.18)] lg:hidden bottom-[max(1rem,env(safe-area-inset-bottom))] left-[max(1rem,env(safe-area-inset-left))]"
             aria-label="Abrir filtros"
           >
             <ListFilter className="size-3.5" />
@@ -671,21 +671,21 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
           </div>
         </aside>
 
-        <section className="flex min-h-0 flex-col lg:pl-8">
-          <div className="mb-3 flex items-center justify-between gap-2 lg:hidden">
+        <section className="flex min-h-0 min-w-0 flex-col lg:pl-8">
+          <div className="mb-3 flex min-h-[44px] items-center justify-between gap-2 lg:hidden">
             <Button
               type="button"
               variant="outline"
-              className="h-10 rounded-xl px-3"
+              className="h-10 min-h-[44px] rounded-xl px-3 touch-manipulation"
               onClick={() => setIsFiltersOpen(true)}
             >
               <ListFilter className="size-4" />
               Filtros
             </Button>
 
-            <div className="flex items-center gap-2">
-              <ArrowUpDown className="size-4 text-muted-foreground" aria-hidden />
-              <SortDropdown params={params} className="min-w-[150px] max-w-[58vw]" />
+            <div className="flex min-w-0 flex-1 items-center justify-end gap-2">
+              <ArrowUpDown className="size-4 shrink-0 text-muted-foreground" aria-hidden />
+              <SortDropdown params={params} className="min-w-[140px] max-w-[55vw] sm:min-w-[170px] sm:max-w-[58vw]" />
             </div>
           </div>
 
@@ -697,10 +697,10 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
                 name="q"
                 defaultValue={params.q ?? ""}
                 placeholder="Buscar por palabra clave"
-                className="h-10 rounded-xl text-sm transition-colors placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] sm:h-11"
+                className="h-10 min-h-[44px] flex-1 min-w-0 rounded-xl text-sm transition-colors placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] sm:h-11"
                 aria-label="Buscar por palabra clave"
               />
-              <Button type="submit" className="h-10 rounded-xl px-3 sm:h-11 sm:px-4">
+              <Button type="submit" className="h-10 min-h-[44px] touch-manipulation rounded-xl px-3 sm:h-11 sm:px-4">
                 <Search className="size-4" />
                 <span className="hidden sm:inline">Buscar</span>
               </Button>

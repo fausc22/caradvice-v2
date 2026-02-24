@@ -65,7 +65,7 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
     .slice(0, 3);
 
   return (
-    <main className="mx-auto w-full max-w-screen-xl px-4 pb-28 pt-6 sm:px-6 sm:pt-8 lg:pb-10">
+    <main className="mx-auto w-full max-w-screen-xl px-4 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] pt-6 sm:px-6 sm:pt-8 lg:pb-10">
       <div className="mb-5 flex flex-wrap items-center gap-2 text-xs text-muted-foreground sm:text-sm">
         <Link href="/" className="transition-colors hover:text-foreground">
           Inicio

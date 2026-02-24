@@ -80,9 +80,10 @@
 :root {
   --radius: 0.625rem;
   --font-antenna: "Antenna", system-ui, sans-serif;
-  /* Identidad de marca */
-  --brand-orange: #ea580c;
-  --brand-orange-light: #f97316;
+  /* Identidad de marca (manual: #f4f4f2, #d5cec4, #bbb6b0, #45484f, #ff5a2e, #1d1d1b) */
+  --brand-orange: #ff5a2e;
+  --brand-orange-light: #ff7a52;
+  --brand-orange-subtle: rgba(255, 90, 46, 0.12);
   --brand-black: #1d1d1b;
   --brand-cream: #d5cec4;
   --brand-offwhite: #f4f4f2;
@@ -95,7 +96,7 @@
   --card-foreground: #1d1d1b;
   --popover: #ffffff;
   --popover-foreground: #1d1d1b;
-  --primary: #ea580c;
+  --primary: #ff5a2e;
   --primary-foreground: #ffffff;
   --secondary: #e8e6e2;
   --secondary-foreground: #1d1d1b;
@@ -106,7 +107,7 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: #bbb6b0;
   --input: #bbb6b0;
-  --ring: #ea580c;
+  --ring: #ff5a2e;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);

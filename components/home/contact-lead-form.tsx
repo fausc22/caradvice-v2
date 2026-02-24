@@ -23,7 +23,8 @@ export function ContactLeadForm() {
             name="name"
             type="text"
             placeholder="Tu nombre"
-            className="h-11 w-full rounded-lg border border-[var(--brand-gray)]/50 bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
+            className="h-11 min-h-[44px] w-full rounded-lg border border-[var(--brand-gray)]/50 bg-background px-3 text-base text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
+            style={{ fontSize: "16px" }}
           />
         </div>
 
@@ -39,7 +40,8 @@ export function ContactLeadForm() {
             name="email"
             type="email"
             placeholder="tu@email.com"
-            className="h-11 w-full rounded-lg border border-[var(--brand-gray)]/50 bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
+            className="h-11 min-h-[44px] w-full rounded-lg border border-[var(--brand-gray)]/50 bg-background px-3 text-base text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
+            style={{ fontSize: "16px" }}
           />
         </div>
 
@@ -55,7 +57,8 @@ export function ContactLeadForm() {
             name="phone"
             type="tel"
             placeholder="351 515 8848"
-            className="h-11 w-full rounded-lg border border-[var(--brand-gray)]/50 bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
+            className="h-11 min-h-[44px] w-full rounded-lg border border-[var(--brand-gray)]/50 bg-background px-3 text-base text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
+            style={{ fontSize: "16px" }}
           />
         </div>
 
@@ -71,7 +74,8 @@ export function ContactLeadForm() {
             name="message"
             placeholder="Contanos en qué podemos ayudarte..."
             rows={5}
-            className="w-full resize-none rounded-lg border border-[var(--brand-gray)]/50 bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
+            className="min-h-[44px] w-full resize-none rounded-lg border border-[var(--brand-gray)]/50 bg-background px-3 py-2.5 text-base text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
+            style={{ fontSize: "16px" }}
           />
         </div>
 

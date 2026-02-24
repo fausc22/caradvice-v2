@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 type AutoImageGalleryProps = {
@@ -67,14 +68,25 @@ export function AutoImageGallery({
           className="relative flex h-full w-full items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-inset"
           aria-label="Ampliar imagen"
         >
-          <Image
-            src={activeImage}
-            alt={alt}
-            fill
-            className="object-cover object-center"
-            priority
-            sizes="(max-width: 1024px) 100vw, 64vw"
-          />
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={boundedIndex}
+              className="absolute inset-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <Image
+                src={activeImage}
+                alt={alt}
+                fill
+                className="object-cover object-center"
+                priority={boundedIndex === 0}
+                sizes="(max-width: 1024px) 100vw, 64vw"
+              />
+            </motion.div>
+          </AnimatePresence>
           <span className="absolute bottom-3 right-3 flex size-9 items-center justify-center rounded-full border border-white/30 bg-black/50 text-white sm:bottom-4 sm:right-4 sm:size-10">
             <Expand className="size-4 sm:size-5" aria-hidden />
           </span>
@@ -132,7 +144,7 @@ export function AutoImageGallery({
                 aria-label={`Ver imagen ${index + 1}`}
                 aria-pressed={isActive}
                 className={cn(
-                  "relative aspect-[4/3] overflow-hidden rounded-lg border transition-colors",
+                  "relative aspect-[4/3] overflow-hidden rounded-lg border transition-all duration-200",
                   isActive
                     ? "border-[var(--brand-orange)] ring-1 ring-[var(--brand-orange)]"
                     : "border-black/10 hover:border-[var(--brand-orange)]/50",
@@ -178,14 +190,25 @@ export function AutoImageGallery({
               onClick={(e) => e.stopPropagation()}
               role="presentation"
             >
-              <Image
-                src={activeImage}
-                alt={alt}
-                fill
-                className="object-contain object-center"
-                sizes="100vw"
-                priority
-              />
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={boundedIndex}
+                  className="absolute inset-0"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                >
+                  <Image
+                    src={activeImage}
+                    alt={alt}
+                    fill
+                    className="object-contain object-center"
+                    sizes="100vw"
+                    priority
+                  />
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
 

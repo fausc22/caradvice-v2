@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Search, DollarSign, Wallet, Car } from "lucide-react";
 import { HeroFilters } from "@/components/home/hero-filters";
+import { TipologiaBanner } from "@/components/home/tipologia-banner";
 import { FeaturedCarsCarousel } from "@/components/home/featured-cars-carousel";
 import { FinancingBanner } from "@/components/home/financing-banner";
 import { ContactLeadForm } from "@/components/home/contact-lead-form";
@@ -17,12 +18,15 @@ import {
   WHATSAPP_LINK_VENDER,
   WHATSAPP_LINK_CONSIGNAR,
 } from "@/lib/constants";
+import { getCatalogFilterMetadata } from "@/lib/catalog";
 
-export default function Home() {
+export default async function Home() {
+  const filtersMeta = await getCatalogFilterMetadata();
+
   return (
     <>
       {/* Hero: imagen, eslogan, filtros (→ /catalogo?tipo=...&marca=...&q=...) y CTAs WhatsApp */}
-      <section className="relative min-h-[50vh] w-full overflow-hidden sm:min-h-[60vh] md:min-h-[70vh]">
+      <section className="relative min-h-[50vh] w-full overflow-hidden sm:min-h-[60vh] md:min-h-[70vh]" aria-label="Hero">
         <div className="absolute inset-0">
           <Image
             src="/hero-image.jpg"
@@ -41,7 +45,7 @@ export default function Home() {
           <p className="mb-10 max-w-2xl text-xl font-semibold leading-snug text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] sm:mb-12 sm:text-2xl md:mb-14 md:text-3xl md:leading-snug">
             Tu próximo destino comienza acá...
           </p>
-          <HeroFilters />
+          <HeroFilters filtersMeta={filtersMeta} />
 
           {/* CTAs: abren WhatsApp (links en lib/constants) */}
           <div className="mt-8 flex w-full max-w-2xl flex-row flex-wrap justify-center gap-3 sm:mt-10 sm:gap-5">
@@ -86,15 +90,15 @@ export default function Home() {
         </div>
         </section>
 
+      {/* Buscá por tipología: grid de 6 categorías → /catalogo?tipologia=... */}
+      <TipologiaBanner />
+
       {/* Ofertas / Destacados: listado desde API (React Query) — placeholder por ahora */}
       <section
         id="ofertas"
-        className="border-t border-border bg-muted/20 px-4 py-8 sm:px-6 sm:py-12"
+        className="border-t border-border bg-muted/20 px-4 py-8 sm:px-6 sm:py-12 overflow-x-hidden"
       >
-        <div className="container mx-auto max-w-screen-xl">
-          <h2 className="mb-6 text-center text-2xl font-black uppercase tracking-tight text-foreground sm:text-3xl md:text-4xl">
-            Vehículos destacados
-          </h2>
+        <div className="container mx-auto max-w-screen-xl min-w-0">
           <FeaturedCarsCarousel />
           <div className="mt-8 flex justify-center">
             <Button
@@ -109,8 +113,8 @@ export default function Home() {
       </section>
 
       {/* Contacto: formulario visual (sin envío real por ahora) */}
-      <section className="border-t border-border bg-muted/20 px-4 py-8 sm:px-6 sm:py-12">
-        <div className="container mx-auto max-w-3xl">
+      <section className="border-t border-border bg-muted/20 px-4 py-8 sm:px-6 sm:py-12 overflow-x-hidden">
+        <div className="container mx-auto max-w-3xl min-w-0">
           <h2 className="mb-4 text-center text-2xl font-black tracking-tight sm:text-3xl">
             Te ayudamos a encontrar tu vehículo
           </h2>

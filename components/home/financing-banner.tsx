@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ConsignaBanner } from "@/components/home/consigna-banner";
 
 type PromoBannerProps = {
   title: string;
@@ -117,21 +118,7 @@ export function FinancingBanner() {
         rightEffectClass="bg-black/10"
         buttonBgClass="bg-[#88ddd5]"
       />
-      <PromoBanner
-        title="Consignacion"
-        description="Consigna fisica o virtual"
-        imageSrc="/consigna.png"
-        imageAlt="Autos para consignación"
-        firstCtaLabel="Mas info"
-        firstCtaHref="/catalogo"
-        secondCtaLabel="Quiero consignar"
-        secondCtaHref="/contacto"
-        bannerBgClass="bg-[var(--brand-orange)]"
-        titleColorClass="text-black"
-        leftEffectClass="bg-black/15"
-        rightEffectClass="bg-black/20"
-        buttonBgClass="bg-[var(--brand-orange)]"
-      />
+      <ConsignaBanner />
     </section>
   );
 }

@@ -83,7 +83,8 @@ export function AutoDetailActions({
 
       <div
         className={cn(
-          "fixed inset-x-0 bottom-0 z-40 border-t border-[var(--brand-gray)]/40 bg-card/95 px-3 pb-[max(env(safe-area-inset-bottom),0.75rem)] pt-3 shadow-[0_-8px_24px_rgba(0,0,0,0.08)] backdrop-blur transition-transform duration-300 sm:hidden",
+          "fixed left-0 right-0 bottom-0 z-40 border-t border-[var(--brand-gray)]/40 bg-card px-3 pt-3 shadow-[0_-8px_24px_rgba(0,0,0,0.08)] transition-transform duration-300 ease-out sm:hidden",
+          "pb-[max(env(safe-area-inset-bottom),0.5rem)]",
           showStickyBar ? "translate-y-0" : "translate-y-full",
         )}
       >

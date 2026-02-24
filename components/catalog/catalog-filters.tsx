@@ -137,7 +137,7 @@ export function CatalogFilters({
                 type="button"
                 onClick={() => nav({ tipologia: params.tipologia === t ? undefined : t })}
                 className={cn(
-                  "flex flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-2.5 text-[11px] font-medium transition-all duration-300 ease-out sm:text-xs",
+                  "flex min-h-[44px] touch-manipulation flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-2.5 text-[11px] font-medium transition-all duration-300 ease-out sm:text-xs",
                   params.tipologia === t
                     ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/10 text-[var(--brand-orange)]"
                     : "border-border bg-card text-muted-foreground hover:border-[var(--brand-orange)]/40 hover:bg-muted/30",
@@ -160,7 +160,7 @@ export function CatalogFilters({
             <>
               <label
                 className={cn(
-                  "col-span-3 flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-2.5 text-[11px] font-medium transition-all duration-300 ease-out sm:col-span-1 sm:col-start-1 sm:text-xs",
+                  "col-span-3 flex min-h-[44px] touch-manipulation cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-2.5 text-[11px] font-medium transition-all duration-300 ease-out sm:col-span-1 sm:col-start-1 sm:text-xs",
                   !params.tipologia
                     ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/10 text-[var(--brand-orange)]"
                     : "border-border bg-card text-muted-foreground hover:border-[var(--brand-orange)]/40 hover:bg-muted/30",
@@ -189,7 +189,7 @@ export function CatalogFilters({
                 <label
                   key={t}
                   className={cn(
-                    "flex cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-2.5 text-[11px] font-medium transition-all duration-300 ease-out sm:text-xs",
+                    "flex min-h-[44px] touch-manipulation cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-2.5 text-[11px] font-medium transition-all duration-300 ease-out sm:text-xs",
                     params.tipologia === t
                       ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/10 text-[var(--brand-orange)]"
                       : "border-border bg-card text-muted-foreground hover:border-[var(--brand-orange)]/40 hover:bg-muted/30",

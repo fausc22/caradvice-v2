@@ -43,7 +43,7 @@ export default function RootLayout({
         <Providers>
           <div className="flex min-h-screen flex-col">
             <Navbar />
-            <div className="flex-1">{children}</div>
+            <div className="flex-1 overflow-x-hidden">{children}</div>
             <Footer />
             <WhatsAppButton />
           </div>
