@@ -93,12 +93,20 @@ export function AutoImageGallery({
         </button>
 
         <div className="absolute left-3 top-3 flex flex-wrap items-center gap-2">
-          <span className="inline-flex rounded-full border border-white/35 bg-black/35 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur">
-            {typeLabel}
-          </span>
-          <span className="inline-flex rounded-full border border-white/35 bg-[var(--brand-orange)]/80 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur">
-            {conditionLabel}
-          </span>
+          {typeLabel.toLowerCase() === conditionLabel.toLowerCase() ? (
+            <span className="inline-flex rounded-full border border-white/35 bg-[var(--brand-orange)]/80 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur">
+              {conditionLabel}
+            </span>
+          ) : (
+            <>
+              <span className="inline-flex rounded-full border border-white/35 bg-black/35 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur">
+                {typeLabel}
+              </span>
+              <span className="inline-flex rounded-full border border-white/35 bg-[var(--brand-orange)]/80 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur">
+                {conditionLabel}
+              </span>
+            </>
+          )}
         </div>
 
         {totalImages > 1 && (

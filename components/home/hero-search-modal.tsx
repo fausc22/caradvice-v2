@@ -3,6 +3,7 @@
 /**
  * Modal de búsqueda del hero: sugerencias por marca (estilo Kavak/concesionarias),
  * búsqueda en vivo por marca/modelo, navegación al catálogo.
+ * En mobile: pantalla completa, bloquea página (scroll + no cierre al tocar fuera).
  */
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { useRouter } from "next/navigation";
@@ -149,11 +150,34 @@ export function HeroSearchModal({
     });
   };
 
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+  useEffect(() => {
+    if (!open || !isMobile) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open, isMobile]);
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         showCloseButton={false}
         onOpenAutoFocus={(e) => e.preventDefault()}
+        onPointerDownOutside={(e) => {
+          if (isMobile) e.preventDefault();
+        }}
+        onInteractOutside={(e) => {
+          if (isMobile) e.preventDefault();
+        }}
         className={cn(
           "flex flex-col overflow-hidden p-0 duration-300",
           "fixed inset-0 h-dvh w-screen max-w-none translate-x-0 translate-y-0 rounded-none border-0 bg-[var(--brand-black)]",

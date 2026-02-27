@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Eye, Heart, MessageCircle } from "lucide-react";
+import { Eye, Heart } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 import { useFavorites } from "@/hooks";
 import { Button } from "@/components/ui/button";
 import { cn, formatVehiclePrice } from "@/lib/utils";
@@ -68,9 +69,9 @@ export function AutoDetailActions({
       </div>
 
       <div className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-        <Button asChild className="h-11 rounded-xl bg-emerald-600 text-sm text-white hover:bg-emerald-500">
+        <Button asChild className="h-11 rounded-xl bg-[var(--whatsapp-green)] text-sm text-white hover:bg-[var(--whatsapp-green-hover)]">
           <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-            <MessageCircle className="size-4" aria-hidden />
+            <WhatsAppIcon className="size-4" aria-hidden />
             Consultar por WhatsApp
           </a>
         </Button>
@@ -83,12 +84,12 @@ export function AutoDetailActions({
 
       <div
         className={cn(
-          "fixed left-0 right-0 bottom-0 z-40 border-t border-[var(--brand-gray)]/40 bg-card px-3 pt-3 shadow-[0_-8px_24px_rgba(0,0,0,0.08)] transition-transform duration-300 ease-out sm:hidden",
-          "pb-[max(env(safe-area-inset-bottom),0.5rem)]",
+          "fixed left-0 right-0 bottom-0 z-40 border-t border-[var(--brand-gray)]/40 bg-card shadow-[0_-8px_24px_rgba(0,0,0,0.08)] transition-transform duration-300 ease-out sm:hidden",
+          "pt-3 pb-[max(env(safe-area-inset-bottom),0.5rem)] px-3",
           showStickyBar ? "translate-y-0" : "translate-y-full",
         )}
       >
-        <div className="mx-auto flex w-full max-w-screen-xl items-center gap-1.5">
+        <div className="mx-auto flex min-h-[3.5rem] w-full max-w-screen-xl items-center gap-1.5">
           <div className="min-w-0 flex-1">
             <p className="text-[11px] uppercase tracking-wide text-muted-foreground">Precio final</p>
             <p className="truncate text-sm font-black text-[var(--brand-black)]">
@@ -107,8 +108,9 @@ export function AutoDetailActions({
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-10 items-center justify-center rounded-lg bg-emerald-600 px-2.5 text-[11px] font-semibold text-white"
+            className="inline-flex h-10 min-w-[2.5rem] items-center justify-center gap-1.5 rounded-lg bg-[var(--whatsapp-green)] px-2.5 text-[11px] font-semibold text-white hover:bg-[var(--whatsapp-green-hover)]"
           >
+            <WhatsAppIcon className="size-3.5 shrink-0" aria-hidden />
             WhatsApp
           </a>
         </div>

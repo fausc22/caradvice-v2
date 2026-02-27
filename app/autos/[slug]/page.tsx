@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, CalendarDays, Gauge } from "lucide-react";
 import { catalogCars, getCatalogCarBySlug } from "@/lib/catalog";
 import { AutoDetailActions } from "@/components/cars/auto-detail-actions";
-import { AutoDetailCalculators } from "@/components/cars/auto-detail-calculators";
+import { AutoDetailPlanForm } from "@/components/cars/auto-detail-plan-form";
 import { AutoDetailSpecs } from "@/components/cars/auto-detail-specs";
 import { GearboxIcon } from "@/components/icons/gearbox-icon";
 import { AutoImageGallery } from "@/components/cars/auto-image-gallery";
@@ -184,7 +184,7 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
         </aside>
       </section>
 
-      <AutoDetailCalculators
+      <AutoDetailPlanForm
         vehicleLabel={`${car.brand} ${car.model} ${car.version} (${car.year})`}
         priceArs={car.priceArs}
         priceUsd={car.priceUsd}

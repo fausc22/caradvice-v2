@@ -199,6 +199,15 @@ function FavoritesOverlayContent({
 export function FavoritesOverlay({ open, onOpenChange }: FavoritesOverlayProps) {
   const isMobile = useIsMobile();
 
+  useEffect(() => {
+    if (!open || !isMobile) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open, isMobile]);
+
   if (isMobile) {
     return (
       <Sheet open={open} onOpenChange={onOpenChange}>

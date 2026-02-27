@@ -12,6 +12,11 @@ import { MessageCircle } from "lucide-react";
 import { WHATSAPP_LINK_CONSIGNAR } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+export type ConsignaBannerProps = {
+  /** Si se pasa, el CTA abre el modal de consignación en lugar de ir a WhatsApp directo. */
+  onConsignarClick?: () => void;
+};
+
 const COPY = {
   title: "Consignacion",
   virtual: {
@@ -56,7 +61,7 @@ const itemVariants = {
 
 type MobileType = "virtual" | "fisica";
 
-export function ConsignaBanner() {
+export function ConsignaBanner({ onConsignarClick }: ConsignaBannerProps = {}) {
   const [mobileType, setMobileType] = useState<MobileType>("virtual");
   const reduceMotion = useReducedMotion();
 
@@ -164,7 +169,7 @@ export function ConsignaBanner() {
           </motion.div>
         </div>
 
-        {/* CTA WhatsApp */}
+        {/* CTA WhatsApp o abrir modal */}
         <motion.div variants={itemVariants} custom={!!reduceMotion} className="mt-6">
           <motion.div
             whileHover={{ scale: reduceMotion ? 1 : 1.02 }}
@@ -172,17 +177,30 @@ export function ConsignaBanner() {
             transition={{ duration: 0.15 }}
             className="inline-block"
           >
-            <Link
-              href={WHATSAPP_LINK_CONSIGNAR}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-[44px] items-center gap-2 overflow-hidden rounded-xl border border-[var(--brand-cream)]/40 bg-[var(--brand-offwhite)] px-4 py-2.5 text-sm font-semibold text-[var(--brand-black)] transition-colors hover:border-[var(--brand-cream)] hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--brand-orange)] sm:min-h-[48px] sm:px-5"
-            >
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-[#25D366] text-white">
-                <MessageCircle className="size-5" aria-hidden />
-              </span>
-              <span>{COPY.cta}</span>
-            </Link>
+            {onConsignarClick ? (
+              <button
+                type="button"
+                onClick={onConsignarClick}
+                className="inline-flex min-h-[44px] items-center gap-2 overflow-hidden rounded-xl border border-[var(--brand-cream)]/40 bg-[var(--brand-offwhite)] px-4 py-2.5 text-sm font-semibold text-[var(--brand-black)] transition-colors hover:border-[var(--brand-cream)] hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--brand-orange)] sm:min-h-[48px] sm:px-5"
+              >
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-emerald-600 text-white">
+                  <MessageCircle className="size-5" aria-hidden />
+                </span>
+                <span>{COPY.cta}</span>
+              </button>
+            ) : (
+              <Link
+                href={WHATSAPP_LINK_CONSIGNAR}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[44px] items-center gap-2 overflow-hidden rounded-xl border border-[var(--brand-cream)]/40 bg-[var(--brand-offwhite)] px-4 py-2.5 text-sm font-semibold text-[var(--brand-black)] transition-colors hover:border-[var(--brand-cream)] hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--brand-orange)] sm:min-h-[48px] sm:px-5"
+              >
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-emerald-600 text-white">
+                  <MessageCircle className="size-5" aria-hidden />
+                </span>
+                <span>{COPY.cta}</span>
+              </Link>
+            )}
           </motion.div>
         </motion.div>
       </div>

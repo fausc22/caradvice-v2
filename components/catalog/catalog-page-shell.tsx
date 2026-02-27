@@ -583,6 +583,8 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
         <DialogContent
           showCloseButton={false}
           className="fixed inset-0 h-screen max-h-screen w-screen max-w-none translate-x-0 translate-y-0 rounded-none border-0 p-0 duration-500 ease-out data-[state=open]:slide-in-from-bottom-2 data-[state=closed]:slide-out-to-bottom-2 lg:hidden"
+          onPointerDownOutside={(e) => e.preventDefault()}
+          onInteractOutside={(e) => e.preventDefault()}
         >
           <DialogTitle className="sr-only">Filtros de catálogo</DialogTitle>
 

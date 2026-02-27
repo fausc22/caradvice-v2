@@ -7,14 +7,19 @@
 import { useState, useEffect, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Search, Wallet, Car } from "lucide-react";
-import {
-  WHATSAPP_LINK_COMPRAR,
-  WHATSAPP_LINK_VENDER,
-  WHATSAPP_LINK_CONSIGNAR,
-} from "@/lib/constants";
+import { WHATSAPP_LINK_COMPRAR } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import type { CatalogFilterMetadata } from "@/lib/catalog/types";
 import { HeroSearchModal } from "@/components/home/hero-search-modal";
+import { TasacionModal } from "@/components/home/tasacion-modal";
+import { ConsignacionModal } from "@/components/home/consignacion-modal";
+
+export type HeroSectionProps = {
+  filtersMeta: CatalogFilterMetadata;
+  /** Si se pasan, el modal de consignación se controla desde el padre (ej. para abrirlo desde el banner). */
+  consignacionModalOpen?: boolean;
+  onConsignacionModalOpenChange?: (open: boolean) => void;
+};
 
 const PLACEHOLDERS = [
   "Buscar por palabra clave",
@@ -35,13 +40,20 @@ const ctaTransition = { type: "spring" as const, stiffness: 400, damping: 25 };
 const CTA_CLASS =
   "inline-flex min-h-[40px] items-center justify-center gap-2 rounded-xl border border-[var(--brand-orange)]/80 bg-[var(--brand-orange)]/15 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--brand-orange)]/25 hover:border-[var(--brand-orange)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 active:bg-[var(--brand-orange)]/30 sm:min-h-[44px] sm:px-5 sm:py-3 sm:text-base";
 
-type HeroSectionProps = {
-  filtersMeta: CatalogFilterMetadata;
-};
-
-export function HeroSection({ filtersMeta }: HeroSectionProps) {
+export function HeroSection({
+  filtersMeta,
+  consignacionModalOpen: controlledConsignacionOpen,
+  onConsignacionModalOpenChange,
+}: HeroSectionProps) {
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
+  const [tasacionModalOpen, setTasacionModalOpen] = useState(false);
+  const [internalConsignacionOpen, setInternalConsignacionOpen] = useState(false);
+
+  const consignacionModalOpen =
+    controlledConsignacionOpen ?? internalConsignacionOpen;
+  const setConsignacionModalOpen =
+    onConsignacionModalOpenChange ?? setInternalConsignacionOpen;
 
   const rotatePlaceholder = useCallback(() => {
     setPlaceholderIndex((i) => (i + 1) % PLACEHOLDERS.length);
@@ -144,10 +156,9 @@ export function HeroSection({ filtersMeta }: HeroSectionProps) {
             <Search className="size-4 shrink-0 text-[var(--brand-orange)] sm:size-5" aria-hidden />
             Comprar
           </motion.a>
-          <motion.a
-            href={WHATSAPP_LINK_VENDER}
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.button
+            type="button"
+            onClick={() => setTasacionModalOpen(true)}
             className={CTA_CLASS}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
@@ -155,11 +166,10 @@ export function HeroSection({ filtersMeta }: HeroSectionProps) {
           >
             <Wallet className="size-4 shrink-0 text-[var(--brand-orange)] sm:size-5" aria-hidden />
             Vender
-          </motion.a>
-          <motion.a
-            href={WHATSAPP_LINK_CONSIGNAR}
-            target="_blank"
-            rel="noopener noreferrer"
+          </motion.button>
+          <motion.button
+            type="button"
+            onClick={() => setConsignacionModalOpen(true)}
             className={CTA_CLASS}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
@@ -167,7 +177,7 @@ export function HeroSection({ filtersMeta }: HeroSectionProps) {
           >
             <Car className="size-4 shrink-0 text-[var(--brand-orange)] sm:size-5" aria-hidden />
             Consignar
-          </motion.a>
+          </motion.button>
         </div>
       </div>
 
@@ -175,6 +185,14 @@ export function HeroSection({ filtersMeta }: HeroSectionProps) {
         open={searchModalOpen}
         onOpenChange={setSearchModalOpen}
         filtersMeta={filtersMeta}
+      />
+      <TasacionModal
+        open={tasacionModalOpen}
+        onOpenChange={setTasacionModalOpen}
+      />
+      <ConsignacionModal
+        open={consignacionModalOpen}
+        onOpenChange={setConsignacionModalOpen}
       />
     </section>
   );

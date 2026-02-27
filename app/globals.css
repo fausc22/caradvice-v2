@@ -91,6 +91,9 @@
   --brand-offwhite: #f4f4f2;
   --brand-gray: #bbb6b0;
   --brand-dark: #45484f;
+  /* WhatsApp: verde oficial (#25D366) y variante más clara para hover */
+  --whatsapp-green: #25d366;
+  --whatsapp-green-hover: #34e077;
   /* Fondos: página offwhite, tarjetas claras para contraste */
   --background: #f4f4f2;
   --foreground: #1d1d1b;
