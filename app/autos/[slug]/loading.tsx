@@ -127,7 +127,7 @@ export default function AutoDetailLoading() {
         ))}
       </section>
 
-      <section className="mt-8 rounded-3xl border border-border bg-muted/20 p-4 sm:p-6">
+      <section className="mt-8 rounded-3xl border border-border bg-background p-4 sm:p-6">
         <div className="mb-4 flex items-end justify-between gap-3">
           <div>
             <div className="h-7 w-56 animate-pulse rounded bg-muted/60 sm:h-8" />

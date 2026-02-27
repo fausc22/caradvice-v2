@@ -93,7 +93,13 @@ export function CarCard({
             {formatVehiclePrice(car.priceArs, car.priceUsd)}
           </p>
 
-          <span className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-xl bg-[var(--brand-orange)] text-sm font-semibold text-white transition-colors duration-200 group-hover:bg-[var(--brand-orange-light)]">
+          <span
+            className={cn(
+              "mt-4 inline-flex h-11 w-full items-center justify-center rounded-xl border text-sm font-semibold transition-colors duration-200",
+              "border-[var(--brand-gray)]/50 bg-[var(--brand-offwhite)] text-[var(--brand-black)]",
+              "group-hover:border-[var(--brand-orange)]/60 group-hover:text-[var(--brand-orange)]"
+            )}
+          >
             Ver detalles
           </span>
         </div>

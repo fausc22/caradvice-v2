@@ -289,7 +289,7 @@ export default function ContactoPage() {
       </section>
 
       {/* Formulario + Info contacto */}
-      <section className="border-t border-border bg-muted/20 py-12 sm:py-16 md:py-20">
+      <section className="border-t border-border bg-background py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
             <AnimatedSection

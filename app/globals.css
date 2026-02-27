@@ -68,17 +68,19 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
+  /* Cerca del cuadrado: solo redondea bien contra el borde (1–4px) */
+  --radius-sm: 1px;
+  --radius-md: 2px;
+  --radius-lg: 3px;
+  --radius-xl: 4px;
+  --radius-2xl: 4px;
+  --radius-3xl: 6px;
+  --radius-4xl: 8px;
 }
 
 :root {
-  --radius: 0.625rem;
+  /* Base de radius: casi cuadrado, solo suaviza el encuentro con el borde */
+  --radius: 2px;
   --font-antenna: "Antenna", system-ui, sans-serif;
   /* Identidad de marca (manual: #f4f4f2, #d5cec4, #bbb6b0, #45484f, #ff5a2e, #1d1d1b) */
   --brand-orange: #ff5a2e;
@@ -89,8 +91,8 @@
   --brand-offwhite: #f4f4f2;
   --brand-gray: #bbb6b0;
   --brand-dark: #45484f;
-  /* Fondos: página gris de marca, tarjetas claras para contraste */
-  --background: #bbb6b0;
+  /* Fondos: página offwhite, tarjetas claras para contraste */
+  --background: #f4f4f2;
   --foreground: #1d1d1b;
   --card: #ffffff;
   --card-foreground: #1d1d1b;

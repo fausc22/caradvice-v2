@@ -138,7 +138,7 @@ export function AutoDetailCalculators({
 
   if (isUsd) {
     return (
-      <section className="mt-6 rounded-3xl border border-black/10 bg-muted/20 p-5 sm:p-6">
+      <section className="mt-6 rounded-3xl border border-black/10 bg-background p-5 sm:p-6">
         <p className="text-sm text-muted-foreground">
           Este vehículo está publicado en USD. Consultá financiación y cuotas en pesos por WhatsApp.
         </p>

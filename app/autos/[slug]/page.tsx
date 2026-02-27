@@ -7,7 +7,7 @@ import { AutoDetailCalculators } from "@/components/cars/auto-detail-calculators
 import { AutoDetailSpecs } from "@/components/cars/auto-detail-specs";
 import { GearboxIcon } from "@/components/icons/gearbox-icon";
 import { AutoImageGallery } from "@/components/cars/auto-image-gallery";
-import { CarCard } from "@/components/cars/car-card";
+import { SimilarCarsCarousel } from "@/components/cars/similar-cars-carousel";
 import { ContactLeadForm } from "@/components/home/contact-lead-form";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_DIRECT_LINK } from "@/lib/constants";
@@ -61,8 +61,8 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
   const viewingNow = getViewingNowCount(car.slug);
 
   const similarCars = catalogCars
-    .filter((item) => item.slug !== car.slug && (item.brand === car.brand || item.type === car.type))
-    .slice(0, 3);
+    .filter((item) => item.slug !== car.slug && item.tipologia === car.tipologia)
+    .slice(0, 8);
 
   return (
     <main className="mx-auto w-full max-w-screen-xl px-4 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] pt-6 sm:px-6 sm:pt-8 lg:pb-10">
@@ -190,33 +190,18 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
         priceUsd={car.priceUsd}
       />
 
-      <section className="mt-8 rounded-3xl border border-border bg-muted/20 p-4 sm:p-6">
-        <div>
-          <div className="mb-4 flex items-end justify-between gap-3">
-            <div>
-              <h2 className="text-2xl font-black uppercase tracking-tight text-[var(--brand-black)] sm:text-3xl">
-                Vehículos similares
-              </h2>
-              <p className="text-sm text-muted-foreground">
-                Más opciones relacionadas para seguir comparando.
-              </p>
-            </div>
-            <Button asChild variant="outline" className="hidden rounded-xl sm:inline-flex">
-              <Link href="/catalogo">Ver todo el catálogo</Link>
-            </Button>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {similarCars.map((similarCar) => (
-              <CarCard
-                key={similarCar.slug}
-                car={toFeaturedCar(similarCar)}
-                className="h-full"
-                imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                detailHref={`/autos/${similarCar.slug}?returnTo=${encodeURIComponent(returnTo)}`}
-              />
-            ))}
-          </div>
-          <Button asChild variant="outline" className="mt-4 rounded-xl sm:hidden">
+      <section className="mt-8 rounded-3xl border border-border bg-background p-4 sm:p-6">
+        <div className="mb-4">
+          <h2 className="text-2xl font-black uppercase tracking-tight text-[var(--brand-black)] sm:text-3xl">
+            Vehículos similares
+          </h2>
+        </div>
+        <SimilarCarsCarousel
+          cars={similarCars.map(toFeaturedCar)}
+          returnTo={returnTo}
+        />
+        <div className="mt-6 flex justify-center">
+          <Button asChild variant="outline" className="rounded-xl">
             <Link href="/catalogo">Ver todo el catálogo</Link>
           </Button>
         </div>

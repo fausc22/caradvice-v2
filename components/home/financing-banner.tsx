@@ -100,24 +100,35 @@ function PromoBanner({
   );
 }
 
+const BANCOR_PROMO = {
+  title: "Financia con Bancor",
+  description: "Tu usado o 0km 100% financiado",
+  imageSrc: "/financiacion.png",
+  imageAlt: "Auto para financiación",
+  firstCtaLabel: "Mas Info",
+  firstCtaHref: "/catalogo",
+  secondCtaLabel: "Contactanos",
+  secondCtaHref: "/contacto",
+  bannerBgClass: "bg-[#88ddd5]",
+  titleColorClass: "text-[var(--brand-orange)]",
+  leftEffectClass: "bg-[var(--brand-orange)]/10",
+  rightEffectClass: "bg-black/10",
+  buttonBgClass: "bg-[#88ddd5]",
+} as const;
+
+/** Solo el banner de financiación Bancor (para usar en home en orden separado). */
+export function FinancingPromoBanner() {
+  return (
+    <div className="space-y-3 sm:space-y-4">
+      <PromoBanner {...BANCOR_PROMO} />
+    </div>
+  );
+}
+
 export function FinancingBanner() {
   return (
     <section className="mt-8 space-y-8 sm:mt-10 sm:space-y-10">
-      <PromoBanner
-        title="Financia con Bancor"
-        description="Tu usado o 0km 100% financiado"
-        imageSrc="/financiacion.png"
-        imageAlt="Auto para financiación"
-        firstCtaLabel="Mas Info"
-        firstCtaHref="/catalogo"
-        secondCtaLabel="Contactanos"
-        secondCtaHref="/contacto"
-        bannerBgClass="bg-[#88ddd5]"
-        titleColorClass="text-[var(--brand-orange)]"
-        leftEffectClass="bg-[var(--brand-orange)]/10"
-        rightEffectClass="bg-black/10"
-        buttonBgClass="bg-[#88ddd5]"
-      />
+      <PromoBanner {...BANCOR_PROMO} />
       <ConsignaBanner />
     </section>
   );

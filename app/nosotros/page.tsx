@@ -139,7 +139,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* Misión, Visión, Valores */}
-      <section className="border-t border-border bg-muted/20 py-12 sm:py-16 md:py-20">
+      <section className="border-t border-border bg-background py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:gap-5 md:grid-cols-3 md:gap-6 lg:gap-8">
             <AnimatedSection
@@ -273,7 +273,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* Nuestro Equipo */}
-      <section className="border-t border-border bg-muted/20 py-12 sm:py-16 md:py-20">
+      <section className="border-t border-border bg-background py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6">
           <AnimatedSection
             initial={{ opacity: 0, y: 20 }}
