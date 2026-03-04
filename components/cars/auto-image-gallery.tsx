@@ -5,6 +5,8 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { getSoldLabelDisplay } from "@/lib/catalog/card-variant";
+import type { CardVariant, SoldLabel } from "@/lib/catalog/types";
 
 type AutoImageGalleryProps = {
   images: string[];
@@ -12,6 +14,10 @@ type AutoImageGalleryProps = {
   alt: string;
   typeLabel: string;
   conditionLabel: string;
+  /** Variante para overlay vendido y badges oportunidad. */
+  cardVariant?: CardVariant;
+  soldLabel?: SoldLabel;
+  opportunityBadges?: string[];
 };
 
 const arrowButtonClass =
@@ -23,7 +29,14 @@ export function AutoImageGallery({
   alt,
   typeLabel,
   conditionLabel,
+  cardVariant,
+  soldLabel,
+  opportunityBadges,
 }: AutoImageGalleryProps) {
+  const isVendido = cardVariant === "vendido";
+  const isOportunidad = cardVariant === "oportunidad";
+  const soldLabelText = getSoldLabelDisplay(soldLabel);
+
   const galleryImages = useMemo(() => {
     const normalized = images.filter(Boolean);
     if (normalized.length > 0) return normalized;
@@ -92,7 +105,18 @@ export function AutoImageGallery({
           </span>
         </button>
 
-        <div className="absolute left-3 top-3 flex flex-wrap items-center gap-2">
+        {isVendido && (
+          <div
+            className="absolute inset-0 z-[8] flex items-center justify-center bg-[var(--brand-black)]/50"
+            aria-hidden
+          >
+            <span className="rounded-lg border-2 border-white/90 bg-[var(--brand-black)]/90 px-5 py-3 text-xl font-black uppercase tracking-wider text-white backdrop-blur sm:px-6 sm:py-3.5 sm:text-2xl">
+              {soldLabelText.toUpperCase()}
+            </span>
+          </div>
+        )}
+
+        <div className="absolute left-3 top-3 z-[9] flex flex-wrap items-center gap-2">
           {typeLabel.toLowerCase() === conditionLabel.toLowerCase() ? (
             <span className="inline-flex rounded-full border border-white/35 bg-[var(--brand-orange)]/80 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur">
               {conditionLabel}
@@ -107,6 +131,16 @@ export function AutoImageGallery({
               </span>
             </>
           )}
+          {isOportunidad &&
+            (opportunityBadges?.length ?? 0) > 0 &&
+            opportunityBadges!.map((badge) => (
+              <span
+                key={badge}
+                className="inline-flex rounded-full border border-white/35 bg-[var(--brand-orange)] px-2.5 py-1 text-[10px] font-bold uppercase leading-tight tracking-wide text-white shadow-sm sm:px-3 sm:py-1.5 sm:text-xs"
+              >
+                {badge}
+              </span>
+            ))}
         </div>
 
         {totalImages > 1 && (

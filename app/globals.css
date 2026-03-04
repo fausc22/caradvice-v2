@@ -94,6 +94,9 @@
   /* WhatsApp: verde oficial (#25D366) y variante más clara para hover */
   --whatsapp-green: #25d366;
   --whatsapp-green-hover: #34e077;
+  /* Vestri: azul identidad (banner home) */
+  --vestri-blue: #2563eb;
+  --vestri-blue-hover: #3b82f6;
   /* Fondos: página offwhite, tarjetas claras para contraste */
   --background: #f4f4f2;
   --foreground: #1d1d1b;
@@ -169,4 +172,169 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Widget Trustindex — estilos de marca (Car Advice) */
+.reviews-trustindex {
+  font-family: var(--font-antenna), system-ui, sans-serif;
+}
+
+.reviews-trustindex .ti-widget {
+  background: transparent !important;
+  max-width: 100% !important;
+  border: none !important;
+}
+
+.reviews-trustindex .ti-widget-container {
+  background: transparent !important;
+}
+
+/* Cards de reseña — mismo lenguaje que CarCard + acento naranja */
+.reviews-trustindex .ti-review-item,
+.reviews-trustindex .ti-review-item > .ti-inner {
+  background: var(--card) !important;
+  border: 1px solid rgba(187, 182, 176, 0.3) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
+  transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out !important;
+}
+
+.reviews-trustindex .ti-review-item:hover,
+.reviews-trustindex .ti-review-item:hover > .ti-inner {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(255, 90, 46, 0.35) !important;
+}
+
+/* Tipografía */
+.reviews-trustindex .ti-review-item,
+.reviews-trustindex .ti-widget-header,
+.reviews-trustindex .ti-footer {
+  font-family: var(--font-antenna), system-ui, sans-serif !important;
+  color: var(--brand-black) !important;
+}
+
+.reviews-trustindex .ti-header .ti-title-text {
+  color: var(--brand-black) !important;
+  font-weight: 500;
+}
+
+/* Nombre y fecha dentro de cada card — legibles sobre fondo oscuro */
+.reviews-trustindex .ti-review-item .ti-name,
+.reviews-trustindex .ti-review-item .ti-date,
+.reviews-trustindex .ti-review-item .ti-profile-details,
+.reviews-trustindex .ti-review-item .ti-profile-details * {
+  color: #ffffff !important;
+}
+
+/* Cuerpo de la reseña — blanco para leer bien sobre fondo oscuro de las cards */
+.reviews-trustindex .ti-review-text-container,
+.reviews-trustindex .ti-review-content .ti-review-text,
+.reviews-trustindex .ti-review-item .ti-review-text,
+.reviews-trustindex .ti-review-text-container *,
+.reviews-trustindex .ti-review-content *,
+.reviews-trustindex .ti-review-item p {
+  color: #ffffff !important;
+  font-weight: 400;
+}
+
+/* "Leer más" y enlaces dentro de la card — visibles sobre fondo oscuro */
+.reviews-trustindex .ti-review-item .ti-read-more,
+.reviews-trustindex .ti-review-item .ti-read-more-active,
+.reviews-trustindex .ti-review-item .ti-read-more a {
+  color: #d5cec4 !important;
+}
+
+.reviews-trustindex .ti-review-item .ti-read-more:hover,
+.reviews-trustindex .ti-review-item .ti-read-more-active:hover {
+  color: #ffffff !important;
+}
+
+.reviews-trustindex .ti-date,
+.reviews-trustindex .ti-header .ti-rating-text,
+.reviews-trustindex .ti-footer .ti-rating-text,
+.reviews-trustindex .ti-muted {
+  color: var(--brand-dark) !important;
+  font-size: 0.875rem;
+}
+
+/* Estrellas — naranja de marca */
+.reviews-trustindex .ti-stars .ti-star.f,
+.reviews-trustindex .ti-stars .ti-star.h {
+  color: var(--brand-orange) !important;
+  fill: var(--brand-orange) !important;
+}
+
+.reviews-trustindex .ti-stars svg,
+.reviews-trustindex .ti-stars .ti-star svg {
+  fill: var(--brand-orange) !important;
+}
+
+/* Header del widget (logo Google, rating) */
+.reviews-trustindex .ti-header,
+.reviews-trustindex .ti-widget-header {
+  color: var(--brand-black) !important;
+}
+
+.reviews-trustindex .ti-header-logo img,
+.reviews-trustindex .ti-large-logo img,
+.reviews-trustindex .ti-small-logo img {
+  max-height: 28px;
+  object-fit: contain;
+}
+
+/* Ocultar "Powered by Trustindex" para look más limpio */
+.reviews-trustindex .ti-footer a[href*="trustindex"],
+.reviews-trustindex .ti-powered-by {
+  display: none !important;
+}
+
+/* Controles (flechas slider, dots) — más naranja */
+.reviews-trustindex .ti-controls .ti-prev,
+.reviews-trustindex .ti-controls .ti-next {
+  background: rgba(255, 90, 46, 0.1) !important;
+  border: 1px solid rgba(255, 90, 46, 0.4) !important;
+  color: var(--brand-orange) !important;
+  transition: border-color 0.2s, background 0.2s !important;
+}
+
+.reviews-trustindex .ti-controls .ti-prev:hover,
+.reviews-trustindex .ti-controls .ti-next:hover {
+  background: rgba(255, 90, 46, 0.2) !important;
+  border-color: var(--brand-orange) !important;
+  color: var(--brand-orange) !important;
+}
+
+.reviews-trustindex .ti-controls-line .dot {
+  background: rgba(255, 90, 46, 0.4) !important;
+  transition: background 0.2s !important;
+}
+
+.reviews-trustindex .ti-controls-line .dot.ti-active,
+.reviews-trustindex .ti-controls-line .dot:first-child {
+  background: var(--brand-orange) !important;
+}
+
+/* Botón "Ver más reseñas" / Load more — naranja de marca */
+.reviews-trustindex .ti-load-more-reviews-button {
+  font-family: var(--font-antenna), system-ui, sans-serif !important;
+  background: rgba(255, 90, 46, 0.12) !important;
+  color: var(--brand-orange) !important;
+  border: 1px solid rgba(255, 90, 46, 0.5) !important;
+  border-radius: 4px !important;
+  transition: border-color 0.2s, background 0.2s !important;
+}
+
+.reviews-trustindex .ti-load-more-reviews-button:hover {
+  background: rgba(255, 90, 46, 0.2) !important;
+  border-color: var(--brand-orange) !important;
+  color: var(--brand-orange) !important;
+}
+
+/* Footer y enlaces a Google */
+.reviews-trustindex .ti-footer a:not([href*="trustindex"]) {
+  color: var(--brand-dark) !important;
+}
+
+.reviews-trustindex .ti-footer a:hover {
+  color: var(--brand-orange) !important;
 }

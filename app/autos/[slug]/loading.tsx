@@ -1,6 +1,7 @@
 /**
  * Skeleton de la ficha de auto. Misma estructura que la página de detalle:
  * breadcrumb, galería + datos, especificaciones, similares.
+ * El contenido real puede mostrar estado "Vehículo disponible", "Oferta" o "Vendido/Agotado" según cardVariant.
  */
 export default function AutoDetailLoading() {
   return (

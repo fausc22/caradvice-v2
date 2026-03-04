@@ -12,7 +12,7 @@ import { HeroSection } from "@/components/home/hero-section";
 import { TipologiaBanner } from "@/components/home/tipologia-banner";
 import { FinancingPromoBanner } from "@/components/home/financing-banner";
 import { FeaturedCarsCarousel } from "@/components/home/featured-cars-carousel";
-import { ConsignaBanner } from "@/components/home/consigna-banner";
+import { VestriBanner } from "@/components/home/vestri-banner";
 import { ClientReviewsSection } from "@/components/home/client-reviews-section";
 import { Button } from "@/components/ui/button";
 
@@ -35,7 +35,7 @@ export function HomeContent({ filtersMeta }: HomeContentProps) {
 
       <section className="border-t border-border bg-background px-4 py-8 sm:px-6 sm:py-12 overflow-x-hidden">
         <div className="container mx-auto max-w-screen-xl min-w-0">
-          <FinancingPromoBanner />
+          <VestriBanner />
         </div>
       </section>
 
@@ -58,7 +58,7 @@ export function HomeContent({ filtersMeta }: HomeContentProps) {
 
       <section className="border-t border-border bg-background px-4 py-8 sm:px-6 sm:py-12 overflow-x-hidden">
         <div className="container mx-auto max-w-screen-xl min-w-0">
-          <ConsignaBanner onConsignarClick={() => setConsignacionModalOpen(true)} />
+          <FinancingPromoBanner />
         </div>
       </section>
 

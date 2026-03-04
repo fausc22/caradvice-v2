@@ -43,6 +43,22 @@ export const CATALOG_SORT_VALUES = [
 ] as const;
 export type CatalogSort = (typeof CATALOG_SORT_VALUES)[number];
 
+/** Variante de card: normal, oferta (ecommerce), oportunidad (badges naranjas), vendido (sello/agotado). */
+export const CARD_VARIANT_VALUES = ["normal", "oferta", "oportunidad", "vendido"] as const;
+export type CardVariant = (typeof CARD_VARIANT_VALUES)[number];
+
+/** Texto del sello cuando cardVariant === "vendido". */
+export const SOLD_LABEL_VALUES = ["vendido", "agotado"] as const;
+export type SoldLabel = (typeof SOLD_LABEL_VALUES)[number];
+
+/** Labels para filtro por categoría (hero, filtros catálogo, chips). */
+export const CATEGORIA_LABELS: Record<CardVariant, string> = {
+  normal: "Nuevos ingresos",
+  oferta: "Ofertas",
+  oportunidad: "Oportunidades",
+  vendido: "Vendidos",
+};
+
 export type CatalogSearchParamsInput = Record<
   string,
   string | string[] | undefined
@@ -53,6 +69,8 @@ export type CatalogQueryParams = {
   tipo?: CatalogTipo;
   tipologia?: CatalogTipologia;
   condicion?: CatalogCondicion;
+  /** Filtro por categoría: oferta, oportunidad, vendido, normal. */
+  categoria?: CardVariant;
   marca?: string;
   modelo?: string;
   version?: string;
@@ -94,6 +112,17 @@ export type CatalogCar = {
   coverImage: string;
   images: string[];
   isFeatured: boolean;
+  /** Variante de card/detalle: normal (default), oferta, oportunidad, vendido. Si no viene (API o datos antiguos), tratar como "normal". */
+  cardVariant?: CardVariant;
+  /** Precio original para oferta (tachado en UI). */
+  priceOriginalArs?: number;
+  priceOriginalUsd?: number;
+  /** Porcentaje de descuento para oferta (ej. 15). */
+  discountPercent?: number;
+  /** Badges naranjas para oportunidad (ej. "FINANCIACION 15%", "RETIRA CON TU DNI"). */
+  opportunityBadges?: string[];
+  /** Texto del sello cuando cardVariant === "vendido". */
+  soldLabel?: SoldLabel;
 };
 
 export type CatalogListResponse = {

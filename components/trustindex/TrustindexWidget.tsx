@@ -31,5 +31,9 @@ export default function TrustindexWidget() {
     scriptLoadedRef.current = true;
   }, [widgetId]);
 
-  return <div ref={containerRef} />;
+  return (
+    <div className="reviews-trustindex w-full max-w-full">
+      <div ref={containerRef} />
+    </div>
+  );
 }

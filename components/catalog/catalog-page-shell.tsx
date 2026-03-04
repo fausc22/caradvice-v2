@@ -19,6 +19,7 @@ import {
   buildCatalogUrl,
   CATALOG_SORT_VALUES,
   CATALOG_TIPOLOGIA_LABELS,
+  CATEGORIA_LABELS,
   type CatalogFilterMetadata,
   type CatalogListResponse,
   type CatalogQueryParams,
@@ -62,6 +63,7 @@ function toQueryEntries(params: CatalogQueryParams): Array<[string, string]> {
   if (params.tipo) entries.push(["tipo", params.tipo]);
   if (params.tipologia) entries.push(["tipologia", params.tipologia]);
   if (params.condicion) entries.push(["condicion", params.condicion]);
+  if (params.categoria) entries.push(["categoria", params.categoria]);
   if (params.marca) entries.push(["marca", params.marca]);
   if (params.modelo) entries.push(["modelo", params.modelo]);
   if (params.version) entries.push(["version", params.version]);
@@ -120,6 +122,9 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
           break;
         case "condicion":
           next.condicion = undefined;
+          break;
+        case "categoria":
+          next.categoria = undefined;
           break;
         case "marca":
           next.marca = undefined;
@@ -207,6 +212,13 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
           key: "condicion",
           label: `Condición: ${params.condicion}`,
           href: buildCatalogUrl(removeKeys(["condicion"])),
+        }
+      : null,
+    params.categoria
+      ? {
+          key: "categoria",
+          label: `Categoría: ${CATEGORIA_LABELS[params.categoria]}`,
+          href: buildCatalogUrl(removeKeys(["categoria"])),
         }
       : null,
     params.marca
@@ -319,7 +331,7 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
 }
 
 const FILTER_OMIT_KEYS: ParamKey[] = [
-  "tipologia", "condicion", "marca", "modelo", "version", "moneda",
+  "tipologia", "condicion", "categoria", "marca", "modelo", "version", "moneda",
   "anioMin", "anioMax", "precioMin", "precioMax", "kmMin", "kmMax",
   "transmision", "combustible", "color", "puertas", "extras", "page",
 ];

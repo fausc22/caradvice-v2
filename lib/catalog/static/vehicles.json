@@ -29,7 +29,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F1%2F1745528970591.30310640-f3d8-4e18-9dbb-4b373d2eac6c.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F1%2F1745528970808.c12d93b4-adad-44cf-b679-144aafc83670.JPG"
     ],
-    "isFeatured": true
+    "isFeatured": true,
+    "cardVariant": "normal",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "2",
@@ -61,7 +66,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F2%2F1765983666739.IMG-20251217-WA0102.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F2%2F1765983666917.IMG-20251217-WA0105.jpg"
     ],
-    "isFeatured": true
+    "isFeatured": true,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 26880000,
+    "discountPercent": 10
   },
   {
     "id": "3",
@@ -93,7 +101,13 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F3%2F1764772847132.IMG-20251203-WA0189.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F3%2F1764772847194.IMG-20251203-WA0190.jpg"
     ],
-    "isFeatured": true
+    "isFeatured": true,
+    "cardVariant": "oportunidad",
+    "soldLabel": "vendido",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "5",
@@ -125,7 +139,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F5%2F1764086495558.IMG-20251125-WA0304.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F5%2F1764086495672.IMG-20251125-WA0305.jpg"
     ],
-    "isFeatured": true
+    "isFeatured": true,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "8",
@@ -157,7 +173,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F8%2F1758120102408.IMG-20250917-WA0108.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F8%2F1758120102458.IMG-20250917-WA0109.jpg"
     ],
-    "isFeatured": true
+    "isFeatured": true,
+    "cardVariant": "normal"
   },
   {
     "id": "9",
@@ -189,7 +206,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F9%2F1767034737947.WhatsApp%20Image%202025-12-29%20at%2015.48.20.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F9%2F1767034738014.WhatsApp%20Image%202025-12-29%20at%2015.48.20%20(2).jpeg"
     ],
-    "isFeatured": true
+    "isFeatured": true,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 78400,
+    "discountPercent": 10
   },
   {
     "id": "12",
@@ -221,7 +241,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F12%2F1764098281506.IMG-20251125-WA0447.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F12%2F1764098281671.IMG-20251125-WA0448.jpg"
     ],
-    "isFeatured": true
+    "isFeatured": true,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "13",
@@ -253,7 +278,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F13%2F1765986795567.IMG-20251217-WA0218.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F13%2F1765986795658.IMG-20251217-WA0219.jpg"
     ],
-    "isFeatured": true
+    "isFeatured": true,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "15",
@@ -285,7 +312,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F15%2F1765986507904.IMG-20251217-WA0194.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F15%2F1765986507931.IMG-20251217-WA0193.jpg"
     ],
-    "isFeatured": true
+    "isFeatured": true,
+    "cardVariant": "normal"
   },
   {
     "id": "21",
@@ -317,7 +345,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F21%2F1748903270113.c10dc52f-e15c-4fbd-b93b-a11bd8f20616.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F21%2F1748903270134.d03f54dc-dca9-4fee-a730-c4d117e7117b.JPG"
     ],
-    "isFeatured": true
+    "isFeatured": true,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 14560000,
+    "discountPercent": 10
   },
   {
     "id": "22",
@@ -349,7 +380,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F22%2F1766524960068.WhatsApp%20Image%202025-12-23%20at%2017.31.15%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F22%2F1766524960112.WhatsApp%20Image%202025-12-23%20at%2017.31.15.jpeg"
     ],
-    "isFeatured": true
+    "isFeatured": true,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "25",
@@ -381,7 +417,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F25%2F1763651275409.IMG-20251120-WA0103.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F25%2F1763651275551.IMG-20251120-WA0110.jpg"
     ],
-    "isFeatured": true
+    "isFeatured": true,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "28",
@@ -413,7 +451,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F28%2F1763413386065.IMG-20251117-WA0541.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F28%2F1763413386190.IMG-20251117-WA0542.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "30",
@@ -445,7 +484,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F30%2F1743720677924.0218f63e-c905-44c5-b883-5ca6fcc9129c%202.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F30%2F1743720677973.861dcd44-e9a2-4e5e-abe0-d003d06c1ceb%202.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 41720000,
+    "discountPercent": 10
   },
   {
     "id": "32",
@@ -477,7 +519,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F32%2F1761162311096.IMG-20251022-WA0314.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F32%2F1761162311204.IMG-20251022-WA0315.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "33",
@@ -509,7 +556,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F33%2F1761160673165.IMG-20251022-WA0185.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F33%2F1761160673265.IMG-20251022-WA0184.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "34",
@@ -541,7 +590,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F34%2F1763497286462.IMG-20251118-WA0256.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F34%2F1763497286534.IMG-20251118-WA0257.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "36",
@@ -573,7 +623,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F36%2F1761679646853.IMG-20250904-WA0261.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F36%2F1761679646935.IMG-20250904-WA0262.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 18480,
+    "discountPercent": 10
   },
   {
     "id": "39",
@@ -605,7 +658,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F39%2F1758585009674.IMG-20250922-WA0286.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F39%2F1758585009728.IMG-20250922-WA0287.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "40",
@@ -637,7 +695,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F40%2F1767165848256.WhatsApp%20Image%202025-12-30%20at%2022.06.56%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F40%2F1767165848273.WhatsApp%20Image%202025-12-30%20at%2022.06.57%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "41",
@@ -669,7 +729,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F41%2F1763401285465.IMG-20251117-WA0420.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F41%2F1763401285530.IMG-20251117-WA0421.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "44",
@@ -701,7 +762,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F44%2F1749675417955.ad74fcbb-6743-45a6-adda-af57cd543e64.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F44%2F1749675418512.afb49080-48a8-4705-82c9-d82f6c373dd2.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 12880000,
+    "discountPercent": 10
   },
   {
     "id": "45",
@@ -733,7 +797,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F45%2F1749048150294.4d882284-259b-4984-b29e-661d131d1ecd.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F45%2F1749048150441.7db69766-cebf-461c-8361-a87ef7be7684.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "46",
@@ -765,7 +834,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F46%2F1758145616595.IMG-20250917-WA0406.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F46%2F1758145616730.IMG-20250917-WA0407.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "47",
@@ -797,7 +868,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F47%2F1761175713029.IMG-20251022-WA0586.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F47%2F1761175713191.IMG-20251022-WA0587.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "48",
@@ -829,7 +901,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F48%2F1734488539947.PHOTO-2024-12-13-14-50-52%203.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F48%2F1734488540032.PHOTO-2024-12-13-14-50-52%204.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 42840000,
+    "discountPercent": 10
   },
   {
     "id": "52",
@@ -861,7 +936,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F52%2F1758840768287.IMG-20250925-WA0167.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F52%2F1758840768311.IMG-20250925-WA0168.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "54",
@@ -893,7 +973,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F54%2F1755729113266.51eb1ef6-c69a-48cf-81d7-85db52fb6a92.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F54%2F1755729113300.65d7cd23-c037-44ae-8211-9b9c723c259b.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "57",
@@ -925,7 +1007,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F57%2F1757978972395.IMG-20250915-WA0703.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F57%2F1757978972464.IMG-20250915-WA0704.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "58",
@@ -957,7 +1040,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F58%2F1763063701861.IMG-20251113-WA0392.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F58%2F1763063701893.IMG-20251113-WA0394.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 39200000,
+    "discountPercent": 10
   },
   {
     "id": "61",
@@ -989,7 +1075,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F61%2F1751413182646.0399d21a-a222-48d4-9c96-97ca368e6f3d.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F61%2F1751413182696.933d478a-ef90-4c64-b3f3-3da414e3e9a5.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "63",
@@ -1021,7 +1112,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F63%2F1759847672270.IMG-20251007-WA0099.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F63%2F1759847672401.IMG-20251007-WA0100.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "65",
@@ -1053,7 +1146,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F65%2F1765833694081.IMG-20251215-WA0476.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F65%2F1765833694164.IMG-20251215-WA0477.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "66",
@@ -1085,7 +1179,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F66%2F1764687937665.IMG-20251202-WA0068.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F66%2F1764687938286.IMG-20251202-WA0069.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 43120,
+    "discountPercent": 10
   },
   {
     "id": "69",
@@ -1117,7 +1214,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F69%2F1757451124158.IMG-20250909-WA0345.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F69%2F1757451124616.IMG-20250909-WA0338.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "70",
@@ -1149,7 +1251,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F70%2F1766075440812.WhatsApp%20Image%202025-12-18%20at%2013.05.47%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F70%2F1766075441228.WhatsApp%20Image%202025-12-18%20at%2013.05.46%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "72",
@@ -1181,7 +1285,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F72%2F1761763636516.IMG-20251029-WA0243.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F72%2F1761763636602.IMG-20251029-WA0244.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "75",
@@ -1213,7 +1318,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F75%2F1759421168575.IMG-20251002-WA0211.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F75%2F1759421168615.IMG-20251002-WA0212.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 24640000,
+    "discountPercent": 10
   },
   {
     "id": "76",
@@ -1245,7 +1353,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F76%2F1759872023975.IMG-20251007-WA0340.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F76%2F1759872024047.IMG-20251007-WA0341.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "77",
@@ -1277,7 +1390,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F77%2F1757335528779.e8aab865-5bba-4aff-b670-74dfd3e8f897.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F77%2F1757335528851.47a62a12-cea4-4a5c-a6ff-7c900fe69188.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "78",
@@ -1309,7 +1424,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F78%2F1763587135641.IMG-20251119-WA0327.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F78%2F1763587135716.IMG-20251119-WA0328.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "83",
@@ -1341,7 +1457,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F83%2F1766088844019.WhatsApp%20Image%202025-12-18%20at%2016.01.50%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F83%2F1766088844162.WhatsApp%20Image%202025-12-18%20at%2016.01.51%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 36400,
+    "discountPercent": 10
   },
   {
     "id": "84",
@@ -1373,7 +1492,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F84%2F1750873273850.290124f1-4edf-46a8-8fca-95cfc832a96f%203.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F84%2F1750873274168.a5ad3075-2401-4788-8aaa-9b7daf91702a%203.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "85",
@@ -1405,7 +1529,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F85%2F1766165390799.WhatsApp%20Image%202025-12-19%20at%2014.17.43.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F85%2F1766165390849.WhatsApp%20Image%202025-12-19%20at%2014.17.42%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "86",
@@ -1437,7 +1563,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F86%2F1759507534984.IMG-20251003-WA0023.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F86%2F1759507535131.IMG-20251003-WA0010.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "87",
@@ -1469,7 +1596,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F87%2F1761773776984.IMG-20251029-WA0391.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F87%2F1761773777294.IMG-20251029-WA0398.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 44688,
+    "discountPercent": 10
   },
   {
     "id": "91",
@@ -1501,7 +1631,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F91%2F1765914560639.IMG-20251216-WA0290.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F91%2F1765914560902.IMG-20251216-WA0291.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "94",
@@ -1533,7 +1668,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F94%2F1757950444080.9144c9ad-53b3-4e7a-9bd7-3b22a0a08042.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F94%2F1757950444114.513341b8-5a6b-4052-b9b7-2dcccec490b8.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "101",
@@ -1565,7 +1702,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F101%2F1761764479848.Imagen%20de%20WhatsApp%202025-10-29%20a%20las%2015.31.07_6033737.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F101%2F1761764479946.IMG-20251029-WA0326.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "104",
@@ -1597,7 +1735,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F104%2F1764772566607.IMG-20251203-WA0163.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F104%2F1764772567057.IMG-20251203-WA0162.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 31920,
+    "discountPercent": 10
   },
   {
     "id": "106",
@@ -1629,7 +1770,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F106%2F1754497363077.292e1945-ce31-42b6-b30c-c5ede5546361%202.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F106%2F1754497363091.645e111d-7898-452a-9ea2-73f12f0834ec%202.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "109",
@@ -1661,7 +1807,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F109%2F1757685690954.IMG-20250911-WA0165.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F109%2F1757685691241.IMG-20250911-WA0166.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "111",
@@ -1693,7 +1841,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F111%2F1760454703407.IMG-20251014-WA0135.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F111%2F1760454703630.IMG-20251014-WA0140.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "112",
@@ -1725,7 +1874,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F112%2F1756336300762.90d67704-4c4e-4c77-bc29-accac9a5648a.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F112%2F1756336300788.92606a1d-a2f0-4ab2-8895-9660f1032dec.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 59920000,
+    "discountPercent": 10
   },
   {
     "id": "114",
@@ -1757,7 +1909,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F114%2F1746651271648.714d57b7-6d82-49a0-a722-b071b3a2874e.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F114%2F1746651271662.24250d0b-0b71-41a0-ac98-1ab72cffede1.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "116",
@@ -1789,7 +1946,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F116%2F1759951367311.IMG-20251008-WA0398.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F116%2F1759951367426.IMG-20251008-WA0399.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "117",
@@ -1821,7 +1980,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F117%2F1751476851730.185a3eec-a896-45a8-8da2-887107052c25.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F117%2F1751476851764.937baab7-9168-4661-84b4-52dd6ec4e2a8.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "118",
@@ -1853,7 +2013,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F118%2F1764961958674.IMG-20251205-WA0348.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F118%2F1764961958774.IMG-20251205-WA0353.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 27888,
+    "discountPercent": 10
   },
   {
     "id": "120",
@@ -1885,7 +2048,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F120%2F1744747646153.53d0d7a9-3673-46e5-9590-15a43fb19455.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F120%2F1744747646181.339cd9df-0836-42cf-ae29-b8101afcf2ab.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "121",
@@ -1917,7 +2085,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F121%2F1758129366645.IMG-20250917-WA0224.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F121%2F1758129366731.IMG-20250917-WA0229.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "126",
@@ -1949,7 +2119,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F126%2F1749675958342.79f76971-791b-45f8-a4a5-e06b114260b4.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F126%2F1749675958456.12593c0f-6536-40e6-ab92-90efa7384fdd.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "128",
@@ -1981,7 +2152,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F128%2F1761662400762.IMG-20251028-WA0177.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F128%2F1761662400959.IMG-20251028-WA0178.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 42560,
+    "discountPercent": 10
   },
   {
     "id": "129",
@@ -2013,7 +2187,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F129%2F1756438071908.7677dac8-609f-4013-9cd4-65829edef467.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F129%2F1756438071954.aa6e2fb4-77f2-49c8-ba0c-2c4bc94c9e16.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "130",
@@ -2045,7 +2224,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F130%2F1755180189939.16439eb5-137e-4cc8-99dc-26681607b606.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F130%2F1755180189972.64d36265-a632-4aca-81c6-159e2ff49a14.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "131",
@@ -2077,7 +2258,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F131%2F1737517659210.759368cd-5770-4f5a-a0ed-a590741b3c74.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F131%2F1737517659434.879581de-b765-4078-8590-e62c91574eba.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "132",
@@ -2109,7 +2291,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F132%2F1742418443802.a1b15c6c-a951-4fd3-bb24-c3f925652c52.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F132%2F1742418448359.a05e1979-fc6c-48b5-ae5e-dae8a19a39ff.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 22960000,
+    "discountPercent": 10
   },
   {
     "id": "133",
@@ -2141,7 +2326,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F133%2F1765815362836.IMG-20251215-WA0286.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F133%2F1765815362923.IMG-20251215-WA0287.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "134",
@@ -2173,7 +2363,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F134%2F1755911876394.142bfc4a-9b47-4b46-a73d-547828f19849.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F134%2F1755911876413.544ced05-eedc-46ba-8639-08cd302bec70.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "135",
@@ -2205,7 +2397,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F135%2F1760464487370.IMG-20251014-WA0177.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F135%2F1760464487461.IMG-20251014-WA0179.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "138",
@@ -2237,7 +2430,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F138%2F1764791187517.IMG-20251203-WA0432.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F138%2F1764791187550.IMG-20251203-WA0433.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 43120000,
+    "discountPercent": 10
   },
   {
     "id": "140",
@@ -2269,7 +2465,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F140%2F1756864583418.77526eaf-6f32-4235-990e-ced885c3f363.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F140%2F1756864583734.a374ce37-9b5a-4c9c-97ff-0abcea87063b.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "141",
@@ -2301,7 +2502,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F141%2F1764184893248.IMG-20251126-WA0339.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F141%2F1764184893529.IMG-20251126-WA0340.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "142",
@@ -2333,7 +2536,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F142%2F1758811761570.IMG-20250925-WA0086.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F142%2F1758811761609.IMG-20250925-WA0087.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "144",
@@ -2365,7 +2569,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F144%2F1756772117395.6869b3b9-2183-4a5a-9354-1ec1e8b30195.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F144%2F1756772117412.ab33d917-9ae7-4050-b58d-f4f07e9389f7.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 34720,
+    "discountPercent": 10
   },
   {
     "id": "145",
@@ -2397,7 +2604,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F145%2F1766163920137.WhatsApp%20Image%202025-12-19%20at%2012.08.51%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F145%2F1766163920229.WhatsApp%20Image%202025-12-19%20at%2012.08.50%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "146",
@@ -2429,7 +2641,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F146%2F1751489101321.cc003d52-2916-4b8e-8ef3-1ed7351eab04.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F146%2F1751489105366.4b5924e1-2089-4bf0-a467-a0ce5b485fa1.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "150",
@@ -2461,7 +2675,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F150%2F1755539737029.81fcc335-060f-4e0b-928b-7cda758e3322.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F150%2F1755539737050.69d9c997-322c-4578-afe6-ed1518d2688d.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "151",
@@ -2493,7 +2708,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F151%2F1749594973125.7479b33f-e1e7-4bfd-87bb-16113c51a4ba.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F151%2F1749594973148.9280cb18-d252-4ae2-a410-64853bbd44fe.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 18368000,
+    "discountPercent": 10
   },
   {
     "id": "153",
@@ -2525,7 +2743,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F153%2F1758038507972.IMG-20250915-WA0712.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F153%2F1758038508502.IMG-20250915-WA0722.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "154",
@@ -2557,7 +2780,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F154%2F1760718767187.IMG-20251017-WA0337.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F154%2F1760718767567.IMG-20251017-WA0339.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "155",
@@ -2589,7 +2814,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F155%2F1764688288061.IMG-20251202-WA0082.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F155%2F1764688288171.IMG-20251202-WA0083.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "156",
@@ -2621,7 +2847,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F156%2F1766165951572.WhatsApp%20Image%202025-12-19%20at%2014.22.36.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F156%2F1766165952496.WhatsApp%20Image%202025-12-19%20at%2014.22.37%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 31360000,
+    "discountPercent": 10
   },
   {
     "id": "157",
@@ -2653,7 +2882,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F157%2F1761681282775.IMG-20251028-WA0371.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F157%2F1761681282867.IMG-20251028-WA0372.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "159",
@@ -2685,7 +2919,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F159%2F1764260123621.IMG-20251127-WA0146.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F159%2F1764260123713.IMG-20251127-WA0147.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "160",
@@ -2717,7 +2953,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F160%2F1739909295609.894055b2-fd2a-4222-a818-5bb59f4d457e%203.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F160%2F1739909295672.a81cf394-715e-477e-8474-bfe5f28de6ab%203.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "161",
@@ -2749,7 +2986,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F161%2F1747254257395.ac8fcc3c-cfb6-402a-b5a3-492f0cbaf852.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F161%2F1747254257421.ae41e741-fcf3-47a9-99fd-5b790e5a2b25.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 18368000,
+    "discountPercent": 10
   },
   {
     "id": "167",
@@ -2781,7 +3021,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F167%2F1760643520439.IMG-20251016-WA0132.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F167%2F1760643520460.IMG-20251016-WA0133.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "168",
@@ -2813,7 +3058,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F168%2F1752777657224.10f1ce9b-2b7f-469b-a562-1bb98add8cba.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F168%2F1752777657250.4948e0bf-678c-4660-b8aa-6839c23da6e7.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "169",
@@ -2845,7 +3092,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F169%2F1758317322629.IMG-20250919-WA0341.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F169%2F1758317322653.IMG-20250919-WA0346.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "171",
@@ -2877,7 +3125,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F171%2F1765987475158.IMG-20251217-WA0242.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F171%2F1765987475312.IMG-20251217-WA0241.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 18928000,
+    "discountPercent": 10
   },
   {
     "id": "172",
@@ -2909,7 +3160,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F172%2F1743719620588.79c20a9a-92e1-4205-9b79-22eac51ecc67.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F172%2F1743719620656.591c9a29-a88c-4f48-b265-900406734e1d.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "173",
@@ -2941,7 +3197,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F173%2F1765914261491.IMG-20251216-WA0261.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F173%2F1765914261517.IMG-20251216-WA0260.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "175",
@@ -2973,7 +3231,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F175%2F1756922461749.297bbc13-73cb-418d-a75b-193fb615bb9c.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F175%2F1756922461776.7711c6b7-4237-44c4-8274-29993d70f53e.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "176",
@@ -3005,7 +3264,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F176%2F1764105885735.IMG-20251125-WA0558.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F176%2F1764105885851.IMG-20251125-WA0559.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 36400000,
+    "discountPercent": 10
   },
   {
     "id": "177",
@@ -3037,7 +3299,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F177%2F1761937505863.IMG-20251031-WA0246.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F177%2F1761937506054.IMG-20251031-WA0254.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "179",
@@ -3069,7 +3336,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F179%2F1764947451694.IMG-20251205-WA0104.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F179%2F1764947452045.IMG-20251205-WA0105.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "183",
@@ -3101,7 +3370,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F183%2F1765981428509.IMG-20251217-WA0085.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F183%2F1765981428613.IMG-20251217-WA0086.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "185",
@@ -3133,7 +3403,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F185%2F1744121365283.98b7fb3c-a6ef-43fb-bdfe-71180853d122.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F185%2F1744121365320.187ca431-cbad-4fce-a695-3925df4d57e3.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 52080,
+    "discountPercent": 10
   },
   {
     "id": "186",
@@ -3165,7 +3438,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F186%2F1764605859408.IMG-20251201-WA0225.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F186%2F1764605859618.IMG-20251201-WA0230.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "188",
@@ -3197,7 +3475,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F188%2F1763664505465.IMG-20251120-WA0308.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F188%2F1763664505626.IMG-20251120-WA0309.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "189",
@@ -3229,7 +3509,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F189%2F1754059783966.99a78143-c061-4d37-84f5-5df2f19834ca.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F189%2F1754059783978.1076eaa8-7738-4002-9206-39d19f55a34a.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "191",
@@ -3261,7 +3542,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F191%2F1753852610103.44918514-d47c-4813-a575-e0d0c6e0a7b0.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F191%2F1753852610123.4c575c62-cafa-4728-a646-5a626a368096.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 23520000,
+    "discountPercent": 10
   },
   {
     "id": "192",
@@ -3293,7 +3577,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F192%2F1763576503365.IMG-20251119-WA0232.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F192%2F1763576503573.IMG-20251119-WA0233.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "193",
@@ -3325,7 +3614,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F193%2F1762966648533.IMG-20251112-WA0122.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F193%2F1762966648586.IMG-20251112-WA0126.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "194",
@@ -3357,7 +3648,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F194%2F1755880194419.88d05a73-64eb-4f07-96d3-73097b25f662.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F194%2F1755880194455.81433f11-e6f7-4561-a986-534726f723f9.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "195",
@@ -3389,7 +3681,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F195%2F1764790895546.IMG-20251203-WA0399.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F195%2F1764790895737.IMG-20251203-WA0400.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 30128000,
+    "discountPercent": 10
   },
   {
     "id": "197",
@@ -3421,7 +3716,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F197%2F1766164173885.WhatsApp%20Image%202025-12-19%20at%2012.30.42.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F197%2F1766164174003.WhatsApp%20Image%202025-12-19%20at%2012.30.42%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "198",
@@ -3453,7 +3753,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F198%2F1748833067455.7524dcda-6430-4b6b-85b4-e4d5061aa828.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F198%2F1748833067470.68627b15-30a3-4b58-b3f3-0aac780efbc0.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "199",
@@ -3485,7 +3787,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F199%2F1764773277611.IMG-20251203-WA0213.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F199%2F1764773277982.IMG-20251203-WA0214.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "200",
@@ -3517,7 +3820,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F200%2F1761841852395.IMG-20251030-WA0279.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F200%2F1761841852688.IMG-20251030-WA0282.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 32480,
+    "discountPercent": 10
   },
   {
     "id": "202",
@@ -3549,7 +3855,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F202%2F1760633470334.IMG-20251016-WA0242.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F202%2F1760633470571.IMG-20251016-WA0239.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "203",
@@ -3581,7 +3892,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F203%2F1765400111692.IMG-20251210-WA0365.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F203%2F1765400111805.IMG-20251210-WA0369.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "205",
@@ -3613,7 +3926,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F205%2F1764621740066.IMG-20251201-WA0548.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F205%2F1764621740205.IMG-20251201-WA0547.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "207",
@@ -3645,7 +3959,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F207%2F1751413058784.41d38548-0e41-403d-a879-845ad983057e.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F207%2F1751413058896.204e2478-30b7-4bdc-a3e0-0aa89925a905.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 25200000,
+    "discountPercent": 10
   },
   {
     "id": "208",
@@ -3677,7 +3994,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F208%2F1764959249160.IMG-20251205-WA0272.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F208%2F1764959249435.IMG-20251205-WA0273.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "209",
@@ -3709,7 +4031,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F209%2F1765815016957.IMG-20251215-WA0268.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F209%2F1765815017113.IMG-20251215-WA0269.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "215",
@@ -3741,7 +4065,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F215%2F1763754848804.IMG-20251121-WA0284.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F215%2F1763754848935.IMG-20251121-WA0285.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "216",
@@ -3773,7 +4098,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F216%2F1757432314071.IMG-20250909-WA0169.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F216%2F1757432314151.IMG-20250909-WA0170.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 21840,
+    "discountPercent": 10
   },
   {
     "id": "217",
@@ -3805,7 +4133,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F217%2F1764166180978.IMG-20250807-WA0164.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F217%2F1764166181099.IMG-20250807-WA0165.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "218",
@@ -3837,7 +4170,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F218%2F1757335988888.6a143885-6ec9-4928-b478-b7ea50701091.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F218%2F1757335988917.32a57906-af33-497f-a4c6-71ebf83d8845.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "219",
@@ -3869,7 +4204,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F219%2F1766435506673.WhatsApp%20Image%202025-12-22%20at%2017.20.36.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F219%2F1766435506755.WhatsApp%20Image%202025-12-22%20at%2017.20.35.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "220",
@@ -3901,7 +4237,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F220%2F1762793263985.IMG-20251110-WA0466.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F220%2F1762793264157.IMG-20251110-WA0468.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 25200000,
+    "discountPercent": 10
   },
   {
     "id": "221",
@@ -3933,7 +4272,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F221%2F1758129970421.IMG-20250917-WA0229.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F221%2F1758129970598.IMG-20250917-WA0224.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "225",
@@ -3965,7 +4309,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F225%2F1764946899014.IMG-20251205-WA0084.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F225%2F1764946899104.IMG-20251205-WA0085.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "226",
@@ -3997,7 +4343,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F226%2F1760390626723.IMG-20251013-WA0446.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F226%2F1760390626734.IMG-20251013-WA0447.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "229",
@@ -4029,7 +4376,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F229%2F1757428586852.330a8dfb-f8c0-47f8-9eca-b3e5b1061f2c.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F229%2F1757428586882.734cf19d-1199-415d-8c08-4f75b943ce8b.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 25648000,
+    "discountPercent": 10
   },
   {
     "id": "230",
@@ -4061,7 +4411,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F230%2F1765286404942.IMG-20251209-WA0050.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F230%2F1765286405062.IMG-20251209-WA0052.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "231",
@@ -4093,7 +4448,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F231%2F1758721161604.IMG-20250612-WA0907.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F231%2F1758721161679.IMG-20250923-WA0257.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "233",
@@ -4125,7 +4482,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F233%2F1763587625269.IMG-20251119-WA0375.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F233%2F1763587625302.IMG-20251119-WA0376.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "235",
@@ -4157,7 +4515,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F235%2F1749675836431.8816e1f5-3a1a-4011-b73b-bd685e6be020.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F235%2F1749675836511.65392e30-7ed4-43ae-bbf1-965a6ca10949.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 20720000,
+    "discountPercent": 10
   },
   {
     "id": "237",
@@ -4189,7 +4550,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F237%2F1743720223639.71e90e22-6b74-4d45-aa06-97fafa035b52.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F237%2F1743720223668.96e89672-36d0-4854-95ac-70674d4019b9.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "240",
@@ -4221,7 +4587,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F240%2F1756438321707.77752bbd-5e89-4dd6-9885-65294a4c923e%202.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F240%2F1756438321729.70957905-4c4c-45c4-b183-2a70e46dda15%202.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "242",
@@ -4253,7 +4621,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F242%2F1749133342224.33ad61fa-8425-4644-a7f4-2772cb90d856.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F242%2F1749133342266.84ecfa93-784d-49ee-a742-3adc195eb71b.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "245",
@@ -4285,7 +4654,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F245%2F1764085676540.IMG-20251125-WA0203.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F245%2F1764085676605.IMG-20251125-WA0204.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 20160000,
+    "discountPercent": 10
   },
   {
     "id": "247",
@@ -4317,7 +4689,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F247%2F1747949007628.9bb7977c-97fa-42fe-8ad9-980d260adc7d.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F247%2F1747949007656.57ec7f1a-16db-4c57-bde2-779fe0d1e188.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "249",
@@ -4349,7 +4726,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F249%2F1765834025391.IMG-20251215-WA0512.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F249%2F1765834025422.IMG-20251215-WA0515.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "250",
@@ -4381,7 +4760,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F250%2F1758659195630.IMG-20250923-WA0294.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F250%2F1758659195679.IMG-20250923-WA0296.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "251",
@@ -4413,7 +4793,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F251%2F1764866120785.IMG-20251204-WA0224.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F251%2F1764866120888.IMG-20251204-WA0225.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 35280000,
+    "discountPercent": 10
   },
   {
     "id": "255",
@@ -4445,7 +4828,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F255%2F1758054680486.IMG-20250903-WA0072.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F255%2F1758054680554.IMG-20250903-WA0073.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "256",
@@ -4477,7 +4865,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F256%2F1761245010059.IMG-20251023-WA0210.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F256%2F1761245010106.IMG-20251023-WA0201.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "259",
@@ -4509,7 +4899,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F259%2F1763146892104.IMG-20251114-WA0180.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F259%2F1763146892257.IMG-20251114-WA0181.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "260",
@@ -4541,7 +4932,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F260%2F1765481044880.IMG-20251211-WA0350.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F260%2F1765481044973.IMG-20251211-WA0351.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 21840000,
+    "discountPercent": 10
   },
   {
     "id": "262",
@@ -4573,7 +4967,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F262%2F1757953453474.IMG-20250915-WA0507.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F262%2F1757953453806.IMG-20250915-WA0497.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "263",
@@ -4605,7 +5004,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F263%2F1750724912107.920d8cb9-36bb-4bf6-99bc-0cc962d96aa6.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F263%2F1750724912180.28784fc0-66dd-4301-b8b1-58d7fb3de34c.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "264",
@@ -4637,7 +5038,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F264%2F1762979854972.IMG-20251112-WA0298.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F264%2F1762979855055.IMG-20251112-WA0300.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "265",
@@ -4669,7 +5071,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F265%2F1758751020562.IMG-20250924-WA0516.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F265%2F1758751021097.IMG-20250924-WA0518.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 82880000,
+    "discountPercent": 10
   },
   {
     "id": "271",
@@ -4701,7 +5106,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F271%2F1749505944038.77d65b8c-453f-45ea-a629-b3023df398c3.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F271%2F1749505944204.0626c20b-1f99-43fb-b7a8-ed13f39f5f95.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "272",
@@ -4733,7 +5143,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F272%2F1736803377611.PHOTO-2024-10-10-15-29-27%202.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F272%2F1736803377627.PHOTO-2024-10-10-15-29-27.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "273",
@@ -4765,7 +5177,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F273%2F1757978356904.IMG-20250915-WA0643.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F273%2F1757978357311.IMG-20250915-WA0644.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "274",
@@ -4797,7 +5210,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F274%2F1755180404661.08a85dc7-a037-45d3-a257-490e5056ec63.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F274%2F1755180404698.74dce7a1-81ab-4b90-9c51-897be83b2638.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 33040,
+    "discountPercent": 10
   },
   {
     "id": "277",
@@ -4829,7 +5245,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F277%2F1738814745747.85f90414-bfdc-4dfa-ab99-b72badfc7a98.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F277%2F1738814745964.86eaf4fb-6b52-4495-b36b-02b959086506.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "278",
@@ -4861,7 +5282,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F278%2F1765564147168.IMG-20251212-WA0268.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F278%2F1765564147247.IMG-20251212-WA0267.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "279",
@@ -4893,7 +5316,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F279%2F1770134105115.WhatsApp%20Image%202025-12-19%20at%2011.21.05.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F279%2F1770134105270.WhatsApp%20Image%202025-12-19%20at%2011.21.02.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "284",
@@ -4925,7 +5349,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F284%2F1759787100667.IMG-20251006-WA0437.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F284%2F1759787100767.IMG-20251006-WA0435.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 31248000,
+    "discountPercent": 10
   },
   {
     "id": "286",
@@ -4957,7 +5384,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F286%2F1764797941584.IMG-20250707-WA0664.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F286%2F1764797941713.IMG-20250707-WA0665.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "287",
@@ -4989,7 +5421,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F287%2F1766501138450.WhatsApp%20Image%202025-12-23%20at%2009.57.41%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F287%2F1766501138467.WhatsApp%20Image%202025-12-23%20at%2009.57.38%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "288",
@@ -5021,7 +5455,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F288%2F1757954052581.IMG-20250915-WA0362.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F288%2F1757954053329.IMG-20250915-WA0363.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "289",
@@ -5053,7 +5488,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F289%2F1761756848531.IMG-20251029-WA0079.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F289%2F1761756848655.IMG-20251029-WA0080.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 47040,
+    "discountPercent": 10
   },
   {
     "id": "291",
@@ -5085,7 +5523,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F291%2F1766004816576.IMG-20251217-WA0457.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F291%2F1766004816812.IMG-20251217-WA0458.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "294",
@@ -5117,7 +5560,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F294%2F1759154810711.IMG-20250929-WA0193.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F294%2F1759154810838.IMG-20250929-WA0200.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "295",
@@ -5149,7 +5594,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F295%2F1761252767778.IMG-20251023-WA0394.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F295%2F1761252767861.IMG-20251023-WA0391.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "296",
@@ -5181,7 +5627,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F296%2F1764875130102.IMG-20251204-WA0387.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F296%2F1764875130326.IMG-20251204-WA0372.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 28000000,
+    "discountPercent": 10
   },
   {
     "id": "297",
@@ -5213,7 +5662,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F297%2F1752898289709.70bcde9e-90b2-426a-b359-122420ae7336.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F297%2F1752898289750.f2f8d193-411f-46ea-90e5-30bb4ca91633.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "298",
@@ -5245,7 +5699,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F298%2F1764865249574.IMG-20251204-WA0205.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F298%2F1764865249606.IMG-20251204-WA0206.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "303",
@@ -5277,7 +5733,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F303%2F1765917661684.IMG-20251216-WA0316.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F303%2F1765917661760.IMG-20251216-WA0317.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "305",
@@ -5309,7 +5766,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F305%2F1758656608000.IMG-20250923-WA0045.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F305%2F1758656608075.IMG-20250923-WA0047.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 20160000,
+    "discountPercent": 10
   },
   {
     "id": "309",
@@ -5341,7 +5801,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F309%2F1760038567982.IMG-20251009-WA0370.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F309%2F1760038568514.IMG-20251009-WA0365.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "310",
@@ -5373,7 +5838,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F310%2F1750816811740.1641770a-6134-479e-b037-83ea7847951a.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F310%2F1750816811757.5832079b-d63c-45b4-abcd-a36fdbf75977.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "311",
@@ -5405,7 +5872,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F311%2F1761937987892.IMG-20251031-WA0319.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F311%2F1761937988080.IMG-20251031-WA0320.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "312",
@@ -5437,7 +5905,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F312%2F1745792898464.69c96f97-eab8-47f6-8b13-601a19f78ed9.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F312%2F1745792898488.73f0ac12-a0de-46fd-8c97-cb97185865c8.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 19040000,
+    "discountPercent": 10
   },
   {
     "id": "316",
@@ -5469,7 +5940,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F316%2F1752551240333.87fc82ce-d1cc-489b-aaca-530b0ab4960e.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F316%2F1752551240351.55d28d1a-6a4e-4bcf-8def-9b45c36f68e4.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "317",
@@ -5501,7 +5977,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F317%2F1736175998907.PHOTO-2025-01-06-12-05-35%2011.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F317%2F1736175998927.PHOTO-2025-01-06-12-05-35%2012.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "320",
@@ -5533,7 +6011,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F320%2F1764184070739.IMG-20251126-WA0245.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F320%2F1764184071933.IMG-20251126-WA0251.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "321",
@@ -5565,7 +6044,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F321%2F1763415230817.IMG-20251117-WA0566.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F321%2F1763415230868.IMG-20251117-WA0567.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 20944000,
+    "discountPercent": 10
   },
   {
     "id": "323",
@@ -5597,7 +6079,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F323%2F1753401747703.99dd5001-d4eb-4e28-9c5c-476303705c5a.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F323%2F1753401747811.461dc83b-10c7-4330-917c-8fb5e1866996.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "325",
@@ -5629,7 +6116,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F325%2F1759852180119.IMG-20251007-WA0176.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F325%2F1759852180243.IMG-20251007-WA0172.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "327",
@@ -5661,7 +6150,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F327%2F1764791459768.IMG-20251203-WA0449.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F327%2F1764791459859.IMG-20251203-WA0451.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "328",
@@ -5693,7 +6183,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F328%2F1755540054123.7f852f0d-4db2-4e9f-8a8c-fbfa14967b33.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F328%2F1755540054142.9978cf4e-6fa2-4046-9bb3-63aaadd1bb42.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 24080000,
+    "discountPercent": 10
   },
   {
     "id": "329",
@@ -5725,7 +6218,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F329%2F1736803590539.PHOTO-2024-09-16-11-39-40.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F329%2F1736803590552.PHOTO-2024-09-16-11-39-41%202.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "330",
@@ -5757,7 +6255,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F330%2F1757952360873.IMG-20250915-WA0436.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F330%2F1757952360993.IMG-20250915-WA0434.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "333",
@@ -5789,7 +6289,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F333%2F1764164012401.IMG-20251126-WA0056.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F333%2F1764164012904.IMG-20251126-WA0057.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "334",
@@ -5821,7 +6322,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F334%2F1756335290937.17e718a5-4cfe-445d-bc61-2c94f1469055.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F334%2F1756335291129.14ea46e1-87fe-4b61-b137-911808165d04.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 25760000,
+    "discountPercent": 10
   },
   {
     "id": "335",
@@ -5853,7 +6357,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F335%2F1753241378395.f51d112b-bf69-4dd2-bc4f-f1ac039c245b.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F335%2F1753241378424.a3dc0402-6e53-4b91-9eef-12425c8b9cdf.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "336",
@@ -5885,7 +6394,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F336%2F1763055569163.IMG-20251113-WA0192.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F336%2F1763055569181.IMG-20251113-WA0193.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "339",
@@ -5917,7 +6428,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F339%2F1763056091491.IMG-20251113-WA0208.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F339%2F1763056091552.IMG-20251113-WA0209.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "341",
@@ -5949,7 +6461,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F341%2F1749506218051.555ff3ad-b5b0-4e3f-80a8-c0f2ba1e1d12.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F341%2F1749506219321.e79285f2-3247-4f0b-8695-0cf501fc7fcc.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 17360000,
+    "discountPercent": 10
   },
   {
     "id": "342",
@@ -5981,7 +6496,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F342%2F1750378583025.928caeb9-b6c5-467b-a7fe-b300f2412925.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F342%2F1750378583369.6862331e-acdf-4118-8046-fa9733f9dd7d.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "343",
@@ -6013,7 +6533,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F343%2F1755912036673.27df6e04-a6d0-4e28-aef7-cfe91694518c.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F343%2F1755912036681.063ea36b-7dcd-4346-92ad-3bb385f4fa02.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "344",
@@ -6045,7 +6567,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F344%2F1756438422128.211e1c7c-20fc-4929-af75-8588f6561eaf.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F344%2F1756438422166.236911b1-d661-48a9-9115-b327aefbc327.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "345",
@@ -6077,7 +6600,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F345%2F1750872814795.d25d1783-443f-443b-a436-c098d2425cee.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F345%2F1750872814926.edc57b82-f87f-40d1-be5b-e45b5682a4b9.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 12320000,
+    "discountPercent": 10
   },
   {
     "id": "346",
@@ -6109,7 +6635,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F346%2F1765482084926.IMG-20251211-WA0408.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F346%2F1765482085073.IMG-20251211-WA0409.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "348",
@@ -6141,7 +6672,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F348%2F1763503064377.IMG-20251118-WA0424.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F348%2F1763503064666.IMG-20251118-WA0425.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "350",
@@ -6173,7 +6706,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F350%2F1764183424942.IMG-20251126-WA0222.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F350%2F1764183425054.IMG-20251126-WA0227.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "351",
@@ -6205,7 +6739,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F351%2F1763063994106.IMG-20251113-WA0437.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F351%2F1763063994178.IMG-20251113-WA0438.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 32480000,
+    "discountPercent": 10
   },
   {
     "id": "352",
@@ -6237,7 +6774,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F352%2F1763502540874.IMG-20251118-WA0389.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F352%2F1763502540907.IMG-20251118-WA0385.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "354",
@@ -6269,7 +6811,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F354%2F1753853484133.51aba17a-f69a-44ac-ad76-e2e954e22e94.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F354%2F1753853484168.1f825b13-ada8-47b1-96e7-9bf1a051f202.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "355",
@@ -6301,7 +6845,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F355%2F1755728838598.517e0184-e200-45bf-8d03-e37b141b3970.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F355%2F1755728838632.3148c1dd-5f8d-4b61-9ccc-badf1198b68d.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "357",
@@ -6333,7 +6878,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F357%2F1758291845078.IMG-20250127-WA0318.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F357%2F1758291845117.IMG-20250127-WA0313.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 31920000,
+    "discountPercent": 10
   },
   {
     "id": "360",
@@ -6365,7 +6913,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F360%2F1763575143364.IMG-20251119-WA0189.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F360%2F1763575143431.IMG-20251119-WA0190.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "362",
@@ -6397,7 +6950,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F362%2F1761245751613.IMG-20251023-WA0259.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F362%2F1761245751775.IMG-20251023-WA0260.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "367",
@@ -6429,7 +6984,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F367%2F1745965794482.09815c98-58da-4808-b321-ae140aee9a36.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F367%2F1745965794497.22450d51-e3d0-44ec-8fc7-5dea4eabdcc1.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "373",
@@ -6461,7 +7017,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F373%2F1744900313750.5878b3cb-9dff-4c09-b8c8-2c7532407117.JPG",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F373%2F1744900313768.9210ef70-efe2-47e3-92d8-f360b5f8ce14.JPG"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 20720000,
+    "discountPercent": 10
   },
   {
     "id": "374",
@@ -6493,7 +7052,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F374%2F1770409109928.WhatsApp%20Image%202026-02-06%20at%2017.06.29%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F374%2F1770409109960.WhatsApp%20Image%202026-02-06%20at%2017.06.30.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "376",
@@ -6525,7 +7089,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F376%2F1767619960617.WhatsApp%20Image%202026-01-05%20at%2009.59.24%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F376%2F1767619960736.WhatsApp%20Image%202026-01-05%20at%2009.59.27.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "378",
@@ -6557,7 +7123,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F378%2F1767639722481.WhatsApp%20Image%202026-01-05%20at%2015.44.30%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F378%2F1767639722721.WhatsApp%20Image%202026-01-05%20at%2015.44.28.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "379",
@@ -6589,7 +7156,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F379%2F1767642469599.WhatsApp%20Image%202026-01-05%20at%2015.51.37%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F379%2F1767642469740.WhatsApp%20Image%202026-01-05%20at%2015.51.36%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 59920,
+    "discountPercent": 10
   },
   {
     "id": "380",
@@ -6621,7 +7191,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F380%2F1767713403930.WhatsApp%20Image%202026-01-06%20at%2012.10.54%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F380%2F1767713404145.WhatsApp%20Image%202026-01-06%20at%2012.10.52.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "381",
@@ -6653,7 +7228,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F381%2F1767715308652.WhatsApp%20Image%202026-01-06%20at%2012.11.50%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F381%2F1767715308712.WhatsApp%20Image%202026-01-06%20at%2012.11.49.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "383",
@@ -6685,7 +7262,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F383%2F1767725497611.WhatsApp%20Image%202026-01-06%20at%2014.33.30.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F383%2F1767725497793.WhatsApp%20Image%202026-01-06%20at%2014.33.31.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "384",
@@ -6717,7 +7295,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F384%2F1767726759951.WhatsApp%20Image%202026-01-06%20at%2016.00.36%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F384%2F1767726760164.WhatsApp%20Image%202026-01-06%20at%2016.00.35.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 38640000,
+    "discountPercent": 10
   },
   {
     "id": "385",
@@ -6749,7 +7330,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F385%2F1767726495522.WhatsApp%20Image%202026-01-06%20at%2015.08.55%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F385%2F1767726495748.WhatsApp%20Image%202026-01-06%20at%2015.08.54.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "386",
@@ -6781,7 +7367,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F386%2F1767726243449.WhatsApp%20Image%202026-01-06%20at%2015.07.56.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F386%2F1767726243539.WhatsApp%20Image%202026-01-06%20at%2015.07.54.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "389",
@@ -6813,7 +7401,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F389%2F1767991032768.WhatsApp%20Image%202026-01-09%20at%2015.24.04.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F389%2F1767991033037.WhatsApp%20Image%202026-01-09%20at%2015.24.03.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "390",
@@ -6845,7 +7434,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F390%2F1767992573243.WhatsApp%20Image%202026-01-09%20at%2017.31.13%20(8).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F390%2F1767992573262.WhatsApp%20Image%202026-01-09%20at%2017.31.13%20(9).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 27440000,
+    "discountPercent": 10
   },
   {
     "id": "391",
@@ -6877,7 +7469,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F391%2F1767993641383.WhatsApp%20Image%202026-01-09%20at%2018.08.13%20(5).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F391%2F1767993641411.WhatsApp%20Image%202026-01-09%20at%2018.08.14.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "392",
@@ -6909,7 +7506,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F392%2F1767990756059.WhatsApp%20Image%202026-01-09%20at%2014.08.01.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F392%2F1767990756148.WhatsApp%20Image%202026-01-09%20at%2014.07.57%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "394",
@@ -6941,7 +7540,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F394%2F1768248772323.WhatsApp%20Image%202026-01-12%20at%2013.20.42.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F394%2F1768248772506.WhatsApp%20Image%202026-01-12%20at%2013.20.43%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "395",
@@ -6973,7 +7573,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F395%2F1768327821076.WhatsApp%20Image%202026-01-13%20at%2010.04.26%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F395%2F1768327821145.WhatsApp%20Image%202026-01-13%20at%2010.04.26%20(3).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 36960,
+    "discountPercent": 10
   },
   {
     "id": "398",
@@ -7005,7 +7608,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F398%2F1768331144399.WhatsApp%20Image%202026-01-13%20at%2014.36.45%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F398%2F1768331144717.WhatsApp%20Image%202026-01-13%20at%2014.36.45%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "400",
@@ -7037,7 +7645,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F400%2F1768407655919.WhatsApp%20Image%202026-01-14%20at%2013.04.06.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F400%2F1768407656542.WhatsApp%20Image%202026-01-14%20at%2013.04.06%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "401",
@@ -7069,7 +7679,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F401%2F1768413702137.WhatsApp%20Image%202026-01-14%20at%2014.25.33%20(4).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F401%2F1768413702215.WhatsApp%20Image%202026-01-14%20at%2014.25.33%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "402",
@@ -7101,7 +7712,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F402%2F1768407890017.WhatsApp%20Image%202026-01-14%20at%2013.04.32%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F402%2F1768407890070.WhatsApp%20Image%202026-01-14%20at%2013.04.32%20(3).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 30800000,
+    "discountPercent": 10
   },
   {
     "id": "403",
@@ -7133,7 +7747,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F403%2F1768429615570.WhatsApp%20Image%202026-01-14%20at%2019.20.22%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F403%2F1768429615601.WhatsApp%20Image%202026-01-14%20at%2019.20.23.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "405",
@@ -7165,7 +7784,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F405%2F1768431048072.WhatsApp%20Image%202026-01-14%20at%2017.55.09%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F405%2F1768431048095.WhatsApp%20Image%202026-01-14%20at%2017.55.08.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "406",
@@ -7197,7 +7818,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F406%2F1768234771510.WhatsApp%20Image%202026-01-12%20at%2011.30.30%20(5).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F406%2F1768234771623.WhatsApp%20Image%202026-01-12%20at%2011.30.30%20(8).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "407",
@@ -7229,7 +7851,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F407%2F1768430036640.WhatsApp%20Image%202026-01-14%20at%2017.44.48.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F407%2F1768430036662.WhatsApp%20Image%202026-01-14%20at%2017.44.50.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 42560,
+    "discountPercent": 10
   },
   {
     "id": "408",
@@ -7261,7 +7886,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F408%2F1768430428305.WhatsApp%20Image%202026-01-14%20at%2017.45.54.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F408%2F1768430428322.WhatsApp%20Image%202026-01-14%20at%2017.45.57.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "409",
@@ -7293,7 +7923,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F409%2F1768430653981.WhatsApp%20Image%202026-01-14%20at%2017.47.06%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F409%2F1768430654027.WhatsApp%20Image%202026-01-14%20at%2017.47.10.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "412",
@@ -7325,7 +7957,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F412%2F1768505211666.WhatsApp%20Image%202026-01-15%20at%2015.49.02.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F412%2F1768505211748.WhatsApp%20Image%202026-01-15%20at%2015.49.03%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "414",
@@ -7357,7 +7990,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F414%2F1767812297363.WhatsApp%20Image%202026-01-07%20at%2015.14.06%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F414%2F1767812297457.WhatsApp%20Image%202026-01-07%20at%2015.14.05.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 26880000,
+    "discountPercent": 10
   },
   {
     "id": "415",
@@ -7389,7 +8025,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F415%2F1768588962073.WhatsApp%20Image%202026-01-16%20at%2014.15.11%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F415%2F1768588962470.WhatsApp%20Image%202026-01-16%20at%2014.15.12%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "417",
@@ -7421,7 +8062,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F417%2F1768591931980.WhatsApp%20Image%202026-01-16%20at%2014.16.20%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F417%2F1768591932125.WhatsApp%20Image%202026-01-16%20at%2014.16.19%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "418",
@@ -7453,7 +8096,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F418%2F1768598784845.WhatsApp%20Image%202026-01-16%20at%2017.07.15%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F418%2F1768598784889.WhatsApp%20Image%202026-01-16%20at%2017.07.16%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "419",
@@ -7485,7 +8129,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F419%2F1768599082750.WhatsApp%20Image%202026-01-16%20at%2017.08.27%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F419%2F1768599082914.WhatsApp%20Image%202026-01-16%20at%2017.08.24%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 40880,
+    "discountPercent": 10
   },
   {
     "id": "420",
@@ -7517,7 +8164,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F420%2F1768599339768.WhatsApp%20Image%202026-01-16%20at%2017.31.22%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F420%2F1768599339819.WhatsApp%20Image%202026-01-16%20at%2017.31.22.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "421",
@@ -7549,7 +8201,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F421%2F1771468905607.WhatsApp%20Image%202026-02-18%20at%2014.07.47.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F421%2F1771468905631.WhatsApp%20Image%202026-02-18%20at%2014.07.46%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "422",
@@ -7581,7 +8235,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F422%2F1768839577700.WhatsApp%20Image%202026-01-19%20at%2013.05.57%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F422%2F1768839577802.WhatsApp%20Image%202026-01-19%20at%2013.05.56.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "423",
@@ -7613,7 +8268,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F423%2F1768846343940.WhatsApp%20Image%202026-01-19%20at%2015.04.50.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F423%2F1768846344029.WhatsApp%20Image%202026-01-19%20at%2015.04.51%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 21280000,
+    "discountPercent": 10
   },
   {
     "id": "427",
@@ -7645,7 +8303,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F427%2F1768600289614.WhatsApp%20Image%202026-01-16%20at%2017.46.14.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F427%2F1768600289684.WhatsApp%20Image%202026-01-16%20at%2017.46.15.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "429",
@@ -7677,7 +8340,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F429%2F1768853258172.WhatsApp%20Image%202026-01-19%20at%2016.39.44%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F429%2F1768853258399.WhatsApp%20Image%202026-01-19%20at%2016.39.43%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "432",
@@ -7709,7 +8374,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F432%2F1768853706727.WhatsApp%20Image%202026-01-19%20at%2016.42.15%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F432%2F1768853707119.WhatsApp%20Image%202026-01-19%20at%2016.42.14.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "435",
@@ -7741,7 +8407,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F435%2F1768853448161.WhatsApp%20Image%202026-01-19%20at%2016.40.52.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F435%2F1768853448326.WhatsApp%20Image%202026-01-19%20at%2016.40.53%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 23408000,
+    "discountPercent": 10
   },
   {
     "id": "436",
@@ -7773,7 +8442,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F436%2F1768841941778.WhatsApp%20Image%202026-01-19%20at%2013.53.08.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F436%2F1768841942102.WhatsApp%20Image%202026-01-19%20at%2013.53.11.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "437",
@@ -7805,7 +8479,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F437%2F1768920116878.WhatsApp%20Image%202026-01-20%20at%2011.28.19%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F437%2F1768920116908.WhatsApp%20Image%202026-01-20%20at%2011.28.20.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "438",
@@ -7837,7 +8513,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F438%2F1768918612281.WhatsApp%20Image%202026-01-20%20at%2011.06.31%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F438%2F1768918612642.WhatsApp%20Image%202026-01-20%20at%2011.06.33.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "441",
@@ -7869,7 +8546,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F441%2F1768923009386.WhatsApp%20Image%202026-01-20%20at%2011.56.51%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F441%2F1768923009555.WhatsApp%20Image%202026-01-20%20at%2011.56.55.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 55440000,
+    "discountPercent": 10
   },
   {
     "id": "444",
@@ -7901,7 +8581,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F444%2F1768936031318.WhatsApp%20Image%202026-01-20%20at%2014.48.02.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F444%2F1768936031369.WhatsApp%20Image%202026-01-20%20at%2014.48.03.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "445",
@@ -7933,7 +8618,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F445%2F1768937675599.WhatsApp%20Image%202026-01-20%20at%2016.25.48%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F445%2F1768937675803.WhatsApp%20Image%202026-01-20%20at%2016.25.47%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "446",
@@ -7965,7 +8652,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F446%2F1769004003306.WhatsApp%20Image%202026-01-21%20at%2010.47.19.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F446%2F1769004003471.WhatsApp%20Image%202026-01-21%20at%2010.47.16%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "448",
@@ -7997,7 +8685,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F448%2F1768853057804.WhatsApp%20Image%202026-01-19%20at%2016.38.34.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F448%2F1768853058360.WhatsApp%20Image%202026-01-19%20at%2016.38.36%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 25760000,
+    "discountPercent": 10
   },
   {
     "id": "449",
@@ -8029,7 +8720,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F449%2F1769027792946.WhatsApp%20Image%202026-01-21%20at%2016.58.48.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F449%2F1769027793019.WhatsApp%20Image%202026-01-21%20at%2016.58.49.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "451",
@@ -8061,7 +8757,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F451%2F1769097772547.WhatsApp%20Image%202026-01-09%20at%2015.58.46.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F451%2F1769097772587.WhatsApp%20Image%202026-01-09%20at%2015.58.48%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "455",
@@ -8093,7 +8791,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F455%2F1769027377202.WhatsApp%20Image%202026-01-21%20at%2015.51.14.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F455%2F1769027377335.WhatsApp%20Image%202026-01-21%20at%2015.51.15.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "456",
@@ -8125,7 +8824,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F456%2F1769117339167.WhatsApp%20Image%202026-01-22%20at%2018.19.09%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F456%2F1769117339240.WhatsApp%20Image%202026-01-22%20at%2018.19.10%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 50960,
+    "discountPercent": 10
   },
   {
     "id": "457",
@@ -8157,7 +8859,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F457%2F1769183675538.WhatsApp%20Image%202026-01-23%20at%2011.53.08%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F457%2F1769183675728.WhatsApp%20Image%202026-01-23%20at%2011.53.07.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "461",
@@ -8189,7 +8896,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F461%2F1769184236958.WhatsApp%20Image%202026-01-23%20at%2012.08.49%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F461%2F1769184237081.WhatsApp%20Image%202026-01-23%20at%2012.08.48%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "464",
@@ -8221,7 +8930,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F464%2F1769198365201.WhatsApp%20Image%202026-01-23%20at%2016.46.26%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F464%2F1769198365245.WhatsApp%20Image%202026-01-23%20at%2016.46.27.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "465",
@@ -8253,7 +8963,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F465%2F1769443197407.WhatsApp%20Image%202026-01-26%20at%2011.37.07.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F465%2F1769443197501.WhatsApp%20Image%202026-01-26%20at%2011.37.07%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 38640000,
+    "discountPercent": 10
   },
   {
     "id": "466",
@@ -8285,7 +8998,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F466%2F1769451655550.WhatsApp%20Image%202025-07-04%20at%2019.53.29%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F466%2F1769451655986.WhatsApp%20Image%202025-07-04%20at%2019.53.28%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "469",
@@ -8317,7 +9035,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F469%2F1769461493071.WhatsApp%20Image%202026-01-26%20at%2017.45.59%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F469%2F1769461493204.WhatsApp%20Image%202026-01-26%20at%2017.45.59.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "471",
@@ -8349,7 +9069,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F471%2F1769622291353.WhatsApp%20Image%202026-01-28%20at%2014.33.53.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F471%2F1769622291471.WhatsApp%20Image%202026-01-28%20at%2014.33.49.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "473",
@@ -8381,7 +9102,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F473%2F1769633545782.WhatsApp%20Image%202026-01-28%20at%2016.06.23%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F473%2F1769633545984.WhatsApp%20Image%202026-01-28%20at%2016.06.25%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 42448000,
+    "discountPercent": 10
   },
   {
     "id": "474",
@@ -8413,7 +9137,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F474%2F1769708614671.WhatsApp%20Image%202026-01-29%20at%2013.22.05%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F474%2F1769708615017.WhatsApp%20Image%202026-01-29%20at%2013.22.05%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "475",
@@ -8445,7 +9174,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F475%2F1769709659120.WhatsApp%20Image%202026-01-29%20at%2013.35.19%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F475%2F1769709659204.WhatsApp%20Image%202026-01-29%20at%2013.35.17.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "476",
@@ -8477,7 +9208,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F476%2F1769715108740.WhatsApp%20Image%202026-01-29%20at%2015.19.03.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F476%2F1769715108917.WhatsApp%20Image%202026-01-29%20at%2015.19.06%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "477",
@@ -8509,7 +9241,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F477%2F1769720712954.WhatsApp%20Image%202026-01-29%20at%2016.54.09%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F477%2F1769720713881.WhatsApp%20Image%202026-01-29%20at%2016.54.08%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 41440000,
+    "discountPercent": 10
   },
   {
     "id": "478",
@@ -8541,7 +9276,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F478%2F1769616291742.WhatsApp%20Image%202026-01-28%20at%2012.45.01%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F478%2F1769616291813.WhatsApp%20Image%202026-01-28%20at%2012.44.56.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "479",
@@ -8573,7 +9313,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F479%2F1769786701706.WhatsApp%20Image%202026-01-29%20at%2019.59.53.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F479%2F1769786702076.WhatsApp%20Image%202026-01-29%20at%2019.59.54.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "480",
@@ -8605,7 +9347,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F480%2F1769789165462.WhatsApp%20Image%202026-01-30%20at%2013.01.43.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F480%2F1769789165610.WhatsApp%20Image%202026-01-30%20at%2013.01.45%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "481",
@@ -8637,7 +9380,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F481%2F1769794253751.WhatsApp%20Image%202026-01-30%20at%2014.15.36.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F481%2F1769794254070.WhatsApp%20Image%202026-01-30%20at%2014.15.35%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 42000000,
+    "discountPercent": 10
   },
   {
     "id": "482",
@@ -8669,7 +9415,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F482%2F1769800875314.WhatsApp%20Image%202026-01-30%20at%2015.00.29.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F482%2F1769800875393.WhatsApp%20Image%202026-01-30%20at%2015.00.36.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "483",
@@ -8701,7 +9452,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F483%2F1769714827879.WhatsApp%20Image%202026-01-29%20at%2015.18.33.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F483%2F1769714828580.WhatsApp%20Image%202026-01-29%20at%2015.18.28.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "484",
@@ -8733,7 +9486,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F484%2F1769805469138.WhatsApp%20Image%202026-01-30%20at%2017.29.24%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F484%2F1769805469193.WhatsApp%20Image%202026-01-30%20at%2017.29.24%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "489",
@@ -8765,7 +9519,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F489%2F1770067241516.WhatsApp%20Image%202026-02-02%20at%2014.14.23%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F489%2F1770067241586.WhatsApp%20Image%202026-02-02%20at%2014.14.23.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 30800000,
+    "discountPercent": 10
   },
   {
     "id": "490",
@@ -8797,7 +9554,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F490%2F1770067537374.WhatsApp%20Image%202026-02-02%20at%2014.15.54.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F490%2F1770067537495.WhatsApp%20Image%202026-02-02%20at%2014.15.56.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "491",
@@ -8829,7 +9591,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F491%2F1770144523020.WhatsApp%20Image%202026-02-03%20at%2009.53.08%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F491%2F1770144523086.WhatsApp%20Image%202026-02-03%20at%2009.53.07.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "492",
@@ -8861,7 +9625,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F492%2F1770144955503.WhatsApp%20Image%202026-02-03%20at%2012.45.22%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F492%2F1770144955550.WhatsApp%20Image%202026-02-03%20at%2012.45.25.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "493",
@@ -8893,7 +9658,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F493%2F1770145393283.WhatsApp%20Image%202026-02-03%20at%2015.39.07%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F493%2F1770145393442.WhatsApp%20Image%202026-02-03%20at%2015.39.06.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 42560,
+    "discountPercent": 10
   },
   {
     "id": "494",
@@ -8925,7 +9693,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F494%2F1770145641637.WhatsApp%20Image%202026-02-03%20at%2016.00.39%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F494%2F1770145641732.WhatsApp%20Image%202026-02-03%20at%2016.00.41%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "495",
@@ -8957,7 +9730,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F495%2F1770145883769.WhatsApp%20Image%202026-02-03%20at%2016.02.30%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F495%2F1770145883900.WhatsApp%20Image%202026-02-03%20at%2016.02.30.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "496",
@@ -8989,7 +9764,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F496%2F1770234646245.WhatsApp%20Image%202026-02-04%20at%2012.59.26%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F496%2F1770234646347.WhatsApp%20Image%202026-02-04%20at%2012.59.29%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "497",
@@ -9021,7 +9797,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F497%2F1770239775216.WhatsApp%20Image%202026-02-04%20at%2014.44.20%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F497%2F1770239775332.WhatsApp%20Image%202026-02-04%20at%2014.44.17.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 42560000,
+    "discountPercent": 10
   },
   {
     "id": "498",
@@ -9053,7 +9832,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F498%2F1770305176380.WhatsApp%20Image%202026-02-04%20at%2022.58.05.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F498%2F1770305176449.WhatsApp%20Image%202026-02-04%20at%2022.58.09.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "499",
@@ -9085,7 +9869,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F499%2F1770304805663.WhatsApp%20Image%202026-02-04%20at%2022.57.01.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F499%2F1770304805769.WhatsApp%20Image%202026-02-04%20at%2022.57.03%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "500",
@@ -9117,7 +9903,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F500%2F1770325760321.WhatsApp%20Image%202026-02-05%20at%2010.23.33.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F500%2F1770325760361.WhatsApp%20Image%202026-02-05%20at%2010.23.33%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "501",
@@ -9149,7 +9936,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F501%2F1770327270039.WhatsApp%20Image%202026-02-05%20at%2014.37.18.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F501%2F1770327270076.WhatsApp%20Image%202026-02-05%20at%2014.37.17%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 28000000,
+    "discountPercent": 10
   },
   {
     "id": "502",
@@ -9181,7 +9971,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F502%2F1770326922179.WhatsApp%20Image%202026-02-05%20at%2013.10.18.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F502%2F1770326922230.WhatsApp%20Image%202026-02-05%20at%2013.10.16.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "503",
@@ -9213,7 +10008,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F503%2F1770303386954.WhatsApp%20Image%202026-02-04%20at%2022.55.46%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F503%2F1770303387939.WhatsApp%20Image%202026-02-04%20at%2022.55.46.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "505",
@@ -9245,7 +10042,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F505%2F1770397285116.WhatsApp%20Image%202026-02-06%20at%2013.53.37%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F505%2F1770397286316.WhatsApp%20Image%202026-02-06%20at%2013.53.38%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "506",
@@ -9277,7 +10075,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F506%2F1770402951005.IMG-20251120-WA0214.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F506%2F1770402951010.IMG-20251120-WA0215.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 44800000,
+    "discountPercent": 10
   },
   {
     "id": "507",
@@ -9309,7 +10110,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F507%2F1770408024777.WhatsApp%20Image%202026-02-06%20at%2016.48.03.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F507%2F1770408024800.WhatsApp%20Image%202026-02-06%20at%2016.48.06.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "508",
@@ -9341,7 +10147,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F508%2F1770327830442.WhatsApp%20Image%202026-02-05%20at%2017.51.47%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F508%2F1770327830490.WhatsApp%20Image%202026-02-05%20at%2017.51.46.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "509",
@@ -9373,7 +10181,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F509%2F1770412027341.WhatsApp%20Image%202026-02-06%20at%2017.42.22%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F509%2F1770412027345.WhatsApp%20Image%202026-02-06%20at%2017.42.20%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "511",
@@ -9405,7 +10214,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F511%2F1770651143956.WhatsApp%20Image%202026-02-07%20at%2013.24.40%20(5).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F511%2F1770651143981.WhatsApp%20Image%202026-02-07%20at%2013.24.40%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 45360000,
+    "discountPercent": 10
   },
   {
     "id": "512",
@@ -9437,7 +10249,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F512%2F1770659196614.WhatsApp%20Image%202026-02-09%20at%2011.50.47%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F512%2F1770659196641.WhatsApp%20Image%202026-02-09%20at%2011.50.48%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "513",
@@ -9469,7 +10286,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F513%2F1770659447267.WhatsApp%20Image%202026-02-09%20at%2011.52.39%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F513%2F1770659447293.WhatsApp%20Image%202026-02-09%20at%2011.52.39.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "514",
@@ -9501,7 +10320,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F514%2F1770659835297.WhatsApp%20Image%202026-02-09%20at%2014.45.15%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F514%2F1770659835420.WhatsApp%20Image%202026-02-09%20at%2014.45.15%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "515",
@@ -9533,7 +10353,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F515%2F1770651766436.WhatsApp%20Image%202026-02-09%20at%2011.03.44%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F515%2F1770651766661.WhatsApp%20Image%202026-02-09%20at%2011.02.46%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 10640000,
+    "discountPercent": 10
   },
   {
     "id": "517",
@@ -9565,7 +10388,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F517%2F1770732439974.WhatsApp%20Image%202026-02-10%20at%2010.48.31.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F517%2F1770732439988.WhatsApp%20Image%202026-02-10%20at%2010.48.31%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "518",
@@ -9597,7 +10425,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F518%2F1770673273246.WhatsApp%20Image%202026-02-09%20at%2016.10.35.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F518%2F1770673273268.WhatsApp%20Image%202026-02-09%20at%2016.10.36%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "519",
@@ -9629,7 +10459,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F519%2F1770660391498.WhatsApp%20Image%202026-02-09%20at%2014.47.04.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F519%2F1770660391603.WhatsApp%20Image%202026-02-09%20at%2014.47.04%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "520",
@@ -9661,7 +10492,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F520%2F1770732135658.WhatsApp%20Image%202026-02-09%20at%2018.42.14%20(7).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F520%2F1770732135962.WhatsApp%20Image%202026-02-09%20at%2018.42.14%20(8).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 36960000,
+    "discountPercent": 10
   },
   {
     "id": "521",
@@ -9693,7 +10527,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F521%2F1770745777835.WhatsApp%20Image%202026-02-10%20at%2013.28.34.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F521%2F1770745777965.WhatsApp%20Image%202026-02-10%20at%2013.28.37%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "522",
@@ -9725,7 +10564,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F522%2F1770750467839.WhatsApp%20Image%202026-02-10%20at%2015.04.07%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F522%2F1770750468024.WhatsApp%20Image%202026-02-10%20at%2015.04.06.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "523",
@@ -9757,7 +10598,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F523%2F1770751541182.WhatsApp%20Image%202026-02-10%20at%2016.13.34.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F523%2F1770751541315.WhatsApp%20Image%202026-02-10%20at%2016.13.30.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "524",
@@ -9789,7 +10631,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F524%2F1770748480357.WhatsApp%20Image%202026-02-10%20at%2015.01.50.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F524%2F1770748480370.WhatsApp%20Image%202026-02-10%20at%2015.01.51%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 41888000,
+    "discountPercent": 10
   },
   {
     "id": "525",
@@ -9821,7 +10666,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F525%2F1770750170478.WhatsApp%20Image%202026-02-10%20at%2015.02.57.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F525%2F1770750170527.WhatsApp%20Image%202026-02-10%20at%2015.02.58.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "526",
@@ -9853,7 +10703,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F526%2F1770758060959.WhatsApp%20Image%202026-02-10%20at%2017.42.52%20(3).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F526%2F1770758061185.WhatsApp%20Image%202026-02-10%20at%2017.42.52.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "527",
@@ -9885,7 +10737,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F527%2F1770910820629.WhatsApp%20Image%202026-02-12%20at%2012.30.56%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F527%2F1770910820788.WhatsApp%20Image%202026-02-12%20at%2012.30.57%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "528",
@@ -9917,7 +10770,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F528%2F1770840025046.WhatsApp%20Image%202026-02-11%20at%2011.36.49%20(5).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F528%2F1770840025073.WhatsApp%20Image%202026-02-11%20at%2011.36.50%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 49280000,
+    "discountPercent": 10
   },
   {
     "id": "529",
@@ -9949,7 +10805,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F529%2F1770911313880.WhatsApp%20Image%202026-02-12%20at%2012.32.11.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F529%2F1770911314048.WhatsApp%20Image%202026-02-12%20at%2012.32.12.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "531",
@@ -9981,7 +10842,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F531%2F1770909653763.WhatsApp%20Image%202026-02-11%20at%2019.52.04%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F531%2F1770909653956.WhatsApp%20Image%202026-02-11%20at%2019.52.05%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "532",
@@ -10013,7 +10876,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F532%2F1770923649426.WhatsApp%20Image%202026-02-12%20at%2014.34.11%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F532%2F1770923649453.WhatsApp%20Image%202026-02-12%20at%2014.34.11%20(5).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "533",
@@ -10045,7 +10909,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F533%2F1770923947709.WhatsApp%20Image%202026-02-12%20at%2014.36.00.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F533%2F1770923947720.WhatsApp%20Image%202026-02-12%20at%2014.35.58.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 36400000,
+    "discountPercent": 10
   },
   {
     "id": "534",
@@ -10077,7 +10944,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F534%2F1770752334637.WhatsApp%20Image%202026-02-10%20at%2016.16.18%20(3).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F534%2F1770752334829.WhatsApp%20Image%202026-02-10%20at%2016.16.18%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "535",
@@ -10109,7 +10981,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F535%2F1770755410503.WhatsApp%20Image%202026-02-10%20at%2016.44.52%20(5).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F535%2F1770755411845.WhatsApp%20Image%202026-02-10%20at%2016.44.52.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "536",
@@ -10141,7 +11015,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F536%2F1770999698868.WhatsApp%20Image%202026-02-13%20at%2011.39.08%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F536%2F1770999698886.WhatsApp%20Image%202026-02-13%20at%2011.39.09%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "537",
@@ -10173,7 +11048,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F537%2F1771000543537.WhatsApp%20Image%202026-02-12%20at%2021.45.54.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F537%2F1771000543585.WhatsApp%20Image%202026-02-12%20at%2021.45.51%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 47040,
+    "discountPercent": 10
   },
   {
     "id": "539",
@@ -10205,7 +11083,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F539%2F1771383741192.WhatsApp%20Image%202026-02-14%20at%2013.06.57%20(4).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F539%2F1771383741206.WhatsApp%20Image%202026-02-14%20at%2013.06.57%20(5).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "540",
@@ -10237,7 +11120,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F540%2F1771017538062.WhatsApp%20Image%202026-02-13%20at%2018.13.14.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F540%2F1771017538166.WhatsApp%20Image%202026-02-13%20at%2018.13.15%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "541",
@@ -10269,7 +11154,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F541%2F1762792314159.IMG-20251110-WA0358.jpg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F541%2F1762792314244.IMG-20251110-WA0357.jpg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "542",
@@ -10301,7 +11187,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F542%2F1771469638023.WhatsApp%20Image%202026-02-18%20at%2012.23.01.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F542%2F1771469638060.WhatsApp%20Image%202026-02-18%20at%2012.22.58.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalArs": 28000000,
+    "discountPercent": 10
   },
   {
     "id": "543",
@@ -10333,7 +11222,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F543%2F1771467491690.WhatsApp%20Image%202026-02-18%20at%2017.23.18.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F543%2F1771467491713.WhatsApp%20Image%202026-02-18%20at%2017.23.18%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "544",
@@ -10365,7 +11259,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F544%2F1771467141453.WhatsApp%20Image%202026-02-18%20at%2017.32.04%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F544%2F1771467141458.WhatsApp%20Image%202026-02-18%20at%2017.32.03%20(9).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "545",
@@ -10397,7 +11293,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F545%2F1771001004917.WhatsApp%20Image%202026-02-13%20at%2013.07.49.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F545%2F1771001005029.WhatsApp%20Image%202026-02-13%20at%2013.07.50%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "546",
@@ -10429,7 +11326,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F546%2F1771466749837.WhatsApp%20Image%202026-02-13%20at%2018.14.17.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F546%2F1771466749881.WhatsApp%20Image%202026-02-13%20at%2018.14.19%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 40880,
+    "discountPercent": 10
   },
   {
     "id": "547",
@@ -10461,7 +11361,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F547%2F1771383954485.WhatsApp%20Image%202026-02-14%20at%2013.11.50.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F547%2F1771383954499.WhatsApp%20Image%202026-02-14%20at%2013.11.51%20(2).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "548",
@@ -10493,7 +11398,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F548%2F1771469111596.WhatsApp%20Image%202026-02-18%20at%2014.06.21%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F548%2F1771469111616.WhatsApp%20Image%202026-02-18%20at%2014.06.34%20(1).jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "549",
@@ -10525,7 +11432,8 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F549%2F1771018184790.WhatsApp%20Image%202026-02-13%20at%2018.17.24%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F549%2F1771018184825.WhatsApp%20Image%202026-02-13%20at%2018.17.21.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   },
   {
     "id": "550",
@@ -10557,7 +11465,10 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F550%2F1771528309756.WhatsApp%20Image%202026-02-19%20at%2015.28.08%20(1).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F550%2F1771528309873.WhatsApp%20Image%202026-02-19%20at%2015.28.06.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oferta",
+    "priceOriginalUsd": 75600,
+    "discountPercent": 10
   },
   {
     "id": "551",
@@ -10589,7 +11500,12 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F551%2F1771532089722.WhatsApp%20Image%202026-02-19%20at%2016.56.32.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F551%2F1771532090474.WhatsApp%20Image%202026-02-19%20at%2016.56.36.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "oportunidad",
+    "opportunityBadges": [
+      "FINANCIACION 15%",
+      "RETIRA CON TU DNI"
+    ]
   },
   {
     "id": "552",
@@ -10621,7 +11537,9 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F552%2F1771531729789.WhatsApp%20Image%202026-02-19%20at%2016.29.06%20(2).jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F552%2F1771531729969.WhatsApp%20Image%202026-02-19%20at%2016.29.03.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "vendido",
+    "soldLabel": "vendido"
   },
   {
     "id": "553",
@@ -10653,6 +11571,7 @@
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F553%2F1771536280010.WhatsApp%20Image%202026-02-19%20at%2017.46.16.jpeg",
       "https://api.caradvice.com.ar/api/image?path=%2Fopt%2Fcaradvice-media%2Fimages%2Fautos%2F553%2F1771536280138.WhatsApp%20Image%202026-02-19%20at%2017.46.15.jpeg"
     ],
-    "isFeatured": false
+    "isFeatured": false,
+    "cardVariant": "normal"
   }
 ]

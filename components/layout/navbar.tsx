@@ -50,11 +50,10 @@ function NavLink({
           ? isActive
             ? "text-[var(--brand-orange)]"
             : "text-white/95 hover:text-white"
-          : isActive
-            ? "text-[var(--brand-orange)]"
-            : "text-white/95 hover:text-white",
+          : "text-[var(--brand-black)] hover:text-[var(--brand-orange)]",
+        isActive && !transparent && "text-[var(--brand-orange)]",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2",
-        transparent ? "focus-visible:ring-offset-black/40" : "focus-visible:ring-offset-[var(--brand-black)]"
+        transparent ? "focus-visible:ring-offset-black/40" : "focus-visible:ring-offset-[var(--brand-offwhite)]"
       )}
     >
       {label}
@@ -82,10 +81,11 @@ export function Navbar() {
   const { favoriteCount } = useFavorites();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 16);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const updateScrolled = () => setIsScrolled(window.scrollY > 16);
+    updateScrolled();
+    window.addEventListener("scroll", updateScrolled);
+    return () => window.removeEventListener("scroll", updateScrolled);
+  }, [pathname]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -103,16 +103,16 @@ export function Navbar() {
     };
   }, [isMenuOpen]);
 
-  const transparent = false;
+  const transparent = isScrolled;
   const iconClass = transparent
     ? "text-white/95 transition-colors duration-200 hover:bg-white/10 hover:text-white focus-visible:ring-offset-black/30"
-    : "text-white/95 transition-colors duration-200 hover:bg-white/10 hover:text-[var(--brand-orange)] focus-visible:ring-offset-[var(--brand-black)]";
+    : "text-[var(--brand-black)] transition-colors duration-200 hover:bg-[var(--brand-dark)]/10 hover:text-[var(--brand-orange)] focus-visible:ring-offset-[var(--brand-offwhite)]";
 
   return (
     <header
       className={cn(
         "sticky top-0 z-50 w-full transition-[background-color,box-shadow] duration-300",
-        transparent ? "bg-transparent" : "bg-[var(--brand-black)] shadow-sm"
+        transparent ? "bg-transparent shadow-none" : "bg-[var(--brand-offwhite)] shadow-sm"
       )}
     >
       <div className="mx-auto w-full max-w-[1920px] pl-4 pr-4 sm:pl-5 sm:pr-5 lg:pl-6 lg:pr-6">
@@ -127,10 +127,13 @@ export function Navbar() {
             aria-label="Car Advice - Inicio"
           >
             <Image
-              src="/logo_navbar.jpg"
+              src="/logo-navbar-negro.jpg"
               alt="CAR ADVICE"
               fill
-              className="object-contain object-left transition-opacity duration-150 hover:opacity-90"
+              className={cn(
+                "object-contain object-left transition-[opacity,filter] duration-300 hover:opacity-90",
+                transparent && "brightness-0 invert"
+              )}
               sizes="(max-width: 768px) 112px, 144px"
               priority
             />
@@ -275,7 +278,7 @@ export function Navbar() {
                   "border-t py-2",
                   transparent
                     ? "border-white/20 bg-black/85 backdrop-blur-sm"
-                    : "border-white/10 bg-[var(--brand-black)]"
+                    : "border-[var(--brand-gray)]/25 bg-[var(--brand-offwhite)]"
                 )}
               >
                 {menuItems.map((item, index) => (
@@ -298,8 +301,8 @@ export function Navbar() {
                             ? "text-[var(--brand-orange)] bg-white/5"
                             : "text-white hover:bg-white/10 hover:text-[var(--brand-orange)]"
                           : isActivePath(pathname, item.href)
-                            ? "text-[var(--brand-orange)] bg-white/5"
-                            : "text-white hover:bg-white/10 hover:text-[var(--brand-orange)]"
+                            ? "text-[var(--brand-orange)] bg-[var(--brand-orange)]/10"
+                            : "text-[var(--brand-black)] hover:bg-[var(--brand-dark)]/10 hover:text-[var(--brand-orange)]"
                       )}
                       onClick={() => setIsMenuOpen(false)}
                     >

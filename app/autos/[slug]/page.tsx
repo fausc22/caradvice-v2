@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CalendarDays, Gauge } from "lucide-react";
-import { catalogCars, getCatalogCarBySlug } from "@/lib/catalog";
+import {
+  catalogCars,
+  getCatalogCarBySlug,
+  getCardVariant,
+  getSoldLabelDisplay,
+  hasOriginalPrice,
+} from "@/lib/catalog";
 import { AutoDetailActions } from "@/components/cars/auto-detail-actions";
 import { AutoDetailPlanForm } from "@/components/cars/auto-detail-plan-form";
 import { AutoDetailSpecs } from "@/components/cars/auto-detail-specs";
@@ -12,7 +18,7 @@ import { ContactLeadForm } from "@/components/home/contact-lead-form";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_DIRECT_LINK } from "@/lib/constants";
 import { toFeaturedCar } from "@/lib/mock-featured-cars";
-import { formatVehiclePrice } from "@/lib/utils";
+import { cn, formatVehiclePrice } from "@/lib/utils";
 
 type AutoDetailPageProps = {
   params: Promise<{
@@ -64,6 +70,16 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
     .filter((item) => item.slug !== car.slug && item.tipologia === car.tipologia)
     .slice(0, 8);
 
+  const variant = getCardVariant(car);
+  const isOferta = variant === "oferta";
+  const isOportunidad = variant === "oportunidad";
+  const isVendido = variant === "vendido";
+  const showOriginalPrice = hasOriginalPrice(car);
+  const originalPriceFormatted = showOriginalPrice
+    ? formatVehiclePrice(car.priceOriginalArs ?? 0, car.priceOriginalUsd ?? 0)
+    : "";
+  const soldLabelText = getSoldLabelDisplay(car.soldLabel);
+
   return (
     <main className="mx-auto w-full max-w-screen-xl px-4 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] pt-6 sm:px-6 sm:pt-8 lg:pb-10">
       <div className="mb-5 flex flex-wrap items-center gap-2 text-xs text-muted-foreground sm:text-sm">
@@ -92,18 +108,43 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
           alt={`${car.brand} ${car.model} ${car.version}`}
           typeLabel={car.type}
           conditionLabel={formatLabel(car.condicion)}
+          cardVariant={car.cardVariant}
+          soldLabel={car.soldLabel}
+          opportunityBadges={car.opportunityBadges}
         />
 
         <article className="rounded-3xl border border-[var(--brand-gray)]/40 bg-card p-5 shadow-[0_12px_40px_rgba(0,0,0,0.08)] sm:p-6">
           <div className="space-y-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--brand-orange)]">
-              Vehículo disponible
+            <p
+              className={cn(
+                "text-xs font-semibold uppercase tracking-[0.08em]",
+                isVendido
+                  ? "text-[var(--brand-dark)]"
+                  : isOferta
+                    ? "text-[var(--brand-orange)]"
+                    : "text-[var(--brand-orange)]",
+              )}
+            >
+              {isVendido ? soldLabelText : isOferta ? "Oferta" : "Vehículo disponible"}
             </p>
             <h1 className="text-3xl font-black uppercase tracking-tight text-[var(--brand-black)] sm:text-4xl">
               {car.brand} {car.model}
             </h1>
             <p className="text-base font-medium text-muted-foreground sm:text-lg">{car.version}</p>
           </div>
+
+          {isOportunidad && (car.opportunityBadges?.length ?? 0) > 0 && (
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              {car.opportunityBadges!.map((badge) => (
+                <span
+                  key={badge}
+                  className="inline-flex rounded-full bg-[var(--brand-orange)] px-3 py-1.5 text-xs font-bold uppercase leading-tight tracking-wide text-white"
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+          )}
 
           <div className="mt-5 flex flex-wrap items-center gap-2.5 text-sm">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/30 px-3 py-1.5">
@@ -121,13 +162,43 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
           </div>
 
           <div className="mt-6 space-y-3 rounded-2xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-4">
-            <p className="text-sm font-medium text-muted-foreground">Precio final</p>
-            <p className="text-4xl font-black tracking-tight text-[var(--brand-black)] sm:text-5xl">
-              {formatVehiclePrice(car.priceArs, car.priceUsd)}
+            <p className="text-sm font-medium text-muted-foreground">
+              {isVendido ? "Precio de referencia" : "Precio final"}
             </p>
-            <p className="text-sm text-muted-foreground">
-              Consultá financiación, permutas y disponibilidad inmediata.
-            </p>
+            <div className="flex flex-wrap items-baseline gap-3">
+              {isOferta && showOriginalPrice && (
+                <p
+                  className="text-2xl font-medium text-[var(--brand-gray)] line-through sm:text-3xl"
+                  aria-hidden
+                >
+                  {originalPriceFormatted}
+                </p>
+              )}
+              <p className="text-4xl font-black tracking-tight text-[var(--brand-black)] sm:text-5xl">
+                {formatVehiclePrice(car.priceArs, car.priceUsd)}
+              </p>
+              {isOferta && car.discountPercent != null && car.discountPercent > 0 && (
+                <span
+                  className="inline-flex rounded-full bg-[var(--brand-orange)] px-3 py-1 text-sm font-bold text-white"
+                  aria-hidden
+                >
+                  -{car.discountPercent}%
+                </span>
+              )}
+              {isVendido && (
+                <span
+                  className="inline-flex rounded-full border border-[var(--brand-gray)]/60 bg-[var(--brand-gray)]/15 px-3 py-1 text-sm font-semibold uppercase tracking-wide text-[var(--brand-dark)]"
+                  aria-hidden
+                >
+                  {soldLabelText}
+                </span>
+              )}
+            </div>
+            {!isVendido && (
+              <p className="text-sm text-muted-foreground">
+                Consultá financiación, permutas y disponibilidad inmediata.
+              </p>
+            )}
           </div>
 
           <div className="mt-5 rounded-2xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-4">

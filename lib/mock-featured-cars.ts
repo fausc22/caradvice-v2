@@ -1,5 +1,5 @@
 import { catalogCars } from "@/lib/catalog/static-data";
-import type { CatalogCar } from "@/lib/catalog/types";
+import type { CatalogCar, CardVariant, SoldLabel } from "@/lib/catalog/types";
 
 export type FeaturedCar = {
   slug: string;
@@ -11,6 +11,14 @@ export type FeaturedCar = {
   priceUsd: number;
   transmission: string;
   imageSrc: string;
+  /** Lista de imágenes para carrusel en card; si no viene, se usa [coverImage]. */
+  images: string[];
+  cardVariant?: CardVariant;
+  priceOriginalArs?: number;
+  priceOriginalUsd?: number;
+  discountPercent?: number;
+  opportunityBadges?: string[];
+  soldLabel?: SoldLabel;
 };
 
 export function toFeaturedCar(car: CatalogCar): FeaturedCar {
@@ -24,6 +32,13 @@ export function toFeaturedCar(car: CatalogCar): FeaturedCar {
     priceUsd: car.priceUsd,
     transmission: car.transmission,
     imageSrc: car.coverImage,
+    images: car.images?.length ? car.images : [car.coverImage],
+    cardVariant: car.cardVariant,
+    priceOriginalArs: car.priceOriginalArs,
+    priceOriginalUsd: car.priceOriginalUsd,
+    discountPercent: car.discountPercent,
+    opportunityBadges: car.opportunityBadges,
+    soldLabel: car.soldLabel,
   };
 }
 

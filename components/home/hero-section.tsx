@@ -38,7 +38,7 @@ const placeholderVariants = {
 const ctaTransition = { type: "spring" as const, stiffness: 400, damping: 25 };
 
 const CTA_CLASS =
-  "inline-flex min-h-[40px] items-center justify-center gap-2 rounded-xl border border-[var(--brand-orange)]/80 bg-[var(--brand-orange)]/15 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[var(--brand-orange)]/25 hover:border-[var(--brand-orange)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 active:bg-[var(--brand-orange)]/30 sm:min-h-[44px] sm:px-5 sm:py-3 sm:text-base";
+  "inline-flex min-h-[clamp(2.25rem,5vw,2.75rem)] shrink-0 items-center justify-center gap-1.5 rounded-xl border border-[var(--brand-orange)]/80 bg-[var(--brand-orange)]/15 px-[clamp(0.5rem,1.5vw,1.25rem)] py-[clamp(0.375rem,1vw,0.75rem)] text-[clamp(0.75rem,2vw,1rem)] font-medium leading-tight text-white transition-colors hover:bg-[var(--brand-orange)]/25 hover:border-[var(--brand-orange)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 active:bg-[var(--brand-orange)]/30";
 
 export function HeroSection({
   filtersMeta,
@@ -142,8 +142,8 @@ export function HeroSection({
           </div>
         </div>
 
-        {/* CTAs: Comprar, Vender, Consignar */}
-        <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+        {/* CTAs: Comprar, Vender, Consignar — siempre en una línea, tamaño fluido */}
+        <div className="flex flex-nowrap justify-center items-center gap-2 sm:gap-3 px-1">
           <motion.a
             href={WHATSAPP_LINK_COMPRAR}
             target="_blank"
@@ -153,7 +153,7 @@ export function HeroSection({
             whileTap={{ scale: 0.98 }}
             transition={ctaTransition}
           >
-            <Search className="size-4 shrink-0 text-[var(--brand-orange)] sm:size-5" aria-hidden />
+            <Search className="size-[clamp(0.875rem,1.2vw,1.25rem)] shrink-0 text-[var(--brand-orange)]" aria-hidden />
             Comprar
           </motion.a>
           <motion.button
@@ -164,7 +164,7 @@ export function HeroSection({
             whileTap={{ scale: 0.98 }}
             transition={ctaTransition}
           >
-            <Wallet className="size-4 shrink-0 text-[var(--brand-orange)] sm:size-5" aria-hidden />
+            <Wallet className="size-[clamp(0.875rem,1.2vw,1.25rem)] shrink-0 text-[var(--brand-orange)]" aria-hidden />
             Vender
           </motion.button>
           <motion.button
@@ -175,7 +175,7 @@ export function HeroSection({
             whileTap={{ scale: 0.98 }}
             transition={ctaTransition}
           >
-            <Car className="size-4 shrink-0 text-[var(--brand-orange)] sm:size-5" aria-hidden />
+            <Car className="size-[clamp(0.875rem,1.2vw,1.25rem)] shrink-0 text-[var(--brand-orange)]" aria-hidden />
             Consignar
           </motion.button>
         </div>

@@ -1,9 +1,11 @@
 import {
   CATALOG_CONDICION_VALUES,
+  CARD_VARIANT_VALUES,
   CATALOG_MONEDA_VALUES,
   CATALOG_SORT_VALUES,
   CATALOG_TIPOLOGIA_VALUES,
   CATALOG_TIPO_VALUES,
+  type CardVariant,
   type CatalogCondicion,
   type CatalogMoneda,
   type CatalogQueryParams,
@@ -66,6 +68,13 @@ function parseCondicion(value?: string): CatalogCondicion | undefined {
     : undefined;
 }
 
+function parseCategoria(value?: string): CardVariant | undefined {
+  if (!value) return undefined;
+  return CARD_VARIANT_VALUES.includes(value as CardVariant)
+    ? (value as CardVariant)
+    : undefined;
+}
+
 function parseMoneda(value?: string): CatalogMoneda | undefined {
   if (!value) return undefined;
   return CATALOG_MONEDA_VALUES.includes(value as CatalogMoneda)
@@ -114,6 +123,7 @@ export function parseCatalogParams(
   const tipo = parseTipo(cleanString(getFirstValue(input, "tipo")));
   const tipologia = parseTipologia(cleanString(getFirstValue(input, "tipologia")));
   const condicion = parseCondicion(cleanString(getFirstValue(input, "condicion")));
+  const categoria = parseCategoria(cleanString(getFirstValue(input, "categoria")));
   const moneda = parseMoneda(cleanString(getFirstValue(input, "moneda")));
   const sort = parseSort(cleanString(getFirstValue(input, "sort")));
   const puertas = parsePositiveInt(getFirstValue(input, "puertas"));
@@ -144,6 +154,7 @@ export function parseCatalogParams(
     tipo,
     tipologia,
     condicion,
+    categoria,
     marca,
     modelo,
     version,
@@ -180,6 +191,7 @@ export function serializeCatalogParams(
   if (params.tipo) search.set("tipo", params.tipo);
   if (params.tipologia) search.set("tipologia", params.tipologia);
   if (params.condicion) search.set("condicion", params.condicion);
+  if (params.categoria) search.set("categoria", params.categoria);
   if (params.marca) search.set("marca", params.marca);
   if (params.modelo) search.set("modelo", params.modelo);
   if (params.version) search.set("version", params.version);

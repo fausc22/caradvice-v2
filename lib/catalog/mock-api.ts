@@ -71,6 +71,7 @@ export async function searchCatalogCars(
     if (params.tipo && car.type !== params.tipo) return false;
     if (params.tipologia && car.tipologia !== params.tipologia) return false;
     if (params.condicion && car.condicion !== params.condicion) return false;
+    if (params.categoria && (car.cardVariant ?? "normal") !== params.categoria) return false;
     // Marca, modelo y versión: comparación normalizada (regla = datos estáticos)
     if (params.marca && !eqNormalized(String(car.brand ?? ""), params.marca)) return false;
     if (params.modelo && !eqNormalized(String(car.model ?? ""), params.modelo)) return false;

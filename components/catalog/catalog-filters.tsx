@@ -17,8 +17,10 @@ import {
 import {
   buildCatalogUrl,
   CATALOG_CONDICION_VALUES,
+  CATEGORIA_LABELS,
   CATALOG_TIPOLOGIA_LABELS,
   CATALOG_TIPOLOGIA_VALUES,
+  CARD_VARIANT_VALUES,
   normalizeCatalogString,
   type CatalogFilterMetadata,
   type CatalogQueryParams,
@@ -98,7 +100,10 @@ export function CatalogFilters({
     return x === undefined || x === null ? "" : String(x);
   };
   const setV = (k: keyof CatalogQueryParams, val: string) => {
-    const parsed = k === "puertas" && val ? Number(val) : val || undefined;
+    let parsed: string | number | undefined = val || undefined;
+    if (k === "puertas" && val) parsed = Number(val);
+    if (k === "categoria" && parsed && !CARD_VARIANT_VALUES.includes(parsed as (typeof CARD_VARIANT_VALUES)[number]))
+      parsed = undefined;
     if (applyOnChange) nav({ [k]: parsed } as Partial<CatalogQueryParams>);
     else setFormValues((prev) => ({ ...prev, [k]: parsed } as CatalogQueryParams));
   };
@@ -236,7 +241,23 @@ export function CatalogFilters({
         />
       </div>
 
-      {/* 3. Marca / Modelo / Versión */}
+      {/* 3. Categoría */}
+      <div className="space-y-2">
+        <label htmlFor={id("categoria")} className={LABEL_STYLE}>
+          Categoría
+        </label>
+        <FilterSelect
+          id={id("categoria")}
+          name="categoria"
+          value={v("categoria")}
+          onValueChange={(val) => setV("categoria", val)}
+          options={CARD_VARIANT_VALUES.map((c) => ({ value: c, label: CATEGORIA_LABELS[c] }))}
+          placeholder="Todas"
+          inModal={!!idPrefix}
+        />
+      </div>
+
+      {/* 4. Marca / Modelo / Versión */}
       <div className="space-y-2">
         <label htmlFor={id("marca")} className={LABEL_STYLE}>
           Marca

@@ -1,18 +1,19 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { getCardVariant } from "@/lib/catalog/card-variant";
 import { featuredCars } from "@/lib/mock-featured-cars";
 import { CarCard } from "@/components/cars/car-card";
 import { CarCardSkeleton } from "@/components/cars/car-card-skeleton";
 import { cn } from "@/lib/utils";
 
-type HomeCategory = "ofertas" | "destacados" | "nuevos_ingresos";
+type HomeCategory = "ofertas" | "oportunidades" | "nuevos_ingresos";
 
 const HOME_CATEGORIES: Array<{ id: HomeCategory; label: string }> = [
   { id: "ofertas", label: "Ofertas" },
-  { id: "destacados", label: "Destacados" },
+  { id: "oportunidades", label: "Oportunidades" },
   { id: "nuevos_ingresos", label: "Nuevos ingresos" },
 ];
 
@@ -28,10 +29,32 @@ function CarouselSkeleton() {
   );
 }
 
+function filterCarsByCategory(
+  allCars: typeof featuredCars,
+  category: HomeCategory,
+) {
+  return allCars.filter((car) => {
+    const variant = getCardVariant(car);
+    switch (category) {
+      case "ofertas":
+        return variant === "oferta";
+      case "oportunidades":
+        return variant === "oportunidad" || variant === "vendido";
+      case "nuevos_ingresos":
+        return variant === "normal";
+      default:
+        return true;
+    }
+  });
+}
+
 export function FeaturedCarsCarousel() {
   const [activeCategory, setActiveCategory] = useState<HomeCategory>("ofertas");
   const [isCategoryLoading, setIsCategoryLoading] = useState(false);
-  const cars = featuredCars;
+  const cars = useMemo(
+    () => filterCarsByCategory(featuredCars, activeCategory),
+    [activeCategory],
+  );
   const containerRef = useRef<HTMLDivElement | null>(null);
   const isProgrammaticScrollRef = useRef(false);
   const tabReloadTimeoutRef = useRef<number | null>(null);
