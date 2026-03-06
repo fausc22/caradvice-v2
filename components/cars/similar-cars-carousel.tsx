@@ -91,7 +91,7 @@ export function SimilarCarsCarousel({ cars, returnTo }: SimilarCarsCarouselProps
   if (cars.length === 0) {
     return (
       <p className="py-8 text-center text-sm text-[var(--brand-dark)]/70">
-        No hay otros vehículos de la misma tipología por ahora.
+        No encontramos alternativas similares por el momento.
       </p>
     );
   }

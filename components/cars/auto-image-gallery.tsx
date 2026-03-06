@@ -14,10 +14,9 @@ type AutoImageGalleryProps = {
   alt: string;
   typeLabel: string;
   conditionLabel: string;
-  /** Variante para overlay vendido y badges oportunidad. */
+  /** Variante para overlay vendido. */
   cardVariant?: CardVariant;
   soldLabel?: SoldLabel;
-  opportunityBadges?: string[];
 };
 
 const arrowButtonClass =
@@ -31,10 +30,8 @@ export function AutoImageGallery({
   conditionLabel,
   cardVariant,
   soldLabel,
-  opportunityBadges,
 }: AutoImageGalleryProps) {
   const isVendido = cardVariant === "vendido";
-  const isOportunidad = cardVariant === "oportunidad";
   const soldLabelText = getSoldLabelDisplay(soldLabel);
 
   const galleryImages = useMemo(() => {
@@ -107,10 +104,10 @@ export function AutoImageGallery({
 
         {isVendido && (
           <div
-            className="absolute inset-0 z-[8] flex items-center justify-center bg-[var(--brand-black)]/50"
+            className="absolute inset-0 z-[8] flex items-center justify-center bg-[var(--brand-black)]/20"
             aria-hidden
           >
-            <span className="rounded-lg border-2 border-white/90 bg-[var(--brand-black)]/90 px-5 py-3 text-xl font-black uppercase tracking-wider text-white backdrop-blur sm:px-6 sm:py-3.5 sm:text-2xl">
+            <span className="rounded-full border border-[var(--brand-orange)]/65 bg-[var(--brand-offwhite)]/95 px-5 py-2 text-base font-bold uppercase tracking-[0.14em] text-[var(--brand-black)] shadow-[0_10px_24px_rgba(0,0,0,0.18)] backdrop-blur sm:px-6 sm:py-2.5 sm:text-lg">
               {soldLabelText.toUpperCase()}
             </span>
           </div>
@@ -131,16 +128,6 @@ export function AutoImageGallery({
               </span>
             </>
           )}
-          {isOportunidad &&
-            (opportunityBadges?.length ?? 0) > 0 &&
-            opportunityBadges!.map((badge) => (
-              <span
-                key={badge}
-                className="inline-flex rounded-full border border-white/35 bg-[var(--brand-orange)] px-2.5 py-1 text-[10px] font-bold uppercase leading-tight tracking-wide text-white shadow-sm sm:px-3 sm:py-1.5 sm:text-xs"
-              >
-                {badge}
-              </span>
-            ))}
         </div>
 
         {totalImages > 1 && (

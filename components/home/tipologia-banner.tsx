@@ -16,6 +16,8 @@ import { cn } from "@/lib/utils";
 
 const TIPOLOGIA_AUTO_ADVANCE_MS = 5000;
 const MOBILE_SLIDES_PER_PAGE = 2;
+/** Mínimo desplazamiento (px) para considerar un swipe y cambiar de página */
+const SWIPE_THRESHOLD_PX = 50;
 
 const TIPOLOGIA_ITEMS: Array<{
   id: CatalogTipologia;
@@ -122,9 +124,28 @@ export function TipologiaBanner() {
   const reduceMotion = useReducedMotion();
   const [currentPage, setCurrentPage] = useState(0);
   const autoAdvanceRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const touchStartXRef = useRef<number | null>(null);
 
   const goTo = (page: number) => {
     setCurrentPage((page + MOBILE_PAGE_COUNT) % MOBILE_PAGE_COUNT);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartXRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const startX = touchStartXRef.current;
+    touchStartXRef.current = null;
+    if (startX == null || !e.changedTouches[0]) return;
+    const deltaX = e.changedTouches[0].clientX - startX;
+    if (deltaX < -SWIPE_THRESHOLD_PX) {
+      goTo(currentPage + 1);
+      resetAutoAdvance();
+    } else if (deltaX > SWIPE_THRESHOLD_PX) {
+      goTo(currentPage - 1);
+      resetAutoAdvance();
+    }
   };
 
   useEffect(() => {
@@ -174,9 +195,13 @@ export function TipologiaBanner() {
           />
         </motion.header>
 
-        {/* Mobile: carousel 2 visibles, auto 5s + flechas + dots */}
+        {/* Mobile: carousel 2 visibles, auto 5s + flechas + dots; deslizable con el dedo */}
         <div className="relative lg:hidden">
-          <div className="overflow-hidden">
+          <div
+            className="overflow-hidden touch-pan-y"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             <motion.div
               className="flex"
               style={{ width: `${MOBILE_PAGE_COUNT * 100}%` }}

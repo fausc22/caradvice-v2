@@ -14,6 +14,7 @@ type AutoDetailActionsProps = {
   whatsappHref: string;
   reserveHref: string;
   viewingNow: number;
+  isSold?: boolean;
 };
 
 export function AutoDetailActions({
@@ -23,11 +24,21 @@ export function AutoDetailActions({
   whatsappHref,
   reserveHref,
   viewingNow,
+  isSold = false,
 }: AutoDetailActionsProps) {
   const priceLabel = formatVehiclePrice(priceArs, priceUsd);
   const { isFavorite, toggleFavorite, isHydrated } = useFavorites();
   const [showStickyBar, setShowStickyBar] = useState(false);
   const favorite = isFavorite(slug);
+  const demandLabel = isSold
+    ? viewingNow >= 12
+      ? "Modelo muy buscado"
+      : "Interés por este modelo"
+    : viewingNow >= 12
+      ? "Alta demanda"
+      : viewingNow >= 8
+        ? "Interés activo"
+        : "Consultas activas";
 
   useEffect(() => {
     const onScroll = () => {
@@ -47,9 +58,16 @@ export function AutoDetailActions({
   return (
     <>
       <div className="mt-5 flex flex-wrap items-center justify-between gap-2.5">
-        <p className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
-          <Eye className="size-4 text-[var(--brand-orange)]" aria-hidden />
-          {viewingNow} personas viendo este auto
+        <p
+          className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-orange)]/30 bg-[var(--brand-orange)]/10 px-3 py-1.5 text-xs font-semibold text-[var(--brand-black)] sm:text-sm"
+          aria-live="polite"
+        >
+          <span className="relative flex size-2.5 items-center justify-center" aria-hidden>
+            <span className="absolute inline-flex size-2.5 animate-ping rounded-full bg-[var(--brand-orange)]/45" />
+            <span className="relative inline-flex size-1.5 rounded-full bg-[var(--brand-orange)]" />
+          </span>
+          <Eye className="size-3.5 text-[var(--brand-orange)] sm:size-4" aria-hidden />
+          {demandLabel}: {viewingNow} personas mirando ahora
         </p>
         <button
           type="button"
@@ -68,18 +86,20 @@ export function AutoDetailActions({
         </button>
       </div>
 
-      <div className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+      <div className={cn("mt-4 grid grid-cols-1 gap-2.5", !isSold && "sm:grid-cols-2")}>
         <Button asChild className="h-11 rounded-xl bg-[var(--whatsapp-green)] text-sm text-white hover:bg-[var(--whatsapp-green-hover)]">
           <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
             <WhatsAppIcon className="size-4" aria-hidden />
-            Consultar por WhatsApp
+            {isSold ? "Quiero alternativas por WhatsApp" : "Consultar por WhatsApp"}
           </a>
         </Button>
-        <Button asChild variant="outline" className="h-11 rounded-xl text-sm">
-          <a href={reserveHref} target="_blank" rel="noopener noreferrer">
-            Reservar ahora
-          </a>
-        </Button>
+        {!isSold && (
+          <Button asChild variant="outline" className="h-11 rounded-xl text-sm">
+            <a href={reserveHref} target="_blank" rel="noopener noreferrer">
+              Reservar ahora
+            </a>
+          </Button>
+        )}
       </div>
 
       <div
@@ -91,19 +111,23 @@ export function AutoDetailActions({
       >
         <div className="mx-auto flex min-h-[3.5rem] w-full max-w-screen-xl items-center gap-1.5">
           <div className="min-w-0 flex-1">
-            <p className="text-[11px] uppercase tracking-wide text-muted-foreground">Precio final</p>
+            <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
+              {isSold ? "Precio de referencia" : "Precio final"}
+            </p>
             <p className="truncate text-sm font-black text-[var(--brand-black)]">
               {priceLabel}
             </p>
           </div>
-          <a
-            href={reserveHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-10 items-center justify-center rounded-lg border border-black/15 px-2.5 text-[11px] font-semibold text-[var(--brand-black)]"
-          >
-            Reservar
-          </a>
+          {!isSold && (
+            <a
+              href={reserveHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-10 items-center justify-center rounded-lg border border-black/15 px-2.5 text-[11px] font-semibold text-[var(--brand-black)]"
+            >
+              Reservar
+            </a>
+          )}
           <a
             href={whatsappHref}
             target="_blank"

@@ -15,11 +15,16 @@ export function CarCardSkeleton({ className }: { className?: string }) {
       <div className="relative flex flex-1 flex-col min-h-0">
         <div className="aspect-[16/10] w-full animate-pulse bg-muted/50" />
         <div className="flex flex-1 flex-col p-4 sm:p-5">
-          <div className="h-5 w-3/4 animate-pulse rounded bg-muted/60" />
-          <div className="mt-2 h-4 w-1/2 animate-pulse rounded bg-muted/50" />
-          <div className="mt-2 h-3 w-full max-w-[180px] animate-pulse rounded bg-muted/40" />
-          <div className="mt-4 h-7 w-1/3 animate-pulse rounded bg-muted/60" />
-          <div className="mt-4 h-11 w-full animate-pulse rounded-xl bg-muted/50" />
+          <div className="flex flex-1 flex-col">
+            <div className="h-5 w-3/4 animate-pulse rounded bg-muted/60" />
+            <div className="mt-2 h-4 w-1/2 animate-pulse rounded bg-muted/50" />
+            <div className="mt-2 h-3 w-full max-w-[180px] animate-pulse rounded bg-muted/40" />
+            <div className="mt-4 min-h-[3.75rem] space-y-2 sm:min-h-[4.25rem]">
+              <div className="h-5 w-1/3 animate-pulse rounded bg-muted/60" />
+              <div className="h-7 w-2/3 animate-pulse rounded bg-muted/60" />
+            </div>
+          </div>
+          <div className="mt-4 h-11 w-full animate-pulse rounded-full bg-muted/50" />
         </div>
       </div>
     </article>

@@ -572,10 +572,10 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
   return (
     <main className="min-h-screen w-full overflow-x-hidden lg:pl-0 lg:pr-4">
       <section
-        className="flex w-full flex-col items-center justify-center gap-3 bg-gradient-to-b from-[#c2410c] to-[#7c2d12] py-5 sm:gap-4 sm:py-6 md:flex-row md:gap-5 md:py-7"
+        className="flex w-full flex-col items-center justify-center gap-1.5 bg-gradient-to-b from-[#c2410c] to-[#7c2d12] py-3 sm:gap-2 sm:py-4 md:flex-row md:gap-3 md:py-5"
         aria-label="Título del catálogo"
       >
-        <div className="relative h-12 w-12 shrink-0 sm:h-14 sm:w-14 md:h-[3.5rem] md:w-[3.5rem]">
+        <div className="relative h-10 w-10 shrink-0 sm:h-12 sm:w-12 md:h-[3.5rem] md:w-[3.5rem]">
           <Image
             src="/04 Iso Negro.png"
             alt=""
@@ -585,7 +585,7 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
             priority
           />
         </div>
-        <h1 className="text-center text-xl font-semibold tracking-tight text-white sm:text-2xl md:text-3xl">
+        <h1 className="text-center text-lg font-semibold tracking-tight text-white sm:text-xl md:text-3xl">
           Catálogo de Vehículos
         </h1>
       </section>

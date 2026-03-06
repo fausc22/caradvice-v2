@@ -8,11 +8,11 @@ export default function CatalogLoading() {
   return (
     <main className="min-h-screen w-full overflow-x-hidden lg:pl-0 lg:pr-4" aria-busy="true" aria-label="Cargando catálogo">
       <section
-        className="flex w-full flex-col items-center justify-center gap-4 bg-gradient-to-b from-[#c2410c] to-[#7c2d12] py-12 sm:gap-5 sm:py-16 md:flex-row md:gap-6"
+        className="flex w-full flex-col items-center justify-center gap-1.5 bg-gradient-to-b from-[#c2410c] to-[#7c2d12] py-3 sm:gap-2 sm:py-4 md:flex-row md:gap-3 md:py-5"
         aria-hidden
       >
-        <div className="relative h-14 w-14 shrink-0 rounded-lg bg-white/20 sm:h-16 sm:w-16 md:h-[4.5rem] md:w-[4.5rem]" />
-        <h1 className="text-center text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+        <div className="relative h-10 w-10 shrink-0 rounded-lg bg-white/20 sm:h-12 sm:w-12 md:h-[3.5rem] md:w-[3.5rem]" />
+        <h1 className="text-center text-lg font-semibold tracking-tight text-white sm:text-xl md:text-3xl">
           Catálogo de Vehículos
         </h1>
       </section>

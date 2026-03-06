@@ -14,7 +14,7 @@ type HomeCategory = "ofertas" | "oportunidades" | "nuevos_ingresos";
 const HOME_CATEGORIES: Array<{ id: HomeCategory; label: string }> = [
   { id: "ofertas", label: "Ofertas" },
   { id: "oportunidades", label: "Oportunidades" },
-  { id: "nuevos_ingresos", label: "Nuevos ingresos" },
+  { id: "nuevos_ingresos", label: "Novedades" },
 ];
 
 const TAB_RELOAD_MS = 550;
