@@ -9,7 +9,7 @@ const fadeIn = {
     opacity: 1,
     transition: {
       duration: reduce ? 0.08 : 0.35,
-      ease: [0.25, 0.1, 0.25, 1],
+      ease: [0.25, 0.1, 0.25, 1] as const,
     },
   }),
 };
@@ -38,7 +38,7 @@ const sectionVariants = {
     y: 0,
     transition: {
       duration: reduce ? 0.06 : 0.28,
-      ease: [0.25, 0.1, 0.25, 1],
+      ease: [0.25, 0.1, 0.25, 1] as const,
     },
   }),
 };
