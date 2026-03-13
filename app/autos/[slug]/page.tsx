@@ -9,6 +9,7 @@ import {
   hasOriginalPrice,
 } from "@/lib/catalog";
 import { AutoDetailActions } from "@/components/cars/auto-detail-actions";
+import { AutoDetailPageMotion, AutoDetailSectionMotion } from "@/components/cars/auto-detail-page-motion";
 import { AutoDetailPlanForm } from "@/components/cars/auto-detail-plan-form";
 import { AutoDetailSpecs } from "@/components/cars/auto-detail-specs";
 import { GearboxIcon } from "@/components/icons/gearbox-icon";
@@ -131,6 +132,7 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
     (item) => normalizeText(item.model) !== normalizeText(car.model),
   );
   const modelCatalogHref = `/catalogo?marca=${encodeURIComponent(car.brand)}&modelo=${encodeURIComponent(car.model)}`;
+  const typologyCatalogHref = `/catalogo?tipologia=${encodeURIComponent(car.tipologia)}`;
 
   const showOriginalPrice = hasOriginalPrice(car);
   const originalPriceFormatted = showOriginalPrice
@@ -148,27 +150,31 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
       ? "Oferta activa"
       : "Disponible";
 
+  // Fondo gris unificado; bloques con el mismo gris + sombra/borde para efecto "flotando".
+  const floatingClass = "bg-gray-100 border border-gray-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.06)]";
   return (
-    <main className="mx-auto w-full max-w-screen-xl px-4 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] pt-6 sm:px-6 sm:pt-8 lg:pb-10">
-      <div className="mb-5 flex flex-wrap items-center gap-2 text-xs text-muted-foreground sm:text-sm">
-        <Link href="/" className="transition-colors hover:text-foreground">
-          Inicio
+    <main className="min-h-screen bg-gray-100 mx-auto w-full max-w-screen-xl px-4 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] pt-6 sm:px-6 sm:pt-8 lg:pb-10">
+      <AutoDetailPageMotion>
+        <div className="mb-5 flex flex-wrap items-center gap-2 text-xs text-muted-foreground sm:text-sm">
+          <Link href="/" className="transition-colors hover:text-foreground">
+            Inicio
+          </Link>
+          <span aria-hidden>/</span>
+          <Link href={returnTo} className="transition-colors hover:text-foreground">
+            Catálogo
+          </Link>
+          <span aria-hidden>/</span>
+          <span className="font-medium text-foreground">{car.brand} {car.model}</span>
+        </div>
+        <Link
+          href={returnTo}
+          className="mb-5 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ArrowLeft className="size-4" aria-hidden />
+          Volver al catálogo
         </Link>
-        <span aria-hidden>/</span>
-        <Link href={returnTo} className="transition-colors hover:text-foreground">
-          Catálogo
-        </Link>
-        <span aria-hidden>/</span>
-        <span className="font-medium text-foreground">{car.brand} {car.model}</span>
-      </div>
-      <Link
-        href={returnTo}
-        className="mb-5 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-      >
-        <ArrowLeft className="size-4" aria-hidden />
-        Volver al catálogo
-      </Link>
 
+        <AutoDetailSectionMotion>
       <section className="grid gap-5 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
         <AutoImageGallery
           images={car.images}
@@ -180,7 +186,7 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
           soldLabel={car.soldLabel}
         />
 
-        <article className="rounded-3xl border border-[var(--brand-gray)]/40 bg-card p-5 shadow-[0_12px_40px_rgba(0,0,0,0.08)] sm:p-6">
+        <article className={cn("rounded-3xl p-5 sm:p-6", floatingClass)}>
           <div className="space-y-1">
             <p
               className={cn(
@@ -268,7 +274,7 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
             </div>
             {!isVendido && (
               <p className="text-sm text-muted-foreground">
-                Consultá financiación, permutas y disponibilidad inmediata.
+                Consultá financiación, permutas y otras opciones disponibles
               </p>
             )}
             {isVendido && (
@@ -276,30 +282,6 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
                 Esta unidad ya fue vendida. Te ayudamos a encontrar otra opción del mismo modelo o segmento.
               </p>
             )}
-          </div>
-
-          <div className="mt-5 rounded-2xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-4">
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-              {isVendido ? "Información del modelo" : "Información destacada"}
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {car.color && (
-                <span className="inline-flex items-center rounded-full border border-[var(--brand-gray)]/50 bg-card px-3 py-1 text-xs font-medium text-[var(--brand-black)]">
-                  Color: {car.color}
-                </span>
-              )}
-              <span className="inline-flex items-center rounded-full border border-[var(--brand-gray)]/50 bg-card px-3 py-1 text-xs font-medium text-[var(--brand-black)]">
-                Condición: {formatLabel(car.condicion)}
-              </span>
-              {car.extras?.slice(0, 4).map((extra) => (
-                <span
-                  key={extra}
-                  className="inline-flex items-center rounded-full border border-[var(--brand-gray)]/50 bg-card px-3 py-1 text-xs font-medium text-[var(--brand-black)]"
-                >
-                  {extra}
-                </span>
-              ))}
-            </div>
           </div>
 
           <AutoDetailActions
@@ -321,97 +303,109 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
           </div>
         </article>
       </section>
+        </AutoDetailSectionMotion>
 
+      {/* Especificaciones, contacto y tasar/financiar solo se ocultan cuando el auto está vendido; en oferta, oportunidad y disponible siempre se muestran. */}
       {isVendido ? (
-        <section className="mt-6 rounded-3xl border border-[var(--brand-orange)]/30 bg-[var(--brand-orange)]/8 p-4 sm:p-6">
-          <div className="flex flex-col gap-3 sm:gap-4">
+        <AutoDetailSectionMotion className="mt-6">
+        <section className="rounded-3xl border border-[var(--brand-orange)]/30 bg-[var(--brand-orange)]/8 p-4 sm:p-6 shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
+          <div className="flex flex-col gap-4 sm:gap-5">
             <h2 className="text-2xl font-black uppercase tracking-tight text-[var(--brand-black)] sm:text-3xl">
               Esta unidad ya fue vendida
             </h2>
             <p className="max-w-3xl text-sm text-[var(--brand-dark)] sm:text-base">
               Seguimos teniendo opciones para vos. Te recomendamos empezar por el mismo modelo y, si no, explorar alternativas de la misma marca o tipología.
             </p>
-            <div className="flex flex-wrap gap-2.5">
-              {sameModelAvailableCars.length > 0 && (
-                <Button asChild className="rounded-xl">
-                  <Link href={modelCatalogHref}>Ver unidades de {car.model}</Link>
-                </Button>
-              )}
-              <Button asChild variant="outline" className="rounded-xl">
-                <Link href="/catalogo">Seguir viendo catálogo</Link>
-              </Button>
-            </div>
-            {sameModelAvailableCars.length > 0 && (
-              <p className="text-xs font-semibold uppercase tracking-wide text-[var(--brand-dark)]">
-                Encontramos {sameModelAvailableCars.length} unidad{sameModelAvailableCars.length > 1 ? "es" : ""} disponible{sameModelAvailableCars.length > 1 ? "s" : ""} del mismo modelo
-              </p>
+
+            {sameModelAvailableCars.length > 0 ? (
+              <>
+                <h3 className="text-lg font-black uppercase tracking-tight text-[var(--brand-black)] sm:text-xl">
+                  Mismo modelo disponible
+                </h3>
+                <SimilarCarsCarousel
+                  cars={sameModelAvailableCars.map(toFeaturedCar)}
+                  returnTo={returnTo}
+                />
+                <div className="flex flex-wrap gap-2.5">
+                  <Button asChild className="rounded-xl">
+                    <Link href={modelCatalogHref}>Ver más unidades del modelo</Link>
+                  </Button>
+                  <Button asChild variant="outline" className="rounded-xl">
+                    <Link href="/catalogo">Seguir viendo catálogo</Link>
+                  </Button>
+                </div>
+              </>
+            ) : (
+              <>
+                <h3 className="text-lg font-black uppercase tracking-tight text-[var(--brand-black)] sm:text-xl">
+                  Podemos ofrecerte modelos similares
+                </h3>
+                <SimilarCarsCarousel
+                  cars={alternativeCarsWithoutSameModel.map(toFeaturedCar)}
+                  returnTo={returnTo}
+                />
+                <div className="flex flex-wrap gap-2.5">
+                  <Button asChild className="rounded-xl">
+                    <Link href={typologyCatalogHref}>Ver más unidades</Link>
+                  </Button>
+                  <Button asChild variant="outline" className="rounded-xl">
+                    <Link href="/catalogo">Seguir viendo catálogo</Link>
+                  </Button>
+                </div>
+              </>
             )}
           </div>
         </section>
+        </AutoDetailSectionMotion>
       ) : (
         <>
-          <section className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
+          <AutoDetailSectionMotion className="mt-6">
+          <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
             <AutoDetailSpecs car={car} />
 
             <aside className="lg:sticky lg:top-24 lg:self-start">
               <h2 className="mb-3 text-xl font-black uppercase tracking-tight text-[var(--brand-black)]">
                 Te asesoramos
               </h2>
-              <ContactLeadForm />
+              <ContactLeadForm
+                vehicleLabel={`${car.brand} ${car.model} ${car.version} (${car.year})`}
+                vehicleSlug={car.slug}
+              />
             </aside>
           </section>
+          </AutoDetailSectionMotion>
 
-          <AutoDetailPlanForm
-            vehicleLabel={`${car.brand} ${car.model} ${car.version} (${car.year})`}
-            priceArs={car.priceArs}
-            priceUsd={car.priceUsd}
-          />
+          <AutoDetailSectionMotion>
+            <AutoDetailPlanForm
+              vehicleLabel={`${car.brand} ${car.model} ${car.version} (${car.year})`}
+              priceArs={car.priceArs}
+              priceUsd={car.priceUsd}
+            />
+          </AutoDetailSectionMotion>
         </>
       )}
 
-      {isVendido && sameModelAvailableCars.length > 0 && (
-        <section className="mt-8 rounded-3xl border border-[var(--brand-orange)]/30 bg-[var(--brand-orange)]/6 p-4 sm:p-6">
+      {!isVendido && (
+        <AutoDetailSectionMotion className="mt-8">
+        <section className={cn("rounded-3xl p-4 sm:p-6", floatingClass)}>
           <div className="mb-4">
             <h2 className="text-2xl font-black uppercase tracking-tight text-[var(--brand-black)] sm:text-3xl">
-              Mismo modelo disponible
+              Vehículos similares
             </h2>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Estas unidades de {car.model} son la mejor alternativa si buscabas este modelo puntual.
-            </p>
           </div>
           <SimilarCarsCarousel
-            cars={sameModelAvailableCars.map(toFeaturedCar)}
+            cars={similarCars.map(toFeaturedCar)}
             returnTo={returnTo}
           />
           <div className="mt-6 flex justify-center">
-            <Button asChild className="rounded-xl">
-              <Link href={modelCatalogHref}>Ver más unidades de {car.model}</Link>
+            <Button asChild variant="outline" className="rounded-xl">
+              <Link href="/catalogo">Ver todo el catálogo</Link>
             </Button>
           </div>
         </section>
+        </AutoDetailSectionMotion>
       )}
-
-      <section className="mt-8 rounded-3xl border border-border bg-background p-4 sm:p-6">
-        <div className="mb-4">
-          <h2 className="text-2xl font-black uppercase tracking-tight text-[var(--brand-black)] sm:text-3xl">
-            {isVendido ? "Otras alternativas recomendadas" : "Vehículos similares"}
-          </h2>
-          {isVendido && (
-            <p className="mt-1 text-sm text-muted-foreground">
-              También te mostramos opciones de la misma marca o tipología, con rango de precio cercano.
-            </p>
-          )}
-        </div>
-        <SimilarCarsCarousel
-          cars={(isVendido ? alternativeCarsWithoutSameModel : similarCars).map(toFeaturedCar)}
-          returnTo={returnTo}
-        />
-        <div className="mt-6 flex justify-center">
-          <Button asChild variant="outline" className="rounded-xl">
-            <Link href="/catalogo">Ver todo el catálogo</Link>
-          </Button>
-        </div>
-      </section>
+      </AutoDetailPageMotion>
     </main>
   );
 }

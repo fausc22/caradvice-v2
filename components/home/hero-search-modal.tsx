@@ -3,7 +3,10 @@
 /**
  * Modal de búsqueda del hero: sugerencias por marca (estilo Kavak/concesionarias),
  * búsqueda en vivo por marca/modelo, navegación al catálogo.
- * En mobile: pantalla completa, bloquea página (scroll + no cierre al tocar fuera).
+ * Búsqueda: coincidencia por subcadena sobre marcas/modelos. Si no hay resultados
+ * y la query tiene ≥3 caracteres, se ofrece "¿Quisiste decir?" por similitud
+ * (Levenshtein) y al aceptar se redirige al catálogo con marca/modelo corregidos.
+ * En mobile: pantalla completa, bloquea página.
  */
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { useRouter } from "next/navigation";
@@ -17,8 +20,14 @@ import {
   CATALOG_DEFAULT_PAGE,
   CATALOG_DEFAULT_PER_PAGE,
 } from "@/lib/catalog/params";
+import {
+  findFuzzySuggestion,
+  type SearchSuggestion,
+} from "@/lib/catalog/hero-search-fuzzy";
 import type { CatalogFilterMetadata } from "@/lib/catalog/types";
 import { cn } from "@/lib/utils";
+
+export type { SearchSuggestion };
 
 const SUGGESTED_BRANDS_MAX = 8;
 
@@ -33,17 +42,22 @@ const baseParams = {
   perPage: CATALOG_DEFAULT_PER_PAGE,
 };
 
+type SearchResult = {
+  brands: string[];
+  models: { marca: string; modelo: string }[];
+  suggestion?: SearchSuggestion;
+};
+
 function searchCatalogFilters(
   query: string,
   filtersMeta: CatalogFilterMetadata
-): { brands: string[]; models: { marca: string; modelo: string }[] } {
+): SearchResult {
   const q = normalizeCatalogString(query);
   if (!q) return { brands: [], models: [] };
 
   const brands = filtersMeta.brands.filter((b) =>
     normalizeCatalogString(b).includes(q)
   );
-  const brandSet = new Set(brands.map((b) => normalizeCatalogString(b)));
 
   const models: { marca: string; modelo: string }[] = [];
   for (const [normBrand, modelList] of Object.entries(
@@ -64,9 +78,15 @@ function searchCatalogFilters(
     if (models.length >= MAX_MODELS) break;
   }
 
+  const suggestion =
+    brands.length === 0 && models.length === 0
+      ? findFuzzySuggestion(q, filtersMeta)
+      : undefined;
+
   return {
     brands: brands.slice(0, MAX_BRANDS),
     models,
+    suggestion,
   };
 }
 
@@ -150,6 +170,18 @@ export function HeroSearchModal({
     });
   };
 
+  const handleApplySuggestion = (suggestion: SearchSuggestion) => {
+    if (suggestion.type === "marca") {
+      goToCatalog({ ...baseParams, marca: suggestion.marca });
+    } else {
+      goToCatalog({
+        ...baseParams,
+        marca: suggestion.marca,
+        modelo: suggestion.modelo,
+      });
+    }
+  };
+
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 639px)");
@@ -203,7 +235,7 @@ export function HeroSearchModal({
                   type="search"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Buscar marca, modelo o palabra clave"
+                  placeholder="Buscar por marca o modelo"
                   autoComplete="off"
                   aria-label="Buscar vehículos"
                   aria-describedby="search-results-desc"
@@ -336,19 +368,49 @@ export function HeroSearchModal({
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     className="space-y-4 py-4"
+                    role="status"
+                    aria-live="polite"
+                    aria-label={
+                      results.suggestion
+                        ? `No hay resultados para ${debouncedQuery}. ¿Quisiste decir ${results.suggestion.displayText}?`
+                        : `No hay resultados para ${debouncedQuery}`
+                    }
                   >
                     <p className="text-sm text-white/70">
                       No encontramos resultados para &quot;{debouncedQuery}&quot;
                     </p>
-                    <button
-                      type="button"
-                      onClick={handleSearchByKeyword}
-                      className={cn(
-                        "w-full rounded-lg border border-[var(--brand-orange)]/50 bg-[var(--brand-orange)]/10 py-3 px-4 text-sm font-medium text-[var(--brand-orange)] transition-colors hover:bg-[var(--brand-orange)]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
-                      )}
-                    >
-                      Buscar en catálogo con &quot;{query.trim()}&quot;
-                    </button>
+                    {results.suggestion ? (
+                      <>
+                        <p className="text-sm text-white/90">
+                          ¿Quisiste decir:{" "}
+                          <span className="font-medium text-white">
+                            {results.suggestion.displayText}
+                          </span>
+                          ?
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() => handleApplySuggestion(results.suggestion!)}
+                          className={cn(
+                            "w-full rounded-lg border border-[var(--brand-orange)]/50 bg-[var(--brand-orange)]/10 py-3 px-4 text-sm font-medium text-[var(--brand-orange)] transition-colors hover:bg-[var(--brand-orange)]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
+                          )}
+                          aria-label={`Buscar ${results.suggestion!.displayText} en el catálogo`}
+                        >
+                          Ver {results.suggestion.displayText} en el catálogo
+                        </button>
+                      </>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={handleSearchByKeyword}
+                        className={cn(
+                          "w-full rounded-lg border border-[var(--brand-orange)]/50 bg-[var(--brand-orange)]/10 py-3 px-4 text-sm font-medium text-[var(--brand-orange)] transition-colors hover:bg-[var(--brand-orange)]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
+                        )}
+                        aria-label={`Buscar en catálogo con ${query.trim()}`}
+                      >
+                        Buscar en catálogo con &quot;{query.trim()}&quot;
+                      </button>
+                    )}
                   </motion.div>
                 )}
               </AnimatePresence>

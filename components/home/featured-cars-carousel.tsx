@@ -9,11 +9,11 @@ import { CarCard } from "@/components/cars/car-card";
 import { CarCardSkeleton } from "@/components/cars/car-card-skeleton";
 import { cn } from "@/lib/utils";
 
-type HomeCategory = "ofertas" | "oportunidades" | "nuevos_ingresos";
+type HomeCategory = "oportunidades" | "destacados" | "nuevos_ingresos";
 
 const HOME_CATEGORIES: Array<{ id: HomeCategory; label: string }> = [
-  { id: "ofertas", label: "Ofertas" },
   { id: "oportunidades", label: "Oportunidades" },
+  { id: "destacados", label: "Destacados" },
   { id: "nuevos_ingresos", label: "Novedades" },
 ];
 
@@ -36,9 +36,9 @@ function filterCarsByCategory(
   return allCars.filter((car) => {
     const variant = getCardVariant(car);
     switch (category) {
-      case "ofertas":
-        return variant === "oferta";
       case "oportunidades":
+        return variant === "oferta";
+      case "destacados":
         return variant === "oportunidad" || variant === "vendido";
       case "nuevos_ingresos":
         return variant === "normal";
@@ -49,7 +49,7 @@ function filterCarsByCategory(
 }
 
 export function FeaturedCarsCarousel() {
-  const [activeCategory, setActiveCategory] = useState<HomeCategory>("ofertas");
+  const [activeCategory, setActiveCategory] = useState<HomeCategory>("oportunidades");
   const [isCategoryLoading, setIsCategoryLoading] = useState(false);
   const cars = useMemo(
     () => filterCarsByCategory(featuredCars, activeCategory),
@@ -204,17 +204,17 @@ export function FeaturedCarsCarousel() {
 
   return (
     <div className="relative min-w-0">
-      {/* Una sola fila: en mobile el tablist puede hacer scroll si no caben los 3; en sm+ bloque compacto centrado */}
-      <div className="mb-4 flex w-full flex-nowrap items-center gap-2 sm:mb-5 sm:w-auto sm:justify-center sm:gap-3">
+      {/* Solo tabs de categorías; flechas van a los lados del carrusel */}
+      <div className="mb-4 flex w-full flex-nowrap sm:mb-5 sm:w-auto sm:justify-center">
         <div
           role="tablist"
           aria-label="Categorías destacadas"
           onKeyDown={handleTabKeyDown}
           className={cn(
-            "min-w-0 flex-1 overflow-x-auto rounded-full border border-[var(--brand-cream)]/50 bg-[var(--brand-offwhite)]/60 p-1 shadow-[0_2px_10px_rgba(0,0,0,0.04)] [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-initial sm:overflow-visible [&::-webkit-scrollbar]:hidden",
+            "min-w-0 flex-1 overflow-x-auto rounded-full border border-[var(--brand-cream)]/50 bg-[var(--brand-offwhite)]/60 p-1.5 shadow-[0_2px_10px_rgba(0,0,0,0.04)] [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-initial sm:overflow-visible sm:p-1 [&::-webkit-scrollbar]:hidden",
           )}
         >
-          <div className="inline-flex w-max items-center gap-0.5 sm:gap-1">
+          <div className="inline-flex w-max items-center gap-1 sm:gap-1">
             {HOME_CATEGORIES.map((category) => {
               const isActive = activeCategory === category.id;
               return (
@@ -229,7 +229,7 @@ export function FeaturedCarsCarousel() {
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
                   className={cn(
-                    "relative z-10 shrink-0 rounded-full px-2.5 py-2 text-[10px] font-semibold uppercase tracking-tight transition-colors duration-200 sm:min-h-[44px] sm:px-4 sm:py-2.5 sm:text-sm",
+                    "relative z-10 shrink-0 rounded-full min-h-[44px] px-4 py-3 text-xs font-semibold uppercase tracking-tight transition-colors duration-200 sm:min-h-[44px] sm:px-4 sm:py-2.5 sm:text-sm",
                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--brand-offwhite)]",
                     "rounded-full",
                     isActive
@@ -250,26 +250,6 @@ export function FeaturedCarsCarousel() {
               );
             })}
           </div>
-        </div>
-        <div className="flex shrink-0 gap-1 sm:gap-1.5">
-          <button
-            type="button"
-            aria-label="Ver autos anteriores"
-            onClick={goToPrev}
-            disabled={!canScrollLeft || cars.length === 0}
-            className="inline-flex min-h-[38px] min-w-[38px] items-center justify-center rounded-full border border-[var(--brand-gray)]/40 bg-card/90 text-[var(--brand-black)] backdrop-blur transition-colors hover:bg-card disabled:cursor-not-allowed disabled:opacity-40 sm:min-h-[44px] sm:min-w-[44px]"
-          >
-            <ChevronLeft className="size-4 sm:size-5" aria-hidden />
-          </button>
-          <button
-            type="button"
-            aria-label="Ver autos siguientes"
-            onClick={goToNext}
-            disabled={!canScrollRight || cars.length === 0}
-            className="inline-flex min-h-[38px] min-w-[38px] items-center justify-center rounded-full border border-[var(--brand-gray)]/40 bg-card/90 text-[var(--brand-black)] backdrop-blur transition-colors hover:bg-card disabled:cursor-not-allowed disabled:opacity-40 sm:min-h-[44px] sm:min-w-[44px]"
-          >
-            <ChevronRight className="size-4 sm:size-5" aria-hidden />
-          </button>
         </div>
       </div>
 
@@ -303,26 +283,46 @@ export function FeaturedCarsCarousel() {
                   Pronto más vehículos en esta categoría.
                 </p>
               ) : (
-                <div
-                  ref={containerRef}
-                  onScroll={(event) => {
-                    updateScrollState(event.currentTarget);
-                    if (!isProgrammaticScrollRef.current) {
-                      setIsAutoPlayEnabled(false);
-                    }
-                  }}
-                  onWheel={() => setIsAutoPlayEnabled(false)}
-                  onTouchStart={() => setIsAutoPlayEnabled(false)}
-                  className="grid grid-flow-col auto-cols-[100%] gap-4 overflow-x-auto pb-2 pr-1 snap-x snap-mandatory sm:auto-cols-[calc((100%_-_1rem)_/_2)] md:auto-cols-[calc((100%_-_2rem)_/_3)] xl:auto-cols-[calc((100%_-_3rem)_/_4)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-                >
-                  {cars.map((car) => (
-                    <CarCard
-                      key={car.slug}
-                      car={car}
-                      className="h-full snap-start"
-                      imageSizes="(max-width: 639px) 100vw, (max-width: 767px) 50vw, (max-width: 1279px) 33vw, 25vw"
-                    />
-                  ))}
+                <div className="relative">
+                  <button
+                    type="button"
+                    aria-label="Ver autos anteriores"
+                    onClick={goToPrev}
+                    disabled={!canScrollLeft || cars.length === 0}
+                    className="absolute left-1 z-10 top-1/2 -translate-y-1/2 inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-[var(--brand-gray)]/40 bg-card/95 text-[var(--brand-black)] shadow-md backdrop-blur transition-colors hover:bg-card disabled:pointer-events-none disabled:opacity-40 sm:min-h-12 sm:min-w-12"
+                  >
+                    <ChevronLeft className="size-5 sm:size-6" aria-hidden />
+                  </button>
+                  <button
+                    type="button"
+                    aria-label="Ver autos siguientes"
+                    onClick={goToNext}
+                    disabled={!canScrollRight || cars.length === 0}
+                    className="absolute right-1 z-10 top-1/2 -translate-y-1/2 inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-[var(--brand-gray)]/40 bg-card/95 text-[var(--brand-black)] shadow-md backdrop-blur transition-colors hover:bg-card disabled:pointer-events-none disabled:opacity-40 sm:min-h-12 sm:min-w-12"
+                  >
+                    <ChevronRight className="size-5 sm:size-6" aria-hidden />
+                  </button>
+                  <div
+                    ref={containerRef}
+                    onScroll={(event) => {
+                      updateScrollState(event.currentTarget);
+                      if (!isProgrammaticScrollRef.current) {
+                        setIsAutoPlayEnabled(false);
+                      }
+                    }}
+                    onWheel={() => setIsAutoPlayEnabled(false)}
+                    onTouchStart={() => setIsAutoPlayEnabled(false)}
+                    className="vehicle-cards-carousel-scroll grid grid-flow-col auto-cols-[100%] gap-4 pb-2 px-1 snap-x snap-mandatory sm:auto-cols-[calc((100%_-_1rem)_/_2)] md:auto-cols-[calc((100%_-_2rem)_/_3)] xl:auto-cols-[calc((100%_-_3rem)_/_4)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                  >
+                    {cars.map((car) => (
+                      <CarCard
+                        key={car.slug}
+                        car={car}
+                        className="h-full snap-start"
+                        imageSizes="(max-width: 639px) 100vw, (max-width: 767px) 50vw, (max-width: 1279px) 33vw, 25vw"
+                      />
+                    ))}
+                  </div>
                 </div>
               )}
             </motion.div>

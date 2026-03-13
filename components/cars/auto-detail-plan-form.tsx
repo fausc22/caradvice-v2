@@ -13,6 +13,12 @@ import { FormField } from "@/components/ui/form-field";
 import { Button } from "@/components/ui/button";
 import { inputClass } from "@/lib/form-styles";
 import { cn } from "@/lib/utils";
+import {
+  FORM_PLACEHOLDER_NAME,
+  FORM_PLACEHOLDER_PHONE,
+  FORM_ERROR_NAME,
+  FORM_ERROR_PHONE,
+} from "@/lib/form-copy";
 
 export type AutoDetailPlanFormProps = {
   vehicleLabel: string;
@@ -43,6 +49,9 @@ function parseThousands(str: string): number {
 function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value));
 }
+
+/** TNA por defecto para la simulación (no se muestra al usuario). */
+const DEFAULT_TNA_PCT = 42;
 
 /** Cuota con sistema francés */
 function calcInstallment(principal: number, months: number, annualRatePct: number): number {
@@ -97,7 +106,7 @@ function buildPlanWhatsAppMessage(params: {
   ];
 
   if (hasUsed && usedData) {
-    lines.push("Quiero dar mi usado como parte de pago:");
+    lines.push("Quiero entregar mi usado como parte de pago:");
     lines.push(`• Dominio: ${usedData.dominio || "—"}`);
     lines.push(`• Marca: ${usedData.marca || "—"}`);
     lines.push(`• Modelo: ${usedData.modelo || "—"}`);
@@ -128,8 +137,6 @@ export function AutoDetailPlanForm({
   priceArs,
   priceUsd = 0,
 }: AutoDetailPlanFormProps) {
-  const isUsd = priceUsd > 0;
-
   const [hasUsed, setHasUsed] = useState(false);
   const [dominio, setDominio] = useState("");
   const [marca, setMarca] = useState("");
@@ -141,7 +148,6 @@ export function AutoDetailPlanForm({
 
   const [anticipo, setAnticipo] = useState(Math.round(priceArs * 0.2));
   const [months, setMonths] = useState(48);
-  const [annualRate, setAnnualRate] = useState(42);
 
   const [nombre, setNombre] = useState("");
   const [telefono, setTelefono] = useState("");
@@ -159,8 +165,8 @@ export function AutoDetailPlanForm({
   }, [anticipo, priceArs, valorUsado]);
 
   const cuota = useMemo(
-    () => calcInstallment(aFinanciar, months, annualRate),
-    [aFinanciar, months, annualRate]
+    () => calcInstallment(aFinanciar, months, DEFAULT_TNA_PCT),
+    [aFinanciar, months]
   );
 
   const handleSubmit = useCallback(
@@ -171,11 +177,11 @@ export function AutoDetailPlanForm({
       const nameTrim = nombre.trim();
       const phoneTrim = telefono.trim();
       if (!nameTrim) {
-        setNombreError("Ingresá tu nombre.");
+        setNombreError(FORM_ERROR_NAME);
         return;
       }
       if (!phoneTrim) {
-        setTelefonoError("Ingresá tu teléfono.");
+        setTelefonoError(FORM_ERROR_PHONE);
         return;
       }
 
@@ -226,28 +232,8 @@ export function AutoDetailPlanForm({
     ]
   );
 
-  if (isUsd) {
-    return (
-      <section className="mt-6 rounded-3xl border border-black/10 bg-background p-5 sm:p-6">
-        <p className="text-sm text-muted-foreground">
-          Este vehículo está publicado en USD. Consultá financiación y cuotas en pesos por WhatsApp.
-        </p>
-        <Button asChild className="mt-4 h-11 rounded-xl bg-[var(--whatsapp-green)] text-sm text-white hover:bg-[var(--whatsapp-green-hover)]">
-          <a
-            href={`${WHATSAPP_DIRECT_LINK}?text=${encodeURIComponent(`Hola Car Advice, quiero consultar financiación en pesos para ${vehicleLabel}.`)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <WhatsAppIcon className="size-4" aria-hidden />
-            Consultar por WhatsApp
-          </a>
-        </Button>
-      </section>
-    );
-  }
-
   return (
-    <section className="mt-6 rounded-3xl border border-[var(--brand-gray)]/40 bg-card p-5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] sm:p-6">
+    <section className="mt-6 rounded-3xl border border-gray-200/80 bg-gray-100 p-5 shadow-[0_4px_24px_rgba(0,0,0,0.06)] sm:p-6">
       <div className="flex items-center gap-2">
         <Calculator className="size-5 text-[var(--brand-orange)]" aria-hidden />
         <h2 className="text-xl font-black uppercase tracking-tight text-[var(--brand-black)] sm:text-2xl">
@@ -431,21 +417,6 @@ export function AutoDetailPlanForm({
               }
               type="number"
             />
-            <div className="space-y-1">
-              <label className="mb-1.5 block text-sm font-semibold text-foreground">
-                TNA (%)
-              </label>
-              <input
-                type="number"
-                inputMode="decimal"
-                min={0}
-                max={200}
-                step={0.1}
-                value={annualRate}
-                onChange={(e) => setAnnualRate(Number(e.target.value) || 0)}
-                className={cn(inputClass)}
-              />
-            </div>
           </div>
 
           <div
@@ -459,10 +430,7 @@ export function AutoDetailPlanForm({
               {formatCurrency.format(cuota)} / mes
             </p>
             <p className="mt-1 text-xs text-muted-foreground">
-              * Simulación orientativa sujeta a aprobación crediticia y condiciones vigentes.
-            </p>
-            <p className="mt-0.5 text-xs text-muted-foreground">
-              Valor del usado sujeto a inspección en sucursal.
+              Simulación orientativa. La cuota final y el valor de tu usado dependen de la entidad y de la inspección en sucursal.
             </p>
           </div>
         </div>
@@ -476,7 +444,7 @@ export function AutoDetailPlanForm({
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             error={nombreError}
-            placeholder="Tu nombre"
+            placeholder={FORM_PLACEHOLDER_NAME}
           />
           <FormField
             id="plan-telefono"
@@ -486,7 +454,7 @@ export function AutoDetailPlanForm({
             value={telefono}
             onChange={(e) => setTelefono(e.target.value)}
             error={telefonoError}
-            placeholder="351 515 8848"
+            placeholder={FORM_PLACEHOLDER_PHONE}
           />
         </div>
 

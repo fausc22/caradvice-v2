@@ -57,36 +57,38 @@ export function AutoDetailActions({
 
   return (
     <>
-      <div className="mt-5 flex flex-wrap items-center justify-between gap-2.5">
-        <p
-          className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-orange)]/30 bg-[var(--brand-orange)]/10 px-3 py-1.5 text-xs font-semibold text-[var(--brand-black)] sm:text-sm"
-          aria-live="polite"
-        >
-          <span className="relative flex size-2.5 items-center justify-center" aria-hidden>
-            <span className="absolute inline-flex size-2.5 animate-ping rounded-full bg-[var(--brand-orange)]/45" />
-            <span className="relative inline-flex size-1.5 rounded-full bg-[var(--brand-orange)]" />
-          </span>
-          <Eye className="size-3.5 text-[var(--brand-orange)] sm:size-4" aria-hidden />
-          {demandLabel}: {viewingNow} personas mirando ahora
-        </p>
-        <button
-          type="button"
-          onClick={() => toggleFavorite(slug)}
-          aria-label={favoriteLabel}
-          aria-pressed={favorite}
-          className={cn(
-            "inline-flex h-10 items-center gap-2 rounded-full border px-3 text-xs font-semibold uppercase tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2",
-            favorite
-              ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/10 text-[var(--brand-orange)]"
-              : "border-border bg-card text-[var(--brand-black)] hover:border-[var(--brand-orange)]/50",
-          )}
-        >
-          <Heart className={cn("size-4", favorite && "fill-current")} aria-hidden />
-          Favorito
-        </button>
-      </div>
+      {!isSold && (
+        <div className="mt-5 flex flex-wrap items-center justify-between gap-2.5">
+          <p
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-orange)]/30 bg-[var(--brand-orange)]/10 px-3 py-1.5 text-xs font-semibold text-[var(--brand-black)] sm:text-sm"
+            aria-live="polite"
+          >
+            <span className="relative flex size-2.5 items-center justify-center" aria-hidden>
+              <span className="absolute inline-flex size-2.5 animate-ping rounded-full bg-[var(--brand-orange)]/45" />
+              <span className="relative inline-flex size-1.5 rounded-full bg-[var(--brand-orange)]" />
+            </span>
+            <Eye className="size-3.5 text-[var(--brand-orange)] sm:size-4" aria-hidden />
+            {demandLabel}: {viewingNow} personas mirando ahora
+          </p>
+          <button
+            type="button"
+            onClick={() => toggleFavorite(slug)}
+            aria-label={favoriteLabel}
+            aria-pressed={favorite}
+            className={cn(
+              "inline-flex h-10 items-center gap-2 rounded-full border px-3 text-xs font-semibold uppercase tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2",
+              favorite
+                ? "border-[var(--brand-orange)] bg-[var(--brand-orange)]/10 text-[var(--brand-orange)]"
+                : "border-border bg-card text-[var(--brand-black)] hover:border-[var(--brand-orange)]/50",
+            )}
+          >
+            <Heart className={cn("size-4", favorite && "fill-current")} aria-hidden />
+            Favorito
+          </button>
+        </div>
+      )}
 
-      <div className={cn("mt-4 grid grid-cols-1 gap-2.5", !isSold && "sm:grid-cols-2")}>
+      <div className={cn("grid grid-cols-1 gap-2.5", !isSold ? "mt-4 sm:grid-cols-2" : "mt-5")}>
         <Button asChild className="h-11 rounded-xl bg-[var(--whatsapp-green)] text-sm text-white hover:bg-[var(--whatsapp-green-hover)]">
           <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
             <WhatsAppIcon className="size-4" aria-hidden />

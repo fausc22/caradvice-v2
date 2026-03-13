@@ -4,8 +4,10 @@
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono } from "next/font/google";
 import { Providers } from "./providers";
+import { AnnouncementBar } from "@/components/home/announcement-bar";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { ScrollToTopButton } from "@/components/layout/scroll-to-top-button";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import "./globals.css";
 
@@ -42,9 +44,11 @@ export default function RootLayout({
       >
         <Providers>
           <div className="flex min-h-screen flex-col">
+            <AnnouncementBar />
             <Navbar />
             <div className="flex-1 overflow-x-hidden">{children}</div>
             <Footer />
+            <ScrollToTopButton />
             <WhatsAppButton />
           </div>
         </Providers>

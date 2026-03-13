@@ -3,6 +3,17 @@
 import { Send } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import {
+  FORM_PLACEHOLDER_NAME,
+  FORM_PLACEHOLDER_EMAIL,
+  FORM_PLACEHOLDER_PHONE,
+  FORM_PLACEHOLDER_MESSAGE,
+  FORM_ERROR_PRIVACIDAD,
+  FORM_ERROR_SEND_GENERIC,
+  FORM_SUCCESS_CONTACT_TITLE,
+  FORM_SUCCESS_CONTACT_TEXT,
+  FORM_PRIVACY_LINK,
+} from "@/lib/form-copy";
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -22,7 +33,7 @@ export function ContactForm() {
     e.preventDefault();
 
     if (!formData.aceptaPrivacidad) {
-      setErrorMessage("Debés aceptar las políticas de privacidad para continuar.");
+      setErrorMessage(FORM_ERROR_PRIVACIDAD);
       setFormStatus("error");
       return;
     }
@@ -45,7 +56,7 @@ export function ContactForm() {
 
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
-        throw new Error(err.message || "Error al enviar el mensaje.");
+        throw new Error(err.message || FORM_ERROR_SEND_GENERIC);
       }
 
       setFormStatus("success");
@@ -60,11 +71,7 @@ export function ContactForm() {
       setTimeout(() => setFormStatus("idle"), 5000);
     } catch (err: unknown) {
       setFormStatus("error");
-      setErrorMessage(
-        err instanceof Error
-          ? err.message
-          : "Error al enviar el mensaje. Por favor intentá nuevamente o contactanos por WhatsApp."
-      );
+      setErrorMessage(err instanceof Error ? err.message : FORM_ERROR_SEND_GENERIC);
     }
   };
 
@@ -104,7 +111,7 @@ export function ContactForm() {
             value={formData.nombre}
             onChange={handleChange}
             required
-            placeholder="Tu nombre"
+            placeholder={FORM_PLACEHOLDER_NAME}
             className={inputClass}
           />
         </div>
@@ -123,7 +130,7 @@ export function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            placeholder="tu@email.com"
+            placeholder={FORM_PLACEHOLDER_EMAIL}
             className={inputClass}
           />
         </div>
@@ -142,7 +149,7 @@ export function ContactForm() {
             value={formData.telefono}
             onChange={handleChange}
             required
-            placeholder="351 515 8848"
+            placeholder={FORM_PLACEHOLDER_PHONE}
             className={inputClass}
           />
         </div>
@@ -161,7 +168,7 @@ export function ContactForm() {
             onChange={handleChange}
             required
             rows={5}
-            placeholder="Contanos en qué podemos ayudarte..."
+            placeholder={FORM_PLACEHOLDER_MESSAGE}
             className="w-full resize-none rounded-lg border border-black/15 bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)]"
           />
         </div>
@@ -179,7 +186,7 @@ export function ContactForm() {
             <span className="text-sm text-muted-foreground">
               Acepto las{" "}
               <a
-                href="/contacto"
+                href={FORM_PRIVACY_LINK}
                 className="font-semibold text-[var(--brand-orange)] hover:underline"
               >
                 políticas de privacidad
@@ -199,7 +206,7 @@ export function ContactForm() {
               Enviando...
             </>
           ) : formStatus === "success" ? (
-            <>✓ ¡Mensaje enviado!</>
+            <>{FORM_SUCCESS_CONTACT_TITLE}</>
           ) : (
             <>
               <Send className="size-5" />
@@ -216,7 +223,7 @@ export function ContactForm() {
 
         {formStatus === "success" && (
           <p className="text-center text-sm font-semibold text-green-600">
-            ¡Gracias por contactarnos! Te respondemos a la brevedad.
+            {FORM_SUCCESS_CONTACT_TEXT}
           </p>
         )}
       </div>

@@ -202,7 +202,7 @@
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--brand-offwhite);
+  color: var(--brand-black);
 }
 
 @keyframes announcement-marquee {
@@ -224,6 +224,13 @@
   .announcement-item:nth-child(n + 2) {
     display: none;
   }
+}
+
+/* Carruseles de cards de vehículos: deslizable en mobile (momentum + pan horizontal) */
+.vehicle-cards-carousel-scroll {
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
 }
 
 /* Widget Trustindex — estilos de marca (Car Advice) */

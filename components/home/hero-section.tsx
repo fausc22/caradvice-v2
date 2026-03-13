@@ -1,12 +1,13 @@
 "use client";
 
 /**
- * Hero minimalista: video, input de búsqueda flotante (placeholder rotativo)
+ * Hero minimalista: imagen fija, input de búsqueda flotante (placeholder rotativo)
  * y modal de búsqueda; CTAs Comprar / Vender / Consignar.
  */
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { Search, Wallet, Car } from "lucide-react";
+import { Search } from "lucide-react";
 import { WHATSAPP_LINK_COMPRAR } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import type { CatalogFilterMetadata } from "@/lib/catalog/types";
@@ -35,10 +36,26 @@ const placeholderVariants = {
   exit: { opacity: 0, y: -8 },
 };
 
-const ctaTransition = { type: "spring" as const, stiffness: 400, damping: 25 };
-
 const CTA_CLASS =
-  "inline-flex min-h-[clamp(2.25rem,5vw,2.75rem)] shrink-0 items-center justify-center gap-1.5 rounded-xl border border-[var(--brand-orange)]/80 bg-[var(--brand-orange)]/15 px-[clamp(0.5rem,1.5vw,1.25rem)] py-[clamp(0.375rem,1vw,0.75rem)] text-[clamp(0.75rem,2vw,1rem)] font-medium leading-tight text-white transition-colors hover:bg-[var(--brand-orange)]/25 hover:border-[var(--brand-orange)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 active:bg-[var(--brand-orange)]/30";
+  "inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-white/85 bg-white/90 px-3 py-2.5 text-sm font-medium leading-none text-[var(--brand-black)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2 focus-visible:ring-offset-black/70";
+
+const CTA_HOVER = {
+  backgroundColor: "var(--brand-orange)",
+  color: "#ffffff",
+  borderColor: "var(--brand-orange)",
+};
+
+const CTA_TAP = {
+  backgroundColor: "var(--brand-orange-light)",
+  color: "#ffffff",
+  borderColor: "var(--brand-orange)",
+};
+
+const CTA_TRANSITION = {
+  type: "tween" as const,
+  duration: 0.18,
+  ease: [0.25, 0.1, 0.25, 1] as const,
+};
 
 export function HeroSection({
   filtersMeta,
@@ -71,16 +88,14 @@ export function HeroSection({
       className="relative min-h-[50vh] w-full overflow-hidden sm:min-h-[60vh] md:min-h-[70vh]"
       aria-label="Hero"
     >
-      {/* Video + overlay */}
+      {/* Imagen de fondo + overlay */}
       <div className="absolute inset-0">
-        <video
-          src="https://api.caradvice.com.ar/media/videos/hero_video.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="h-full w-full object-cover object-center"
-          aria-label="Car Advice - Tu próximo destino comienza acá"
+        <Image
+          src="/WhatsApp Image 2026-03-09 at 15.24.30.jpeg"
+          alt="Car Advice - Tu próximo destino comienza acá"
+          fill
+          priority
+          className="object-cover object-center md:object-bottom"
         />
         <div
           className="absolute inset-0 bg-[var(--brand-black)]/50"
@@ -88,10 +103,31 @@ export function HeroSection({
         />
       </div>
 
-      {/* Contenido: input flotante + CTAs */}
-      <div className="relative flex min-h-[50vh] flex-col items-center justify-center gap-6 px-4 py-10 sm:min-h-[60vh] sm:gap-8 sm:py-12 md:min-h-[70vh] md:gap-10">
-        {/* Input flotante: lupita + placeholder rotativo animado; click abre modal */}
-        <div className="w-full max-w-xl">
+      {/* Contenido: claim + branding + input flotante + CTAs */}
+      <div className="relative flex min-h-[50vh] flex-col items-center justify-center px-4 py-10 sm:min-h-[60vh] sm:py-12 md:min-h-[70vh]">
+        {/* Bloque de acción principal: claim, logo, buscador + CTAs */}
+        <div className="w-full max-w-xl space-y-4 text-center">
+          <div className="space-y-2">
+            <p className="text-sm font-semibold tracking-[0.2em] uppercase text-white/80 sm:text-base md:text-lg">
+              Tu auto en buenas manos
+            </p>
+            <div className="flex justify-center">
+              <div className="relative h-9 w-28 sm:h-10 sm:w-32 md:h-12 md:w-40">
+                <Image
+                  src="/04 Iso Negro.png"
+                  alt="CAR ADVICE"
+                  fill
+                  className="object-contain invert"
+                  sizes="128px"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Bloque de interacción: buscador + CTAs cercanos y consistentes */}
+          <div className="space-y-2.5">
+          {/* Input flotante: lupita + placeholder rotativo animado; click abre modal */}
           <label htmlFor="hero-search" className="sr-only">
             Buscar vehículos por palabra clave, modelo o marca
           </label>
@@ -140,44 +176,42 @@ export function HeroSection({
               tabIndex={-1}
             />
           </div>
-        </div>
 
-        {/* CTAs: Comprar, Vender, Consignar — siempre en una línea, tamaño fluido */}
-        <div className="flex flex-nowrap justify-center items-center gap-2 sm:gap-3 px-1">
-          <motion.a
-            href={WHATSAPP_LINK_COMPRAR}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={CTA_CLASS}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            transition={ctaTransition}
-          >
-            <Search className="size-[clamp(0.875rem,1.2vw,1.25rem)] shrink-0 text-[var(--brand-orange)]" aria-hidden />
-            Comprar
-          </motion.a>
-          <motion.button
-            type="button"
-            onClick={() => setTasacionModalOpen(true)}
-            className={CTA_CLASS}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            transition={ctaTransition}
-          >
-            <Wallet className="size-[clamp(0.875rem,1.2vw,1.25rem)] shrink-0 text-[var(--brand-orange)]" aria-hidden />
-            Vender
-          </motion.button>
-          <motion.button
-            type="button"
-            onClick={() => setConsignacionModalOpen(true)}
-            className={CTA_CLASS}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            transition={ctaTransition}
-          >
-            <Car className="size-[clamp(0.875rem,1.2vw,1.25rem)] shrink-0 text-[var(--brand-orange)]" aria-hidden />
-            Consignar
-          </motion.button>
+          {/* CTAs: mismo componente base, jerarquía visual primary/secondary */}
+          <div className="grid grid-cols-3 gap-2">
+            <motion.a
+              href={WHATSAPP_LINK_COMPRAR}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={CTA_CLASS}
+              whileHover={CTA_HOVER}
+              whileTap={CTA_TAP}
+              transition={CTA_TRANSITION}
+            >
+              Comprar
+            </motion.a>
+            <motion.button
+              type="button"
+              onClick={() => setTasacionModalOpen(true)}
+              className={CTA_CLASS}
+              whileHover={CTA_HOVER}
+              whileTap={CTA_TAP}
+              transition={CTA_TRANSITION}
+            >
+              Vender
+            </motion.button>
+            <motion.button
+              type="button"
+              onClick={() => setConsignacionModalOpen(true)}
+              className={CTA_CLASS}
+              whileHover={CTA_HOVER}
+              whileTap={CTA_TAP}
+              transition={CTA_TRANSITION}
+            >
+              Consignar
+            </motion.button>
+          </div>
+          </div>
         </div>
       </div>
 
@@ -189,10 +223,12 @@ export function HeroSection({
       <TasacionModal
         open={tasacionModalOpen}
         onOpenChange={setTasacionModalOpen}
+        filtersMeta={filtersMeta}
       />
       <ConsignacionModal
         open={consignacionModalOpen}
         onOpenChange={setConsignacionModalOpen}
+        filtersMeta={filtersMeta}
       />
     </section>
   );

@@ -39,6 +39,7 @@ const footerNavigation = [
   { href: "/catalogo", label: "Catálogo" },
   { href: "/nosotros", label: "Nosotros" },
   { href: "/contacto", label: "Contacto" },
+  { href: "/preguntas-frecuentes", label: "Preguntas frecuentes" },
 ];
 
 const catalogQuickLinks = [

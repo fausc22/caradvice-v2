@@ -5,14 +5,20 @@ import { Slider as SliderPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
+type SliderProps = React.ComponentProps<typeof SliderPrimitive.Root> & {
+  /** Clase adicional para los thumbs (ej. área de click más grande cuando se usan íconos). */
+  thumbClassName?: string;
+};
+
 function Slider({
   className,
   defaultValue,
   value,
   min = 0,
   max = 100,
+  thumbClassName,
   ...props
-}: React.ComponentProps<typeof SliderPrimitive.Root>) {
+}: SliderProps) {
   const _values = React.useMemo(
     () =>
       Array.isArray(value)
@@ -53,7 +59,10 @@ function Slider({
         <SliderPrimitive.Thumb
           data-slot="slider-thumb"
           key={index}
-          className="border-[var(--brand-orange)] ring-[var(--brand-orange)]/50 block size-5 shrink-0 rounded-full border-2 bg-card shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 sm:size-4"
+          className={cn(
+            "border-[var(--brand-orange)] ring-[var(--brand-orange)]/50 block size-5 shrink-0 rounded-full border-2 bg-card shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 sm:size-4",
+            thumbClassName
+          )}
         />
       ))}
     </SliderPrimitive.Root>

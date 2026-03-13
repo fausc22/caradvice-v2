@@ -28,7 +28,7 @@ export function hasOriginalPrice(car: WithCardVariant & {
   );
 }
 
-/** Si la variante es vendido (para overlay y badges). */
+/** Si la variante es vendido (overlay, badges). En VDP determina ocultar tasar, financiar, favorito y "personas mirando". */
 export function isVendido(car: WithCardVariant): boolean {
   return getCardVariant(car) === "vendido";
 }

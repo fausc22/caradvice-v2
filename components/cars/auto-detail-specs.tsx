@@ -25,7 +25,7 @@ export function AutoDetailSpecs({ car }: AutoDetailSpecsProps) {
   }, []);
 
   return (
-    <article className="rounded-3xl border border-[var(--brand-gray)]/40 bg-card p-5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] sm:p-6">
+    <article className="rounded-3xl border border-gray-200/80 bg-gray-100 p-5 shadow-[0_4px_24px_rgba(0,0,0,0.06)] sm:p-6">
       <div className="flex items-start justify-between gap-3">
         <div>
           <h2 className="text-xl font-black uppercase tracking-tight text-[var(--brand-black)] sm:text-2xl">

@@ -9,7 +9,6 @@ import { useState } from "react";
 import Link from "next/link";
 import type { CatalogFilterMetadata } from "@/lib/catalog/types";
 import { HeroSection } from "@/components/home/hero-section";
-import { AnnouncementBar } from "@/components/home/announcement-bar";
 import { TipologiaBanner } from "@/components/home/tipologia-banner";
 import { FinancingPromoBanner } from "@/components/home/financing-banner";
 import { FeaturedCarsCarousel } from "@/components/home/featured-cars-carousel";
@@ -26,7 +25,6 @@ export function HomeContent({ filtersMeta }: HomeContentProps) {
 
   return (
     <>
-      <AnnouncementBar />
       <HeroSection
         filtersMeta={filtersMeta}
         consignacionModalOpen={consignacionModalOpen}

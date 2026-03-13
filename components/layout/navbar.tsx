@@ -2,7 +2,7 @@
 
 /**
  * Navbar: logo, links (Inicio, Catálogo, Nosotros, Contacto), favoritos, menú móvil.
- * Rutas y items pueden venir de config/backend si se desea menú dinámico.
+ * Fondo siempre blanco/offwhite para consistencia y legibilidad en todas las páginas.
  */
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -34,26 +34,19 @@ function NavLink({
   href,
   label,
   isActive,
-  transparent,
 }: {
   href: string;
   label: string;
   isActive: boolean;
-  transparent: boolean;
 }) {
   return (
     <Link
       href={href}
       className={cn(
         "relative py-2 px-1 text-sm font-medium transition-colors duration-200",
-        transparent
-          ? isActive
-            ? "text-[var(--brand-orange)]"
-            : "text-white/95 hover:text-white"
-          : "text-[var(--brand-black)] hover:text-[var(--brand-orange)]",
-        isActive && !transparent && "text-[var(--brand-orange)]",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2",
-        transparent ? "focus-visible:ring-offset-black/40" : "focus-visible:ring-offset-[var(--brand-offwhite)]"
+        "text-[var(--brand-black)] hover:text-[var(--brand-orange)]",
+        isActive && "text-[var(--brand-orange)]",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--brand-offwhite)]"
       )}
     >
       {label}
@@ -73,19 +66,14 @@ function isActivePath(pathname: string, href: string) {
   return pathname.startsWith(href);
 }
 
+const iconClass =
+  "text-[var(--brand-black)] transition-colors duration-200 hover:bg-[var(--brand-dark)]/10 hover:text-[var(--brand-orange)] focus-visible:ring-offset-[var(--brand-offwhite)]";
+
 export function Navbar() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const { favoriteCount } = useFavorites();
-
-  useEffect(() => {
-    const updateScrolled = () => setIsScrolled(window.scrollY > 16);
-    updateScrolled();
-    window.addEventListener("scroll", updateScrolled);
-    return () => window.removeEventListener("scroll", updateScrolled);
-  }, [pathname]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -103,17 +91,17 @@ export function Navbar() {
     };
   }, [isMenuOpen]);
 
-  const transparent = isScrolled;
-  const iconClass = transparent
-    ? "text-white/95 transition-colors duration-200 hover:bg-white/10 hover:text-white focus-visible:ring-offset-black/30"
-    : "text-[var(--brand-black)] transition-colors duration-200 hover:bg-[var(--brand-dark)]/10 hover:text-[var(--brand-orange)] focus-visible:ring-offset-[var(--brand-offwhite)]";
+  const handleHeaderClick = (e: React.MouseEvent<HTMLElement>) => {
+    const target = e.target as Element;
+    if (target.closest("a, button, [role='button']")) return;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <header
-      className={cn(
-        "sticky top-0 z-50 w-full transition-[background-color,box-shadow] duration-300",
-        transparent ? "bg-transparent shadow-none" : "bg-[var(--brand-offwhite)] shadow-sm"
-      )}
+      onClick={handleHeaderClick}
+      role="banner"
+      className="sticky top-0 z-50 w-full cursor-pointer bg-[var(--brand-offwhite)] shadow-sm"
     >
       <div className="mx-auto w-full max-w-[1920px] pl-4 pr-4 sm:pl-5 sm:pr-5 lg:pl-6 lg:pr-6">
         <nav
@@ -130,10 +118,7 @@ export function Navbar() {
               src="/logo-navbar-negro.jpg"
               alt="CAR ADVICE"
               fill
-              className={cn(
-                "object-contain object-left transition-[opacity,filter] duration-300 hover:opacity-90",
-                transparent && "brightness-0 invert"
-              )}
+              className="object-contain object-left transition-opacity duration-300 hover:opacity-90"
               sizes="(max-width: 768px) 112px, 144px"
               priority
             />
@@ -148,7 +133,6 @@ export function Navbar() {
                   href={item.href}
                   label={item.label}
                   isActive={isActivePath(pathname, item.href)}
-                  transparent={transparent}
                 />
               ))}
             </div>
@@ -273,14 +257,7 @@ export function Navbar() {
               transition={{ duration: 0.18, ease: [0.25, 0.1, 0.25, 1] }}
               className="overflow-hidden lg:hidden"
             >
-              <div
-                className={cn(
-                  "border-t py-2",
-                  transparent
-                    ? "border-white/20 bg-black/85 backdrop-blur-sm"
-                    : "border-[var(--brand-gray)]/25 bg-[var(--brand-offwhite)]"
-                )}
-              >
+              <div className="border-t border-[var(--brand-gray)]/25 bg-[var(--brand-offwhite)] py-2">
                 {menuItems.map((item, index) => (
                   <motion.div
                     key={item.href}
@@ -295,14 +272,10 @@ export function Navbar() {
                     <Link
                       href={item.href}
                       className={cn(
-                        "flex min-h-[48px] items-center px-4 py-3 text-base font-medium transition-colors duration-150 active:bg-white/5",
-                        transparent
-                          ? isActivePath(pathname, item.href)
-                            ? "text-[var(--brand-orange)] bg-white/5"
-                            : "text-white hover:bg-white/10 hover:text-[var(--brand-orange)]"
-                          : isActivePath(pathname, item.href)
-                            ? "text-[var(--brand-orange)] bg-[var(--brand-orange)]/10"
-                            : "text-[var(--brand-black)] hover:bg-[var(--brand-dark)]/10 hover:text-[var(--brand-orange)]"
+                        "flex min-h-[48px] items-center px-4 py-3 text-base font-medium transition-colors duration-150",
+                        isActivePath(pathname, item.href)
+                          ? "text-[var(--brand-orange)] bg-[var(--brand-orange)]/10"
+                          : "text-[var(--brand-black)] hover:bg-[var(--brand-dark)]/10 hover:text-[var(--brand-orange)]"
                       )}
                       onClick={() => setIsMenuOpen(false)}
                     >

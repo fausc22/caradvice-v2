@@ -143,14 +143,14 @@ export function HeroFilters({ filtersMeta }: { filtersMeta: CatalogFilterMetadat
       {/* Palabra clave: opcional, debajo de los selects */}
       <div className="mt-3 sm:mt-4">
         <label htmlFor="hero-keyword" className="sr-only">
-          Buscá por palabra clave (opcional)
+          Marca, modelo o palabra clave (opcional)
         </label>
         <input
           id="hero-keyword"
           type="search"
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
-          placeholder="Buscá por palabra clave"
+          placeholder="Marca, modelo o palabra clave (opcional)"
           autoComplete="off"
           className={cn(
             "min-h-[44px] w-full rounded-xl border border-[var(--brand-cream)]/30 bg-[var(--brand-offwhite)]/10 px-3 py-2.5 text-white placeholder:text-[var(--brand-cream)]/60",

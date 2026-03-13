@@ -343,6 +343,12 @@ function buildPageHref(params: CatalogQueryParams, page: number): string {
   });
 }
 
+const paginationBtnBase =
+  "inline-flex h-10 min-h-[44px] touch-manipulation items-center justify-center gap-1 rounded-lg border border-[var(--brand-gray)]/25 bg-transparent px-3 text-sm font-medium text-[var(--brand-black)] outline-none transition-[color,background-color,border-color,box-shadow,transform] duration-200 ease-out hover:bg-[var(--brand-orange-subtle)] hover:border-[var(--brand-orange)]/30 focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2";
+
+const paginationBtnDisabled =
+  "cursor-not-allowed border-[var(--brand-gray)]/20 bg-transparent text-muted-foreground/50 hover:bg-transparent hover:border-[var(--brand-gray)]/20";
+
 function PaginationNavLink({
   href,
   disabled,
@@ -352,16 +358,13 @@ function PaginationNavLink({
   href: string;
   disabled: boolean;
   children: ReactNode;
-  className: string;
+  className?: string;
 }) {
   if (disabled) {
     return (
       <span
         aria-disabled
-        className={cn(
-          "inline-flex cursor-not-allowed items-center justify-center border-border text-muted-foreground/60",
-          className,
-        )}
+        className={cn(paginationBtnBase, paginationBtnDisabled, className)}
       >
         {children}
       </span>
@@ -369,11 +372,20 @@ function PaginationNavLink({
   }
 
   return (
-    <Link href={href} className={className}>
-      {children}
+    <Link href={href} className={cn(paginationBtnBase, className)}>
+      <motion.span
+        className="inline-flex items-center justify-center gap-1"
+        whileTap={{ scale: 0.97 }}
+        transition={{ duration: 0.1 }}
+      >
+        {children}
+      </motion.span>
     </Link>
   );
 }
+
+const pageNumBase =
+  "relative z-10 inline-flex size-9 min-h-[44px] min-w-[44px] touch-manipulation items-center justify-center rounded-lg text-sm font-medium outline-none transition-[color,background-color] duration-200 ease-out focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] focus-visible:ring-offset-2 sm:min-h-9 sm:min-w-9";
 
 function PaginationControls({ params, totalPages }: { params: CatalogQueryParams; totalPages: number }) {
   const prevDisabled = params.page <= 1;
@@ -389,95 +401,101 @@ function PaginationControls({ params, totalPages }: { params: CatalogQueryParams
   const pages = Array.from({ length: end - start + 1 }, (_, idx) => start + idx);
 
   return (
-    <div className="mt-8 rounded-2xl border border-[var(--brand-gray)]/40 bg-card p-3 sm:p-4">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2 }}
+      className="mt-8 rounded-2xl border border-[var(--brand-gray)]/40 bg-card p-3 sm:p-4"
+    >
+      {/* Mobile: Anterior | N / Total | Siguiente */}
       <div className="flex items-center justify-between gap-2 sm:hidden">
-        <PaginationNavLink
-          href={prevHref}
-          disabled={prevDisabled}
-          className={cn(
-            "inline-flex h-10 min-h-[44px] touch-manipulation items-center gap-1 rounded-lg border px-3 text-sm font-semibold transition-all duration-300 ease-out",
-            prevDisabled ? "" : "border-border text-[var(--brand-black)] hover:border-[var(--brand-orange)]/40 hover:bg-muted/40",
-          )}
-        >
+        <PaginationNavLink href={prevHref} disabled={prevDisabled}>
           <ChevronLeft className="size-4" aria-hidden />
           Anterior
         </PaginationNavLink>
         <p className="min-w-0 shrink-0 text-center text-xs font-medium text-muted-foreground">
           {currentPage} / {totalPages}
         </p>
-        <PaginationNavLink
-          href={nextHref}
-          disabled={nextDisabled}
-          className={cn(
-            "inline-flex h-10 min-h-[44px] touch-manipulation items-center gap-1 rounded-lg border px-3 text-sm font-semibold transition-all duration-300 ease-out",
-            nextDisabled ? "" : "border-border text-[var(--brand-black)] hover:border-[var(--brand-orange)]/40 hover:bg-muted/40",
-          )}
-        >
+        <PaginationNavLink href={nextHref} disabled={nextDisabled}>
           Siguiente
           <ChevronRight className="size-4" aria-hidden />
         </PaginationNavLink>
       </div>
 
+      {/* Desktop: Anterior + números + Siguiente */}
       <div className="hidden items-center justify-between sm:flex">
-        <PaginationNavLink
-          href={prevHref}
-          disabled={prevDisabled}
-          className={cn(
-            "inline-flex h-10 items-center justify-center rounded-lg border px-4 text-sm font-semibold transition-all duration-300 ease-out",
-            prevDisabled ? "" : "border-border text-[var(--brand-black)] hover:border-[var(--brand-orange)]/40 hover:bg-muted/40",
-          )}
-        >
+        <PaginationNavLink href={prevHref} disabled={prevDisabled} className="sm:min-h-9">
           Anterior
         </PaginationNavLink>
-        <div className="flex items-center gap-1.5">
+        <nav className="flex items-center gap-1" aria-label="Páginas del catálogo">
           {start > 1 && (
             <>
               <Link
                 href={buildPageHref(params, 1)}
-                className="inline-flex size-9 items-center justify-center rounded-lg border border-border text-sm font-semibold text-[var(--brand-black)] transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/40 hover:bg-muted/40"
+                className={cn(
+                  pageNumBase,
+                  "text-[var(--brand-black)] hover:bg-[var(--brand-orange-subtle)]",
+                )}
               >
-                1
+                <motion.span whileTap={{ scale: 0.97 }} transition={{ duration: 0.1 }}>
+                  1
+                </motion.span>
               </Link>
-              {start > 2 && <span className="px-1 text-sm text-muted-foreground">…</span>}
+              {start > 2 && <span className="px-0.5 text-sm text-muted-foreground" aria-hidden>…</span>}
             </>
           )}
-          {pages.map((pageNumber) => (
-            <Link
-              key={pageNumber}
-              href={buildPageHref(params, pageNumber)}
-              aria-current={pageNumber === currentPage ? "page" : undefined}
-              className={cn(
-                "inline-flex size-9 items-center justify-center rounded-lg border text-sm font-semibold transition-all duration-300 ease-out",
-                pageNumber === currentPage
-                  ? "border-[var(--brand-orange)] bg-[var(--brand-orange)] text-white"
-                  : "border-border text-[var(--brand-black)] hover:border-[var(--brand-orange)]/40 hover:bg-muted/40",
-              )}
-            >
-              {pageNumber}
-            </Link>
-          ))}
+          {pages.map((pageNumber) => {
+            const isCurrent = pageNumber === currentPage;
+            return (
+              <Link
+                key={pageNumber}
+                href={buildPageHref(params, pageNumber)}
+                aria-current={isCurrent ? "page" : undefined}
+                className={cn(
+                  pageNumBase,
+                  isCurrent
+                    ? "text-[var(--brand-black)]"
+                    : "text-[var(--brand-black)] hover:bg-[var(--brand-orange-subtle)]",
+                )}
+              >
+                {isCurrent && (
+                  <motion.span
+                    layoutId="pagination-pill"
+                    className="absolute inset-0 rounded-lg bg-[var(--brand-orange-subtle)] border border-[var(--brand-orange)]/40"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    aria-hidden
+                  />
+                )}
+                <motion.span
+                  className="relative z-10"
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ duration: 0.1 }}
+                >
+                  {pageNumber}
+                </motion.span>
+              </Link>
+            );
+          })}
           {end < totalPages && (
             <>
               {end < totalPages - 1 && (
-                <span className="px-1 text-sm text-muted-foreground">…</span>
+                <span className="px-0.5 text-sm text-muted-foreground" aria-hidden>…</span>
               )}
               <Link
                 href={buildPageHref(params, totalPages)}
-                className="inline-flex size-9 items-center justify-center rounded-lg border border-border text-sm font-semibold text-[var(--brand-black)] transition-all duration-300 ease-out hover:border-[var(--brand-orange)]/40 hover:bg-muted/40"
+                className={cn(
+                  pageNumBase,
+                  "text-[var(--brand-black)] hover:bg-[var(--brand-orange-subtle)]",
+                )}
               >
-                {totalPages}
+                <motion.span whileTap={{ scale: 0.97 }} transition={{ duration: 0.1 }}>
+                  {totalPages}
+                </motion.span>
               </Link>
             </>
           )}
-        </div>
-        <PaginationNavLink
-          href={nextHref}
-          disabled={nextDisabled}
-          className={cn(
-            "inline-flex h-10 items-center justify-center rounded-lg border px-4 text-sm font-semibold transition-all duration-300 ease-out",
-            nextDisabled ? "" : "border-border text-[var(--brand-black)] hover:border-[var(--brand-orange)]/40 hover:bg-muted/40",
-          )}
-        >
+        </nav>
+        <PaginationNavLink href={nextHref} disabled={nextDisabled} className="sm:min-h-9">
           Siguiente
         </PaginationNavLink>
       </div>
@@ -485,7 +503,7 @@ function PaginationControls({ params, totalPages }: { params: CatalogQueryParams
       <p className="mt-2 hidden text-center text-xs text-muted-foreground sm:block">
         Página {currentPage} de {totalPages}
       </p>
-    </div>
+    </motion.div>
   );
 }
 
@@ -572,20 +590,20 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
   return (
     <main className="min-h-screen w-full overflow-x-hidden lg:pl-0 lg:pr-4">
       <section
-        className="flex w-full flex-col items-center justify-center gap-1.5 bg-gradient-to-b from-[#c2410c] to-[#7c2d12] py-3 sm:gap-2 sm:py-4 md:flex-row md:gap-3 md:py-5"
+        className="flex w-full flex-row flex-nowrap items-center justify-center gap-2 bg-gradient-to-b from-[#c2410c] to-[#7c2d12] py-2.5 sm:gap-2 sm:py-4 md:gap-3 md:py-5"
         aria-label="Título del catálogo"
       >
-        <div className="relative h-10 w-10 shrink-0 sm:h-12 sm:w-12 md:h-[3.5rem] md:w-[3.5rem]">
+        <div className="relative h-8 w-8 shrink-0 sm:h-12 sm:w-12 md:h-[3.5rem] md:w-[3.5rem]">
           <Image
             src="/04 Iso Negro.png"
             alt=""
             fill
             className="object-contain object-center"
-            sizes="(max-width: 768px) 3.5rem, 3.5rem"
+            sizes="(max-width: 640px) 2rem, 3.5rem"
             priority
           />
         </div>
-        <h1 className="text-center text-lg font-semibold tracking-tight text-white sm:text-xl md:text-3xl">
+        <h1 className="whitespace-nowrap text-sm font-semibold tracking-tight text-white sm:text-xl md:text-3xl">
           Catálogo de Vehículos
         </h1>
       </section>
@@ -666,16 +684,16 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
         )}
       </AnimatePresence>
 
-      <div className="grid min-h-[calc(100vh-8rem)] gap-4 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-0">
+      <div className="grid min-h-[calc(100vh-8rem)] gap-4 lg:grid-cols-[340px_minmax(0,1fr)] lg:gap-0">
         <aside className="hidden lg:block lg:shrink-0">
-          <div className="sticky top-24 flex max-h-[calc(100vh-7rem)] flex-col overflow-hidden rounded-r-2xl border-y border-r border-l-2 border-l-[var(--brand-orange)]/30 border-[var(--brand-gray)]/40 bg-card py-4 pl-4 pr-3 shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
-            <div className="flex shrink-0 items-center gap-2 border-b border-border px-2 pb-3">
+          <div className="sticky top-24 flex flex-col overflow-visible rounded-r-2xl border-y border-r border-l-2 border-l-[var(--brand-orange)]/30 border-[var(--brand-gray)]/40 bg-card py-4 pl-4 pr-4 shadow-[0_8px_24px_rgba(0,0,0,0.05)]">
+            <div className="flex shrink-0 items-center gap-2 border-b border-border px-4 pb-3">
               <SlidersHorizontal className="size-4 text-[var(--brand-orange)]" />
               <h2 className="text-base font-black uppercase tracking-tight text-[var(--brand-black)]">
                 Filtros
               </h2>
             </div>
-            <div className="min-h-0 flex-1 overflow-y-auto px-2 pt-3">
+            <div className="px-4 pt-3">
               <CatalogFilters
                 params={params}
                 filtersMeta={filtersMeta}
@@ -710,9 +728,9 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
                 type="search"
                 name="q"
                 defaultValue={params.q ?? ""}
-                placeholder="Buscar por palabra clave"
+                placeholder="Buscar por marca, modelo o palabra clave"
                 className="h-10 min-h-[44px] flex-1 min-w-0 rounded-xl text-sm transition-colors placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-[var(--brand-orange)] sm:h-11"
-                aria-label="Buscar por palabra clave"
+                aria-label="Buscar por marca, modelo o palabra clave"
               />
               <Button type="submit" className="h-10 min-h-[44px] touch-manipulation rounded-xl px-3 sm:h-11 sm:px-4">
                 <Search className="size-4" />

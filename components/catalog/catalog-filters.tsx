@@ -228,7 +228,7 @@ export function CatalogFilters({
       {/* 2. Condición */}
       <div className="space-y-2">
         <label htmlFor={id("condicion")} className={LABEL_STYLE}>
-          Condición
+          Estado del vehículo
         </label>
         <FilterSelect
           id={id("condicion")}

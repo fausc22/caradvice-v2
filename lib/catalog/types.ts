@@ -43,7 +43,10 @@ export const CATALOG_SORT_VALUES = [
 ] as const;
 export type CatalogSort = (typeof CATALOG_SORT_VALUES)[number];
 
-/** Variante de card: normal, oferta (ecommerce), oportunidad (badges naranjas), vendido (sello/agotado). */
+/**
+ * Variante de card: normal, oferta (ecommerce), oportunidad (badges naranjas), vendido (sello/agotado).
+ * En la VDP, tasar/financiar, favorito y "personas mirando" solo se ocultan cuando la variante es "vendido"; en oferta y resto se muestran.
+ */
 export const CARD_VARIANT_VALUES = ["normal", "oferta", "oportunidad", "vendido"] as const;
 export type CardVariant = (typeof CARD_VARIANT_VALUES)[number];
 
@@ -112,7 +115,7 @@ export type CatalogCar = {
   coverImage: string;
   images: string[];
   isFeatured: boolean;
-  /** Variante de card/detalle: normal (default), oferta, oportunidad, vendido. Si no viene (API o datos antiguos), tratar como "normal". */
+  /** Variante de card/detalle: normal (default), oferta, oportunidad, vendido. Si no viene (API o datos antiguos), tratar como "normal". Oculta tasar/financiar/favorito/demanda solo cuando es "vendido". */
   cardVariant?: CardVariant;
   /** Precio original para oferta (tachado en UI). */
   priceOriginalArs?: number;

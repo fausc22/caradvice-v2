@@ -1,12 +1,16 @@
+import { cn } from "@/lib/utils";
+
 /**
  * Skeleton de la ficha de auto. Misma estructura que la página de detalle:
  * breadcrumb, galería + datos, especificaciones, similares.
- * El contenido real puede mostrar estado "Vehículo disponible", "Oferta" o "Vendido/Agotado" según cardVariant.
+ * Fondo gris unificado y bloques con efecto flotante como en la página real.
  */
+const floatingSkeletonClass = "bg-gray-100 border border-gray-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.06)]";
+
 export default function AutoDetailLoading() {
   return (
     <main
-      className="mx-auto w-full max-w-screen-xl px-4 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] pt-6 sm:px-6 sm:pt-8 lg:pb-10"
+      className="min-h-screen bg-gray-100 mx-auto w-full max-w-screen-xl px-4 pb-[calc(5rem+env(safe-area-inset-bottom,0px))] pt-6 sm:px-6 sm:pt-8 lg:pb-10"
       aria-busy="true"
       aria-label="Cargando detalle del vehículo"
     >
@@ -24,9 +28,9 @@ export default function AutoDetailLoading() {
 
       <section className="grid gap-5 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
         {/* Galería skeleton */}
-        <article className="overflow-hidden rounded-3xl border border-[var(--brand-gray)]/40 bg-card p-3 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
-          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-muted/40">
-            <div className="absolute inset-0 animate-pulse bg-muted/50" />
+        <article className={cn("overflow-hidden rounded-3xl p-3", floatingSkeletonClass)}>
+          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-gray-200/50">
+            <div className="absolute inset-0 animate-pulse bg-gray-200/70" />
           </div>
           <div className="mt-3 flex gap-2 overflow-hidden">
             {[1, 2, 3, 4].map((i) => (
@@ -39,7 +43,7 @@ export default function AutoDetailLoading() {
         </article>
 
         {/* Card datos skeleton */}
-        <article className="rounded-3xl border border-[var(--brand-gray)]/40 bg-card p-5 shadow-[0_12px_40px_rgba(0,0,0,0.08)] sm:p-6">
+        <article className={cn("rounded-3xl p-5 sm:p-6", floatingSkeletonClass)}>
           <div className="space-y-2">
             <div className="h-3 w-28 animate-pulse rounded bg-muted/50" />
             <div className="h-8 w-3/4 animate-pulse rounded bg-muted/60 sm:h-9" />
@@ -76,7 +80,7 @@ export default function AutoDetailLoading() {
       </section>
 
       <section className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
-        <article className="rounded-3xl border border-[var(--brand-gray)]/40 bg-card p-5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] sm:p-6">
+        <article className={cn("rounded-3xl p-5 sm:p-6", floatingSkeletonClass)}>
           <div className="flex items-start justify-between gap-3">
             <div>
               <div className="h-6 w-48 animate-pulse rounded bg-muted/60 sm:h-7" />
@@ -110,7 +114,7 @@ export default function AutoDetailLoading() {
         {[1, 2].map((i) => (
           <article
             key={i}
-            className="rounded-3xl border border-[var(--brand-gray)]/40 bg-card p-5 shadow-[0_12px_36px_rgba(0,0,0,0.06)] sm:p-6"
+            className={cn("rounded-3xl p-5 sm:p-6", floatingSkeletonClass)}
           >
             <div className="flex items-center gap-2">
               <div className="size-5 animate-pulse rounded bg-muted/50" />
@@ -128,7 +132,7 @@ export default function AutoDetailLoading() {
         ))}
       </section>
 
-      <section className="mt-8 rounded-3xl border border-border bg-background p-4 sm:p-6">
+      <section className={cn("mt-8 rounded-3xl p-4 sm:p-6", floatingSkeletonClass)}>
         <div className="mb-4 flex items-end justify-between gap-3">
           <div>
             <div className="h-7 w-56 animate-pulse rounded bg-muted/60 sm:h-8" />

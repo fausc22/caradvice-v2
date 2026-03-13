@@ -70,7 +70,7 @@ export function AutoImageGallery({
   }, [lightboxOpen, goPrev, goNext]);
 
   return (
-    <article className="overflow-hidden rounded-3xl border border-[var(--brand-gray)]/40 bg-card p-3 shadow-[0_12px_40px_rgba(0,0,0,0.08)]">
+    <article className="overflow-hidden rounded-3xl border border-gray-200/80 bg-gray-100 p-3 shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
       <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl">
         <button
           type="button"
@@ -104,12 +104,17 @@ export function AutoImageGallery({
 
         {isVendido && (
           <div
-            className="absolute inset-0 z-[8] flex items-center justify-center bg-[var(--brand-black)]/20"
+            className="absolute inset-0 z-[8] flex items-center justify-center overflow-hidden"
             aria-hidden
           >
-            <span className="rounded-full border border-[var(--brand-orange)]/65 bg-[var(--brand-offwhite)]/95 px-5 py-2 text-base font-bold uppercase tracking-[0.14em] text-[var(--brand-black)] shadow-[0_10px_24px_rgba(0,0,0,0.18)] backdrop-blur sm:px-6 sm:py-2.5 sm:text-lg">
-              {soldLabelText.toUpperCase()}
-            </span>
+            <div
+              className="flex min-w-[140%] items-center justify-center bg-[var(--brand-black)]/80 py-2 shadow-lg"
+              style={{ transform: "rotate(-12deg)" }}
+            >
+              <span className="text-sm font-black uppercase tracking-[0.2em] text-red-800 sm:text-base">
+                {soldLabelText}
+              </span>
+            </div>
           </div>
         )}
 
