@@ -125,7 +125,7 @@ export function SimilarCarsCarousel({ cars, returnTo }: SimilarCarsCarouselProps
           }}
           onWheel={() => setIsAutoPlayEnabled(false)}
           onTouchStart={() => setIsAutoPlayEnabled(false)}
-          className="vehicle-cards-carousel-scroll grid grid-flow-col auto-cols-[100%] gap-4 pb-2 px-1 snap-x snap-mandatory sm:auto-cols-[calc((100%_-_1rem)_/_2)] md:auto-cols-[calc((100%_-_2rem)_/_3)] xl:auto-cols-[calc((100%_-_3rem)_/_4)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="vehicle-cards-carousel-scroll grid grid-flow-col auto-cols-[100%] gap-3 pb-2 px-1 snap-x snap-mandatory sm:auto-cols-[calc((100%_-_0.75rem)_/_2)] md:auto-cols-[calc((100%_-_1.5rem)_/_3)] xl:auto-cols-[calc((100%_-_2.25rem)_/_4)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {cars.map((car) => (
             <CarCard

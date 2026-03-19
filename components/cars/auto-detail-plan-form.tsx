@@ -1,8 +1,7 @@
 "use client";
 
 /**
- * Bloque combinado en VDP: tasación/permuta (Parte A) + financiación (Parte B).
- * El usuario puede usar solo permuta, solo financiación o ambas. Un solo CTA "Enviar por WhatsApp".
+ * Bloque VDP: usado (opcional) + anticipo/plazo + contacto. Un solo CTA a WhatsApp (sin cuotas estimadas).
  */
 import { useMemo, useState, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -50,20 +49,8 @@ function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value));
 }
 
-/** TNA por defecto para la simulación (no se muestra al usuario). */
-const DEFAULT_TNA_PCT = 42;
-
-/** Cuota con sistema francés */
-function calcInstallment(principal: number, months: number, annualRatePct: number): number {
-  if (principal <= 0) return 0;
-  const safeMonths = clamp(months, 6, 84);
-  const monthlyRate = clamp(annualRatePct, 0, 200) / 100 / 12;
-  if (monthlyRate === 0) return principal / safeMonths;
-  return (
-    (principal * monthlyRate) /
-    (1 - Math.pow(1 + monthlyRate, -safeMonths))
-  );
-}
+const USED_FIELDS_ERROR =
+  "Si entregás un usado, completá dominio, marca, modelo, versión, año y km.";
 
 function buildPlanWhatsAppMessage(params: {
   vehicleLabel: string;
@@ -76,29 +63,15 @@ function buildPlanWhatsAppMessage(params: {
     version: string;
     ano: string;
     km: string;
-    valorEstimado: number;
+    valorUsado: number;
   };
   anticipo: number;
-  valorUsado: number;
-  aFinanciar: number;
   months: number;
-  cuota: number;
   nombre: string;
   telefono: string;
 }): string {
-  const {
-    vehicleLabel,
-    priceArs,
-    hasUsed,
-    usedData,
-    anticipo,
-    valorUsado,
-    aFinanciar,
-    months,
-    cuota,
-    nombre,
-    telefono,
-  } = params;
+  const { vehicleLabel, priceArs, hasUsed, usedData, anticipo, months, nombre, telefono } =
+    params;
 
   const lines: string[] = [
     `Hola Car Advice, me interesa ${vehicleLabel}.`,
@@ -107,25 +80,23 @@ function buildPlanWhatsAppMessage(params: {
 
   if (hasUsed && usedData) {
     lines.push("Quiero entregar mi usado como parte de pago:");
-    lines.push(`• Dominio: ${usedData.dominio || "—"}`);
-    lines.push(`• Marca: ${usedData.marca || "—"}`);
-    lines.push(`• Modelo: ${usedData.modelo || "—"}`);
-    lines.push(`• Versión: ${usedData.version || "—"}`);
-    lines.push(`• Año: ${usedData.ano || "—"}`);
-    lines.push(`• KM: ${usedData.km || "—"}`);
-    if (usedData.valorEstimado > 0) {
-      lines.push(`Valor estimado: ${formatCurrency.format(usedData.valorEstimado)}`);
+    lines.push(`• Dominio: ${usedData.dominio}`);
+    lines.push(`• Marca: ${usedData.marca}`);
+    lines.push(`• Modelo: ${usedData.modelo}`);
+    lines.push(`• Versión: ${usedData.version}`);
+    lines.push(`• Año: ${usedData.ano}`);
+    lines.push(`• KM: ${usedData.km}`);
+    if (usedData.valorUsado > 0) {
+      lines.push(
+        `• Monto que calculo por mi usado: ${formatCurrency.format(usedData.valorUsado)}`,
+      );
     }
     lines.push("");
   }
 
   lines.push(`Precio del vehículo: ${formatCurrency.format(priceArs)}`);
-  lines.push(`Anticipo: ${formatCurrency.format(anticipo)}`);
-  if (hasUsed && valorUsado > 0) {
-    lines.push(`Valor de mi usado: ${formatCurrency.format(valorUsado)}`);
-  }
-  lines.push(`A financiar: ${formatCurrency.format(aFinanciar)} en ${months} meses`);
-  lines.push(`Cuota estimada: ${formatCurrency.format(cuota)}/mes`);
+  lines.push(`Anticipo que puedo dar: ${formatCurrency.format(anticipo)}`);
+  lines.push(`Plazo deseado: ${months} meses`);
   lines.push("");
   lines.push(`Contacto: ${nombre}, ${telefono}`);
 
@@ -135,7 +106,6 @@ function buildPlanWhatsAppMessage(params: {
 export function AutoDetailPlanForm({
   vehicleLabel,
   priceArs,
-  priceUsd = 0,
 }: AutoDetailPlanFormProps) {
   const [hasUsed, setHasUsed] = useState(false);
   const [dominio, setDominio] = useState("");
@@ -153,27 +123,19 @@ export function AutoDetailPlanForm({
   const [telefono, setTelefono] = useState("");
   const [nombreError, setNombreError] = useState("");
   const [telefonoError, setTelefonoError] = useState("");
+  const [usedFieldsError, setUsedFieldsError] = useState("");
 
   const valorUsado = useMemo(() => {
     if (!hasUsed) return 0;
     return Math.max(parseThousands(valorUsadoInput), 0);
   }, [hasUsed, valorUsadoInput]);
 
-  const aFinanciar = useMemo(() => {
-    const ant = clamp(anticipo, 0, priceArs);
-    return Math.max(priceArs - ant - valorUsado, 0);
-  }, [anticipo, priceArs, valorUsado]);
-
-  const cuota = useMemo(
-    () => calcInstallment(aFinanciar, months, DEFAULT_TNA_PCT),
-    [aFinanciar, months]
-  );
-
   const handleSubmit = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
       setNombreError("");
       setTelefonoError("");
+      setUsedFieldsError("");
       const nameTrim = nombre.trim();
       const phoneTrim = telefono.trim();
       if (!nameTrim) {
@@ -183,6 +145,19 @@ export function AutoDetailPlanForm({
       if (!phoneTrim) {
         setTelefonoError(FORM_ERROR_PHONE);
         return;
+      }
+
+      if (hasUsed) {
+        const d = dominio.trim();
+        const m = marca.trim();
+        const mo = modelo.trim();
+        const v = version.trim();
+        const a = ano.trim();
+        const k = km.trim();
+        if (!d || !m || !mo || !v || !a || !k) {
+          setUsedFieldsError(USED_FIELDS_ERROR);
+          return;
+        }
       }
 
       const message = buildPlanWhatsAppMessage({
@@ -197,14 +172,11 @@ export function AutoDetailPlanForm({
               version: version.trim(),
               ano: ano.trim(),
               km: km.trim(),
-              valorEstimado: valorUsado,
+              valorUsado,
             }
           : undefined,
         anticipo: clamp(anticipo, 0, priceArs),
-        valorUsado,
-        aFinanciar,
-        months,
-        cuota,
+        months: clamp(months, 6, 84),
         nombre: nameTrim,
         telefono: phoneTrim,
       });
@@ -224,47 +196,54 @@ export function AutoDetailPlanForm({
       km,
       valorUsado,
       anticipo,
-      aFinanciar,
       months,
-      cuota,
       nombre,
       telefono,
-    ]
+    ],
   );
 
   return (
-    <section className="mt-6 rounded-3xl border border-gray-200/80 bg-gray-100 p-5 shadow-[0_4px_24px_rgba(0,0,0,0.06)] sm:p-6">
+    <section
+      id="armatuplan"
+      tabIndex={-1}
+      className="mt-6 scroll-mt-28 rounded-3xl border border-gray-200/80 bg-gray-100 p-5 shadow-[0_4px_24px_rgba(0,0,0,0.06)] sm:scroll-mt-32 sm:p-6"
+    >
       <div className="flex items-center gap-2">
         <Calculator className="size-5 text-[var(--brand-orange)]" aria-hidden />
         <h2 className="text-xl font-black uppercase tracking-tight text-[var(--brand-black)] sm:text-2xl">
           Armá tu plan
         </h2>
       </div>
-      <p className="mt-1 text-sm text-muted-foreground">
-        Combiná tu usado, anticipo y financiación. Enviá tu plan por WhatsApp.
+      <p className="mt-1 text-sm font-medium text-[var(--brand-black)]">
+        usado + anticipo + financiación
+      </p>
+      <p className="mt-0.5 text-sm text-muted-foreground">
+        ¿Tenés un usado para entregar? Completá los datos y enviá el mensaje por WhatsApp.
       </p>
 
-      <form onSubmit={handleSubmit} className="mt-5 space-y-5">
-        {/* Parte A: ¿Tenés un usado? */}
+      <form onSubmit={handleSubmit} className="mt-5 space-y-5" noValidate>
         <div>
           <p className={cn("mb-3 text-sm font-semibold text-foreground")}>
-            ¿Tenés un usado para dar?
+            ¿Tenés un usado para entregar?
           </p>
           <div
             role="tablist"
-            aria-label="¿Tenés un usado?"
+            aria-label="¿Tenés un usado para entregar?"
             className="inline-flex rounded-xl border border-black/15 bg-muted/30 p-0.5"
           >
             <button
               type="button"
               role="tab"
               aria-selected={!hasUsed}
-              onClick={() => setHasUsed(false)}
+              onClick={() => {
+                setHasUsed(false);
+                setUsedFieldsError("");
+              }}
               className={cn(
                 "rounded-lg px-4 py-2 text-sm font-medium transition-colors",
                 !hasUsed
                   ? "bg-card text-[var(--brand-black)] shadow-sm"
-                  : "text-muted-foreground hover:text-foreground"
+                  : "text-muted-foreground hover:text-foreground",
               )}
             >
               No
@@ -278,12 +257,18 @@ export function AutoDetailPlanForm({
                 "rounded-lg px-4 py-2 text-sm font-medium transition-colors",
                 hasUsed
                   ? "bg-card text-[var(--brand-black)] shadow-sm"
-                  : "text-muted-foreground hover:text-foreground"
+                  : "text-muted-foreground hover:text-foreground",
               )}
             >
               Sí
             </button>
           </div>
+
+          {usedFieldsError && (
+            <p className="mt-2 text-sm font-medium text-destructive" role="alert">
+              {usedFieldsError}
+            </p>
+          )}
 
           <AnimatePresence initial={false}>
             {hasUsed && (
@@ -345,21 +330,23 @@ export function AutoDetailPlanForm({
                       htmlFor="plan-valor-usado"
                       className="mb-1.5 block text-sm font-semibold text-foreground"
                     >
-                      Valor estimado de tu usado (ARS)
+                      Monto que calculás por tu usado (ARS, opcional)
                     </label>
                     <input
                       id="plan-valor-usado"
                       type="text"
                       inputMode="numeric"
-                      value={valorUsadoInput ? formatThousands(parseThousands(valorUsadoInput)) : ""}
+                      value={
+                        valorUsadoInput ? formatThousands(parseThousands(valorUsadoInput)) : ""
+                      }
                       onChange={(e) =>
                         setValorUsadoInput(e.target.value.replace(/\D/g, ""))
                       }
                       className={cn(inputClass)}
-                      placeholder="Opcional, para el cálculo"
+                      placeholder="Opcional"
                     />
                     <p className="text-xs text-muted-foreground">
-                      Si no lo sabés, dejalo en blanco. Valor sujeto a inspección en sucursal.
+                      Valor sujeto a tasación en sucursal.
                     </p>
                   </div>
                 </div>
@@ -368,13 +355,10 @@ export function AutoDetailPlanForm({
           </AnimatePresence>
         </div>
 
-        {/* Parte B: Financiación */}
         <div className="border-t border-border pt-5">
-          <div className="flex items-center gap-2 mb-3">
+          <div className="mb-3 flex items-center gap-2">
             <CarFront className="size-5 text-[var(--brand-orange)]" aria-hidden />
-            <p className="text-sm font-semibold text-foreground">
-              ¿Cómo lo financiás?
-            </p>
+            <p className="text-sm font-semibold text-foreground">Anticipo y plazo</p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             <div className="space-y-1">
@@ -396,18 +380,6 @@ export function AutoDetailPlanForm({
                 setAnticipo(clamp(parseThousands(e.target.value), 0, priceArs))
               }
             />
-            {hasUsed && valorUsado > 0 && (
-              <div className="sm:col-span-2 space-y-1">
-                <span className="text-sm font-semibold text-foreground">
-                  Valor de tu usado: {formatCurrency.format(valorUsado)}
-                </span>
-              </div>
-            )}
-            <div className="sm:col-span-2 space-y-1">
-              <span className="text-sm font-semibold text-foreground">
-                A financiar: {formatCurrency.format(aFinanciar)}
-              </span>
-            </div>
             <FormField
               id="plan-plazo"
               label="Plazo (meses)"
@@ -418,25 +390,13 @@ export function AutoDetailPlanForm({
               type="number"
             />
           </div>
-
-          <div
-            className="mt-4 rounded-2xl border border-[var(--brand-gray)]/40 bg-[var(--brand-cream)]/20 p-4"
-            aria-live="polite"
-          >
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-              Cuota estimada
-            </p>
-            <p className="mt-1 text-2xl font-black tracking-tight text-[var(--brand-black)]">
-              {formatCurrency.format(cuota)} / mes
-            </p>
-            <p className="mt-1 text-xs text-muted-foreground">
-              Simulación orientativa. La cuota final y el valor de tu usado dependen de la entidad y de la inspección en sucursal.
-            </p>
-          </div>
+          <p className="mt-3 text-xs text-muted-foreground">
+            Un asesor te confirma opciones reales de financiación; no mostramos cuotas estimadas
+            en la web.
+          </p>
         </div>
 
-        {/* Contacto */}
-        <div className="border-t border-border pt-5 space-y-4">
+        <div className="space-y-4 border-t border-border pt-5">
           <FormField
             id="plan-nombre"
             label="Nombre"

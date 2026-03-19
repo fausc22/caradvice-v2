@@ -1,4 +1,9 @@
 export * from "@/lib/catalog/types";
+export {
+  badgeMatchesBeneficio,
+  carMatchesBeneficioFilter,
+  collectBeneficiosInCatalog,
+} from "@/lib/catalog/beneficio-badge";
 export * from "@/lib/catalog/card-variant";
 export * from "@/lib/catalog/params";
 export { catalogCars } from "@/lib/catalog/static-data";

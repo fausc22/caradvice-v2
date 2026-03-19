@@ -101,7 +101,7 @@ export function Navbar() {
     <header
       onClick={handleHeaderClick}
       role="banner"
-      className="sticky top-0 z-50 w-full cursor-pointer bg-[var(--brand-offwhite)] shadow-sm"
+      className="sticky top-0 z-50 w-full cursor-pointer bg-[var(--brand-offwhite)] shadow-sm lg:relative lg:top-auto lg:z-auto lg:shadow-none"
     >
       <div className="mx-auto w-full max-w-[1920px] pl-4 pr-4 sm:pl-5 sm:pr-5 lg:pl-6 lg:pr-6">
         <nav

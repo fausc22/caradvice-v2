@@ -8,7 +8,7 @@ import { FAQ_SECTIONS } from "@/lib/faq-content";
 export async function generateMetadata(): Promise<Metadata> {
   const title = "Preguntas frecuentes | CAR ADVICE";
   const description =
-    "Resolvé tus dudas sobre compra, financiación, venta de tu usado y documentación. Garantía, reservas, transferencia y más.";
+    "Resolvé tus dudas sobre compra, financiación, venta de tu usado y documentación. Garantía, contacto por WhatsApp, transferencia y más.";
 
   return {
     title,

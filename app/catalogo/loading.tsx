@@ -55,7 +55,7 @@ export default function CatalogLoading() {
             </div>
 
             {/* Grid de cards skeleton — mismo breakpoint que el catálogo real */}
-            <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-3">
               {Array.from({ length: 6 }).map((_, i) => (
                 <CarCardSkeleton key={i} className="h-full" />
               ))}

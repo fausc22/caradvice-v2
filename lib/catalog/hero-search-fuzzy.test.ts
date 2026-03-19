@@ -25,6 +25,7 @@ function mockFiltersMeta(overrides: Partial<CatalogFilterMetadata> = {}): Catalo
     priceRange: { min: 0, max: 100000 },
     priceRangeUsd: { min: 0, max: 50000 },
     kmRange: { min: 0, max: 500000 },
+    beneficiosDisponibles: [],
     ...overrides,
   };
 }

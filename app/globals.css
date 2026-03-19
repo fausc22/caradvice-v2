@@ -174,7 +174,7 @@
   }
 }
 
-/* Announcement bar (home): ticker fino con pausa en hover/focus. */
+/* Announcement bar: ticker con pausa en hover/focus. Mobile: ritmo base. */
 .announcement-track-wrap {
   position: relative;
   width: 100%;
@@ -199,10 +199,37 @@
   white-space: nowrap;
   font-size: 0.74rem;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.15;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--brand-black);
+}
+
+/* Desktop: lectura más cómoda y desplazamiento más lento (menos “corrido” en pantallas anchas). */
+@media (min-width: 1024px) {
+  .announcement-track-wrap {
+    padding: 0.5625rem 0;
+  }
+
+  .announcement-track {
+    animation-duration: 46s;
+  }
+
+  .announcement-item {
+    font-size: 0.8125rem;
+    letter-spacing: 0.07em;
+  }
+}
+
+@media (min-width: 1536px) {
+  .announcement-track {
+    animation-duration: 58s;
+  }
+
+  .announcement-item {
+    font-size: 0.875rem;
+    letter-spacing: 0.065em;
+  }
 }
 
 @keyframes announcement-marquee {

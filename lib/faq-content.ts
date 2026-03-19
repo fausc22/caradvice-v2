@@ -15,9 +15,9 @@ export const FAQ_SECTIONS: FaqSection[] = [
           "Sí. Todos nuestros vehículos pasan por un proceso de revisión mecánica y documental antes de publicarse. Además, ofrecemos 3 meses de garantía de motor y caja para brindarte mayor tranquilidad en tu compra.",
       },
       {
-        question: "¿Puedo reservar un auto online?",
+        question: "¿Cómo reservo o avanzo con un auto que me interesa?",
         answer:
-          "Sí. Podés reservar una unidad mediante transferencia bancaria. La reserva asegura que el vehículo no se venda a otro cliente mientras avanzamos con el proceso de compra.",
+          "Desde la ficha del vehículo tocá «Consultar por WhatsApp»: te llevamos al formulario «Armá tu plan» para cargar anticipo, plazo y contacto. Un asesor te responde por WhatsApp y, cuando cerrás la operación, la reserva puede hacerse mediante transferencia bancaria según lo acordado.",
       },
       {
         question: "¿Los autos tienen todos los papeles al día?",
@@ -63,6 +63,11 @@ export const FAQ_SECTIONS: FaqSection[] = [
         question: "¿Cómo sé cuánto puedo financiar?",
         answer:
           "Nuestros asesores pueden evaluar tu perfil crediticio y ofrecerte distintas alternativas de financiación según tu situación.",
+      },
+      {
+        question: "¿Hay simulador de cuota en la web?",
+        answer:
+          "No publicamos cuotas estimadas en la ficha del vehículo. Completás anticipo, plazo y datos en «Armá tu plan» y enviás el mensaje por WhatsApp; un asesor te confirma opciones reales según entidad y tu perfil.",
       },
     ],
   },

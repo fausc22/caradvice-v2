@@ -62,6 +62,22 @@ export const CATEGORIA_LABELS: Record<CardVariant, string> = {
   vendido: "Vendidos",
 };
 
+/** Tipo de beneficio según texto del badge (oportunidad). */
+export const CATALOG_BENEFICIO_VALUES = [
+  "financiacion",
+  "retira",
+  "novedad",
+  "destacado",
+] as const;
+export type CatalogBeneficio = (typeof CATALOG_BENEFICIO_VALUES)[number];
+
+export const BENEFICIO_LABELS: Record<CatalogBeneficio, string> = {
+  financiacion: "Financiación",
+  retira: "Retirá con tu DNI",
+  novedad: "Novedad / nuevo ingreso",
+  destacado: "Destacado",
+};
+
 export type CatalogSearchParamsInput = Record<
   string,
   string | string[] | undefined
@@ -74,6 +90,8 @@ export type CatalogQueryParams = {
   condicion?: CatalogCondicion;
   /** Filtro por categoría: oferta, oportunidad, vendido, normal. */
   categoria?: CardVariant;
+  /** Filtro por tipo de badge (texto en opportunityBadges). */
+  beneficio?: CatalogBeneficio;
   marca?: string;
   modelo?: string;
   version?: string;
@@ -150,4 +168,6 @@ export type CatalogFilterMetadata = {
   priceRange: { min: number; max: number };
   priceRangeUsd: { min: number; max: number };
   kmRange: { min: number; max: number };
+  /** Beneficios presentes en al menos un vehículo (badges). */
+  beneficiosDisponibles: CatalogBeneficio[];
 };

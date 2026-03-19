@@ -44,8 +44,10 @@ export default function RootLayout({
       >
         <Providers>
           <div className="flex min-h-screen flex-col">
-            <AnnouncementBar />
-            <Navbar />
+            <div className="flex flex-col lg:sticky lg:top-0 lg:z-50 lg:shadow-[0_4px_20px_rgba(0,0,0,0.06)]">
+              <AnnouncementBar />
+              <Navbar />
+            </div>
             <div className="flex-1 overflow-x-hidden">{children}</div>
             <Footer />
             <ScrollToTopButton />

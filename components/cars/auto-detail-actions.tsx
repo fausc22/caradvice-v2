@@ -1,18 +1,29 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Eye, Heart } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 import { useFavorites } from "@/hooks";
 import { Button } from "@/components/ui/button";
 import { cn, formatVehiclePrice } from "@/lib/utils";
 
+const PLAN_SECTION_ID = "armatuplan";
+const PLAN_FOCUS_ID = "plan-nombre";
+
+function scrollToPlanAndFocus() {
+  const el = document.getElementById(PLAN_SECTION_ID);
+  el?.scrollIntoView({ behavior: "smooth", block: "start" });
+  window.setTimeout(() => {
+    document.getElementById(PLAN_FOCUS_ID)?.focus();
+  }, 450);
+}
+
 type AutoDetailActionsProps = {
   slug: string;
   priceArs: number;
   priceUsd: number;
-  whatsappHref: string;
-  reserveHref: string;
+  /** Solo para unidades vendidas: WhatsApp directo a alternativas */
+  whatsappHref?: string;
   viewingNow: number;
   isSold?: boolean;
 };
@@ -22,7 +33,6 @@ export function AutoDetailActions({
   priceArs,
   priceUsd,
   whatsappHref,
-  reserveHref,
   viewingNow,
   isSold = false,
 }: AutoDetailActionsProps) {
@@ -39,6 +49,10 @@ export function AutoDetailActions({
       : viewingNow >= 8
         ? "Interés activo"
         : "Consultas activas";
+
+  const onConsultarWhatsApp = useCallback(() => {
+    scrollToPlanAndFocus();
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -63,7 +77,10 @@ export function AutoDetailActions({
             className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-orange)]/30 bg-[var(--brand-orange)]/10 px-3 py-1.5 text-xs font-semibold text-[var(--brand-black)] sm:text-sm"
             aria-live="polite"
           >
-            <span className="relative flex size-2.5 items-center justify-center" aria-hidden>
+            <span
+              className="relative flex size-2.5 items-center justify-center"
+              aria-hidden
+            >
               <span className="absolute inline-flex size-2.5 animate-ping rounded-full bg-[var(--brand-orange)]/45" />
               <span className="relative inline-flex size-1.5 rounded-full bg-[var(--brand-orange)]" />
             </span>
@@ -88,30 +105,42 @@ export function AutoDetailActions({
         </div>
       )}
 
-      <div className={cn("grid grid-cols-1 gap-2.5", !isSold ? "mt-4 sm:grid-cols-2" : "mt-5")}>
-        <Button asChild className="h-11 rounded-xl bg-[var(--whatsapp-green)] text-sm text-white hover:bg-[var(--whatsapp-green-hover)]">
-          <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-            <WhatsAppIcon className="size-4" aria-hidden />
-            {isSold ? "Quiero alternativas por WhatsApp" : "Consultar por WhatsApp"}
-          </a>
-        </Button>
-        {!isSold && (
-          <Button asChild variant="outline" className="h-11 rounded-xl text-sm">
-            <a href={reserveHref} target="_blank" rel="noopener noreferrer">
-              Reservar ahora
+      <div className={cn("mt-4", !isSold ? "" : "mt-5")}>
+        {isSold && whatsappHref ? (
+          <Button
+            asChild
+            className="h-11 w-full rounded-xl bg-[var(--whatsapp-green)] text-sm text-white hover:bg-[var(--whatsapp-green-hover)]"
+          >
+            <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+              <WhatsAppIcon className="size-4" aria-hidden />
+              Quiero alternativas por WhatsApp
             </a>
+          </Button>
+        ) : (
+          <Button
+            type="button"
+            onClick={onConsultarWhatsApp}
+            className="h-11 w-full rounded-xl bg-[var(--whatsapp-green)] text-sm text-white hover:bg-[var(--whatsapp-green-hover)]"
+          >
+            <WhatsAppIcon className="size-4" aria-hidden />
+            Consultar por WhatsApp
           </Button>
         )}
       </div>
+      {!isSold && (
+        <p className="mt-2 text-center text-xs text-muted-foreground">
+          Te llevamos al formulario para completar anticipo, plazo y contacto.
+        </p>
+      )}
 
       <div
         className={cn(
-          "fixed left-0 right-0 bottom-0 z-40 border-t border-[var(--brand-gray)]/40 bg-card shadow-[0_-8px_24px_rgba(0,0,0,0.08)] transition-transform duration-300 ease-out sm:hidden",
-          "pt-3 pb-[max(env(safe-area-inset-bottom),0.5rem)] px-3",
+          "fixed bottom-0 left-0 right-0 z-40 border-t border-[var(--brand-gray)]/40 bg-card shadow-[0_-8px_24px_rgba(0,0,0,0.08)] transition-transform duration-300 ease-out sm:hidden",
+          "px-3 pt-3 pb-[max(env(safe-area-inset-bottom),0.5rem)]",
           showStickyBar ? "translate-y-0" : "translate-y-full",
         )}
       >
-        <div className="mx-auto flex min-h-[3.5rem] w-full max-w-screen-xl items-center gap-1.5">
+        <div className="mx-auto flex min-h-[3.5rem] w-full max-w-screen-xl items-center gap-2">
           <div className="min-w-0 flex-1">
             <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
               {isSold ? "Precio de referencia" : "Precio final"}
@@ -120,25 +149,26 @@ export function AutoDetailActions({
               {priceLabel}
             </p>
           </div>
-          {!isSold && (
+          {isSold && whatsappHref ? (
             <a
-              href={reserveHref}
+              href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-10 items-center justify-center rounded-lg border border-black/15 px-2.5 text-[11px] font-semibold text-[var(--brand-black)]"
+              className="inline-flex h-10 min-w-[2.5rem] shrink-0 items-center justify-center gap-1.5 rounded-lg bg-[var(--whatsapp-green)] px-2.5 text-[11px] font-semibold text-white hover:bg-[var(--whatsapp-green-hover)]"
             >
-              Reservar
+              <WhatsAppIcon className="size-3.5 shrink-0" aria-hidden />
+              WhatsApp
             </a>
+          ) : (
+            <button
+              type="button"
+              onClick={onConsultarWhatsApp}
+              className="inline-flex h-10 min-w-0 shrink-0 items-center justify-center gap-1.5 rounded-lg bg-[var(--whatsapp-green)] px-3 text-[11px] font-semibold text-white hover:bg-[var(--whatsapp-green-hover)]"
+            >
+              <WhatsAppIcon className="size-3.5 shrink-0" aria-hidden />
+              Completar plan
+            </button>
           )}
-          <a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-10 min-w-[2.5rem] items-center justify-center gap-1.5 rounded-lg bg-[var(--whatsapp-green)] px-2.5 text-[11px] font-semibold text-white hover:bg-[var(--whatsapp-green-hover)]"
-          >
-            <WhatsAppIcon className="size-3.5 shrink-0" aria-hidden />
-            WhatsApp
-          </a>
         </div>
       </div>
     </>

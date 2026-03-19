@@ -158,50 +158,44 @@ export function CarCard({
           </button>
         </div>
 
-        <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-5">
+        <div className="flex min-w-0 flex-1 flex-col p-3 sm:p-4">
           <div className="flex min-w-0 flex-1 flex-col">
-            {/* Bloque título + versión: reserva altura para 2 líneas de título y 1 de versión */}
-            <div className="min-h-[3.5rem]">
-              <h3 className="line-clamp-2 text-base font-bold leading-tight tracking-tight text-[var(--brand-black)] sm:text-lg">
+            <div>
+              <h3 className="line-clamp-2 text-[15px] font-bold leading-snug tracking-tight text-[var(--brand-black)] sm:text-base">
                 {car.title}
               </h3>
-              <p className="mt-0.5 line-clamp-1 text-sm text-muted-foreground">
+              <p className="mt-0.5 line-clamp-1 text-xs text-muted-foreground sm:text-sm">
                 {car.version}
               </p>
             </div>
 
-            {/* Specs: siempre ocupa una línea de altura similar */}
-            <p className="mt-1.5 min-h-[1.25rem] text-xs text-muted-foreground" aria-hidden>
+            <p className="mt-1 text-xs leading-tight text-muted-foreground" aria-hidden>
               {specsLine}
             </p>
 
-            {/* Badges: el contenedor mantiene altura aunque no haya badge */}
-            <div className="mt-2 min-h-[1.5rem] flex flex-wrap items-center gap-1.5">
-              {primaryOpportunityBadge && (
-                <>
+            {primaryOpportunityBadge && (
+              <div className="mt-1.5 flex flex-wrap items-center gap-1">
+                <span
+                  className={cn(
+                    "inline-flex rounded-full px-2 py-0.5 text-[9px] font-bold uppercase leading-tight tracking-wide sm:px-2.5 sm:py-1 sm:text-[10px]",
+                    getOpportunityBadgeClasses(getOpportunityBadgeKind(primaryOpportunityBadge)),
+                  )}
+                  aria-hidden
+                >
+                  {primaryOpportunityBadge}
+                </span>
+                {extraOpportunityBadgesCount > 0 && (
                   <span
-                    className={cn(
-                      "inline-flex rounded-full px-2.5 py-1 text-[10px] font-bold uppercase leading-tight tracking-wide sm:text-[11px]",
-                      getOpportunityBadgeClasses(getOpportunityBadgeKind(primaryOpportunityBadge)),
-                    )}
+                    className="inline-flex rounded-full border border-[var(--brand-gray)]/40 bg-muted/30 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-[var(--brand-dark)] sm:px-2 sm:text-[10px]"
                     aria-hidden
                   >
-                    {primaryOpportunityBadge}
+                    +{extraOpportunityBadgesCount} beneficio{extraOpportunityBadgesCount > 1 ? "s" : ""}
                   </span>
-                  {extraOpportunityBadgesCount > 0 && (
-                    <span
-                      className="inline-flex rounded-full border border-[var(--brand-gray)]/40 bg-muted/30 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-[var(--brand-dark)] sm:text-[11px]"
-                      aria-hidden
-                    >
-                      +{extraOpportunityBadgesCount} beneficio{extraOpportunityBadgesCount > 1 ? "s" : ""}
-                    </span>
-                  )}
-                </>
-              )}
-            </div>
+                )}
+              </div>
+            )}
 
-            {/* Bloque precio/oferta: tachado arriba, precio oficial + badge abajo en ofertas */}
-            <div className="mt-2 flex min-h-[3.25rem] flex-col content-start gap-y-1 sm:min-h-[3.5rem]">
+            <div className="mt-2 flex flex-col content-start gap-y-0.5">
               {isVendido && (
                 <span
                   className="inline-flex w-fit rounded-full border border-red-300 bg-red-50 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-red-800"
@@ -218,10 +212,10 @@ export function CarCard({
                   {originalPriceFormatted}
                 </p>
               )}
-              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+              <div className="flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5">
                 <p
                   className={cn(
-                    "text-xl font-bold tracking-tight sm:text-2xl",
+                    "text-lg font-bold tracking-tight sm:text-xl",
                     isVendido ? "text-[var(--brand-gray)]" : "text-[var(--brand-black)]",
                   )}
                 >
@@ -243,20 +237,20 @@ export function CarCard({
 
           <span
             className={cn(
-              "mt-3 inline-grid h-11 min-w-0 w-full grid-cols-[1.125rem_minmax(0,1fr)_1.125rem] items-center gap-2 rounded-md border px-4 text-sm font-semibold transition-[border-color,background-color,color,transform] duration-200 ease-out",
+              "mt-2 inline-grid h-9 min-w-0 w-full grid-cols-[1rem_minmax(0,1fr)_1rem] items-center gap-1.5 rounded-lg border px-3 text-xs font-semibold transition-[border-color,background-color,color,transform] duration-200 ease-out sm:h-10 sm:px-3.5 sm:text-sm",
               "border-[var(--brand-gray)]/50 bg-[var(--brand-offwhite)] text-[var(--brand-black)] shadow-[inset_0_-1px_0_rgba(0,0,0,0.04)]",
               "group-hover:border-[var(--brand-orange)]/55 group-hover:bg-[var(--brand-orange)]/8 group-hover:text-[var(--brand-orange)]",
               "group-active/link:border-[var(--brand-orange)]/60 group-active/link:bg-[var(--brand-orange)]/10 group-active/link:text-[var(--brand-orange)]"
             )}
           >
             <span
-              className="h-[18px] w-[18px] shrink-0 bg-[var(--brand-orange)] transition-transform duration-200 ease-out group-hover:scale-[1.03] group-active/link:scale-100"
+              className="h-4 w-4 shrink-0 bg-[var(--brand-orange)] transition-transform duration-200 ease-out group-hover:scale-[1.03] group-active/link:scale-100 sm:h-[18px] sm:w-[18px]"
               style={logoMaskStyle}
               aria-hidden
             />
             <span className="min-w-0 truncate text-center">Explorar vehículo</span>
             <span
-              className="h-[18px] w-[18px] justify-self-end bg-[var(--brand-orange)] transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-active/link:translate-x-0"
+              className="h-4 w-4 justify-self-end bg-[var(--brand-orange)] transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-active/link:translate-x-0 sm:h-[18px] sm:w-[18px]"
               style={logoMaskStyle}
               aria-hidden
             />

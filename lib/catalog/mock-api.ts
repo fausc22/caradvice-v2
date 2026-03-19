@@ -1,3 +1,4 @@
+import { carMatchesBeneficioFilter, collectBeneficiosInCatalog } from "@/lib/catalog/beneficio-badge";
 import { normalizeCatalogString } from "@/lib/catalog/params";
 import { catalogCars } from "@/lib/catalog/static-data";
 import type {
@@ -72,6 +73,12 @@ export async function searchCatalogCars(
     if (params.tipologia && car.tipologia !== params.tipologia) return false;
     if (params.condicion && car.condicion !== params.condicion) return false;
     if (params.categoria && (car.cardVariant ?? "normal") !== params.categoria) return false;
+    if (
+      params.beneficio &&
+      !carMatchesBeneficioFilter(car, params.beneficio)
+    ) {
+      return false;
+    }
     // Marca, modelo y versión: comparación normalizada (regla = datos estáticos)
     if (params.marca && !eqNormalized(String(car.brand ?? ""), params.marca)) return false;
     if (params.modelo && !eqNormalized(String(car.model ?? ""), params.modelo)) return false;
@@ -239,5 +246,6 @@ export async function getCatalogFilterMetadata(): Promise<CatalogFilterMetadata>
       max: pricesUsd.length ? Math.max(...pricesUsd) : 0,
     },
     kmRange: { min: Math.min(...kms), max: Math.max(...kms) },
+    beneficiosDisponibles: collectBeneficiosInCatalog(catalogCars),
   };
 }

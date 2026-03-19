@@ -1,3 +1,4 @@
+import { CarCardSkeleton } from "@/components/cars/car-card-skeleton";
 import { cn } from "@/lib/utils";
 
 /**
@@ -139,21 +140,9 @@ export default function AutoDetailLoading() {
             <div className="mt-1 h-4 w-72 animate-pulse rounded bg-muted/40" />
           </div>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
           {[1, 2, 3].map((i) => (
-            <article
-              key={i}
-              className="flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--brand-gray)]/30 bg-card shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
-            >
-              <div className="aspect-[16/10] w-full animate-pulse bg-muted/50" />
-              <div className="flex flex-1 flex-col p-4 sm:p-5">
-                <div className="h-5 w-3/4 animate-pulse rounded bg-muted/60" />
-                <div className="mt-2 h-4 w-1/2 animate-pulse rounded bg-muted/50" />
-                <div className="mt-2 h-3 w-full max-w-[180px] animate-pulse rounded bg-muted/40" />
-                <div className="mt-4 h-7 w-1/3 animate-pulse rounded bg-muted/60" />
-                <div className="mt-4 h-11 w-full animate-pulse rounded-xl bg-muted/50" />
-              </div>
-            </article>
+            <CarCardSkeleton key={i} className="h-full" />
           ))}
         </div>
       </section>

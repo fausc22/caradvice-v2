@@ -113,10 +113,6 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
       : `Hola Car Advice, me interesa el ${car.brand} ${car.model} ${car.version} (${car.year}) que vi en el catálogo.`,
   );
   const whatsappHref = `${WHATSAPP_DIRECT_LINK}?text=${whatsappMessage}`;
-  const reserveMessage = encodeURIComponent(
-    `Hola Car Advice, quiero reservar el ${car.brand} ${car.model} ${car.version} (${car.year}). ¿Me comparten los próximos pasos?`,
-  );
-  const reserveHref = `${WHATSAPP_DIRECT_LINK}?text=${reserveMessage}`;
   const viewingNow = getViewingNowCount(car.slug);
 
   const similarCars = getAlternativeCars(car.slug);
@@ -288,8 +284,7 @@ export default async function AutoDetailPage({ params, searchParams }: AutoDetai
             slug={car.slug}
             priceArs={car.priceArs}
             priceUsd={car.priceUsd}
-            whatsappHref={whatsappHref}
-            reserveHref={reserveHref}
+            whatsappHref={isVendido ? whatsappHref : undefined}
             viewingNow={viewingNow}
             isSold={isVendido}
           />

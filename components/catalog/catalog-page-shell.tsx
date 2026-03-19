@@ -19,6 +19,7 @@ import {
   buildCatalogUrl,
   CATALOG_SORT_VALUES,
   CATALOG_TIPOLOGIA_LABELS,
+  BENEFICIO_LABELS,
   CATEGORIA_LABELS,
   type CatalogFilterMetadata,
   type CatalogListResponse,
@@ -64,6 +65,7 @@ function toQueryEntries(params: CatalogQueryParams): Array<[string, string]> {
   if (params.tipologia) entries.push(["tipologia", params.tipologia]);
   if (params.condicion) entries.push(["condicion", params.condicion]);
   if (params.categoria) entries.push(["categoria", params.categoria]);
+  if (params.beneficio) entries.push(["beneficio", params.beneficio]);
   if (params.marca) entries.push(["marca", params.marca]);
   if (params.modelo) entries.push(["modelo", params.modelo]);
   if (params.version) entries.push(["version", params.version]);
@@ -125,6 +127,9 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
           break;
         case "categoria":
           next.categoria = undefined;
+          break;
+        case "beneficio":
+          next.beneficio = undefined;
           break;
         case "marca":
           next.marca = undefined;
@@ -219,6 +224,13 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
           key: "categoria",
           label: `Categoría: ${CATEGORIA_LABELS[params.categoria]}`,
           href: buildCatalogUrl(removeKeys(["categoria"])),
+        }
+      : null,
+    params.beneficio
+      ? {
+          key: "beneficio",
+          label: `Beneficio: ${BENEFICIO_LABELS[params.beneficio]}`,
+          href: buildCatalogUrl(removeKeys(["beneficio"])),
         }
       : null,
     params.marca
@@ -331,7 +343,7 @@ function ActiveFiltersChips({ params }: { params: CatalogQueryParams }) {
 }
 
 const FILTER_OMIT_KEYS: ParamKey[] = [
-  "tipologia", "condicion", "categoria", "marca", "modelo", "version", "moneda",
+  "tipologia", "condicion", "categoria", "beneficio", "marca", "modelo", "version", "moneda",
   "anioMin", "anioMax", "precioMin", "precioMax", "kmMin", "kmMax",
   "transmision", "combustible", "color", "puertas", "extras", "page",
 ];
@@ -766,7 +778,7 @@ export function CatalogPageShell({ result, params, filtersMeta }: CatalogPageShe
             </div>
           ) : (
             <>
-              <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-3">
                 {result.items.map((car) => (
                   <CarCard
                     key={car.slug}

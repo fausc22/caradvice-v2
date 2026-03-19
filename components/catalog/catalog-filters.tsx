@@ -17,10 +17,13 @@ import {
 import {
   buildCatalogUrl,
   CATALOG_CONDICION_VALUES,
+  BENEFICIO_LABELS,
   CATEGORIA_LABELS,
+  CATALOG_BENEFICIO_VALUES,
   CATALOG_TIPOLOGIA_LABELS,
   CATALOG_TIPOLOGIA_VALUES,
   CARD_VARIANT_VALUES,
+  type CatalogBeneficio,
   normalizeCatalogString,
   type CatalogFilterMetadata,
   type CatalogQueryParams,
@@ -103,6 +106,12 @@ export function CatalogFilters({
     let parsed: string | number | undefined = val || undefined;
     if (k === "puertas" && val) parsed = Number(val);
     if (k === "categoria" && parsed && !CARD_VARIANT_VALUES.includes(parsed as (typeof CARD_VARIANT_VALUES)[number]))
+      parsed = undefined;
+    if (
+      k === "beneficio" &&
+      parsed &&
+      !CATALOG_BENEFICIO_VALUES.includes(parsed as CatalogBeneficio)
+    )
       parsed = undefined;
     if (applyOnChange) nav({ [k]: parsed } as Partial<CatalogQueryParams>);
     else setFormValues((prev) => ({ ...prev, [k]: parsed } as CatalogQueryParams));
@@ -256,6 +265,30 @@ export function CatalogFilters({
           inModal={!!idPrefix}
         />
       </div>
+
+      {/* 3b. Tipo de beneficio (badges) */}
+      {filtersMeta.beneficiosDisponibles.length > 0 && (
+        <div className="space-y-2">
+          <label htmlFor={id("beneficio")} className={LABEL_STYLE}>
+            Beneficio en la publicación
+          </label>
+          <p className="text-[11px] leading-snug text-muted-foreground">
+            Mostramos unidades cuyo badge coincide (ej. financiación o retirá con DNI).
+          </p>
+          <FilterSelect
+            id={id("beneficio")}
+            name="beneficio"
+            value={v("beneficio")}
+            onValueChange={(val) => setV("beneficio", val)}
+            options={filtersMeta.beneficiosDisponibles.map((b) => ({
+              value: b,
+              label: BENEFICIO_LABELS[b],
+            }))}
+            placeholder="Todos"
+            inModal={!!idPrefix}
+          />
+        </div>
+      )}
 
       {/* 4. Marca / Modelo / Versión */}
       <div className="space-y-2">
